@@ -169,6 +169,12 @@ var _hmt = _hmt || [];
 
     <div class="card">
     
+    <div class="card-image">
+        <a href="/vue开发过程问题汇总记录.html" class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/vue_375x300.png" alt="vue开发过程问题汇总记录">
+        </a>
+    </div>
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
@@ -192,22 +198,18 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/vue-problems.html">vue开发过程问题汇总记录</a>
+                <a class="has-link-black-ter" href="/vue开发过程问题汇总记录.html">vue开发过程问题汇总记录</a>
             
         </h1>
         <div class="content">
-            <blockquote>
-<p>这篇文章记录一下vue开发过程中遇到的一些问题及解决方案。</p>
-</blockquote>
-<h1 id="vue中static文件夹与assets文件夹区别"><a href="#vue中static文件夹与assets文件夹区别" class="headerlink" title="vue中static文件夹与assets文件夹区别"></a>vue中static文件夹与assets文件夹区别</h1><p>简单的讲，static放别人家的，assets放自己写的。不知道这个解释是否OK，这里有一篇<a href="https://segmentfault.com/q/1010000009842688" target="_blank" rel="noopener">资料</a>参考。</p>
-<h1 id="favicon显示不出来"><a href="#favicon显示不出来" class="headerlink" title="favicon显示不出来"></a>favicon显示不出来</h1><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"icon"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"assets/logo.png"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"image/x-icon"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+            <p>这篇文章记录一下vue开发过程中遇到的一些问题及解决方案。</p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/vue-problems.html#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/vue开发过程问题汇总记录.html#more">继续阅读</a>
                 </div>
             </div>
         </div>
@@ -224,6 +226,12 @@ var _hmt = _hmt || [];
 
 
     <div class="card">
+    
+    <div class="card-image">
+        <a href="/vue-router基础内容.html" class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/vue_375x300.png" alt="vue-router基础内容">
+        </a>
+    </div>
     
     <div class="card-content article ">
         
@@ -248,22 +256,18 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/vue-router.html">vue-router基础内容</a>
+                <a class="has-link-black-ter" href="/vue-router基础内容.html">vue-router基础内容</a>
             
         </h1>
         <div class="content">
             <p>vue-router是vue官方指定的路由库，让我们来撸一遍vue-router的基本概念吧！</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>我是以直接下载的方式来引入vue-router的。</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./lib/vue-router.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="使用vue-router"><a href="#使用vue-router" class="headerlink" title="使用vue-router"></a>使用vue-router</h1><h2 id="定义路由"><a href="#定义路由" class="headerlink" title="定义路由"></a>定义路由</h2><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> routes = [</span><br><span class="line">  <span class="hljs-comment">// 这里定义一个最基础的路由</span></span><br><span class="line">  &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">'/b'</span>, <span class="hljs-attr">component</span>: ComponentB &#125;</span><br><span class="line">  <span class="hljs-comment">// 动态路由</span></span><br><span class="line">  &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">'/user/:id'</span>, <span class="hljs-attr">component</span>: User &#125;</span><br><span class="line">  <span class="hljs-comment">// 命名路由</span></span><br><span class="line">  &#123; <span class="hljs-attr">path</span>: <span class="hljs-string">'/user/:id'</span>, <span class="hljs-attr">name</span>: user, <span class="hljs-attr">component</span>: User &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/vue-router.html#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/vue-router基础内容.html#more">继续阅读</a>
                 </div>
             </div>
         </div>
@@ -319,7 +323,7 @@ var _hmt = _hmt || [];
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/vue-cli.html#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/vue-cli.html#more">继续阅读</a>
                 </div>
             </div>
         </div>
@@ -376,7 +380,7 @@ var _hmt = _hmt || [];
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/vue-practice.html#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/vue-practice.html#more">继续阅读</a>
                 </div>
             </div>
         </div>
@@ -457,7 +461,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        40
+                        36
                     </p>
                 </div>
             </div>
@@ -538,16 +542,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/solve-chrome-autofill.html" class="media-left">
+            <a href="/解决Chrome的表单自动填充问题.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="解决Chrome的表单自动填充问题">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/chrome%E5%9B%BE%E7%89%87.png" alt="解决Chrome的表单自动填充问题">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-07-19T15:51:41.000Z">2018-07-19</time></div>
-                    <a href="/solve-chrome-autofill.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">解决Chrome的表单自动填充问题</a>
+                    <a href="/解决Chrome的表单自动填充问题.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">解决Chrome的表单自动填充问题</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
                     </p>
@@ -557,16 +561,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/range-slider.html" class="media-left">
+            <a href="/自定义滑块Range Slider.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="自定义UI组件系列之滑块（Range Slider）">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/html%E6%A0%87%E7%AD%BE.png" alt="自定义滑块Range Slider">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-30T09:42:17.000Z">2018-04-30</time></div>
-                    <a href="/range-slider.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">自定义UI组件系列之滑块（Range Slider）</a>
+                    <a href="/自定义滑块Range Slider.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">自定义滑块Range Slider</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/css/">css</a>
                     </p>
@@ -576,16 +580,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/front-interview.html" class="media-left">
+            <a href="/前端面试题记录.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="前端面试题记录">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/html%E6%A0%87%E7%AD%BE.png" alt="前端面试题记录">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-16T05:46:30.000Z">2018-04-16</time></div>
-                    <a href="/front-interview.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端面试题记录</a>
+                    <a href="/前端面试题记录.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端面试题记录</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/面试/">面试</a>
                     </p>
@@ -595,16 +599,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/vue-problems.html" class="media-left">
+            <a href="/vue开发过程问题汇总记录.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue开发过程问题汇总记录">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/vue_375x300.png" alt="vue开发过程问题汇总记录">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-13T06:55:03.000Z">2018-04-13</time></div>
-                    <a href="/vue-problems.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue开发过程问题汇总记录</a>
+                    <a href="/vue开发过程问题汇总记录.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue开发过程问题汇总记录</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/vue/">vue</a>
                     </p>
@@ -614,16 +618,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/vue-router.html" class="media-left">
+            <a href="/vue-router基础内容.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue-router基础内容">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/vue_375x300.png" alt="vue-router基础内容">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-05T08:14:07.000Z">2018-04-05</time></div>
-                    <a href="/vue-router.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue-router基础内容</a>
+                    <a href="/vue-router基础内容.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue-router基础内容</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/vue/">vue</a>
                     </p>
@@ -651,6 +655,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Sass/">
                         <span class="tag">Sass</span>
                         <span class="tag is-grey">1</span>
@@ -668,20 +679,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/VMware/">
                         <span class="tag">VMware</span>
                         <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/async/">
-                        <span class="tag">async</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/autofill/">
-                        <span class="tag">autofill</span>
-                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -716,13 +713,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/css/">
                         <span class="tag">css</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/defer/">
-                        <span class="tag">defer</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -780,13 +770,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/hexo/">
                         <span class="tag">hexo</span>
                         <span class="tag is-grey">7</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/html/">
-                        <span class="tag">html</span>
-                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -861,8 +844,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/npm卡顿/">
-                        <span class="tag">npm卡顿</span>
+                    <a class="tags has-addons" href="/tags/npm速度慢/">
+                        <span class="tag">npm速度慢</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -889,8 +872,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/web前端/">
-                        <span class="tag">web前端</span>
+                    <a class="tags has-addons" href="/tags/滑块美化/">
+                        <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -912,13 +895,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/运维/">
                         <span class="tag">运维</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/面试/">
-                        <span class="tag">面试</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -948,16 +924,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/solve-chrome-autofill.html" class="media-left">
+            <a href="/解决Chrome的表单自动填充问题.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="解决Chrome的表单自动填充问题">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/chrome%E5%9B%BE%E7%89%87.png" alt="解决Chrome的表单自动填充问题">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-07-19T15:51:41.000Z">2018-07-19</time></div>
-                    <a href="/solve-chrome-autofill.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">解决Chrome的表单自动填充问题</a>
+                    <a href="/解决Chrome的表单自动填充问题.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">解决Chrome的表单自动填充问题</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
                     </p>
@@ -967,16 +943,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/range-slider.html" class="media-left">
+            <a href="/自定义滑块Range Slider.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="自定义UI组件系列之滑块（Range Slider）">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/html%E6%A0%87%E7%AD%BE.png" alt="自定义滑块Range Slider">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-30T09:42:17.000Z">2018-04-30</time></div>
-                    <a href="/range-slider.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">自定义UI组件系列之滑块（Range Slider）</a>
+                    <a href="/自定义滑块Range Slider.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">自定义滑块Range Slider</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/css/">css</a>
                     </p>
@@ -986,16 +962,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/front-interview.html" class="media-left">
+            <a href="/前端面试题记录.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="前端面试题记录">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/html%E6%A0%87%E7%AD%BE.png" alt="前端面试题记录">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-16T05:46:30.000Z">2018-04-16</time></div>
-                    <a href="/front-interview.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端面试题记录</a>
+                    <a href="/前端面试题记录.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端面试题记录</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/面试/">面试</a>
                     </p>
@@ -1005,16 +981,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/vue-problems.html" class="media-left">
+            <a href="/vue开发过程问题汇总记录.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue开发过程问题汇总记录">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/vue_375x300.png" alt="vue开发过程问题汇总记录">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-13T06:55:03.000Z">2018-04-13</time></div>
-                    <a href="/vue-problems.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue开发过程问题汇总记录</a>
+                    <a href="/vue开发过程问题汇总记录.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue开发过程问题汇总记录</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/vue/">vue</a>
                     </p>
@@ -1024,16 +1000,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/vue-router.html" class="media-left">
+            <a href="/vue-router基础内容.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue-router基础内容">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/vue_375x300.png" alt="vue-router基础内容">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-05T08:14:07.000Z">2018-04-05</time></div>
-                    <a href="/vue-router.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue-router基础内容</a>
+                    <a href="/vue-router基础内容.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue-router基础内容</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/vue/">vue</a>
                     </p>
@@ -1061,6 +1037,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Sass/">
                         <span class="tag">Sass</span>
                         <span class="tag is-grey">1</span>
@@ -1078,20 +1061,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/VMware/">
                         <span class="tag">VMware</span>
                         <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/async/">
-                        <span class="tag">async</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/autofill/">
-                        <span class="tag">autofill</span>
-                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1126,13 +1095,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/css/">
                         <span class="tag">css</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/defer/">
-                        <span class="tag">defer</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1190,13 +1152,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/hexo/">
                         <span class="tag">hexo</span>
                         <span class="tag is-grey">7</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/html/">
-                        <span class="tag">html</span>
-                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1271,8 +1226,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/npm卡顿/">
-                        <span class="tag">npm卡顿</span>
+                    <a class="tags has-addons" href="/tags/npm速度慢/">
+                        <span class="tag">npm速度慢</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1299,8 +1254,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/web前端/">
-                        <span class="tag">web前端</span>
+                    <a class="tags has-addons" href="/tags/滑块美化/">
+                        <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1322,13 +1277,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/运维/">
                         <span class="tag">运维</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/面试/">
-                        <span class="tag">面试</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

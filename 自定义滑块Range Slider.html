@@ -7,22 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签: web前端 - Tusi博客</title>
+<title>自定义滑块Range Slider - Tusi博客</title>
 
 
-    <meta name="description" content="专注大前端开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
-<meta name="keywords" content="Tusi,博客,前端,全栈,微信小程序">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tusi博客">
-<meta property="og:url" content="http://hexo.wbjiang.cn/tags/web前端/index.html">
+    <meta name="description" content="原生的组件虽然长得丑，但是提供给我们的能力是很多的。">
+<meta name="keywords" content="滑块美化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义滑块Range Slider">
+<meta property="og:url" content="http://hexo.wbjiang.cn/自定义滑块Range Slider.html">
 <meta property="og:site_name" content="Tusi博客">
-<meta property="og:description" content="专注大前端开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
+<meta property="og:description" content="原生的组件虽然长得丑，但是提供给我们的能力是很多的。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://hexo.wbjiang.cn/images/og_image.png">
+<meta property="og:image" content="http://qncdn.wbjiang.cn/html%E6%A0%87%E7%AD%BE.png">
+<meta property="og:updated_time" content="2019-08-20T09:52:30.970Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tusi博客">
-<meta name="twitter:description" content="专注大前端开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
-<meta name="twitter:image" content="http://hexo.wbjiang.cn/images/og_image.png">
+<meta name="twitter:title" content="自定义滑块Range Slider">
+<meta name="twitter:description" content="原生的组件虽然长得丑，但是提供给我们的能力是很多的。">
+<meta name="twitter:image" content="http://qncdn.wbjiang.cn/html%E6%A0%87%E7%AD%BE.png">
 
 
 
@@ -106,7 +107,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="Tusi博客" height="28">
+                <img src="/images/logo.png" alt="自定义滑块Range Slider" height="28">
             
             </a>
         </div>
@@ -157,57 +158,77 @@ var _hmt = _hmt || [];
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">web前端</a></li>
-        </ul>
-        </nav>
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/html%E6%A0%87%E7%AD%BE.png" alt="自定义滑块Range Slider">
+        </span>
     </div>
-</div>
-
-    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-07-19T15:51:41.000Z">2018-07-19</time>
+                <time class="level-item has-text-grey" datetime="2018-04-30T09:42:17.000Z">2018-04-30</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
+                <a class="has-link-grey -link" href="/categories/css/">css</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 1008 个字)
+                    4 分钟 读完 (大约 624 个字)
                 </span>
                 
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
                 
             </div>
         </div>
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/solve-chrome-autofill.html">解决Chrome的表单自动填充问题</a>
+                自定义滑块Range Slider
             
         </h1>
         <div class="content">
-            <p>一般的浏览器都会默认开启一个表单自动填充的功能。这给很多用户带来了方便。但是对于项目开发者来说，有时候这就是噩梦。对安全性有考虑的项目，应该都会考虑到禁用这种自动填充的功能。否则，一个用户登录后，浏览器记住了用户名和密码。当另一个人使用这台电脑时，他肯定不用输入什么，就可以登入别人的账号，这可是很危险的事情。</p>
-<h1 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h1><p>当我使用原始的表单成功登录一次后时，再次打开浏览器，什么都没有输入，就出现了这样的现象。<br><img src="http://pbqvu9tq2.bkt.clouddn.com/chrome%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85.png" alt="chrome自动填充"></p>
+            <p>原生的组件虽然长得丑，但是提供给我们的能力是很多的。<a id="more"></a>原生的事件以及属性，这些是某些UI框架不能给我们的。所以，基于原生的一些组件来做一些定制化修改是有必要的。首先，我们来看一个常用的滑块组件。</p>
+<h1 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h1><p>我在一个视频类demo中，使用到了滑块组件（也就是range类型的input组件）。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"range"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"&#123;&#123;currentTime&#125;&#125;"</span> <span class="hljs-attr">min</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">max</span>=<span class="hljs-string">"&#123;&#123;duration&#125;&#125;"</span> <span class="hljs-attr">step</span>=<span class="hljs-string">"1"</span> (<span class="hljs-attr">input</span>)=<span class="hljs-string">"progressChange($event)"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>未做定制的效果如下：<br><img src="http://pbqvu9tq2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430171434.png" alt="视频进度条和音量条"></p>
+<p>用到input的有两处，一个是视频的进度条，一个是音量条。不能说这个样式很丑，但是还有美化的空间。那么我们如何来修改input默认的样式呢？</p>
+<h1 id="自定义样式"><a href="#自定义样式" class="headerlink" title="自定义样式"></a>自定义样式</h1><p>input组件主要由两部分组成，轨道和滑块，它们都是伪元素。我们只要针对这两个伪元素来做试探性修改css就可以看到效果了。</p>
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 轨道的伪元素，分别对应chrome，firefox，IE浏览器。</span><br><span class="line">// ::-webkit-slider-runnable-track</span><br><span class="line">// ::-moz-range-track</span><br><span class="line">// ::-ms-track</span><br><span class="line"></span><br><span class="line">// 滑块的伪元素，分别对应chrome，firefox，IE浏览器。</span><br><span class="line">// ::-webkit-slider-thumb</span><br><span class="line">// ::-moz-range-thumb</span><br><span class="line">// ::-ms-thumb</span><br></pre></td></tr></table></figure>
+
+<h2 id="去除浏览器的默认样式"><a href="#去除浏览器的默认样式" class="headerlink" title="去除浏览器的默认样式"></a>去除浏览器的默认样式</h2><p>每个浏览器对range类的input有不一样的默认样式，我们首先来去掉这种默认样式。</p>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type=range]</span> &#123;</span><br><span class="line">    // 去除浏览器默认的样式</span><br><span class="line">    <span class="hljs-selector-tag">-webkit-appearance</span>: <span class="hljs-selector-tag">none</span>;</span><br><span class="line">    <span class="hljs-selector-tag">-moz-appearance</span>: <span class="hljs-selector-tag">none</span>;</span><br><span class="line">    <span class="hljs-selector-tag">width</span>: 300<span class="hljs-selector-tag">px</span>;</span><br><span class="line">    <span class="hljs-selector-tag">border-radius</span>: 10<span class="hljs-selector-tag">px</span>;</span><br><span class="line">    &amp;<span class="hljs-selector-pseudo">:focus</span> &#123;</span><br><span class="line">        // 去除落焦时的外边框效果</span><br><span class="line">        <span class="hljs-selector-tag">outline</span>: <span class="hljs-selector-tag">none</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改轨道css"><a href="#修改轨道css" class="headerlink" title="修改轨道css"></a>修改轨道css</h2><p>样式的修改方式如下所示，这里只给出chrome的修改内容给大家参考，具体想要的样式效果当然由自己而定。</p>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type=range]</span><span class="hljs-selector-pseudo">::-webkit-slider-runnable-track</span> &#123;</span><br><span class="line">   <span class="hljs-attribute">height</span>: <span class="hljs-number">6px</span>;</span><br><span class="line">   <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">10px</span>; <span class="hljs-comment">/*将轨道设为圆角的*/</span></span><br><span class="line">   <span class="hljs-attribute">background</span>: <span class="hljs-number">#ee2828</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改滑块css"><a href="#修改滑块css" class="headerlink" title="修改滑块css"></a>修改滑块css</h2><p>废话不多说，上代码。</p>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type=range]</span><span class="hljs-selector-pseudo">::-webkit-slider-thumb</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">-webkit-appearance</span>: none;</span><br><span class="line">  <span class="hljs-attribute">-moz-appearance</span>: none;</span><br><span class="line">  <span class="hljs-attribute">width</span>: <span class="hljs-number">10px</span>;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">10px</span>;</span><br><span class="line">  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;</span><br><span class="line">  <span class="hljs-attribute">position</span>: relative;</span><br><span class="line">  <span class="hljs-attribute">top</span>: -<span class="hljs-number">2px</span>;</span><br><span class="line">  <span class="hljs-attribute">background</span>: <span class="hljs-number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>修改完毕，我们来看一下效果图。感觉还不错吧，加以修改，相信能做出更美的效果。<br><img src="http://pbqvu9tq2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430173203.png" alt="修改后效果图"></p>
+<p>放一个<a href="http://angular.wbjiang.cn" target="_blank" rel="noopener">demo链接</a>，大家自行查阅。</p>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/solve-chrome-autofill.html#more">阅读更多</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/滑块美化/">滑块美化</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -215,11 +236,83 @@ var _hmt = _hmt || [];
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay_payme.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/解决Chrome的表单自动填充问题.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">解决Chrome的表单自动填充问题</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/前端面试题记录.html">
+                <span class="level-item">前端面试题记录</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: 'e244808d754d6ef5f8aa',
+        clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
+        id: 'ad38a327c561f8767e0eb2bf4c247431',
+        repo: 'tusi-hexo',
+        owner: 'cumt-robin',
+        admin: "cumt-robin",
+        createIssueManually: false,
+        distractionFreeMode: false
+    })
+    gitalk.render('comment-container')
+</script>
+
+    </div>
+</div>
 </div>
                 
 
@@ -285,7 +378,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        40
+                        36
                     </p>
                 </div>
             </div>
@@ -366,16 +459,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/solve-chrome-autofill.html" class="media-left">
+            <a href="/解决Chrome的表单自动填充问题.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="解决Chrome的表单自动填充问题">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/chrome%E5%9B%BE%E7%89%87.png" alt="解决Chrome的表单自动填充问题">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-07-19T15:51:41.000Z">2018-07-19</time></div>
-                    <a href="/solve-chrome-autofill.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">解决Chrome的表单自动填充问题</a>
+                    <a href="/解决Chrome的表单自动填充问题.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">解决Chrome的表单自动填充问题</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
                     </p>
@@ -385,16 +478,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/range-slider.html" class="media-left">
+            <a href="/自定义滑块Range Slider.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="自定义UI组件系列之滑块（Range Slider）">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/html%E6%A0%87%E7%AD%BE.png" alt="自定义滑块Range Slider">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-30T09:42:17.000Z">2018-04-30</time></div>
-                    <a href="/range-slider.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">自定义UI组件系列之滑块（Range Slider）</a>
+                    <a href="/自定义滑块Range Slider.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">自定义滑块Range Slider</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/css/">css</a>
                     </p>
@@ -404,16 +497,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/front-interview.html" class="media-left">
+            <a href="/前端面试题记录.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="前端面试题记录">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/html%E6%A0%87%E7%AD%BE.png" alt="前端面试题记录">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-16T05:46:30.000Z">2018-04-16</time></div>
-                    <a href="/front-interview.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端面试题记录</a>
+                    <a href="/前端面试题记录.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端面试题记录</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/面试/">面试</a>
                     </p>
@@ -423,16 +516,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/vue-problems.html" class="media-left">
+            <a href="/vue开发过程问题汇总记录.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue开发过程问题汇总记录">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/vue_375x300.png" alt="vue开发过程问题汇总记录">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-13T06:55:03.000Z">2018-04-13</time></div>
-                    <a href="/vue-problems.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue开发过程问题汇总记录</a>
+                    <a href="/vue开发过程问题汇总记录.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue开发过程问题汇总记录</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/vue/">vue</a>
                     </p>
@@ -442,16 +535,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/vue-router.html" class="media-left">
+            <a href="/vue-router基础内容.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue-router基础内容">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/vue_375x300.png" alt="vue-router基础内容">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-05T08:14:07.000Z">2018-04-05</time></div>
-                    <a href="/vue-router.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue-router基础内容</a>
+                    <a href="/vue-router基础内容.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue-router基础内容</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/vue/">vue</a>
                     </p>
@@ -479,6 +572,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Sass/">
                         <span class="tag">Sass</span>
                         <span class="tag is-grey">1</span>
@@ -496,20 +596,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/VMware/">
                         <span class="tag">VMware</span>
                         <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/async/">
-                        <span class="tag">async</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/autofill/">
-                        <span class="tag">autofill</span>
-                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -544,13 +630,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/css/">
                         <span class="tag">css</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/defer/">
-                        <span class="tag">defer</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -608,13 +687,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/hexo/">
                         <span class="tag">hexo</span>
                         <span class="tag is-grey">7</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/html/">
-                        <span class="tag">html</span>
-                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -689,8 +761,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/npm卡顿/">
-                        <span class="tag">npm卡顿</span>
+                    <a class="tags has-addons" href="/tags/npm速度慢/">
+                        <span class="tag">npm速度慢</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -717,8 +789,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/web前端/">
-                        <span class="tag">web前端</span>
+                    <a class="tags has-addons" href="/tags/滑块美化/">
+                        <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -740,13 +812,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/运维/">
                         <span class="tag">运维</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/面试/">
-                        <span class="tag">面试</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -776,16 +841,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/solve-chrome-autofill.html" class="media-left">
+            <a href="/解决Chrome的表单自动填充问题.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="解决Chrome的表单自动填充问题">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/chrome%E5%9B%BE%E7%89%87.png" alt="解决Chrome的表单自动填充问题">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-07-19T15:51:41.000Z">2018-07-19</time></div>
-                    <a href="/solve-chrome-autofill.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">解决Chrome的表单自动填充问题</a>
+                    <a href="/解决Chrome的表单自动填充问题.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">解决Chrome的表单自动填充问题</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
                     </p>
@@ -795,16 +860,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/range-slider.html" class="media-left">
+            <a href="/自定义滑块Range Slider.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="自定义UI组件系列之滑块（Range Slider）">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/html%E6%A0%87%E7%AD%BE.png" alt="自定义滑块Range Slider">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-30T09:42:17.000Z">2018-04-30</time></div>
-                    <a href="/range-slider.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">自定义UI组件系列之滑块（Range Slider）</a>
+                    <a href="/自定义滑块Range Slider.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">自定义滑块Range Slider</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/css/">css</a>
                     </p>
@@ -814,16 +879,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/front-interview.html" class="media-left">
+            <a href="/前端面试题记录.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="前端面试题记录">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/html%E6%A0%87%E7%AD%BE.png" alt="前端面试题记录">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-16T05:46:30.000Z">2018-04-16</time></div>
-                    <a href="/front-interview.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端面试题记录</a>
+                    <a href="/前端面试题记录.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端面试题记录</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/面试/">面试</a>
                     </p>
@@ -833,16 +898,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/vue-problems.html" class="media-left">
+            <a href="/vue开发过程问题汇总记录.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue开发过程问题汇总记录">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/vue_375x300.png" alt="vue开发过程问题汇总记录">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-13T06:55:03.000Z">2018-04-13</time></div>
-                    <a href="/vue-problems.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue开发过程问题汇总记录</a>
+                    <a href="/vue开发过程问题汇总记录.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue开发过程问题汇总记录</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/vue/">vue</a>
                     </p>
@@ -852,16 +917,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/vue-router.html" class="media-left">
+            <a href="/vue-router基础内容.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue-router基础内容">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/vue_375x300.png" alt="vue-router基础内容">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-05T08:14:07.000Z">2018-04-05</time></div>
-                    <a href="/vue-router.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue-router基础内容</a>
+                    <a href="/vue-router基础内容.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue-router基础内容</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/vue/">vue</a>
                     </p>
@@ -889,6 +954,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Sass/">
                         <span class="tag">Sass</span>
                         <span class="tag is-grey">1</span>
@@ -906,20 +978,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/VMware/">
                         <span class="tag">VMware</span>
                         <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/async/">
-                        <span class="tag">async</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/autofill/">
-                        <span class="tag">autofill</span>
-                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -954,13 +1012,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/css/">
                         <span class="tag">css</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/defer/">
-                        <span class="tag">defer</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1018,13 +1069,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/hexo/">
                         <span class="tag">hexo</span>
                         <span class="tag is-grey">7</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/html/">
-                        <span class="tag">html</span>
-                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1099,8 +1143,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/npm卡顿/">
-                        <span class="tag">npm卡顿</span>
+                    <a class="tags has-addons" href="/tags/npm速度慢/">
+                        <span class="tag">npm速度慢</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1127,8 +1171,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/web前端/">
-                        <span class="tag">web前端</span>
+                    <a class="tags has-addons" href="/tags/滑块美化/">
+                        <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1154,13 +1198,6 @@ var _hmt = _hmt || [];
                     </a>
                 </div>
                 
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/面试/">
-                        <span class="tag">面试</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
             </div>
         </div>
     </div>
@@ -1178,7 +1215,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="Tusi博客" height="28">
+                    <img src="/images/logo.png" alt="自定义滑块Range Slider" height="28">
                 
                 </a>
                 <p class="is-size-7">
