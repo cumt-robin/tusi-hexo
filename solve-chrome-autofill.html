@@ -14,16 +14,16 @@
 <meta name="keywords" content="web前端,autofill">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决Chrome的表单自动填充问题">
-<meta property="og:url" content="http://yoursite.com/solve-chrome-autofill.html">
+<meta property="og:url" content="http://hexo.wbjiang.cn/solve-chrome-autofill.html">
 <meta property="og:site_name" content="Tusi博客">
 <meta property="og:description" content="一般的浏览器都会默认开启一个表单自动填充的功能。这给很多用户带来了方便。但是对于项目开发者来说，有时候这就是噩梦。对安全性有考虑的项目，应该都会考虑到禁用这种自动填充的功能。否则，一个用户登录后，浏览器记住了用户名和密码。当另一个人使用这台电脑时，他肯定不用输入什么，就可以登入别人的账号，这可是很危险的事情。 问题背景当我使用原始的表单成功登录一次后时，再次打开浏览器，什么都没有输入，就出现了这样">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:image" content="http://hexo.wbjiang.cn/tusi-hexo/images/og_image.png">
 <meta property="og:updated_time" content="2019-08-07T06:30:58.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决Chrome的表单自动填充问题">
 <meta name="twitter:description" content="一般的浏览器都会默认开启一个表单自动填充的功能。这给很多用户带来了方便。但是对于项目开发者来说，有时候这就是噩梦。对安全性有考虑的项目，应该都会考虑到禁用这种自动填充的功能。否则，一个用户登录后，浏览器记住了用户名和密码。当另一个人使用这台电脑时，他肯定不用输入什么，就可以登入别人的账号，这可是很危险的事情。 问题背景当我使用原始的表单成功登录一次后时，再次打开浏览器，什么都没有输入，就出现了这样">
-<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+<meta name="twitter:image" content="http://hexo.wbjiang.cn/tusi-hexo/images/og_image.png">
 
 
 
@@ -31,7 +31,7 @@
 
 
 
-<link rel="icon" href="/images/favicon.ico">
+<link rel="icon" href="/tusi-hexo/images/favicon.ico">
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
@@ -64,7 +64,7 @@
     
     
 
-<link rel="stylesheet" href="/css/back-to-top.css">
+<link rel="stylesheet" href="/tusi-hexo/css/back-to-top.css">
 
 
     
@@ -87,7 +87,7 @@ var _hmt = _hmt || [];
 
     
     
-<link rel="stylesheet" href="/css/progressbar.css">
+<link rel="stylesheet" href="/tusi-hexo/css/progressbar.css">
 <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
 
     
@@ -99,15 +99,15 @@ var _hmt = _hmt || [];
     
 
 
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/tusi-hexo/css/style.css">
 </head>
 <body class="is-3-column">
     <nav class="navbar navbar-main">
     <div class="container">
         <div class="navbar-brand is-flex-center">
-            <a class="navbar-item navbar-logo" href="/">
+            <a class="navbar-item navbar-logo" href="/tusi-hexo/">
             
-                <img src="/images/logo.png" alt="解决Chrome的表单自动填充问题" height="28">
+                <img src="/tusi-hexo/images/logo.png" alt="解决Chrome的表单自动填充问题" height="28">
             
             </a>
         </div>
@@ -116,19 +116,19 @@ var _hmt = _hmt || [];
             <div class="navbar-start">
                 
                 <a class="navbar-item"
-                href="/">首页</a>
+                href="/tusi-hexo/">首页</a>
                 
                 <a class="navbar-item"
-                href="/archives">时间线</a>
+                href="/tusi-hexo/archives">时间线</a>
                 
                 <a class="navbar-item"
-                href="/categories">分类</a>
+                href="/tusi-hexo/categories">分类</a>
                 
                 <a class="navbar-item"
-                href="/tags">标签</a>
+                href="/tusi-hexo/tags">标签</a>
                 
                 <a class="navbar-item"
-                href="/about">关于我</a>
+                href="/tusi-hexo/about">关于我</a>
                 
             </div>
             
@@ -166,7 +166,7 @@ var _hmt = _hmt || [];
                 <time class="level-item has-text-grey" datetime="2018-07-19T15:51:41.000Z">2018-07-19</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
+                <a class="has-link-grey -link" href="/tusi-hexo/categories/web前端/">web前端</a>
                 </div>
                 
                 
@@ -228,7 +228,7 @@ var _hmt = _hmt || [];
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/autofill/">autofill</a>, <a class="has-link-grey -link" href="/tags/web前端/">web前端</a>
+                    <a class="has-link-grey -link" href="/tusi-hexo/tags/autofill/">autofill</a>, <a class="has-link-grey -link" href="/tusi-hexo/tags/web前端/">web前端</a>
                 </div>
             </div>
         </div>
@@ -251,7 +251,7 @@ var _hmt = _hmt || [];
         <i class="fab fa-alipay"></i>
     </span>
     <span>支付宝</span>
-    <div class="qrcode"><img src="/images/alipay_payme.jpg" alt="支付宝"></div>
+    <div class="qrcode"><img src="/tusi-hexo/images/alipay_payme.jpg" alt="支付宝"></div>
 </a>
 
                 
@@ -261,7 +261,7 @@ var _hmt = _hmt || [];
         <i class="fab fa-weixin"></i>
     </span>
     <span>微信</span>
-    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+    <div class="qrcode"><img src="/tusi-hexo/images/wechat_payme.jpg" alt="微信"></div>
 </a>
 
                 
@@ -276,7 +276,7 @@ var _hmt = _hmt || [];
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/range-slider.html">
+            <a class="level level-item has-link-grey  article-nav-next" href="/tusi-hexo/range-slider.html">
                 <span class="level-item">自定义UI组件系列之滑块（Range Slider）</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
@@ -325,7 +325,7 @@ var _hmt = _hmt || [];
                 <div>
                     
                         <figure class="image is-128x128 has-mb-6">
-                            <img class="is-rounded" src="/images/avatar.png" alt="Tusi">
+                            <img class="is-rounded" src="/tusi-hexo/images/avatar.png" alt="Tusi">
                         </figure>
                     
                     
@@ -402,7 +402,7 @@ var _hmt = _hmt || [];
             </a>
             
             <a class="level-item button is-white is-marginless" target="_blank"
-                title="RSS" href="/">
+                title="RSS" href="/tusi-hexo/">
                 
                 <i class="fas fa-rss"></i>
                 
@@ -455,18 +455,18 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/solve-chrome-autofill.html" class="media-left">
+            <a href="/tusi-hexo/solve-chrome-autofill.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="解决Chrome的表单自动填充问题">
+                    <img class="thumbnail" src="/tusi-hexo/images/thumbnail.svg" alt="解决Chrome的表单自动填充问题">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-07-19T15:51:41.000Z">2018-07-19</time></div>
-                    <a href="/solve-chrome-autofill.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">解决Chrome的表单自动填充问题</a>
+                    <a href="/tusi-hexo/solve-chrome-autofill.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">解决Chrome的表单自动填充问题</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
+                        <a class="has-link-grey -link" href="/tusi-hexo/categories/web前端/">web前端</a>
                     </p>
                 </div>
             </div>
@@ -474,18 +474,18 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/range-slider.html" class="media-left">
+            <a href="/tusi-hexo/range-slider.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="自定义UI组件系列之滑块（Range Slider）">
+                    <img class="thumbnail" src="/tusi-hexo/images/thumbnail.svg" alt="自定义UI组件系列之滑块（Range Slider）">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-30T09:42:17.000Z">2018-04-30</time></div>
-                    <a href="/range-slider.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">自定义UI组件系列之滑块（Range Slider）</a>
+                    <a href="/tusi-hexo/range-slider.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">自定义UI组件系列之滑块（Range Slider）</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/css/">css</a>
+                        <a class="has-link-grey -link" href="/tusi-hexo/categories/css/">css</a>
                     </p>
                 </div>
             </div>
@@ -493,18 +493,18 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/front-interview.html" class="media-left">
+            <a href="/tusi-hexo/front-interview.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="前端面试题记录">
+                    <img class="thumbnail" src="/tusi-hexo/images/thumbnail.svg" alt="前端面试题记录">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-16T05:46:30.000Z">2018-04-16</time></div>
-                    <a href="/front-interview.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端面试题记录</a>
+                    <a href="/tusi-hexo/front-interview.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端面试题记录</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/面试/">面试</a>
+                        <a class="has-link-grey -link" href="/tusi-hexo/categories/面试/">面试</a>
                     </p>
                 </div>
             </div>
@@ -512,18 +512,18 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/vue-problems.html" class="media-left">
+            <a href="/tusi-hexo/vue-problems.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue开发过程问题汇总记录">
+                    <img class="thumbnail" src="/tusi-hexo/images/thumbnail.svg" alt="vue开发过程问题汇总记录">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-13T06:55:03.000Z">2018-04-13</time></div>
-                    <a href="/vue-problems.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue开发过程问题汇总记录</a>
+                    <a href="/tusi-hexo/vue-problems.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue开发过程问题汇总记录</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/vue/">vue</a>
+                        <a class="has-link-grey -link" href="/tusi-hexo/categories/vue/">vue</a>
                     </p>
                 </div>
             </div>
@@ -531,18 +531,18 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/vue-router.html" class="media-left">
+            <a href="/tusi-hexo/vue-router.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue-router基础内容">
+                    <img class="thumbnail" src="/tusi-hexo/images/thumbnail.svg" alt="vue-router基础内容">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-05T08:14:07.000Z">2018-04-05</time></div>
-                    <a href="/vue-router.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue-router基础内容</a>
+                    <a href="/tusi-hexo/vue-router.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue-router基础内容</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/vue/">vue</a>
+                        <a class="has-link-grey -link" href="/tusi-hexo/categories/vue/">vue</a>
                     </p>
                 </div>
             </div>
@@ -561,280 +561,280 @@ var _hmt = _hmt || [];
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Angular/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/Angular/">
                         <span class="tag">Angular</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Sass/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/Sass/">
                         <span class="tag">Sass</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/TortoiseGIT/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/TortoiseGIT/">
                         <span class="tag">TortoiseGIT</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/VMware/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/VMware/">
                         <span class="tag">VMware</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/async/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/async/">
                         <span class="tag">async</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/autofill/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/autofill/">
                         <span class="tag">autofill</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/baidu/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/baidu/">
                         <span class="tag">baidu</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/bootstrap/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/bootstrap/">
                         <span class="tag">bootstrap</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/cnzz/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/cnzz/">
                         <span class="tag">cnzz</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/coding/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/coding/">
                         <span class="tag">coding</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/css/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/css/">
                         <span class="tag">css</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/defer/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/defer/">
                         <span class="tag">defer</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/demo/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/demo/">
                         <span class="tag">demo</span>
                         <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/es/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/es/">
                         <span class="tag">es</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/express/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/express/">
                         <span class="tag">express</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/git/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/git/">
                         <span class="tag">git</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/github/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/github/">
                         <span class="tag">github</span>
                         <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/gitment/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/gitment/">
                         <span class="tag">gitment</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/gulp/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/gulp/">
                         <span class="tag">gulp</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/hexo/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/hexo/">
                         <span class="tag">hexo</span>
                         <span class="tag is-grey">7</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/html/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/html/">
                         <span class="tag">html</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/http-server/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/http-server/">
                         <span class="tag">http-server</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/java/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/java/">
                         <span class="tag">java</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/jdk/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/jdk/">
                         <span class="tag">jdk</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/jquery/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/jquery/">
                         <span class="tag">jquery</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/js/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/js/">
                         <span class="tag">js</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/linux/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/linux/">
                         <span class="tag">linux</span>
                         <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/livere/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/livere/">
                         <span class="tag">livere</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/next/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/next/">
                         <span class="tag">next</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/ng-zorro/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/ng-zorro/">
                         <span class="tag">ng-zorro</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/nodejs/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/nodejs/">
                         <span class="tag">nodejs</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/npm卡顿/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/npm卡顿/">
                         <span class="tag">npm卡顿</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/valine/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/valine/">
                         <span class="tag">valine</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/vue/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/vue/">
                         <span class="tag">vue</span>
                         <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/vue-router/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/vue-router/">
                         <span class="tag">vue-router</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/web前端/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/web前端/">
                         <span class="tag">web前端</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/电脑技能/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/电脑技能/">
                         <span class="tag">电脑技能</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/记事本/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/记事本/">
                         <span class="tag">记事本</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/运维/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/运维/">
                         <span class="tag">运维</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/面试/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/面试/">
                         <span class="tag">面试</span>
                         <span class="tag is-grey">1</span>
                     </a>
@@ -865,18 +865,18 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/solve-chrome-autofill.html" class="media-left">
+            <a href="/tusi-hexo/solve-chrome-autofill.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="解决Chrome的表单自动填充问题">
+                    <img class="thumbnail" src="/tusi-hexo/images/thumbnail.svg" alt="解决Chrome的表单自动填充问题">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-07-19T15:51:41.000Z">2018-07-19</time></div>
-                    <a href="/solve-chrome-autofill.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">解决Chrome的表单自动填充问题</a>
+                    <a href="/tusi-hexo/solve-chrome-autofill.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">解决Chrome的表单自动填充问题</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
+                        <a class="has-link-grey -link" href="/tusi-hexo/categories/web前端/">web前端</a>
                     </p>
                 </div>
             </div>
@@ -884,18 +884,18 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/range-slider.html" class="media-left">
+            <a href="/tusi-hexo/range-slider.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="自定义UI组件系列之滑块（Range Slider）">
+                    <img class="thumbnail" src="/tusi-hexo/images/thumbnail.svg" alt="自定义UI组件系列之滑块（Range Slider）">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-30T09:42:17.000Z">2018-04-30</time></div>
-                    <a href="/range-slider.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">自定义UI组件系列之滑块（Range Slider）</a>
+                    <a href="/tusi-hexo/range-slider.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">自定义UI组件系列之滑块（Range Slider）</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/css/">css</a>
+                        <a class="has-link-grey -link" href="/tusi-hexo/categories/css/">css</a>
                     </p>
                 </div>
             </div>
@@ -903,18 +903,18 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/front-interview.html" class="media-left">
+            <a href="/tusi-hexo/front-interview.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="前端面试题记录">
+                    <img class="thumbnail" src="/tusi-hexo/images/thumbnail.svg" alt="前端面试题记录">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-16T05:46:30.000Z">2018-04-16</time></div>
-                    <a href="/front-interview.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端面试题记录</a>
+                    <a href="/tusi-hexo/front-interview.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端面试题记录</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/面试/">面试</a>
+                        <a class="has-link-grey -link" href="/tusi-hexo/categories/面试/">面试</a>
                     </p>
                 </div>
             </div>
@@ -922,18 +922,18 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/vue-problems.html" class="media-left">
+            <a href="/tusi-hexo/vue-problems.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue开发过程问题汇总记录">
+                    <img class="thumbnail" src="/tusi-hexo/images/thumbnail.svg" alt="vue开发过程问题汇总记录">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-13T06:55:03.000Z">2018-04-13</time></div>
-                    <a href="/vue-problems.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue开发过程问题汇总记录</a>
+                    <a href="/tusi-hexo/vue-problems.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue开发过程问题汇总记录</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/vue/">vue</a>
+                        <a class="has-link-grey -link" href="/tusi-hexo/categories/vue/">vue</a>
                     </p>
                 </div>
             </div>
@@ -941,18 +941,18 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/vue-router.html" class="media-left">
+            <a href="/tusi-hexo/vue-router.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue-router基础内容">
+                    <img class="thumbnail" src="/tusi-hexo/images/thumbnail.svg" alt="vue-router基础内容">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-05T08:14:07.000Z">2018-04-05</time></div>
-                    <a href="/vue-router.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue-router基础内容</a>
+                    <a href="/tusi-hexo/vue-router.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue-router基础内容</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/vue/">vue</a>
+                        <a class="has-link-grey -link" href="/tusi-hexo/categories/vue/">vue</a>
                     </p>
                 </div>
             </div>
@@ -971,280 +971,280 @@ var _hmt = _hmt || [];
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Angular/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/Angular/">
                         <span class="tag">Angular</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Sass/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/Sass/">
                         <span class="tag">Sass</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/TortoiseGIT/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/TortoiseGIT/">
                         <span class="tag">TortoiseGIT</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/VMware/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/VMware/">
                         <span class="tag">VMware</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/async/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/async/">
                         <span class="tag">async</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/autofill/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/autofill/">
                         <span class="tag">autofill</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/baidu/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/baidu/">
                         <span class="tag">baidu</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/bootstrap/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/bootstrap/">
                         <span class="tag">bootstrap</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/cnzz/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/cnzz/">
                         <span class="tag">cnzz</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/coding/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/coding/">
                         <span class="tag">coding</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/css/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/css/">
                         <span class="tag">css</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/defer/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/defer/">
                         <span class="tag">defer</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/demo/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/demo/">
                         <span class="tag">demo</span>
                         <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/es/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/es/">
                         <span class="tag">es</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/express/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/express/">
                         <span class="tag">express</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/git/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/git/">
                         <span class="tag">git</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/github/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/github/">
                         <span class="tag">github</span>
                         <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/gitment/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/gitment/">
                         <span class="tag">gitment</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/gulp/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/gulp/">
                         <span class="tag">gulp</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/hexo/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/hexo/">
                         <span class="tag">hexo</span>
                         <span class="tag is-grey">7</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/html/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/html/">
                         <span class="tag">html</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/http-server/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/http-server/">
                         <span class="tag">http-server</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/java/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/java/">
                         <span class="tag">java</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/jdk/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/jdk/">
                         <span class="tag">jdk</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/jquery/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/jquery/">
                         <span class="tag">jquery</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/js/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/js/">
                         <span class="tag">js</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/linux/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/linux/">
                         <span class="tag">linux</span>
                         <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/livere/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/livere/">
                         <span class="tag">livere</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/next/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/next/">
                         <span class="tag">next</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/ng-zorro/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/ng-zorro/">
                         <span class="tag">ng-zorro</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/nodejs/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/nodejs/">
                         <span class="tag">nodejs</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/npm卡顿/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/npm卡顿/">
                         <span class="tag">npm卡顿</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/valine/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/valine/">
                         <span class="tag">valine</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/vue/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/vue/">
                         <span class="tag">vue</span>
                         <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/vue-router/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/vue-router/">
                         <span class="tag">vue-router</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/web前端/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/web前端/">
                         <span class="tag">web前端</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/电脑技能/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/电脑技能/">
                         <span class="tag">电脑技能</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/记事本/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/记事本/">
                         <span class="tag">记事本</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/运维/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/运维/">
                         <span class="tag">运维</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/面试/">
+                    <a class="tags has-addons" href="/tusi-hexo/tags/面试/">
                         <span class="tag">面试</span>
                         <span class="tag is-grey">1</span>
                     </a>
@@ -1265,9 +1265,9 @@ var _hmt = _hmt || [];
     <div class="container">
         <div class="level">
             <div class="level-start has-text-centered-mobile">
-                <a class="footer-logo is-block has-mb-6" href="/">
+                <a class="footer-logo is-block has-mb-6" href="/tusi-hexo/">
                 
-                    <img src="/images/logo.png" alt="解决Chrome的表单自动填充问题" height="28">
+                    <img src="/tusi-hexo/images/logo.png" alt="解决Chrome的表单自动填充问题" height="28">
                 
                 </a>
                 <p class="is-size-7">
@@ -1323,7 +1323,7 @@ var IcarusThemeSettings = {
     
     
     
-    <script src="/js/animation.js"></script>
+    <script src="/tusi-hexo/js/animation.js"></script>
     
 
     
@@ -1331,7 +1331,7 @@ var IcarusThemeSettings = {
     
     <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-    <script src="/js/gallery.js" defer></script>
+    <script src="/tusi-hexo/js/gallery.js" defer></script>
     
 
     
@@ -1386,7 +1386,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <a id="back-to-top" title="回到顶端" href="javascript:;">
     <i class="fas fa-chevron-up"></i>
 </a>
-<script src="/js/back-to-top.js" defer></script>
+<script src="/tusi-hexo/js/back-to-top.js" defer></script>
 
 
     
@@ -1406,7 +1406,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
 
 
-<script src="/js/main.js" defer></script>
+<script src="/tusi-hexo/js/main.js" defer></script>
 
     
     <div class="searchbox ins-search">
@@ -1430,14 +1430,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 TAGS: '标签',
                 UNTITLED: '(无标题)',
             },
-            CONTENT_URL: '/content.json',
+            CONTENT_URL: '/tusi-hexo/content.json',
         };
         window.INSIGHT_CONFIG = INSIGHT_CONFIG;
     })(window);
 </script>
-<script src="/js/insight.js" defer></script>
-<link rel="stylesheet" href="/css/search.css">
-<link rel="stylesheet" href="/css/insight.css">
+<script src="/tusi-hexo/js/insight.js" defer></script>
+<link rel="stylesheet" href="/tusi-hexo/css/search.css">
+<link rel="stylesheet" href="/tusi-hexo/css/insight.css">
     
 </body>
 </html>
