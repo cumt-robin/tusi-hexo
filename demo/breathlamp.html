@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>蒋文斌博客之呼吸灯特效</title>
+        <meta name="description" content="蒋文斌博客,呼吸灯特效,纯CSS3制作" />
+        <meta name="author" content="蒋文斌" />
+    </head>
+    <style>
+        .back-key {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 15%;
+            height: 8%;
+        }
+        .wrap {
+            position: relative;
+            width: 200px;
+            height: 280px;
+            left: 20%;
+            top: 20%;
+        }
+        .content {
+            width: 100%;
+            height: 100%;
+            background: url(../images/avatar.jpg) center center no-repeat;
+            background-size: 100% 100%;
+        }
+        .content::before {
+            content: "";
+            animation: breathlight 1.5s cubic-bezier(0.33, 0.0, 0.67, 1) infinite alternate;
+            border: 2px solid red;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            box-shadow: 0px 0px 45px 4px #9e9ece;
+        }
+        @keyframes breathlight {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <body>
+        <button class="back-key" onclick="history.back();">返回</button>
+        <div class="wrap">
+            <div class="content"></div>
+        </div>
+    </body>    
+</html>

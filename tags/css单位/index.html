@@ -7,22 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>理解css中的px，em，rem - Tusi博客</title>
+<title>标签: css单位 - Tusi博客</title>
 
 
-    <meta name="description" content="px px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。  em em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。">
-<meta name="keywords" content="css">
-<meta property="og:type" content="article">
-<meta property="og:title" content="理解css中的px，em，rem">
-<meta property="og:url" content="http://hexo.wbjiang.cn/css-unit.html">
+    <meta name="description" content="专注大前端开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
+<meta name="keywords" content="Tusi,博客,前端,全栈,微信小程序">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tusi博客">
+<meta property="og:url" content="http://hexo.wbjiang.cn/tags/css单位/index.html">
 <meta property="og:site_name" content="Tusi博客">
-<meta property="og:description" content="px px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。  em em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。">
+<meta property="og:description" content="专注大前端开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://hexo.wbjiang.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-07T06:30:58.844Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="理解css中的px，em，rem">
-<meta name="twitter:description" content="px px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。  em em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。">
+<meta name="twitter:title" content="Tusi博客">
+<meta name="twitter:description" content="专注大前端开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
 <meta name="twitter:image" content="http://hexo.wbjiang.cn/images/og_image.png">
 
 
@@ -107,7 +106,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="理解css中的px，em，rem" height="28">
+                <img src="/images/logo.png" alt="Tusi博客" height="28">
             
             </a>
         </div>
@@ -158,6 +157,23 @@ var _hmt = _hmt || [];
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">标签</a></li>
+            <li class="is-active"><a href="#" aria-current="page">css单位</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
+    
+    <div class="card-image">
+        <a href="/理解css中的px, em, rem.html" class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/css.jpg" alt="理解css中的px, em, rem">
+        </a>
+    </div>
     
     <div class="card-content article ">
         
@@ -173,133 +189,44 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 444 个字)
+                    3 分钟 读完 (大约 445 个字)
                 </span>
                 
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv">0</span>次访问
-                </span>
                 
             </div>
         </div>
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                理解css中的px，em，rem
+                <a class="has-link-black-ter" href="/理解css中的px, em, rem.html">理解css中的px, em, rem</a>
             
         </h1>
         <div class="content">
             <h2 id="px"><a href="#px" class="headerlink" title="px"></a>px</h2><blockquote>
 <p>px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。</p>
 </blockquote>
-<h2 id="em"><a href="#em" class="headerlink" title="em"></a>em</h2><blockquote>
-<p>em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。</p>
-</blockquote>
-<a id="more"></a>
-<p>任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px。那么12px=0.75em,10px=0.625em。为了简化font-size的换算，需要在css中的body选择器中声明Font-size=62.5%，这就使em值变为 16px*62.5%=10px, 这样12px=1.2em, 10px=1em, 也就是说只需要将你的原来的px数值除以10，然后换上em作为单位就行了。</p>
-<p>ps：em会继承父级元素的字体大小。</p>
-<h2 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h2><blockquote>
-<p>rem是CSS3新增的一个相对单位。这个单位与em有什么区别呢？区别在于使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。</p>
-</blockquote>
-<p>这个单位可谓集相对大小和绝对大小的优点于一身，通过它既可以做到只修改根元素就成比例地调整所有字体大小，又可以避免字体大小逐层复合的连锁反应。目前，除了IE8及更早版本外，所有浏览器均已支持rem。对于不支持它的浏览器，应对方法也很简单，就是多写一个绝对单位的声明。这些浏览器会忽略用rem设定的字体大小。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 兼容写法</span><br><span class="line">p &#123;font-size:14px; font-size:.875rem;&#125;</span><br></pre></td></tr></table></figure>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/css/">css</a>
+                <a class="button is-size-7 is-light" href="/理解css中的px, em, rem.html#more">继续阅读</a>
                 </div>
             </div>
         </div>
         
         
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-info donate">
-    <span class="icon is-small">
-        <i class="fab fa-alipay"></i>
-    </span>
-    <span>支付宝</span>
-    <div class="qrcode"><img src="/images/alipay_payme.jpg" alt="支付宝"></div>
-</a>
-
-                
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>微信</span>
-    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
-</a>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/angular-use-jquery-bootstrap.html">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Angular4中使用jquery和bootstrap</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/sass-basic.html">
-                <span class="level-item">前端利器Sass之入门篇</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
-        
-<div id="comment-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.min.js"></script>
-<script>
-    var gitalk = new Gitalk({
-        clientID: 'e244808d754d6ef5f8aa',
-        clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
-        id: '7a081496a3c969febe0a1176fc348522',
-        repo: 'tusi-hexo',
-        owner: 'cumt-robin',
-        admin: "cumt-robin",
-        createIssueManually: false,
-        distractionFreeMode: false
-    })
-    gitalk.render('comment-container')
-</script>
-
-    </div>
-</div>
 </div>
                 
 
@@ -615,8 +542,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/css/">
-                        <span class="tag">css</span>
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -776,6 +703,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/滑块美化/">
                         <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
@@ -792,13 +726,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/记事本/">
                         <span class="tag">记事本</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/运维/">
-                        <span class="tag">运维</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -997,8 +924,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/css/">
-                        <span class="tag">css</span>
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1158,6 +1085,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/滑块美化/">
                         <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
@@ -1174,13 +1108,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/记事本/">
                         <span class="tag">记事本</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/运维/">
-                        <span class="tag">运维</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1202,7 +1129,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="理解css中的px，em，rem" height="28">
+                    <img src="/images/logo.png" alt="Tusi博客" height="28">
                 
                 </a>
                 <p class="is-size-7">

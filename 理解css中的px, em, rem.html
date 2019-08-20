@@ -7,23 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>gulp入门基础 - Tusi博客</title>
+<title>理解css中的px, em, rem - Tusi博客</title>
 
 
-    <meta name="description" content="gulp是前端开发过程中经常要用到的工具，非常值得花时间去掌握。利用gulp，我们可以使产品流程脚本化，节约大量的时间，有条不紊地进行业务开发。本文简单讲一下入门gulp需要掌握的东西。 安装gulp首先，我们需要在全局安装gulp。 1npm install -g gulp">
-<meta name="keywords" content="gulp">
+    <meta name="description" content="px px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。">
+<meta name="keywords" content="css单位">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gulp入门基础">
-<meta property="og:url" content="http://hexo.wbjiang.cn/gulp-base.html">
+<meta property="og:title" content="理解css中的px, em, rem">
+<meta property="og:url" content="http://hexo.wbjiang.cn/理解css中的px, em, rem.html">
 <meta property="og:site_name" content="Tusi博客">
-<meta property="og:description" content="gulp是前端开发过程中经常要用到的工具，非常值得花时间去掌握。利用gulp，我们可以使产品流程脚本化，节约大量的时间，有条不紊地进行业务开发。本文简单讲一下入门gulp需要掌握的东西。 安装gulp首先，我们需要在全局安装gulp。 1npm install -g gulp">
+<meta property="og:description" content="px px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://hexo.wbjiang.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-07T06:30:58.848Z">
+<meta property="og:image" content="http://qncdn.wbjiang.cn/css.jpg">
+<meta property="og:updated_time" content="2019-08-20T10:16:07.715Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="gulp入门基础">
-<meta name="twitter:description" content="gulp是前端开发过程中经常要用到的工具，非常值得花时间去掌握。利用gulp，我们可以使产品流程脚本化，节约大量的时间，有条不紊地进行业务开发。本文简单讲一下入门gulp需要掌握的东西。 安装gulp首先，我们需要在全局安装gulp。 1npm install -g gulp">
-<meta name="twitter:image" content="http://hexo.wbjiang.cn/images/og_image.png">
+<meta name="twitter:title" content="理解css中的px, em, rem">
+<meta name="twitter:description" content="px px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。">
+<meta name="twitter:image" content="http://qncdn.wbjiang.cn/css.jpg">
 
 
 
@@ -107,7 +107,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="gulp入门基础" height="28">
+                <img src="/images/logo.png" alt="理解css中的px, em, rem" height="28">
             
             </a>
         </div>
@@ -159,21 +159,27 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/css.jpg" alt="理解css中的px, em, rem">
+        </span>
+    </div>
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-03-20T15:38:55.000Z">2018-03-20</time>
+                <time class="level-item has-text-grey" datetime="2018-03-30T03:40:38.000Z">2018-03-30</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/gulp/">gulp</a>
+                <a class="has-link-grey -link" href="/categories/css/">css</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 779 个字)
+                    3 分钟 读完 (大约 445 个字)
                 </span>
                 
                 
@@ -187,54 +193,32 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                gulp入门基础
+                理解css中的px, em, rem
             
         </h1>
         <div class="content">
-            <p>gulp是前端开发过程中经常要用到的工具，非常值得花时间去掌握。利用gulp，我们可以使产品流程脚本化，节约大量的时间，有条不紊地进行业务开发。本文简单讲一下入门gulp需要掌握的东西。</p>
-<h2 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a>安装gulp</h2><p>首先，我们需要在全局安装gulp。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g gulp</span><br></pre></td></tr></table></figure>
-
+            <h2 id="px"><a href="#px" class="headerlink" title="px"></a>px</h2><blockquote>
+<p>px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。</p>
+</blockquote>
 <a id="more"></a>
-<p>然后，我们切到项目根目录，在项目中也进行gulp的安装，表明项目对gulp的依赖。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev gulp</span><br></pre></td></tr></table></figure>
 
-<p>接着，我们在项目根目录里新建一个gulpfile.js文件，这个是gulp的配置文件。</p>
-<h2 id="使用gulp"><a href="#使用gulp" class="headerlink" title="使用gulp"></a>使用gulp</h2><p>学习gulp的使用，我们需要先学习好常用的语法。</p>
-<h3 id="gulp-src-globs-options"><a href="#gulp-src-globs-options" class="headerlink" title="gulp.src(globs[, options])"></a>gulp.src(globs[, options])</h3><p>输出符合所匹配模式（glob）的文件。将返回一个stream，可以被piped传递到其他gulp插件中继续操作。</p>
-<h3 id="gulp-task-name-deps-fn"><a href="#gulp-task-name-deps-fn" class="headerlink" title="gulp.task(name[, deps], fn)"></a>gulp.task(name[, deps], fn)</h3><p>定义一个gulp任务，name是任务名称。[, deps]是任务依赖。fn是任务回调函数。<br>（1）任务依赖的形式可以是：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(&apos;two&apos;, [&apos;one&apos;], function() &#123;</span><br><span class="line">    // &apos;one&apos; 完成后</span><br><span class="line">&#125;);</span><br><span class="line">gulp.task(&apos;one&apos;, function(cb) &#123;</span><br><span class="line">    // cb();</span><br><span class="line">    // return stream;</span><br><span class="line">    // return promise;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>其中one应该使用一个callback，或者返回一个promise 或stream，表明依赖的任务完成了。<br>（2）回调函数体会是这种形式：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp.src().pipe(someplugin())</span><br></pre></td></tr></table></figure>
-
-<h3 id="gulp-dest-path-options"><a href="#gulp-dest-path-options" class="headerlink" title="gulp.dest(path[, options])"></a>gulp.dest(path[, options])</h3><p>将pipe进来的stream输出文件到指定的路径下,如：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp.src(&apos;./client/templates/*.jade&apos;)</span><br><span class="line">	.pipe(jade())</span><br><span class="line">	.pipe(gulp.dest(&apos;./build/templates&apos;))</span><br></pre></td></tr></table></figure>
-
-<h3 id="gulp-watch"><a href="#gulp-watch" class="headerlink" title="gulp.watch"></a>gulp.watch</h3><h4 id="gulp-watch-glob-opts-tasks"><a href="#gulp-watch-glob-opts-tasks" class="headerlink" title="gulp.watch(glob [, opts], tasks)"></a>gulp.watch(glob [, opts], tasks)</h4><p>监视文件，并且在文件发生改动时候执行一个或者多个task。监听change事件实现。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var watcher = gulp.watch(&apos;js/**/*.js&apos;, [&apos;uglify&apos;,&apos;reload&apos;]);</span><br><span class="line">watcher.on(&apos;change&apos;, function(event) &#123;</span><br><span class="line">  console.log(&apos;File &apos; + event.path + &apos; was &apos; + event.type + &apos;, running tasks...&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h4 id="gulp-watch-glob-opts-cb"><a href="#gulp-watch-glob-opts-cb" class="headerlink" title="gulp.watch(glob [, opts, cb])"></a>gulp.watch(glob [, opts, cb])</h4><p>监视文件，并且在文件发生改动时候执行回调函数cb。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp.watch(&apos;js/**/*.js&apos;, function(event) &#123;</span><br><span class="line">  console.log(&apos;File &apos; + event.path + &apos; was &apos; + event.type + &apos;, running tasks...&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="gulp-run"><a href="#gulp-run" class="headerlink" title="gulp.run"></a>gulp.run</h3><p>gulp模块的run方法，表示要执行的任务。可能会使用单个参数的形式传递多个任务。任务是尽可能多的并行执行，并且可能不会按照指定的顺序执行。当不需要指定执行顺序时，可以适当使用。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp.run(&apos;task1&apos;,&apos;task2&apos;,&apos;task3&apos;);</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="gulp使用技巧"><a href="#gulp使用技巧" class="headerlink" title="gulp使用技巧"></a>gulp使用技巧</h2><h3 id="替代任务依赖写法"><a href="#替代任务依赖写法" class="headerlink" title="替代任务依赖写法"></a>替代任务依赖写法</h3><p>我们需要让任务有秩序地执行，那么可以使用第三方插件gulp-sequence。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 如果使用gulp-sequence，就不需要附加任务依赖了。数组内的任务平行执行，数组外的按顺序执行。所以这里是svgstore、uglify-js并行执行，然后执行public任务。</span><br><span class="line">gulp.task(&apos;sequence1&apos;, gulpSequence([&apos;svgstore&apos;, &apos;uglify-js&apos;], &apos;public&apos;));</span><br></pre></td></tr></table></figure>
-
-<h3 id="修复gulp-watch方法只执行一次的问题"><a href="#修复gulp-watch方法只执行一次的问题" class="headerlink" title="修复gulp.watch方法只执行一次的问题"></a>修复gulp.watch方法只执行一次的问题</h3><p>利用gulp-watch，gulp-batch两个工具，用法如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 当监听到svgs目录下任意svg文件变动时，执行svgstore任务</span><br><span class="line">gulp.task(&apos;watch&apos;, function() &#123;</span><br><span class="line">    watch(&apos;./assets/svgs/*.svg&apos;, batch(function(events, done) &#123;</span><br><span class="line">        gulp.start(&apos;svgstore&apos;, done);</span><br><span class="line">    &#125;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
+<h2 id="em"><a href="#em" class="headerlink" title="em"></a>em</h2><blockquote>
+<p>em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。</p>
+</blockquote>
+<p>任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px。那么12px=0.75em,10px=0.625em。为了简化font-size的换算，需要在css中的body选择器中声明Font-size=62.5%，这就使em值变为 16px*62.5%=10px, 这样12px=1.2em, 10px=1em, 也就是说只需要将你的原来的px数值除以10，然后换上em作为单位就行了。</p>
+<p>ps：em会继承父级元素的字体大小。</p>
+<h2 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h2><blockquote>
+<p>rem是CSS3新增的一个相对单位。这个单位与em有什么区别呢？区别在于使用rem为元素设定字体大小时，仍然是相对大小，但相对的只是HTML根元素。</p>
+</blockquote>
+<p>这个单位可谓集相对大小和绝对大小的优点于一身，通过它既可以做到只修改根元素就成比例地调整所有字体大小，又可以避免字体大小逐层复合的连锁反应。目前，除了IE8及更早版本外，所有浏览器均已支持rem。对于不支持它的浏览器，应对方法也很简单，就是多写一个绝对单位的声明。这些浏览器会忽略用rem设定的字体大小。</p>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 兼容写法</span><br><span class="line"><span class="hljs-selector-tag">p</span> &#123;<span class="hljs-attribute">font-size</span>:<span class="hljs-number">14px</span>; <span class="hljs-attribute">font-size</span>:.<span class="hljs-number">875rem</span>;&#125;</span><br></pre></td></tr></table></figure>
         </div>
         
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/gulp/">gulp</a>
+                    <a class="has-link-grey -link" href="/tags/css单位/">css单位</a>
                 </div>
             </div>
         </div>
@@ -281,16 +265,16 @@ var _hmt = _hmt || [];
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/gulp-optimize-web.html">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/Angular4中使用jquery和bootstrap.html">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">利用gulp优化web页面加载速度</span>
+                <span class="level-item">Angular4中使用jquery和bootstrap</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/second-level-domain.html">
-                <span class="level-item">二级域名解析配置方法</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/前端利器SASS之入门篇.html">
+                <span class="level-item">前端利器SASS之入门篇</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -311,7 +295,7 @@ var _hmt = _hmt || [];
     var gitalk = new Gitalk({
         clientID: 'e244808d754d6ef5f8aa',
         clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
-        id: 'b7ea476cc1984b995daf2e74d70f4b24',
+        id: '169204ecaa3b7f63aa0b9fa9844c88b1',
         repo: 'tusi-hexo',
         owner: 'cumt-robin',
         admin: "cumt-robin",
@@ -638,8 +622,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/css/">
-                        <span class="tag">css</span>
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -799,6 +783,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/滑块美化/">
                         <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
@@ -815,13 +806,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/记事本/">
                         <span class="tag">记事本</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/运维/">
-                        <span class="tag">运维</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1020,8 +1004,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/css/">
-                        <span class="tag">css</span>
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1181,6 +1165,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/滑块美化/">
                         <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
@@ -1197,13 +1188,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/记事本/">
                         <span class="tag">记事本</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/运维/">
-                        <span class="tag">运维</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1225,7 +1209,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="gulp入门基础" height="28">
+                    <img src="/images/logo.png" alt="理解css中的px, em, rem" height="28">
                 
                 </a>
                 <p class="is-size-7">

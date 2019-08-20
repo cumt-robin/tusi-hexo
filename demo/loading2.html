@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>蒋文斌博客之网页加载圈进阶篇</title>
+  <meta name="description" content="蒋文斌博客,网页加载圈特效,纯CSS3制作" />
+  <meta name="author" content="蒋文斌" />
+  <style>
+    .back-key {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 15%;
+      height: 8%;
+    }
+    #loading {
+      position: fixed;
+      width: 200px;
+      height: 50px;
+      left: 50%;
+      top: 50%;
+    }
+    .loading-point {
+      display: inline-block;
+      border-radius: 50%;
+      background-color: gray;
+      width: 10px;
+      height: 10px;
+    }
+    .loading-animate {
+      animation: highlightBack 0.2s ease forwards;
+    }
+    .loading-point:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    .loading-point:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+    .loading-point:nth-child(4) {
+      animation-delay: 0.6s;
+    }
+    .loading-point:nth-child(5) {
+      animation-delay: 0.8s;
+    }
+    .loading-point:nth-child(6) {
+      animation-delay: 1.0s;
+    }
+    @keyframes highlightBack {
+      0% { background-color: gray; }
+      100% { background-color: red; }
+    }
+  </style>
+  <script>
+    document.onreadystatechange = () => {
+      if (document.readyState === 'complete') {
+        var loadingElement = document.getElementById('loading');
+        loadingElement.parentNode.removeChild(loadingElement);
+      }
+    };
+  </script>
+</head>
+ 
+<body>
+  <button class="back-key" onclick="history.back();">返回</button>
+	<div id="loading">
+    <span class="loading-point loading-animate"></span>
+    <span class="loading-point loading-animate"></span>
+    <span class="loading-point loading-animate"></span>
+    <span class="loading-point loading-animate"></span>
+    <span class="loading-point loading-animate"></span>
+    <span id="last" class="loading-point loading-animate"></span>
+  </div>
+  <script>
+    document.getElementById('last').addEventListener('animationend', () => {
+      var points = document.getElementsByClassName('loading-point');
+      for (var i = 0; i < points.length; i++) {
+        points[i].classList.remove('loading-animate');
+      }
+      setTimeout(() => {
+        for (var i = 0; i < points.length; i++) {
+          points[i].classList.add('loading-animate');
+        }
+      }, 500);
+    });
+  </script>
+	<img width="100%" src="http://img.pconline.com.cn/images/upload/upc/tx/itbbs/1009/28/c1/5345810_1285667432311_1024x1024.jpg">
+	<img width="100%" src="http://dl.bizhi.sogou.com/images/2014/10/31/942928.jpg">
+	<img width="100%" src="http://img.zcool.cn/community/03879005798abdc0000018c1b07f124.jpg">
+	<img width="100%" src="http://img4.imgtn.bdimg.com/it/u=3805800979,2052037877&fm=214&gp=0.jpg">
+	<img width="100%" src="http://image.tianjimedia.com/uploadImages/2013/053/QCDSFFR433JR.jpg">
+	<img width="100%" src="http://attachments.gfan.com/forum/attachments2/201304/24/134256oe4lamvbxm7bb2hq.jpg">
+	<img width="100%" src="http://attachments.gfan.com/forum/attachments2/201410/18/064627dig4lp4ddj6d68ya.jpg">
+	<img width="100%" src="http://dl.bizhi.sogou.com/images/2012/03/13/253707.jpg">
+	<img width="100%" src="http://p4.gexing.com/G1/M00/88/1F/rBACFFLjySqBJUr5AAZ5w11X6Sk034.jpg">
+  <img width="100%" src="http://imglf2.ph.126.net/RQbuNiHwyMP4eDEvQeT0oQ==/6608855431794167684.jpg">
+  <img width="100%" src="http://dl.bizhi.sogou.com/images/2013/09/10/378835.jpg">
+  <img width="100%" src="http://imgstore.cdn.sogou.com/app/a/100540002/493105.jpg">
+  <img width="100%" src="http://img18.3lian.com/d/file/201709/13/17ef9b1520ab2389a956a9b1c502dcff.jpg">
+  <img width="100%" src="http://img6.3lian.com/c23/desk4/05/09/d/02.jpg">
+  <img width="100%" src="http://img.pconline.com.cn/images/upload/upc/tx/wallpaper/1301/16/c0/17448568_1358310737074.jpg">
+  <img width="100%" src="http://image4.cnpp.cn/upload2/news/20120831/093616_73312_url.jpg">
+  <img width="100%" src="http://p4.gexing.com/shaitu/20130331/1938/515820436f20a.jpg">
+  <img width="100%" src="http://img.pconline.com.cn/images/upload/upc/tx/wallpaper/1308/16/c2/24549822_1376646924884.jpg">
+</body>
+ 
+</html>

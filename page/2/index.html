@@ -159,6 +159,12 @@ var _hmt = _hmt || [];
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
     <div class="card">
     
+    <div class="card-image">
+        <a href="/撸一遍vue的基础特性.html" class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/vue_375x300.png" alt="撸一遍vue的基础特性">
+        </a>
+    </div>
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
@@ -173,7 +179,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    22 分钟 读完 (大约 3304 个字)
+                    22 分钟 读完 (大约 3293 个字)
                 </span>
                 
                 
@@ -182,23 +188,18 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/vue-practice.html">撸一遍vue的基础特性</a>
+                <a class="has-link-black-ter" href="/撸一遍vue的基础特性.html">撸一遍vue的基础特性</a>
             
         </h1>
         <div class="content">
-            <p>Vue.js无疑是最近最火的一套前端框架，被设计为可以自底向上逐层应用。Vue的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。其轻量级，渐进式的优点对开发者的吸引力毋庸置疑。本人玩过两年的Angular，对Vue也充满了好奇，于是也想认识一下Vue。</p>
-<h1 id="Vue-js安装"><a href="#Vue-js安装" class="headerlink" title="Vue.js安装"></a>Vue.js安装</h1><p>主流的安装方式当然是使用vue-cli工具，这跟angular挺像的。但是作为刚入门的开发者，官方比较推荐的安装方式是直接引入script。vue脚本也分为开发版vue.js和生产版vue.min.js，开发环境下推荐使用vue.js，可以在开发过程中看到常见错误相关的警告。你可以选择使用CDN服务，直接引入这个脚本即可进行开发。</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue@2.5.14/dist/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>本人还是习惯直接把脚本下载到项目文件夹中。</p>
-<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./lib/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+            <p>Vue.js无疑是最近最火的一套渐进式前端框架。Vue的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。</p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/vue-practice.html#more">继续阅读</a>
+                <a class="button is-size-7 is-light" href="/撸一遍vue的基础特性.html#more">继续阅读</a>
                 </div>
             </div>
         </div>
@@ -215,6 +216,12 @@ var _hmt = _hmt || [];
 
 
     <div class="card">
+    
+    <div class="card-image">
+        <a href="/ng-zorro使用过程中的一些笔记.html" class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/angular_400x300.png" alt="ng-zorro使用过程中的一些笔记">
+        </a>
+    </div>
     
     <div class="card-content article ">
         
@@ -239,22 +246,18 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/ng-zorro-notes.html">ng-zorro使用过程中的一些笔记</a>
+                <a class="has-link-black-ter" href="/ng-zorro使用过程中的一些笔记.html">ng-zorro使用过程中的一些笔记</a>
             
         </h1>
         <div class="content">
-            <blockquote>
-<p>今天开始学习NG-ZORRO这个UI框架，过程中遇到了许多问题，这里把一些问题记录下来，方便后续查阅。NG-ZORRO由阿里大神们开源，给angular开发者提供了极大的便利。</p>
-</blockquote>
-<h3 id="改变icon图标的大小"><a href="#改变icon图标的大小" class="headerlink" title="改变icon图标的大小"></a>改变icon图标的大小</h3><p>我试图通过改变width属性来改变图标的大小，通过background来改变颜色，最后才发现通过::before伪元素构造的图标其实是文字内容，因而其大小需要通过font-size来控制，而颜色则是由color来控制。知道真相的我眼泪掉下来。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">font-size: 24px;</span><br><span class="line">color: rgba(245, 245, 245, 0.6);</span><br></pre></td></tr></table></figure>
+            <p>今天开始学习NG-ZORRO这个UI框架，过程中遇到了许多问题，这里把一些问题记录下来，方便后续查阅。</p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/ng-zorro-notes.html#more">继续阅读</a>
+                <a class="button is-size-7 is-light" href="/ng-zorro使用过程中的一些笔记.html#more">继续阅读</a>
                 </div>
             </div>
         </div>
@@ -271,6 +274,12 @@ var _hmt = _hmt || [];
 
 
     <div class="card">
+    
+    <div class="card-image">
+        <a href="/Angular4中使用jquery和bootstrap.html" class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/angular_400x300.png" alt="Angular4中使用jquery和bootstrap">
+        </a>
+    </div>
     
     <div class="card-content article ">
         
@@ -286,7 +295,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 449 个字)
+                    3 分钟 读完 (大约 453 个字)
                 </span>
                 
                 
@@ -295,25 +304,18 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/angular-use-jquery-bootstrap.html">Angular4中使用jquery和bootstrap</a>
+                <a class="has-link-black-ter" href="/Angular4中使用jquery和bootstrap.html">Angular4中使用jquery和bootstrap</a>
             
         </h1>
         <div class="content">
-            <blockquote>
-<p>在angular开发中某些场景可能需要jquery和bootstrap，那么如何使用它们呢？</p>
-</blockquote>
-<h2 id="Angular中引用jquery"><a href="#Angular中引用jquery" class="headerlink" title="Angular中引用jquery"></a>Angular中引用jquery</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>第一步，我们使用npm安装jquery</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save jquery</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>我们在ts文件中引入jquery。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import * as $ from &apos;jquery&apos;;</span><br><span class="line">// 可以在ngOninit方法中打印进行测试</span><br><span class="line">console.log($(&apos;body&apos;));</span><br></pre></td></tr></table></figure>
+            <p>在angular开发中某些场景可能需要jquery和bootstrap，那么如何使用它们呢？</p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/angular-use-jquery-bootstrap.html#more">继续阅读</a>
+                <a class="button is-size-7 is-light" href="/Angular4中使用jquery和bootstrap.html#more">继续阅读</a>
                 </div>
             </div>
         </div>
@@ -330,6 +332,12 @@ var _hmt = _hmt || [];
 
 
     <div class="card">
+    
+    <div class="card-image">
+        <a href="/理解css中的px, em, rem.html" class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/css.jpg" alt="理解css中的px, em, rem">
+        </a>
+    </div>
     
     <div class="card-content article ">
         
@@ -345,7 +353,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 444 个字)
+                    3 分钟 读完 (大约 445 个字)
                 </span>
                 
                 
@@ -354,15 +362,12 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/css-unit.html">理解css中的px，em，rem</a>
+                <a class="has-link-black-ter" href="/理解css中的px, em, rem.html">理解css中的px, em, rem</a>
             
         </h1>
         <div class="content">
             <h2 id="px"><a href="#px" class="headerlink" title="px"></a>px</h2><blockquote>
 <p>px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。</p>
-</blockquote>
-<h2 id="em"><a href="#em" class="headerlink" title="em"></a>em</h2><blockquote>
-<p>em是相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。</p>
 </blockquote>
         </div>
         
@@ -370,7 +375,7 @@ var _hmt = _hmt || [];
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/css-unit.html#more">继续阅读</a>
+                <a class="button is-size-7 is-light" href="/理解css中的px, em, rem.html#more">继续阅读</a>
                 </div>
             </div>
         </div>
@@ -388,6 +393,12 @@ var _hmt = _hmt || [];
 
     <div class="card">
     
+    <div class="card-image">
+        <a href="/前端利器SASS之入门篇.html" class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/css.jpg" alt="前端利器SASS之入门篇">
+        </a>
+    </div>
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
@@ -402,7 +413,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    10 分钟 读完 (大约 1480 个字)
+                    10 分钟 读完 (大约 1497 个字)
                 </span>
                 
                 
@@ -411,21 +422,18 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/sass-basic.html">前端利器Sass之入门篇</a>
+                <a class="has-link-black-ter" href="/前端利器SASS之入门篇.html">前端利器SASS之入门篇</a>
             
         </h1>
         <div class="content">
-            <p>前端开发过程中，我们会给各个元素指定样式，甚至有很多重复的样式，在后期维护过程中，如果我们要改动一些页面样式，可能得一个个css文件去修改，这样非常麻烦。好在有SASS这样一个神器来帮我们完成CSS的拓展和管理。那么什么是SASS?</p>
-<blockquote>
-<p>Sass（Syntactically Awesome StyleSheets，非常棒的语法结构化层叠样式表，我瞎翻译的） 是一款强化 CSS 的辅助工具，它在 CSS 语法的基础上增加了变量 (variables)、嵌套 (nested rules)、混合 (mixins)、导入 (inline imports) 等高级功能，这些拓展令 CSS 更加强大与优雅。使用 Sass 以及 Sass 的样式库（如 Compass）有助于更好地组织管理样式文件，以及更高效地开发项目。</p>
-</blockquote>
+            <p>前端开发过程中，我们会给各个元素指定样式，甚至有很多重复的样式，在后期维护过程中，如果我们要改动一些页面样式，可能得一个个css文件去修改，这样非常麻烦。</p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/sass-basic.html#more">继续阅读</a>
+                <a class="button is-size-7 is-light" href="/前端利器SASS之入门篇.html#more">继续阅读</a>
                 </div>
             </div>
         </div>
@@ -442,6 +450,12 @@ var _hmt = _hmt || [];
 
 
     <div class="card">
+    
+    <div class="card-image">
+        <a href="/利用gulp优化web页面加载速度.html" class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/gulp.png" alt="利用gulp优化web页面加载速度">
+        </a>
+    </div>
     
     <div class="card-content article ">
         
@@ -466,22 +480,18 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/gulp-optimize-web.html">利用gulp优化web页面加载速度</a>
+                <a class="has-link-black-ter" href="/利用gulp优化web页面加载速度.html">利用gulp优化web页面加载速度</a>
             
         </h1>
         <div class="content">
-            <blockquote>
-<p>利用hexo搭建好博客之后，发现博客页面加载速度特别慢，这一点在手机端比较明显。关闭了粒子动画效果后，页面加载的速度没有得到明显改善，于是想从其他方面来提升加载速度。而压缩代码则是一个最直接的方式。</p>
-</blockquote>
-<h2 id="压缩html"><a href="#压缩html" class="headerlink" title="压缩html"></a>压缩html</h2><p>gulp-htmlmin是一个用于压缩html文件的插件，安装方法如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev gulp-htmlmin</span><br></pre></td></tr></table></figure>
+            <p>利用hexo搭建好博客之后，发现博客页面加载速度特别慢，这一点在手机端比较明显。关闭了粒子动画效果后，页面加载的速度没有得到明显改善，于是想从其他方面来提升加载速度。</p>
         </div>
         
         
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/gulp-optimize-web.html#more">继续阅读</a>
+                <a class="button is-size-7 is-light" href="/利用gulp优化web页面加载速度.html#more">继续阅读</a>
                 </div>
             </div>
         </div>
@@ -837,8 +847,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/css/">
-                        <span class="tag">css</span>
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -998,6 +1008,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/滑块美化/">
                         <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
@@ -1014,13 +1031,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/记事本/">
                         <span class="tag">记事本</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/运维/">
-                        <span class="tag">运维</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1219,8 +1229,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/css/">
-                        <span class="tag">css</span>
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1380,6 +1390,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/滑块美化/">
                         <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
@@ -1396,13 +1413,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/记事本/">
                         <span class="tag">记事本</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/运维/">
-                        <span class="tag">运维</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

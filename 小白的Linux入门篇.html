@@ -7,23 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>VMware安装CentOS7时遇到的黑屏问题解决方法 - Tusi博客</title>
+<title>小白的Linux入门篇 - Tusi博客</title>
 
 
-    <meta name="description" content="问题背景上大学时一度以为自己不会跟linux搭上关系，然而走到部署服务器这一步还是离不开linux。默默开始学习linux吧。装好虚拟机准备开始安装CentOS7时，发现自己刚入坑就被难住了。点击安装直接黑屏。。。">
+    <meta name="description" content="什么是linux?大部分人应该脑海里有linux这个词的印象，但是具体是什么好像又说不出来。">
 <meta name="keywords" content="linux,VMware">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VMware安装CentOS7时遇到的黑屏问题解决方法">
-<meta property="og:url" content="http://hexo.wbjiang.cn/solve-centos7-blackscreen.html">
+<meta property="og:title" content="小白的Linux入门篇">
+<meta property="og:url" content="http://hexo.wbjiang.cn/小白的Linux入门篇.html">
 <meta property="og:site_name" content="Tusi博客">
-<meta property="og:description" content="问题背景上大学时一度以为自己不会跟linux搭上关系，然而走到部署服务器这一步还是离不开linux。默默开始学习linux吧。装好虚拟机准备开始安装CentOS7时，发现自己刚入坑就被难住了。点击安装直接黑屏。。。">
+<meta property="og:description" content="什么是linux?大部分人应该脑海里有linux这个词的印象，但是具体是什么好像又说不出来。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://hexo.wbjiang.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-07T06:30:58.862Z">
+<meta property="og:image" content="http://qncdn.wbjiang.cn/linux.jpg">
+<meta property="og:updated_time" content="2019-08-20T10:42:28.574Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VMware安装CentOS7时遇到的黑屏问题解决方法">
-<meta name="twitter:description" content="问题背景上大学时一度以为自己不会跟linux搭上关系，然而走到部署服务器这一步还是离不开linux。默默开始学习linux吧。装好虚拟机准备开始安装CentOS7时，发现自己刚入坑就被难住了。点击安装直接黑屏。。。">
-<meta name="twitter:image" content="http://hexo.wbjiang.cn/images/og_image.png">
+<meta name="twitter:title" content="小白的Linux入门篇">
+<meta name="twitter:description" content="什么是linux?大部分人应该脑海里有linux这个词的印象，但是具体是什么好像又说不出来。">
+<meta name="twitter:image" content="http://qncdn.wbjiang.cn/linux.jpg">
 
 
 
@@ -107,7 +107,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="VMware安装CentOS7时遇到的黑屏问题解决方法" height="28">
+                <img src="/images/logo.png" alt="小白的Linux入门篇" height="28">
             
             </a>
         </div>
@@ -159,11 +159,17 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/linux.jpg" alt="小白的Linux入门篇">
+        </span>
+    </div>
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-03-15T15:26:33.000Z">2018-03-15</time>
+                <time class="level-item has-text-grey" datetime="2018-03-11T03:24:56.000Z">2018-03-11</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/linux/">linux</a>
@@ -173,7 +179,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 311 个字)
+                    6 分钟 读完 (大约 855 个字)
                 </span>
                 
                 
@@ -187,17 +193,17 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                VMware安装CentOS7时遇到的黑屏问题解决方法
+                小白的Linux入门篇
             
         </h1>
         <div class="content">
-            <h1 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h1><p>上大学时一度以为自己不会跟linux搭上关系，然而走到部署服务器这一步还是离不开linux。默默开始学习linux吧。装好虚拟机准备开始安装CentOS7时，发现自己刚入坑就被难住了。点击安装直接黑屏。。。</p>
-<a id="more"></a>
-<p><img src="http://pbqvu9tq2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180315204916.png" alt="点击安装后就黑屏了"></p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>在网上查阅后发现，有人遇到了和我一样的问题。原因是BIOS的Virtualization Technology设置被禁止了，需要进入BIOS将其设置为Enabled。（不同电脑进入BIOS的方法不尽相同，请网上查阅对应电脑型号的进入BIOS的方法，我的是Fn+F1）<br><img src="http://pbqvu9tq2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180315233012.jpg" alt="BIOS Security"></p>
-<p><img src="http://pbqvu9tq2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180315233028.jpg" alt="Virtualization Technology"></p>
-<p>设置成功后重启，再打开VMware安装CentOS7就可以顺利安装了。<br><img src="http://pbqvu9tq2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180315212302.png" alt="登录centos"></p>
-<p>看到这个界面后，感觉整个人都舒服了！^_^</p>
+            <h1 id="什么是linux"><a href="#什么是linux" class="headerlink" title="什么是linux?"></a>什么是linux?</h1><p>大部分人应该脑海里有linux这个词的印象，但是具体是什么好像又说不出来。<a id="more"></a>如果最开始你要问我，什么是linux？我会回答，linux，跟windows差不多啊，都是操作系统。其实这样说没错，Linux是一套免费使用和自由传播的类Unix操作系统，是一个基于POSIX和UNIX的多用户、多任务、支持多线程和多CPU的操作系统。但是作为一名开发者而言，我们需要了解更多的信息。有两个概念需要我们来梳理一下。</p>
+<h2 id="linux内核版本"><a href="#linux内核版本" class="headerlink" title="linux内核版本"></a>linux内核版本</h2><p>Linux内核版本就是linux的核心版本，Linux内核的主要模块（或组件）分以下几个部分：存储管理、CPU和进程管理、文件系统、设备管理和驱动、网络通信，以及系统的初始化（引导）、系统调用等。其实，比较简单的说法就是，linux内核版本是最官方、最核心的版本。内核版本由<a href="https://www.kernel.org/" target="_blank" rel="noopener">官网</a>进行发布。</p>
+<h2 id="linux发行版本"><a href="#linux发行版本" class="headerlink" title="linux发行版本"></a>linux发行版本</h2><p>一些组织或企业，基于linux内核做了一些上层应用和工具的定制开发，形成了各种各样的发行版本。现在比较流行的发行版本主要分为两大派系redhat和debian。redhat, CentOS, fedora, SuSE, gentoo是redhat分支，debian, ubuntu等是debian分支。比较公认的说法是，服务器领域尽量选Redhat，非服务器领域还是要选debian分支如ubuntu。服务器的要求是安全，稳定，因此越少的图形界面相对来说是更优的选择。</p>
+<h1 id="linux应用领域"><a href="#linux应用领域" class="headerlink" title="linux应用领域"></a>linux应用领域</h1><h2 id="服务器领域"><a href="#服务器领域" class="headerlink" title="服务器领域"></a>服务器领域</h2><p>linux具备良好的稳定性，可靠的安全性，完善的网络功能，跨平台的硬件支持，多用户多任务管理，丰富的生态支持，是服务器领域的不二之选。</p>
+<h2 id="嵌入式领域"><a href="#嵌入式领域" class="headerlink" title="嵌入式领域"></a>嵌入式领域</h2><p>Linux在嵌入式领域可谓是大展身手，如移动设备、嵌入式板卡、物联网、智能家居、消费级设备、无人机、机器人、可穿戴设备和汽车等，都有涉及到linux系统。</p>
+<h1 id="linux虚拟机"><a href="#linux虚拟机" class="headerlink" title="linux虚拟机"></a>linux虚拟机</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>看到这一点，很多人会感到疑惑，为什么不直接装linux系统，却要装虚拟机？虚拟机可以让你在windows下使用linux环境，非常适合新手学习使用。VMware是一款功能强大的桌面虚拟计算机软件，提供用户可在桌面上同时运行不同的操作系统，和进行开发、测试 、部署新的应用程序的解决方案。在VMware的版本选择上，推荐使用VMware8，因为作为初学来说，太高的版本我们用不上，还可能会让自己的电脑变得很卡。在百度搜索，就可以下载到VMware8。</p>
+<p>安装完成可以选择汉化工具，做一下汉化，便于我们使用。<br><img src="http://pbqvu9tq2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180310123219.png" alt="VMware汉化后界面"></p>
 
         </div>
         
@@ -252,16 +258,16 @@ var _hmt = _hmt || [];
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/linux-cmds-problems.html">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/VMware安装CentOS7时遇到的黑屏问题解决方法.html">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">linux个人学习过程中常用命令及问题记录</span>
+                <span class="level-item">VMware安装CentOS7时遇到的黑屏问题解决方法</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/linux-guide.html">
-                <span class="level-item">小白的Linux奇幻旅行之入门篇</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/web网页加载圈之进阶篇.html">
+                <span class="level-item">web网页加载圈之进阶篇</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -282,7 +288,7 @@ var _hmt = _hmt || [];
     var gitalk = new Gitalk({
         clientID: 'e244808d754d6ef5f8aa',
         clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
-        id: '46af6d3e43c092a21a502c4c694437e6',
+        id: '608e37b50368012afa889853bfae07fa',
         repo: 'tusi-hexo',
         owner: 'cumt-robin',
         admin: "cumt-robin",
@@ -609,8 +615,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/css/">
-                        <span class="tag">css</span>
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -770,6 +776,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/滑块美化/">
                         <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
@@ -786,13 +799,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/记事本/">
                         <span class="tag">记事本</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/运维/">
-                        <span class="tag">运维</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -991,8 +997,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/css/">
-                        <span class="tag">css</span>
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1152,6 +1158,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/滑块美化/">
                         <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
@@ -1168,13 +1181,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/记事本/">
                         <span class="tag">记事本</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/运维/">
-                        <span class="tag">运维</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1196,7 +1202,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="VMware安装CentOS7时遇到的黑屏问题解决方法" height="28">
+                    <img src="/images/logo.png" alt="小白的Linux入门篇" height="28">
                 
                 </a>
                 <p class="is-size-7">

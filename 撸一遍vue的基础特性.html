@@ -10,20 +10,20 @@
 <title>撸一遍vue的基础特性 - Tusi博客</title>
 
 
-    <meta name="description" content="Vue.js无疑是最近最火的一套前端框架，被设计为可以自底向上逐层应用。Vue的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。其轻量级，渐进式的优点对开发者的吸引力毋庸置疑。本人玩过两年的Angular，对Vue也充满了好奇，于是也想认识一下Vue。 Vue.js安装主流的安装方式当然是使用vue-cli工具，这跟angular挺像的。但是作为刚入门的开发者，官方比较推荐的安装">
+    <meta name="description" content="Vue.js无疑是最近最火的一套渐进式前端框架。Vue的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="撸一遍vue的基础特性">
-<meta property="og:url" content="http://hexo.wbjiang.cn/vue-practice.html">
+<meta property="og:url" content="http://hexo.wbjiang.cn/撸一遍vue的基础特性.html">
 <meta property="og:site_name" content="Tusi博客">
-<meta property="og:description" content="Vue.js无疑是最近最火的一套前端框架，被设计为可以自底向上逐层应用。Vue的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。其轻量级，渐进式的优点对开发者的吸引力毋庸置疑。本人玩过两年的Angular，对Vue也充满了好奇，于是也想认识一下Vue。 Vue.js安装主流的安装方式当然是使用vue-cli工具，这跟angular挺像的。但是作为刚入门的开发者，官方比较推荐的安装">
+<meta property="og:description" content="Vue.js无疑是最近最火的一套渐进式前端框架。Vue的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://hexo.wbjiang.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-07T06:30:58.866Z">
+<meta property="og:image" content="http://qncdn.wbjiang.cn/vue_375x300.png">
+<meta property="og:updated_time" content="2019-08-20T10:00:55.449Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="撸一遍vue的基础特性">
-<meta name="twitter:description" content="Vue.js无疑是最近最火的一套前端框架，被设计为可以自底向上逐层应用。Vue的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。其轻量级，渐进式的优点对开发者的吸引力毋庸置疑。本人玩过两年的Angular，对Vue也充满了好奇，于是也想认识一下Vue。 Vue.js安装主流的安装方式当然是使用vue-cli工具，这跟angular挺像的。但是作为刚入门的开发者，官方比较推荐的安装">
-<meta name="twitter:image" content="http://hexo.wbjiang.cn/images/og_image.png">
+<meta name="twitter:description" content="Vue.js无疑是最近最火的一套渐进式前端框架。Vue的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。">
+<meta name="twitter:image" content="http://qncdn.wbjiang.cn/vue_375x300.png">
 
 
 
@@ -159,6 +159,12 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/vue_375x300.png" alt="撸一遍vue的基础特性">
+        </span>
+    </div>
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
@@ -173,7 +179,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    22 分钟 读完 (大约 3304 个字)
+                    22 分钟 读完 (大约 3293 个字)
                 </span>
                 
                 
@@ -191,14 +197,12 @@ var _hmt = _hmt || [];
             
         </h1>
         <div class="content">
-            <p>Vue.js无疑是最近最火的一套前端框架，被设计为可以自底向上逐层应用。Vue的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。其轻量级，渐进式的优点对开发者的吸引力毋庸置疑。本人玩过两年的Angular，对Vue也充满了好奇，于是也想认识一下Vue。</p>
+            <p>Vue.js无疑是最近最火的一套渐进式前端框架。Vue的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。<a id="more"></a>其轻量级，渐进式的优点对开发者的吸引力毋庸置疑。本人使用过两年的Angular，对Vue也充满了好奇，于是也想认识一下Vue。</p>
 <h1 id="Vue-js安装"><a href="#Vue-js安装" class="headerlink" title="Vue.js安装"></a>Vue.js安装</h1><p>主流的安装方式当然是使用vue-cli工具，这跟angular挺像的。但是作为刚入门的开发者，官方比较推荐的安装方式是直接引入script。vue脚本也分为开发版vue.js和生产版vue.min.js，开发环境下推荐使用vue.js，可以在开发过程中看到常见错误相关的警告。你可以选择使用CDN服务，直接引入这个脚本即可进行开发。</p>
 <figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue@2.5.14/dist/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>本人还是习惯直接把脚本下载到项目文件夹中。</p>
 <figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./lib/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
 
 <h1 id="学习Vue"><a href="#学习Vue" class="headerlink" title="学习Vue"></a>学习Vue</h1><p>学习Vue.js最好的方法当然是把代码都撸一遍，这样印象会比较深刻。</p>
 <h2 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h2><p>这个指令类似于angular的*ngIf，作为一个结构性指令，用来控制元素的插入和移除。当v-if=”true”时，元素正常显示；反之元素则被移除。</p>
@@ -404,7 +408,7 @@ var _hmt = _hmt || [];
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/ng-zorro-notes.html">
+            <a class="level level-item has-link-grey  article-nav-next" href="/ng-zorro使用过程中的一些笔记.html">
                 <span class="level-item">ng-zorro使用过程中的一些笔记</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
@@ -426,7 +430,7 @@ var _hmt = _hmt || [];
     var gitalk = new Gitalk({
         clientID: 'e244808d754d6ef5f8aa',
         clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
-        id: '7a8725dde5f906a5ecdfcc2c472bb512',
+        id: '6bc4bd4dd25e81084f8130f191bff933',
         repo: 'tusi-hexo',
         owner: 'cumt-robin',
         admin: "cumt-robin",
@@ -753,8 +757,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/css/">
-                        <span class="tag">css</span>
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -914,6 +918,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/滑块美化/">
                         <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
@@ -930,13 +941,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/记事本/">
                         <span class="tag">记事本</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/运维/">
-                        <span class="tag">运维</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1135,8 +1139,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/css/">
-                        <span class="tag">css</span>
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1296,6 +1300,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/滑块美化/">
                         <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
@@ -1312,13 +1323,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/记事本/">
                         <span class="tag">记事本</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/运维/">
-                        <span class="tag">运维</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

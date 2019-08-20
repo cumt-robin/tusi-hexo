@@ -7,22 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签: 运维 - Tusi博客</title>
+<title>利用gulp优化web页面加载速度 - Tusi博客</title>
 
 
-    <meta name="description" content="专注大前端开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
-<meta name="keywords" content="Tusi,博客,前端,全栈,微信小程序">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tusi博客">
-<meta property="og:url" content="http://hexo.wbjiang.cn/tags/运维/index.html">
+    <meta name="description" content="利用hexo搭建好博客之后，发现博客页面加载速度特别慢，这一点在手机端比较明显。关闭了粒子动画效果后，页面加载的速度没有得到明显改善，于是想从其他方面来提升加载速度。">
+<meta name="keywords" content="gulp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用gulp优化web页面加载速度">
+<meta property="og:url" content="http://hexo.wbjiang.cn/利用gulp优化web页面加载速度.html">
 <meta property="og:site_name" content="Tusi博客">
-<meta property="og:description" content="专注大前端开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
+<meta property="og:description" content="利用hexo搭建好博客之后，发现博客页面加载速度特别慢，这一点在手机端比较明显。关闭了粒子动画效果后，页面加载的速度没有得到明显改善，于是想从其他方面来提升加载速度。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://hexo.wbjiang.cn/images/og_image.png">
+<meta property="og:image" content="http://qncdn.wbjiang.cn/gulp.png">
+<meta property="og:updated_time" content="2019-08-20T10:21:13.157Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tusi博客">
-<meta name="twitter:description" content="专注大前端开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
-<meta name="twitter:image" content="http://hexo.wbjiang.cn/images/og_image.png">
+<meta name="twitter:title" content="利用gulp优化web页面加载速度">
+<meta name="twitter:description" content="利用hexo搭建好博客之后，发现博客页面加载速度特别慢，这一点在手机端比较明显。关闭了粒子动画效果后，页面加载的速度没有得到明显改善，于是想从其他方面来提升加载速度。">
+<meta name="twitter:image" content="http://qncdn.wbjiang.cn/gulp.png">
 
 
 
@@ -106,7 +107,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="Tusi博客" height="28">
+                <img src="/images/logo.png" alt="利用gulp优化web页面加载速度" height="28">
             
             </a>
         </div>
@@ -157,56 +158,97 @@ var _hmt = _hmt || [];
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">运维</a></li>
-        </ul>
-        </nav>
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/gulp.png" alt="利用gulp优化web页面加载速度">
+        </span>
     </div>
-</div>
-
-    <div class="card">
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-03-19T14:51:01.000Z">2018-03-19</time>
+                <time class="level-item has-text-grey" datetime="2018-03-24T01:37:20.000Z">2018-03-24</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/运维/">运维</a>
+                <a class="has-link-grey -link" href="/categories/gulp/">gulp</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 343 个字)
+                    6 分钟 读完 (大约 919 个字)
                 </span>
                 
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
                 
             </div>
         </div>
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/second-level-domain.html">二级域名解析配置方法</a>
+                利用gulp优化web页面加载速度
             
         </h1>
         <div class="content">
-            <h1 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h1><p>昨天将基于express的后台服务器部署在了腾讯云主机上，使用IP可以正常访问到我的<a href="http://118.24.73.29" target="_blank" rel="noopener">angular演示项目</a>了。这里给大家提供一个测试账号（账号：test，密码：0）。接着我就想，是不是可以换成域名访问呢？答案当然是可以的。于是我准备把云主机解析到我的二级域名下。</p>
+            <p>利用hexo搭建好博客之后，发现博客页面加载速度特别慢，这一点在手机端比较明显。关闭了粒子动画效果后，页面加载的速度没有得到明显改善，于是想从其他方面来提升加载速度。<a id="more"></a>而压缩代码则是一个最直接的方式。</p>
+<h2 id="压缩html"><a href="#压缩html" class="headerlink" title="压缩html"></a>压缩html</h2><p>gulp-htmlmin是一个用于压缩html文件的插件，安装方法如下：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev gulp-htmlmin</span><br></pre></td></tr></table></figure>
+
+<p>使用方法如下：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line">var htmlmin = require(&apos;gulp-htmlmin&apos;);</span><br><span class="line"> </span><br><span class="line">gulp.task(&apos;minifyHtml&apos;, function() &#123;</span><br><span class="line">  var minifyOptions = &#123;</span><br><span class="line">	collapseWhitespace: true, // 折叠html节点间的空白</span><br><span class="line">	minifyCSS: true, // 压缩css</span><br><span class="line">	minifyJS: true, // 压缩js</span><br><span class="line">	removeComments: true, // 去除注释</span><br><span class="line">	removeEmptyAttributes: true, // 去除空属性</span><br><span class="line">	removeRedundantAttributes: true // 去除与默认属性一致的属性值</span><br><span class="line">  &#125;;</span><br><span class="line">  return gulp.src(&apos;src/*.html&apos;)</span><br><span class="line">    .pipe(htmlmin(minifyOptions))</span><br><span class="line">    .pipe(gulp.dest(&apos;dist&apos;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>这个插件还有很多的配置项，请参考<a href="https://github.com/kangax/html-minifier#options-quick-reference" target="_blank" rel="noopener">Options Quick Reference</a>。</p>
+<blockquote>
+<p>ps：html文件中可以嵌入js以及css内容，因此该插件支持对html文件中js及css内容的压缩。</p>
+</blockquote>
+<h2 id="压缩css"><a href="#压缩css" class="headerlink" title="压缩css"></a>压缩css</h2><p>我之前用过一个gulp-minify-css插件来压缩css文件，不过最近发现它已经被废弃了，取而代之的是gulp-clean-css，安装方法如下：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-clean-css --save-dev</span><br></pre></td></tr></table></figure>
+
+<p>使用方法如下：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line">var cleanCSS = require(&apos;gulp-clean-css&apos;);</span><br><span class="line"> </span><br><span class="line">gulp.task(&apos;minifyCss&apos;, () =&gt; &#123;</span><br><span class="line">  return gulp.src(&apos;styles/*.css&apos;)</span><br><span class="line">    .pipe(cleanCSS(&#123;compatibility: &apos;ie8&apos;&#125;))</span><br><span class="line">    .pipe(gulp.dest(&apos;dist&apos;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>gulp-clean-css的配置项挺多的，感觉还是要遇到具体问题，具体分析了。配置项参考<a href="https://github.com/jakubpawlowicz/clean-css" target="_blank" rel="noopener">clean-CSS</a>。</p>
+<h2 id="压缩js"><a href="#压缩js" class="headerlink" title="压缩js"></a>压缩js</h2><p>我们可以用gulp-uglify插件来进行js文件的压缩。首先，我们来安装它：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev gulp-uglify</span><br></pre></td></tr></table></figure>
+
+<p>使用方法如下：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line">var uglify = require(&apos;gulp-uglify&apos;);</span><br><span class="line">var pump = require(&apos;pump&apos;);</span><br><span class="line"> </span><br><span class="line">gulp.task(&apos;compress&apos;, function (cb) &#123;</span><br><span class="line">  pump([</span><br><span class="line">    gulp.src(&apos;lib/*.js&apos;),</span><br><span class="line">    uglify(),</span><br><span class="line">    gulp.dest(&apos;dist&apos;)</span><br><span class="line">  ], cb);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这里用到了一个pump插件，其实不需要它也是完全可以正常压缩js文件的。但是pump插件为我们提供了一个排错的能力，能够打印出压缩js文件过程的具体错误信息，让我们快速定位修改。<br>ps：gulp-uglify支持一些配置项，请参考<a href="https://github.com/mishoo/UglifyJS2#minify-options" target="_blank" rel="noopener">Minify options</a>。</p>
+</blockquote>
+<h2 id="压缩图片资源"><a href="#压缩图片资源" class="headerlink" title="压缩图片资源"></a>压缩图片资源</h2><p>压缩图片资源也是优化web页面的一个重要方法，而gulp-imagemin插件可以帮我们做到这一点。首先，我们来安装它：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev gulp-imagemin</span><br></pre></td></tr></table></figure>
+
+<p>经典的用法如下：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line">var imagemin = require(&apos;gulp-imagemin&apos;);</span><br><span class="line"> </span><br><span class="line">gulp.task(&apos;default&apos;, () =&gt;</span><br><span class="line">  gulp.src(&apos;src/images/*&apos;)</span><br><span class="line">    .pipe(imagemin())</span><br><span class="line">    .pipe(gulp.dest(&apos;dist/images&apos;))</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p> imagemin()也可以传入配置参数，主要的一些配置项如下所示：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">…</span><br><span class="line">.pipe(imagemin([</span><br><span class="line">    imagemin.gifsicle(&#123;interlaced: true&#125;), //优化gif</span><br><span class="line">    imagemin.jpegtran(&#123;progressive: true&#125;), //优化jpg,jpeg</span><br><span class="line">    imagemin.optipng(&#123;optimizationLevel: 5&#125;), //优化png</span><br><span class="line">    imagemin.svgo(&#123;</span><br><span class="line">        plugins: [</span><br><span class="line">            &#123;removeViewBox: true&#125;,</span><br><span class="line">            &#123;cleanupIDs: false&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;)  //优化svg</span><br><span class="line">]))</span><br><span class="line">…</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这里有两个单词需要注意一下，interlaced和progressive，有<a href="https://blog.csdn.net/syb773849846/article/details/52120030" target="_blank" rel="noopener">一篇文章</a>介绍了交错扫描和逐行扫描，请大家参考！</p>
+</blockquote>
+<p>本人在利用上述插件来压缩博客public文件夹下的资源时，发现在进行html压缩和css压缩时，出现了一些页面bug，暂未得出原因，留待后续观察，于是暂时放弃了html和css插件压缩，仅使用了gulp-uglify和gulp-imagemin来压缩js文件和图片。经优化后，博客加载速度得到了显著提升，也算是做了一个不错的优化。</p>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/second-level-domain.html#more">继续阅读</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/gulp/">gulp</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -214,11 +256,83 @@ var _hmt = _hmt || [];
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay_payme.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/前端利器SASS之入门篇.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">前端利器SASS之入门篇</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/gulp入门基础.html">
+                <span class="level-item">gulp入门基础</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: 'e244808d754d6ef5f8aa',
+        clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
+        id: '4dcabbb5720a435e333bbe80134ee3de',
+        repo: 'tusi-hexo',
+        owner: 'cumt-robin',
+        admin: "cumt-robin",
+        createIssueManually: false,
+        distractionFreeMode: false
+    })
+    gitalk.render('comment-container')
+</script>
+
+    </div>
+</div>
 </div>
                 
 
@@ -534,8 +648,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/css/">
-                        <span class="tag">css</span>
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -695,6 +809,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/滑块美化/">
                         <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
@@ -711,13 +832,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/记事本/">
                         <span class="tag">记事本</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/运维/">
-                        <span class="tag">运维</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -916,8 +1030,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/css/">
-                        <span class="tag">css</span>
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1077,6 +1191,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/滑块美化/">
                         <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
@@ -1093,13 +1214,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/记事本/">
                         <span class="tag">记事本</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/运维/">
-                        <span class="tag">运维</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1121,7 +1235,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="Tusi博客" height="28">
+                    <img src="/images/logo.png" alt="利用gulp优化web页面加载速度" height="28">
                 
                 </a>
                 <p class="is-size-7">

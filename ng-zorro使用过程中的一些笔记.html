@@ -7,23 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Angular4中使用jquery和bootstrap - Tusi博客</title>
+<title>ng-zorro使用过程中的一些笔记 - Tusi博客</title>
 
 
-    <meta name="description" content="在angular开发中某些场景可能需要jquery和bootstrap，那么如何使用它们呢？  Angular中引用jquery安装第一步，我们使用npm安装jquery 1npm install --save jquery  使用我们在ts文件中引入jquery。 123import * as $ from &amp;apos;jquery&amp;apos;;// 可以在ngOninit方法中打印进行测试c">
-<meta name="keywords" content="Angular,jquery,bootstrap">
+    <meta name="description" content="今天开始学习NG-ZORRO这个UI框架，过程中遇到了许多问题，这里把一些问题记录下来，方便后续查阅。">
+<meta name="keywords" content="Angular,ng-zorro">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Angular4中使用jquery和bootstrap">
-<meta property="og:url" content="http://hexo.wbjiang.cn/angular-use-jquery-bootstrap.html">
+<meta property="og:title" content="ng-zorro使用过程中的一些笔记">
+<meta property="og:url" content="http://hexo.wbjiang.cn/ng-zorro使用过程中的一些笔记.html">
 <meta property="og:site_name" content="Tusi博客">
-<meta property="og:description" content="在angular开发中某些场景可能需要jquery和bootstrap，那么如何使用它们呢？  Angular中引用jquery安装第一步，我们使用npm安装jquery 1npm install --save jquery  使用我们在ts文件中引入jquery。 123import * as $ from &amp;apos;jquery&amp;apos;;// 可以在ngOninit方法中打印进行测试c">
+<meta property="og:description" content="今天开始学习NG-ZORRO这个UI框架，过程中遇到了许多问题，这里把一些问题记录下来，方便后续查阅。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://hexo.wbjiang.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-07T06:30:58.842Z">
+<meta property="og:image" content="http://qncdn.wbjiang.cn/angular_400x300.png">
+<meta property="og:updated_time" content="2019-08-20T10:14:22.277Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Angular4中使用jquery和bootstrap">
-<meta name="twitter:description" content="在angular开发中某些场景可能需要jquery和bootstrap，那么如何使用它们呢？  Angular中引用jquery安装第一步，我们使用npm安装jquery 1npm install --save jquery  使用我们在ts文件中引入jquery。 123import * as $ from &amp;apos;jquery&amp;apos;;// 可以在ngOninit方法中打印进行测试c">
-<meta name="twitter:image" content="http://hexo.wbjiang.cn/images/og_image.png">
+<meta name="twitter:title" content="ng-zorro使用过程中的一些笔记">
+<meta name="twitter:description" content="今天开始学习NG-ZORRO这个UI框架，过程中遇到了许多问题，这里把一些问题记录下来，方便后续查阅。">
+<meta name="twitter:image" content="http://qncdn.wbjiang.cn/angular_400x300.png">
 
 
 
@@ -107,7 +107,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="Angular4中使用jquery和bootstrap" height="28">
+                <img src="/images/logo.png" alt="ng-zorro使用过程中的一些笔记" height="28">
             
             </a>
         </div>
@@ -159,11 +159,17 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/angular_400x300.png" alt="ng-zorro使用过程中的一些笔记">
+        </span>
+    </div>
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-03-30T07:53:25.000Z">2018-03-30</time>
+                <time class="level-item has-text-grey" datetime="2018-03-31T03:47:11.000Z">2018-03-31</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/Angular/">Angular</a>
@@ -173,7 +179,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 449 个字)
+                    3 分钟 读完 (大约 443 个字)
                 </span>
                 
                 
@@ -187,46 +193,31 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Angular4中使用jquery和bootstrap
+                ng-zorro使用过程中的一些笔记
             
         </h1>
         <div class="content">
-            <blockquote>
-<p>在angular开发中某些场景可能需要jquery和bootstrap，那么如何使用它们呢？</p>
-</blockquote>
-<h2 id="Angular中引用jquery"><a href="#Angular中引用jquery" class="headerlink" title="Angular中引用jquery"></a>Angular中引用jquery</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>第一步，我们使用npm安装jquery</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save jquery</span><br></pre></td></tr></table></figure>
+            <p>今天开始学习NG-ZORRO这个UI框架，过程中遇到了许多问题，这里把一些问题记录下来，方便后续查阅。<a id="more"></a>NG-ZORRO由阿里大神们开源，给angular开发者提供了极大的便利。</p>
+<h3 id="改变icon图标的大小"><a href="#改变icon图标的大小" class="headerlink" title="改变icon图标的大小"></a>改变icon图标的大小</h3><p>我试图通过改变width属性来改变图标的大小，通过background来改变颜色，最后才发现通过::before伪元素构造的图标其实是文字内容，因而其大小需要通过font-size来控制，而颜色则是由color来控制。知道真相的我眼泪掉下来。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">font-size: 24px;</span><br><span class="line">color: rgba(245, 245, 245, 0.6);</span><br></pre></td></tr></table></figure>
 
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>我们在ts文件中引入jquery。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import * as $ from &apos;jquery&apos;;</span><br><span class="line">// 可以在ngOninit方法中打印进行测试</span><br><span class="line">console.log($(&apos;body&apos;));</span><br></pre></td></tr></table></figure>
+<h3 id="使用nz-button时，prod环境打包报错"><a href="#使用nz-button时，prod环境打包报错" class="headerlink" title="使用nz-button时，prod环境打包报错"></a>使用nz-button时，prod环境打包报错</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button nz-button [nzType]=&quot;primary&quot;&gt;</span><br></pre></td></tr></table></figure>
 
-<a id="more"></a>
-<h3 id="引入jquery类型"><a href="#引入jquery类型" class="headerlink" title="引入jquery类型"></a>引入jquery类型</h3><p>在使用过程中，好像是没有什么问题的，但是好像通过点号调用jquery方法时，没有任何代码提示（我使用的是VSCode）。原因是编辑器不识别jquery的类型，所以不知道jquery中可以调用哪些方法。因此我们需要引入类型。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save @types/jquery</span><br></pre></td></tr></table></figure>
+<p>在login组件中使用nz-button后，打包脚本执行到<strong>build:prod</strong>时报错，报错信息如下：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR in ng:///G:/projects/angular/my-app/src/app/login/login.component.html (9,3): Property &apos;primary&apos; does not exist on type &apos;LoginComponent&apos;</span><br></pre></td></tr></table></figure>
 
-<p>这个时候，我们再通过点号调用jquery方法时，就会有代码提示了。如：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;body&apos;).hide();</span><br></pre></td></tr></table></figure>
+<p>经过分析发现，可能是primary被当成这个组件的属性处理了，而我没有在组件中定义这个属性，所以报错，于是把它改成字符串试试。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button nz-button [nzType]=&quot;&apos;primary&apos;&quot;&gt;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Angular中引用bootstrap"><a href="#Angular中引用bootstrap" class="headerlink" title="Angular中引用bootstrap"></a>Angular中引用bootstrap</h2><p>如何在angular中使用bootstrap呢？方法是差不多的。首先我们安装bootstrap。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save bootstrap</span><br></pre></td></tr></table></figure>
-
-<p>我们主要用到的是bootstrap.min.css和bootstrap.min.js。需要在.angular-cli.json中进行配置。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&quot;styles&quot;: [</span><br><span class="line">  &quot;styles.css&quot;,</span><br><span class="line">  &quot;../node_modules/bootstrap/dist/css/bootstrap.min.css&quot;</span><br><span class="line">],</span><br><span class="line">&quot;scripts&quot;: [</span><br><span class="line">  &quot;../node_modules/bootstrap/dist/js/bootstrap.min.js&quot;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<p>我配置之后还是不生效，可能是由于我ng eject后配置出了些问题，后续改下webpack配置应该可以实现。这里我先放在index.html中引用了。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 引入js</span><br><span class="line">&lt;script src=&quot;./node_modules/jquery/dist/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;./node_modules/bootstrap/dist/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">// 引入css</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;./node_modules/bootstrap/dist/css/bootstrap.min.css&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>配置完成后，localhost可以正常使用bootstrap了。但是打包时出现问题了。因为index.html引用的是node_modules里面的资源，而我的webpack资源配置没有加上它们，导致404问题。于是我把这三个文件放在了assets里面，改成如下引用方式：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;assets/js/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;assets/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/css/bootstrap.min.css&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-
+<h3 id="打包时间接近8分钟"><a href="#打包时间接近8分钟" class="headerlink" title="打包时间接近8分钟"></a>打包时间接近8分钟</h3><p>使用了nz-zorro后，打包竟然长达8分钟，而打包后的包的大小与之前一致。我相信这不是ng-zorro的问题，可能是我的webpack配置出现了问题。我之前使用的angular版本是4.2的，安装ng-zorro后报了个警告，于是我升级angular/core等版本到4.4，不知道是不是这些问题引起的，具体原因还没找到。这里先挖个坑。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 这一步等待时间超长，接近8分钟</span><br><span class="line">91% additional asset processing</span><br></pre></td></tr></table></figure>
         </div>
         
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Angular/">Angular</a>, <a class="has-link-grey -link" href="/tags/bootstrap/">bootstrap</a>, <a class="has-link-grey -link" href="/tags/jquery/">jquery</a>
+                    <a class="has-link-grey -link" href="/tags/Angular/">Angular</a>, <a class="has-link-grey -link" href="/tags/ng-zorro/">ng-zorro</a>
                 </div>
             </div>
         </div>
@@ -273,16 +264,16 @@ var _hmt = _hmt || [];
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/ng-zorro-notes.html">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/撸一遍vue的基础特性.html">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">ng-zorro使用过程中的一些笔记</span>
+                <span class="level-item">撸一遍vue的基础特性</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/css-unit.html">
-                <span class="level-item">理解css中的px，em，rem</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/Angular4中使用jquery和bootstrap.html">
+                <span class="level-item">Angular4中使用jquery和bootstrap</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -303,7 +294,7 @@ var _hmt = _hmt || [];
     var gitalk = new Gitalk({
         clientID: 'e244808d754d6ef5f8aa',
         clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
-        id: '8821290c0192da71c8961abaa899429e',
+        id: '38b378728b92751d60e19ac413fa0a80',
         repo: 'tusi-hexo',
         owner: 'cumt-robin',
         admin: "cumt-robin",
@@ -630,8 +621,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/css/">
-                        <span class="tag">css</span>
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -791,6 +782,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/滑块美化/">
                         <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
@@ -807,13 +805,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/记事本/">
                         <span class="tag">记事本</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/运维/">
-                        <span class="tag">运维</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1012,8 +1003,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/css/">
-                        <span class="tag">css</span>
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1173,6 +1164,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/滑块美化/">
                         <span class="tag">滑块美化</span>
                         <span class="tag is-grey">1</span>
@@ -1189,13 +1187,6 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/记事本/">
                         <span class="tag">记事本</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/运维/">
-                        <span class="tag">运维</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1217,7 +1208,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="Angular4中使用jquery和bootstrap" height="28">
+                    <img src="/images/logo.png" alt="ng-zorro使用过程中的一些笔记" height="28">
                 
                 </a>
                 <p class="is-size-7">
