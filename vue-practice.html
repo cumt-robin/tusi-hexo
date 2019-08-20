@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>撸一遍vue的基础特性 - Tusi博客</title>
+
+
+    <meta name="description" content="Vue.js无疑是最近最火的一套前端框架，被设计为可以自底向上逐层应用。Vue的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。其轻量级，渐进式的优点对开发者的吸引力毋庸置疑。本人玩过两年的Angular，对Vue也充满了好奇，于是也想认识一下Vue。 Vue.js安装主流的安装方式当然是使用vue-cli工具，这跟angular挺像的。但是作为刚入门的开发者，官方比较推荐的安装">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="撸一遍vue的基础特性">
+<meta property="og:url" content="http://yoursite.com/vue-practice.html">
+<meta property="og:site_name" content="Tusi博客">
+<meta property="og:description" content="Vue.js无疑是最近最火的一套前端框架，被设计为可以自底向上逐层应用。Vue的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。其轻量级，渐进式的优点对开发者的吸引力毋庸置疑。本人玩过两年的Angular，对Vue也充满了好奇，于是也想认识一下Vue。 Vue.js安装主流的安装方式当然是使用vue-cli工具，这跟angular挺像的。但是作为刚入门的开发者，官方比较推荐的安装">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2019-08-07T06:30:58.866Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="撸一遍vue的基础特性">
+<meta name="twitter:description" content="Vue.js无疑是最近最火的一套前端框架，被设计为可以自底向上逐层应用。Vue的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。其轻量级，渐进式的优点对开发者的吸引力毋庸置疑。本人玩过两年的Angular，对Vue也充满了好奇，于是也想认识一下Vue。 Vue.js安装主流的安装方式当然是使用vue-cli工具，这跟angular挺像的。但是作为刚入门的开发者，官方比较推荐的安装">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/rainbow.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?57334b03a053b7991c744523343669ed";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+        <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="撸一遍vue的基础特性" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">首页</a>
+                
+                <a class="navbar-item"
+                href="/archives">时间线</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Follow me on GitHub" href="https://github.com/cumt-robin">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-04-02T14:55:21.000Z">2018-04-02</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/vue/">vue</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    22 分钟 读完 (大约 3304 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                撸一遍vue的基础特性
+            
+        </h1>
+        <div class="content">
+            <p>Vue.js无疑是最近最火的一套前端框架，被设计为可以自底向上逐层应用。Vue的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。其轻量级，渐进式的优点对开发者的吸引力毋庸置疑。本人玩过两年的Angular，对Vue也充满了好奇，于是也想认识一下Vue。</p>
+<h1 id="Vue-js安装"><a href="#Vue-js安装" class="headerlink" title="Vue.js安装"></a>Vue.js安装</h1><p>主流的安装方式当然是使用vue-cli工具，这跟angular挺像的。但是作为刚入门的开发者，官方比较推荐的安装方式是直接引入script。vue脚本也分为开发版vue.js和生产版vue.min.js，开发环境下推荐使用vue.js，可以在开发过程中看到常见错误相关的警告。你可以选择使用CDN服务，直接引入这个脚本即可进行开发。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://cdn.jsdelivr.net/npm/vue@2.5.14/dist/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>本人还是习惯直接把脚本下载到项目文件夹中。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./lib/vue.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h1 id="学习Vue"><a href="#学习Vue" class="headerlink" title="学习Vue"></a>学习Vue</h1><p>学习Vue.js最好的方法当然是把代码都撸一遍，这样印象会比较深刻。</p>
+<h2 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h2><p>这个指令类似于angular的*ngIf，作为一个结构性指令，用来控制元素的插入和移除。当v-if=”true”时，元素正常显示；反之元素则被移除。</p>
+<h2 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h2><p>这个指令达到的效果看起来与v-if是一样的，但是从本质上来讲是不同的。v-show其实仅仅从样式上来控制显示和隐藏，改变的是display属性。与jQuery的show()和hide()方法有异曲同工之妙。</p>
+<h2 id="插值表达式"><a href="#插值表达式" class="headerlink" title="插值表达式"></a>插值表达式</h2><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>&#123;&#123; content &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这个是数据绑定的标准写法，与angular是一样的。content变量的值改变时，页面渲染也随之变化。插值表达式中支持js表达式。</p>
+<h2 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a>v-html</h2><p>从字面意思能看出来，该指令绑定的值会输出html内容，类似于jQuery的html()方法。在angular中好像没有看到这个指令，我是自定义了一个directive来实现的。</p>
+<h2 id="属性绑定v-bind"><a href="#属性绑定v-bind" class="headerlink" title="属性绑定v-bind"></a>属性绑定v-bind</h2><p>这个指令用来绑定元素属性，通常用于向子组件传递props。比如子组件studentList内部需要属性id来做逻辑判断，这个id可以由父组件来传递，这里就可以使用到v-bind。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">student-list</span> <span class="hljs-attr">v-bind:id</span>=<span class="hljs-string">"somevalue"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">student-list</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>v-bind:可以缩写为:</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">student-list</span> <span class="hljs-attr">:id</span>=<span class="hljs-string">"somevalue"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">student-list</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="事件绑定v-on"><a href="#事件绑定v-on" class="headerlink" title="事件绑定v-on"></a>事件绑定v-on</h2><p>用来绑定事件，比如鼠标点击事件，可以这样写：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:click</span>=<span class="hljs-string">"toggleVueIf"</span>&gt;</span>Toggle VUE IF<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>v-bind:可以缩写为@：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"toggleVueIf"</span>&gt;</span>Toggle VUE IF<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h2><p>v-for用来遍历数组或对象<br>（1）数组，接收的参数上可以是两个，顺序是value, index</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(value, index) in vueForArray"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>&#123;&#123; index &#125;&#125;: &#123;&#123; value &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）对象，接收的参数上可以是三个，顺序是value, key, index</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(value, key, index) in vueForObject"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>&#123;&#123; index &#125;&#125;. &#123;&#123; key &#125;&#125; : &#123;&#123; value &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="计算属性computed"><a href="#计算属性computed" class="headerlink" title="计算属性computed"></a>计算属性computed</h2><p>对于插值表达式中涉及到的复杂计算，建议用计算属性computed来替代。在new Vue时可以使用computed属性。</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// html中</span></span><br><span class="line">&#123;&#123; reversedMessage &#125;&#125;</span><br><span class="line"><span class="hljs-comment">// vue实例中</span></span><br><span class="line">computed: &#123;</span><br><span class="line">  reversedMessage: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.testMessage.split(<span class="hljs-string">''</span>).reverse().join(<span class="hljs-string">''</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里只是一个倒序的算法，不算很复杂，只是举例说明。</p>
+<h2 id="watch属性"><a href="#watch属性" class="headerlink" title="watch属性"></a>watch属性</h2><p>我们可以使用watch来进行侦听，来响应数据的变化。上面计算属性的应用，我们也可以改用watch来写：</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  testMessage: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.reversedMessage = <span class="hljs-keyword">this</span>.testMessage.split(<span class="hljs-string">''</span>).reverse().join(<span class="hljs-string">''</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里，我们通过侦听testMessage的变化来做出响应，用于改变reversedMessage的值。</p>
+<blockquote>
+<p>ps：那么computed和watch的应用场景怎么区分？<br>个人认为，computed更适合做一些数据值的计算，而涉及到侦听某变量需要做一些业务处理时，建议使用watch。</p>
+</blockquote>
+<h2 id="class绑定"><a href="#class绑定" class="headerlink" title="class绑定"></a>class绑定</h2><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">&lt;!-- 类似这种形式，与属性绑定大同小异。class的绑定值可以是键值对，也可以是数组。 --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">:class</span>=<span class="hljs-string">"&#123; category: isCategory, red: isRed &#125;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="style绑定"><a href="#style绑定" class="headerlink" title="style绑定"></a>style绑定</h2><p>与class绑定类似，支持键值对语法（css键值对），也支持数组（多个样式对象同时作用）。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">:style</span>=<span class="hljs-string">"&#123; color: activeColor, fontSize: fontSize + 'px' &#125;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="双向绑定v-model"><a href="#双向绑定v-model" class="headerlink" title="双向绑定v-model"></a>双向绑定v-model</h2><p>这一特性与angular的[(ngModel)]是一致的。通常用于表单元素。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"message"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"edit me"</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Message is: &#123;&#123; message &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>不过v-model还支持很多修饰符，如<br>（1）.lazy</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">&lt;!-- 在“change”时而非“input”时更新 --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">v-model.lazy</span>=<span class="hljs-string">"msg"</span> &gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）.number<br>自动将用户的输入值转为数值类型<br>（3）.trim<br>自动过滤用户输入的首尾空白字符</p>
+<h2 id="sync"><a href="#sync" class="headerlink" title=".sync"></a>.sync</h2><p>看名字就知道了，同步的意思，如果绑定的属性加上这个修饰符，就实现了双向绑定。.sync破坏了单向数据流，于2.0 中移除，但又在 2.3.0 版本后以语法糖形式重新引入。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">comp</span> <span class="hljs-attr">:foo.sync</span>=<span class="hljs-string">"bar"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">comp</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="父子组件通信"><a href="#父子组件通信" class="headerlink" title="父子组件通信"></a>父子组件通信</h2><p>父组件通过属性传递数据给子组件props，而子组件以this.$emit(eventname, data)的方式发事件给父组件，父组件模板中需要绑定对应事件。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 父组件模板，通过绑定greet传递数据给子组件，@replay接收来自子组件的事件。</span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">child</span> <span class="hljs-attr">:greet</span>=<span class="hljs-string">"greetMsg"</span> @<span class="hljs-attr">reply</span>=<span class="hljs-string">"showReply"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">child</span>&gt;</span></span><br><span class="line">// 子组件props属性接收</span><br><span class="line">props: ['greet']</span><br><span class="line">// 子组件模板</span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Greet from Father Component: &#123;&#123;greet&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">"replyToFather"</span>&gt;</span>Reply<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="line">// 点击button时调用replyToFather方法，通过$emit发送事件给父组件。</span><br><span class="line">methods: &#123;</span><br><span class="line">  replyToFather: function() &#123;</span><br><span class="line">    this.$emit('reply', this.replyInfo);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h2><p>类似angular的ng-content。父组件可以将想要的内容插在子组件的插槽中。子组件slot标签通过name属性区分插槽，如name=”slot1”，不写name属性的就是默认插槽了；而父组件要在传递给插槽的标签中加上slot属性来区分插在哪个槽中，如slot=”slot1”，如果不加slot属性，则自动插在默认插槽中。slot标签中的内容都被视为备用内容，如果父组件不给子组件传入内容，则会显示子组件slot标签中的备用内容。使用如下：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">&lt;!-- 父组件模板 --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">child</span>&gt;</span></span><br><span class="line">  <span class="hljs-comment">&lt;!-- 没有指定slot属性，所以插在子组件中没有name属性的slot位置 --&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Message From Father<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">  <span class="hljs-comment">&lt;!-- 指定了slot属性的值为head，所以插在子组件中name属性值为head的slot位置 --&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"head"</span>&gt;</span>For Head<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">  <span class="hljs-comment">&lt;!-- 指定了slot属性的值为foot，所以插在子组件中name属性值为foot的slot位置 --&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">slot</span>=<span class="hljs-string">"foot"</span>&gt;</span>For Foot<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line">  <span class="hljs-comment">&lt;!-- 没有指定slot属性，所以插在子组件中没有name属性的slot位置 --&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Other information...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">child</span>&gt;</span></span><br><span class="line"><span class="hljs-comment">&lt;!-- 子组件模板 --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"head"</span>&gt;</span>head content...<span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">slot</span>&gt;</span>Backup content...<span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"foot"</span>&gt;</span>foot content...<span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h2><p>官方提供的说明我不太看得懂，根据我个人的理解，一个很重要的应用场景就是用来抽象列表式组件。比如一个展示性的列表组件，但是具体展示图文，还是其他的，需要由其父组件来指定。我这里写了一个demo。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">&lt;!-- 父组件模板 --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">my-list</span> <span class="hljs-attr">:items</span>=<span class="hljs-string">"movies"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">template</span> <span class="hljs-attr">slot-scope</span>=<span class="hljs-string">"props"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"poster"</span> <span class="hljs-attr">:src</span>=<span class="hljs-string">"props.item.posterUrl"</span>/&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123; props.item.moviename &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">  <span class="hljs-comment">&lt;!-- 我可以在这里调用各种组件，来适应各种需要，比如我可以做海报展示，那么我只要一个&lt;img&gt;;比如我只要电影名称的列表，那么就只要用到电影名称 --&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">my-list</span>&gt;</span></span><br><span class="line"><span class="hljs-comment">&lt;!-- 子组件模板，模板中的items是由props接收的 --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hot-movie"</span>&gt;</span>近期热映<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">slot</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"slot-item"</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in items"</span> <span class="hljs-attr">:item</span>=<span class="hljs-string">"item"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">slot</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用要点：<br>（1）父组件通过属性绑定将数据（一般是数组，毕竟是用于列表展示嘛）传递给子组件。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">my-list</span> <span class="hljs-attr">:items</span>=<span class="hljs-string">"movies"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">my-list</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）父组件传递给子组件的内容用template标签包裹，template标签具备slot-scope=”props”，props来源于子组件slot标签绑定的属性集，而本例中slot标签绑定了item属性，所以template中的内容可以调用props.item下的属性。</p>
+<h2 id="动态组件"><a href="#动态组件" class="headerlink" title="动态组件"></a>动态组件</h2><p>利用component标签及其is属性可以动态切换组件。curComponent的值为组件名。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">:is</span>=<span class="hljs-string">"curComponent"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="keep-alive标签"><a href="#keep-alive标签" class="headerlink" title="keep-alive标签"></a>keep-alive标签</h3><p>利用keep-alive标签包裹component标签可以让切换组件保留在内存中，可以保留它的状态，避免重新渲染。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">:is</span>=<span class="hljs-string">"curComponent"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ref属性"><a href="#ref属性" class="headerlink" title="ref属性"></a>ref属性</h2><p>ref属性实现了组件的引用，不过应当避免使用ref。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">ref-comp</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"refComp"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ref-comp</span>&gt;</span></span><br><span class="line"><span class="hljs-comment">&lt;!-- 我们可以在父组件中直接改变子组件中的refValue属性 --&gt;</span></span><br><span class="line">this.$refs.refComp.refValue += 'a';</span><br></pre></td></tr></table></figure>
+
+<h2 id="transition过渡"><a href="#transition过渡" class="headerlink" title="transition过渡"></a>transition过渡</h2><p>在组件外包裹一层transition标签，name标识transition，即可为组件加上过渡效果。如：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fade"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-show</span>=<span class="hljs-string">"showFade"</span>&gt;</span>Fade<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在进入/离开的过渡中，会有 6 个 class 切换，默认 class 名称格式如下。</p>
+<ul>
+<li>fade-enter // 进入过渡开始，一般在这个class下定义-过渡开始时的css状态</li>
+<li>fade-enter-active // 进入过渡活跃状态，一般在这个-class下定义进入过渡过程中的动画</li>
+<li>fade-enter-to // 进入过渡结束，一般在这个class下定义过渡结束时的css状态。ps：离开过渡不再说明，类似开始过渡。</li>
+<li>fade-leave // 离开过渡开始</li>
+<li>fade-leave-active // 离开过渡活跃状态</li>
+<li>fade-leave-to // 离开过渡结束</li>
+</ul>
+<p>我们也可以自定义过渡类名，需要增加transition标签的属性，这样就可以使用第三方的动画库了。用法如下：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fade"</span> <span class="hljs-attr">enter-active-class</span>=<span class="hljs-string">"animated tada"</span> <span class="hljs-attr">leave-active-class</span>=<span class="hljs-string">"animated bounceOutRight"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">v-show</span>=<span class="hljs-string">"showFade"</span>&gt;</span>Fade<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>过渡效果主要的应用场景有：</p>
+<ul>
+<li>v-if</li>
+<li>v-show</li>
+<li>动态组件</li>
+</ul>
+<p>transition有着一系列javascript钩子函数，从字面意思可以与过渡的class对应起来，如下所示：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">:css</span>=<span class="hljs-string">"false"</span></span></span><br><span class="line"><span class="hljs-tag">  @<span class="hljs-attr">before-enter</span>=<span class="hljs-string">"beforeEnter"</span></span></span><br><span class="line"><span class="hljs-tag">  @<span class="hljs-attr">enter</span>=<span class="hljs-string">"enter"</span></span></span><br><span class="line"><span class="hljs-tag">  @<span class="hljs-attr">after-enter</span>=<span class="hljs-string">"afterEnter"</span></span></span><br><span class="line"><span class="hljs-tag">  @<span class="hljs-attr">enter-cancelled</span>=<span class="hljs-string">"enterCancelled"</span></span></span><br><span class="line"><span class="hljs-tag"></span></span><br><span class="line"><span class="hljs-tag">  @<span class="hljs-attr">before-leave</span>=<span class="hljs-string">"beforeLeave"</span></span></span><br><span class="line"><span class="hljs-tag">  @<span class="hljs-attr">leave</span>=<span class="hljs-string">"leave"</span></span></span><br><span class="line"><span class="hljs-tag">  @<span class="hljs-attr">after-leave</span>=<span class="hljs-string">"afterLeave"</span></span></span><br><span class="line"><span class="hljs-tag">  @<span class="hljs-attr">leave-cancelled</span>=<span class="hljs-string">"leaveCancelled"</span></span></span><br><span class="line"><span class="hljs-tag">&gt;</span></span><br><span class="line">......</span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>钩子函数都有参数el，用于引用添加了transition包裹的元素。enter和leave钩子函数中额外有一个参数done，done是一个回调函数，是必须在最后调用的。否则，它们会被同步调用，过渡会立即完成。</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enter: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, done</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-comment">// ...</span></span><br><span class="line">  done();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有了js钩子函数，那么我就可以不使用class来定义过渡的效果了，我可以使用js动画库，如velocity.js，这个时候最好添加v-bind:css=”false”，Vue 会跳过 CSS 的检测。这也可以避免过渡过程中 CSS 的影响。</p>
+<p>我们可以给元素设置初始渲染的过渡效果。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span> <span class="hljs-attr">appear</span>&gt;</span></span><br><span class="line">  <span class="hljs-comment">&lt;!-- ... --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>appear拥有相同的class钩子和js钩子，也可以自定义类名。</p>
+<h2 id="多个元素的过渡"><a href="#多个元素的过渡" class="headerlink" title="多个元素的过渡"></a>多个元素的过渡</h2><p>transition中多个元素过渡时，可以这样写，给每个元素加上key属性来作为唯一标识：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"isEditing"</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"save"</span>&gt;</span></span><br><span class="line">    Save</span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-else</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"edit"</span>&gt;</span></span><br><span class="line">    Edit</span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上述代码也可以简写为绑定key的形式，而不再需要if，else：</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"isEditing"</span>&gt;</span></span><br><span class="line">    &#123;&#123; isEditing ? 'Save' : 'Edit' &#125;&#125;</span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其中的isEditing ? ‘Save’ : ‘Edit’也可以抽象为一个computed属性。</p>
+<p>除了多个元素的过渡，类似的还有动态组件的过渡。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fade-dynamic"</span> <span class="hljs-attr">mode</span>=<span class="hljs-string">"out-in"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">:is</span>=<span class="hljs-string">"curComponent"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>mode属性定义了过渡模式，防止当前元素的离开与下一个元素的进入产生重叠现象：</p>
+<ul>
+<li>in-out：新元素先进行过渡，完成之后当前元素过渡离开。</li>
+<li>out-in：当前元素先进行过渡，完成之后新元素过渡进入。</li>
+</ul>
+<h2 id="列表过渡"><a href="#列表过渡" class="headerlink" title="列表过渡"></a>列表过渡</h2><p>列表过渡用到的组件是transition-group。transition-group会以真实的元素存在于html文档中，而transition是不存在于html文档中的。transition-group存在的形式由tag属性指定，如</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">transition-group</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"group-list"</span> <span class="hljs-attr">tag</span>=<span class="hljs-string">"div"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"item in groups"</span> <span class="hljs-attr">:key</span>=<span class="hljs-string">"item.id"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"group-item"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"group-item-img"</span> <span class="hljs-attr">:src</span>=<span class="hljs-string">"item.picUrl"</span>/&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">transition-group</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>为了让group-list的过渡效果平滑，有一个v-move属性，也是通过绑定class实现</p>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.group-list-move</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">transition</span>: transform <span class="hljs-number">1s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>另一种实现方式如下：</p>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.group-item</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">margin</span>: <span class="hljs-number">10px</span>;</span><br><span class="line">  <span class="hljs-attribute">display</span>: inline-block;</span><br><span class="line">  <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">60px</span>;</span><br><span class="line">  <span class="hljs-attribute">transition</span>: all <span class="hljs-number">1s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-selector-class">.group-item-img</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">/* 这个作用是让元素在离开的过程中不占位，使过渡看起来十分平滑 */</span></span><br><span class="line"><span class="hljs-selector-class">.group-list-leave-active</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">position</span>: absolute;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">/* .group-list-enter-active, .group-list-leave-active &#123;</span></span><br><span class="line"><span class="hljs-comment">  transition: all 1s;</span></span><br><span class="line"><span class="hljs-comment">&#125; */</span></span><br><span class="line"><span class="hljs-selector-class">.group-list-enter</span>, <span class="hljs-selector-class">.group-list-leave-to</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;</span><br><span class="line">  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateY</span>(30px);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">/* move属性作用于元素的改变定位的过程中，这里会让transform有一个过渡效果；</span></span><br><span class="line"><span class="hljs-comment">如果需要让列表整体有一个整体性过渡，那么可以在group-item类中加上transition属性，</span></span><br><span class="line"><span class="hljs-comment">那么也就不需要group-list-enter-active和group-list-leave-active类中有transition属性了。</span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line"><span class="hljs-comment">/* .group-list-move &#123;</span></span><br><span class="line"><span class="hljs-comment">  transition: transform 1s;</span></span><br><span class="line"><span class="hljs-comment">&#125; */</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h2><p>mixin是一种提高编写效率的写法，详情请参考<a href="https://cn.vuejs.org/v2/guide/mixins.html" target="_blank" rel="noopener">mixin</a>。</p>
+<h2 id="vue自定义指令"><a href="#vue自定义指令" class="headerlink" title="vue自定义指令"></a>vue自定义指令</h2><p>一个指令定义对象可以提供如下几个钩子函数。</p>
+<ul>
+<li>bind：只调用一次，指令第一次绑定到元素时调用。</li>
+<li>inserted：被绑定元素插入父节点时调用</li>
+<li>update</li>
+<li>componentUpdated</li>
+<li>unbind</li>
+</ul>
+<p>目前未对指令进行深究，只写了一个简单的指令。</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">directives: &#123;</span><br><span class="line">  autoClick: &#123;</span><br><span class="line">    inserted: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">el</span>) </span>&#123;</span><br><span class="line">      el.click();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="vue组件生命周期"><a href="#vue组件生命周期" class="headerlink" title="vue组件生命周期"></a>vue组件生命周期</h2><p>参考：<br>（1）<a href="https://segmentfault.com/a/1190000008010666" target="_blank" rel="noopener">Vue2.0 探索之路——生命周期和钩子函数的一些理解</a><br>（2）<a href="https://cn.vuejs.org/v2/api" target="_blank" rel="noopener">API</a></p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/vue/">vue</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay_payme.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/vue-cli.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">vue学习过程的个人笔记</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/ng-zorro-notes.html">
+                <span class="level-item">ng-zorro使用过程中的一些笔记</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		id: '7a8725dde5f906a5ecdfcc2c472bb512',
+		owner: 'cumt-robin',
+		repo: 'cumtrobin.github.io',
+		oauth: {
+			client_id: 'e244808d754d6ef5f8aa',
+			client_secret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
+		},
+	})
+	gitment.render('comment-container')
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                        <figure class="image is-128x128 has-mb-6">
+                            <img class="is-rounded" src="/images/avatar.png" alt="Tusi">
+                        </figure>
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Tusi
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        业务全栈打酱油
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>湖南长沙</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        37
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        19
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        40
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/cumt-robin" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/cumt-robin">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="WeChat" href="http://qncdn.wbjiang.cn/%E5%BE%AE%E4%BF%A1%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%90%8D%E7%89%87.jpg">
+                
+                <i class="fab fa-weixin"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            友情链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.wbjiang.cn" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi博客</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.wbjiang.cn</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/solve-chrome-autofill.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="解决Chrome的表单自动填充问题">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-07-19T15:51:41.000Z">2018-07-19</time></div>
+                    <a href="/solve-chrome-autofill.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">解决Chrome的表单自动填充问题</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/range-slider.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="自定义UI组件系列之滑块（Range Slider）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-30T09:42:17.000Z">2018-04-30</time></div>
+                    <a href="/range-slider.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">自定义UI组件系列之滑块（Range Slider）</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/css/">css</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/front-interview.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="前端面试题记录">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-16T05:46:30.000Z">2018-04-16</time></div>
+                    <a href="/front-interview.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端面试题记录</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/面试/">面试</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/vue-problems.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue开发过程问题汇总记录">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-13T06:55:03.000Z">2018-04-13</time></div>
+                    <a href="/vue-problems.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue开发过程问题汇总记录</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/vue/">vue</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/vue-router.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue-router基础内容">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-05T08:14:07.000Z">2018-04-05</time></div>
+                    <a href="/vue-router.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue-router基础内容</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/vue/">vue</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Angular/">
+                        <span class="tag">Angular</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Sass/">
+                        <span class="tag">Sass</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TortoiseGIT/">
+                        <span class="tag">TortoiseGIT</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VMware/">
+                        <span class="tag">VMware</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/async/">
+                        <span class="tag">async</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/autofill/">
+                        <span class="tag">autofill</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/baidu/">
+                        <span class="tag">baidu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bootstrap/">
+                        <span class="tag">bootstrap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cnzz/">
+                        <span class="tag">cnzz</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/coding/">
+                        <span class="tag">coding</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css/">
+                        <span class="tag">css</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/defer/">
+                        <span class="tag">defer</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/demo/">
+                        <span class="tag">demo</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/es/">
+                        <span class="tag">es</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/express/">
+                        <span class="tag">express</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gitment/">
+                        <span class="tag">gitment</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gulp/">
+                        <span class="tag">gulp</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html/">
+                        <span class="tag">html</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/http-server/">
+                        <span class="tag">http-server</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jdk/">
+                        <span class="tag">jdk</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jquery/">
+                        <span class="tag">jquery</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js/">
+                        <span class="tag">js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/livere/">
+                        <span class="tag">livere</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/next/">
+                        <span class="tag">next</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ng-zorro/">
+                        <span class="tag">ng-zorro</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nodejs/">
+                        <span class="tag">nodejs</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/npm卡顿/">
+                        <span class="tag">npm卡顿</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/valine/">
+                        <span class="tag">valine</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue/">
+                        <span class="tag">vue</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue-router/">
+                        <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/web前端/">
+                        <span class="tag">web前端</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/电脑技能/">
+                        <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/记事本/">
+                        <span class="tag">记事本</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/运维/">
+                        <span class="tag">运维</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/面试/">
+                        <span class="tag">面试</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/solve-chrome-autofill.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="解决Chrome的表单自动填充问题">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-07-19T15:51:41.000Z">2018-07-19</time></div>
+                    <a href="/solve-chrome-autofill.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">解决Chrome的表单自动填充问题</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/web前端/">web前端</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/range-slider.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="自定义UI组件系列之滑块（Range Slider）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-30T09:42:17.000Z">2018-04-30</time></div>
+                    <a href="/range-slider.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">自定义UI组件系列之滑块（Range Slider）</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/css/">css</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/front-interview.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="前端面试题记录">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-16T05:46:30.000Z">2018-04-16</time></div>
+                    <a href="/front-interview.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端面试题记录</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/面试/">面试</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/vue-problems.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue开发过程问题汇总记录">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-13T06:55:03.000Z">2018-04-13</time></div>
+                    <a href="/vue-problems.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue开发过程问题汇总记录</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/vue/">vue</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/vue-router.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="vue-router基础内容">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-04-05T08:14:07.000Z">2018-04-05</time></div>
+                    <a href="/vue-router.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue-router基础内容</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/vue/">vue</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Angular/">
+                        <span class="tag">Angular</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Sass/">
+                        <span class="tag">Sass</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TortoiseGIT/">
+                        <span class="tag">TortoiseGIT</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VMware/">
+                        <span class="tag">VMware</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/async/">
+                        <span class="tag">async</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/autofill/">
+                        <span class="tag">autofill</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/baidu/">
+                        <span class="tag">baidu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bootstrap/">
+                        <span class="tag">bootstrap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cnzz/">
+                        <span class="tag">cnzz</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/coding/">
+                        <span class="tag">coding</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css/">
+                        <span class="tag">css</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/defer/">
+                        <span class="tag">defer</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/demo/">
+                        <span class="tag">demo</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/es/">
+                        <span class="tag">es</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/express/">
+                        <span class="tag">express</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gitment/">
+                        <span class="tag">gitment</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gulp/">
+                        <span class="tag">gulp</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html/">
+                        <span class="tag">html</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/http-server/">
+                        <span class="tag">http-server</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jdk/">
+                        <span class="tag">jdk</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jquery/">
+                        <span class="tag">jquery</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js/">
+                        <span class="tag">js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/livere/">
+                        <span class="tag">livere</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/next/">
+                        <span class="tag">next</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ng-zorro/">
+                        <span class="tag">ng-zorro</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nodejs/">
+                        <span class="tag">nodejs</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/npm卡顿/">
+                        <span class="tag">npm卡顿</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/valine/">
+                        <span class="tag">valine</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue/">
+                        <span class="tag">vue</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue-router/">
+                        <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/web前端/">
+                        <span class="tag">web前端</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/电脑技能/">
+                        <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/记事本/">
+                        <span class="tag">记事本</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/运维/">
+                        <span class="tag">运维</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/面试/">
+                        <span class="tag">面试</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="撸一遍vue的基础特性" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Tusi&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Follow me on GitHub" href="https://github.com/cumt-robin">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
