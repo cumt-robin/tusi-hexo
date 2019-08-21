@@ -7,23 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>hexo+github打造个人博客系列之Coding托管（实现github+coding双线部署） - Tusi博客</title>
+<title>hexo+github打造个人博客系列之数据统计与分析 - Tusi博客</title>
 
 
-    <meta name="description" content="背景从网上搜索的结果来看，很多人都认为github博客在国内的seo情况不太好，不被百度爬虫所青睐。一个比较好的方案是，同时将hexo博客部署到github和Coding上。所以我也想试一下，顺便了解一下Coding这个代码托管平台。 注册Coding点击Coding官网，完成注册。 注册完成后，按照提示绑定一下手机和邮箱，就成为所谓的银牌会员了，会提升空间大小，方便后续使用。 创建一个项目">
-<meta name="keywords" content="hexo,coding">
+    <meta name="description" content="看到各种第三方服务，我就想折腾一下。本文简单说一下如何给自己的博客加上站点统计功能。">
+<meta name="keywords" content="hexo,百度统计,CNZZ统计">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo+github打造个人博客系列之Coding托管（实现github+coding双线部署）">
-<meta property="og:url" content="http://hexo.wbjiang.cn/coding-and-git-deploy.html">
+<meta property="og:title" content="hexo+github打造个人博客系列之数据统计与分析">
+<meta property="og:url" content="http://hexo.wbjiang.cn/hexo+github打造个人博客系列之数据统计与分析.html">
 <meta property="og:site_name" content="Tusi博客">
-<meta property="og:description" content="背景从网上搜索的结果来看，很多人都认为github博客在国内的seo情况不太好，不被百度爬虫所青睐。一个比较好的方案是，同时将hexo博客部署到github和Coding上。所以我也想试一下，顺便了解一下Coding这个代码托管平台。 注册Coding点击Coding官网，完成注册。 注册完成后，按照提示绑定一下手机和邮箱，就成为所谓的银牌会员了，会提升空间大小，方便后续使用。 创建一个项目">
+<meta property="og:description" content="看到各种第三方服务，我就想折腾一下。本文简单说一下如何给自己的博客加上站点统计功能。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://hexo.wbjiang.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-07T06:30:58.843Z">
+<meta property="og:image" content="http://qncdn.wbjiang.cn/hexo.svg">
+<meta property="og:updated_time" content="2019-08-21T03:53:07.620Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo+github打造个人博客系列之Coding托管（实现github+coding双线部署）">
-<meta name="twitter:description" content="背景从网上搜索的结果来看，很多人都认为github博客在国内的seo情况不太好，不被百度爬虫所青睐。一个比较好的方案是，同时将hexo博客部署到github和Coding上。所以我也想试一下，顺便了解一下Coding这个代码托管平台。 注册Coding点击Coding官网，完成注册。 注册完成后，按照提示绑定一下手机和邮箱，就成为所谓的银牌会员了，会提升空间大小，方便后续使用。 创建一个项目">
-<meta name="twitter:image" content="http://hexo.wbjiang.cn/images/og_image.png">
+<meta name="twitter:title" content="hexo+github打造个人博客系列之数据统计与分析">
+<meta name="twitter:description" content="看到各种第三方服务，我就想折腾一下。本文简单说一下如何给自己的博客加上站点统计功能。">
+<meta name="twitter:image" content="http://qncdn.wbjiang.cn/hexo.svg">
 
 
 
@@ -107,7 +107,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="hexo+github打造个人博客系列之Coding托管（实现github+coding双线部署）" height="28">
+                <img src="/images/logo.png" alt="hexo+github打造个人博客系列之数据统计与分析" height="28">
             
             </a>
         </div>
@@ -159,11 +159,17 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/hexo.svg" alt="hexo+github打造个人博客系列之数据统计与分析">
+        </span>
+    </div>
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-02-01T14:16:49.000Z">2018-02-01</time>
+                <time class="level-item has-text-grey" datetime="2018-01-29T14:41:14.000Z">2018-01-29</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/hexo搭建博客/">hexo搭建博客</a>
@@ -173,7 +179,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    8 分钟 读完 (大约 1206 个字)
+                    5 分钟 读完 (大约 769 个字)
                 </span>
                 
                 
@@ -187,35 +193,26 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                hexo+github打造个人博客系列之Coding托管（实现github+coding双线部署）
+                hexo+github打造个人博客系列之数据统计与分析
             
         </h1>
         <div class="content">
-            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>从网上搜索的结果来看，很多人都认为github博客在国内的seo情况不太好，不被百度爬虫所青睐。一个比较好的方案是，同时将hexo博客部署到github和Coding上。所以我也想试一下，顺便了解一下Coding这个代码托管平台。</p>
-<h2 id="注册Coding"><a href="#注册Coding" class="headerlink" title="注册Coding"></a>注册Coding</h2><p>点击<a href="https://coding.net/" target="_blank" rel="noopener">Coding官网</a>，完成注册。<br><img src="http://img.blog.csdn.net/20180201222520874?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>注册完成后，按照提示绑定一下手机和邮箱，就成为所谓的银牌会员了，会提升空间大小，方便后续使用。</p>
-<h2 id="创建一个项目"><a href="#创建一个项目" class="headerlink" title="创建一个项目"></a>创建一个项目</h2><a id="more"></a>
-<p>按照下图指示，创建一个公开项目，类似于github的仓库。<br><img src="http://img.blog.csdn.net/20180201223914540?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="设置ssh秘钥"><a href="#设置ssh秘钥" class="headerlink" title="设置ssh秘钥"></a>设置ssh秘钥</h2><h3 id="查询公钥"><a href="#查询公钥" class="headerlink" title="查询公钥"></a>查询公钥</h3><p>与github是一样的，使用服务需要验证ssh秘钥。首先在计算机对应的文件夹中找到公钥。一般是这样一个目录。以前没有生成过ssh秘钥的，需要查阅一下如何生成ssh秘钥。<br><img src="http://img.blog.csdn.net/20180201224414797?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="设置公钥"><a href="#设置公钥" class="headerlink" title="设置公钥"></a>设置公钥</h3><p>将公钥的内容存储到Coding的账户中。<br><img src="http://img.blog.csdn.net/20180201224553524?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="验证SSH服务"><a href="#验证SSH服务" class="headerlink" title="验证SSH服务"></a>验证SSH服务</h3><p>配置完成后，验证一下是否可以ssh连接coding.net，在git bash中敲命令</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@git.coding.net</span><br></pre></td></tr></table></figure>
-
-<p>如果界面显示这样的信息，那么证明ssh连接是OK的。<br><img src="http://img.blog.csdn.net/20180201225516365?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="Hexo配置"><a href="#Hexo配置" class="headerlink" title="Hexo配置"></a>Hexo配置</h2><p>然后配置hexo，在deploy字段下新增一个git仓库，repo是coding项目对应的ssh url<br><img src="http://img.blog.csdn.net/20180201230629534?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>配置完后，运行deploy部署命令，就可以在coding仓库中看到代码了。</p>
+            <p>看到各种第三方服务，我就想折腾一下。本文简单说一下如何给自己的博客加上站点统计功能。</p>
+<a id="more"></a>
+<h2 id="百度统计"><a href="#百度统计" class="headerlink" title="百度统计"></a>百度统计</h2><h3 id="登录百度统计"><a href="#登录百度统计" class="headerlink" title="登录百度统计"></a>登录百度统计</h3><p>打开<a href="https://tongji.baidu.com/web/welcome/login" target="_blank" rel="noopener">百度统计</a>，输入百度账号密码即可。</p>
+<h3 id="添加网站"><a href="#添加网站" class="headerlink" title="添加网站"></a>添加网站</h3><p>来到个人中心的“管理”模块，点击“新增网站”按钮，填写博客网站的信息。<br><img src="http://img.blog.csdn.net/20180130214518312?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="获取统计ID"><a href="#获取统计ID" class="headerlink" title="获取统计ID"></a>获取统计ID</h3><p>点击左侧菜单的“代码获取”，然后找到?后的ID（截图中被马赛克覆盖的部分），复制到粘贴板，供hexo中配置使用。每个网站对应的统计ID都不同，不要复制别人的，否则就没什么意义了。<br><img src="http://img.blog.csdn.net/20180130214822824?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="修改主题配置"><a href="#修改主题配置" class="headerlink" title="修改主题配置"></a>修改主题配置</h3><p>将刚才复制的ID赋值给Next主题配置中的baidu_analytics字段<br><img src="http://img.blog.csdn.net/20180130215105046?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="部署和查看数据"><a href="#部署和查看数据" class="headerlink" title="部署和查看数据"></a>部署和查看数据</h3><p>保存修改后，再次部署博客。</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://img.blog.csdn.net/20180201235057115?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="使用Coding-Pages服务"><a href="#使用Coding-Pages服务" class="headerlink" title="使用Coding Pages服务"></a>使用Coding Pages服务</h2><p>Coding也提供了类似github的Pages服务，按照流程填写一下，就可以开启Pages服务了。<br><img src="http://img.blog.csdn.net/20180201235524008?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>启用Pages服务后，就可以通过Coding提供的二级域名访问博客页面了。但是刚启动，好像看到了很多403，404错误。扎心了老铁，还得慢慢排错啊。。。<br><img src="http://img.blog.csdn.net/20180201235719257?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><p>查阅了各个资源文件的获取情况，发现是子目录不对造成的。<br><img src="http://img.blog.csdn.net/20180202002142178?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>可以看到，部署在Coding该项目下的资源都是在hexo-blog子目录下的，而这里http访问的url是没有hexo-blog的。所以造成了访问403，404各种错误。那么如何解决这个问题呢？那就是将Coding pages的地址作为一个CNAME解析到<a href="http://wbjiang.cn" target="_blank" rel="noopener">我的域名</a>下。</p>
-<h2 id="添加CNAME解析"><a href="#添加CNAME解析" class="headerlink" title="添加CNAME解析"></a>添加CNAME解析</h2><p>来到阿里云的控制台，找到域名解析。添加CNAME解析。<br>将原来的指向github主机的A记录切换到海外线路。添加pages.coding.me的CNAME记录。<br><img src="http://img.blog.csdn.net/20180202002649689?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="Coding-Pages添加自定义域名"><a href="#Coding-Pages添加自定义域名" class="headerlink" title="Coding Pages添加自定义域名"></a>Coding Pages添加自定义域名</h2><p>完成上一步后，就可以在Coding Pages添加自定义域名了。<br><img src="http://img.blog.csdn.net/20180202002741825?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>这个时候再点击<a href="http://wbjiang.cn" target="_blank" rel="noopener">自己的域名</a>，已经是正常访问了，也没有页面错乱，报错的现象了，大功告成！</p>
-<p>至此，我们也完成了github+coding双线部署！</p>
-<p>本人的hexo小博客，<a href="http://wbjiang.cn" target="_blank" rel="noopener">欢迎猛戳！</a></p>
+<p>然后百度统计就可以统计到你的站点信息了。<br><img src="http://img.blog.csdn.net/20180130215254848?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="CNZZ统计"><a href="#CNZZ统计" class="headerlink" title="CNZZ统计"></a>CNZZ统计</h2><h3 id="注册友盟账号"><a href="#注册友盟账号" class="headerlink" title="注册友盟账号"></a>注册友盟账号</h3><p>打开<a href="https://passport.umeng.com/signup" target="_blank" rel="noopener">友盟注册页面</a>。注册完毕后点击“网站统计”进入站点管理页面。<br><img src="http://img.blog.csdn.net/20180130215846080?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="添加站点"><a href="#添加站点" class="headerlink" title="添加站点"></a>添加站点</h3><p>点击右侧的“添加站点”按钮，填写博客站点信息，完成添加。<br><img src="http://img.blog.csdn.net/20180130220049400?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="获取CNZZ统计ID"><a href="#获取CNZZ统计ID" class="headerlink" title="获取CNZZ统计ID"></a>获取CNZZ统计ID</h3><p>点击“统计代码”，可以查看到你的站点对应的统计ID。<br><img src="http://img.blog.csdn.net/20180130220250403?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20180130220259253?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>复制这个ID，以便后面配置Hexo使用。</p>
+<h3 id="修改Hexo中主题配置"><a href="#修改Hexo中主题配置" class="headerlink" title="修改Hexo中主题配置"></a>修改Hexo中主题配置</h3><p>修改next主题配置里面的cnzz_siteid字段，值为刚才复制的ID。修改完毕后，重新部署应用即可在cnzz我的站点中查看统计报表了。这里就能发现，CNZZ与百度统计是同一个套路，其他的第三方统计也是类似，不再赘述。</p>
 
         </div>
         
@@ -223,7 +220,7 @@ var _hmt = _hmt || [];
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/coding/">coding</a>, <a class="has-link-grey -link" href="/tags/hexo/">hexo</a>
+                    <a class="has-link-grey -link" href="/tags/CNZZ统计/">CNZZ统计</a>, <a class="has-link-grey -link" href="/tags/hexo/">hexo</a>, <a class="has-link-grey -link" href="/tags/百度统计/">百度统计</a>
                 </div>
             </div>
         </div>
@@ -270,16 +267,16 @@ var _hmt = _hmt || [];
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/remove-ad.html">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/呼吸灯特效.html">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">hexo+github打造个人博客系列之Coding Pages去广告</span>
+                <span class="level-item">呼吸灯特效</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/breath-lamp.html">
-                <span class="level-item">呼吸灯特效</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/hexo-skills.html">
+                <span class="level-item">hexo+github打造个人博客系列之小技巧</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -300,7 +297,7 @@ var _hmt = _hmt || [];
     var gitalk = new Gitalk({
         clientID: 'e244808d754d6ef5f8aa',
         clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
-        id: '9dd6f7ea0cbd77e28f730f4cec92ec82',
+        id: '7d191333ae240b3c49d9e34a4604de1d',
         repo: 'tusi-hexo',
         owner: 'cumt-robin',
         admin: "cumt-robin",
@@ -439,6 +436,50 @@ var _hmt = _hmt || [];
                 </a>
             </li>
         
+            <li>
+                <a class="level is-mobile" href="https://www.whatled.com/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">少将博客</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.whatled.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41196185" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi CSDN</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://juejin.im/user/5ca40a18f265da30b8178b31" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi掘金</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">juejin.im</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.jiangshaobo.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Abel</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.jiangshaobo.cn</span>
+                    </span>
+                </a>
+            </li>
+        
         </ul>
         </div>
     </div>
@@ -571,15 +612,15 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
-                        <span class="tag">Chrome自动填充</span>
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Sass/">
-                        <span class="tag">Sass</span>
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -599,22 +640,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/baidu/">
-                        <span class="tag">baidu</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/bootstrap/">
                         <span class="tag">bootstrap</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/cnzz/">
-                        <span class="tag">cnzz</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -636,7 +663,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/demo/">
                         <span class="tag">demo</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -678,7 +705,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/gulp/">
                         <span class="tag">gulp</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -776,13 +803,20 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/vue/">
                         <span class="tag">vue</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/vue-router/">
                         <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -804,6 +838,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/电脑技能/">
                         <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -953,15 +994,15 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
-                        <span class="tag">Chrome自动填充</span>
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Sass/">
-                        <span class="tag">Sass</span>
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -981,22 +1022,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/baidu/">
-                        <span class="tag">baidu</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/bootstrap/">
                         <span class="tag">bootstrap</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/cnzz/">
-                        <span class="tag">cnzz</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1018,7 +1045,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/demo/">
                         <span class="tag">demo</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1060,7 +1087,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/gulp/">
                         <span class="tag">gulp</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1158,13 +1185,20 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/vue/">
                         <span class="tag">vue</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/vue-router/">
                         <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1186,6 +1220,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/电脑技能/">
                         <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1214,7 +1255,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="hexo+github打造个人博客系列之Coding托管（实现github+coding双线部署）" height="28">
+                    <img src="/images/logo.png" alt="hexo+github打造个人博客系列之数据统计与分析" height="28">
                 
                 </a>
                 <p class="is-size-7">

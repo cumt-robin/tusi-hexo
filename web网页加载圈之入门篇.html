@@ -19,7 +19,7 @@
 <meta property="og:description" content="作为一名web开发者，或多或少都会接触到网页加载圈这个概念。一个网站的加载速度或快或慢，而慢的网页加载速度会给用户非常差的体验，这个时候如果不给用户一点提示信息，那简直糟糕透了。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/loading_400x300.png">
-<meta property="og:updated_time" content="2019-08-20T10:47:26.177Z">
+<meta property="og:updated_time" content="2019-08-21T03:17:49.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web网页加载圈之入门篇">
 <meta name="twitter:description" content="作为一名web开发者，或多或少都会接触到网页加载圈这个概念。一个网站的加载速度或快或慢，而慢的网页加载速度会给用户非常差的体验，这个时候如果不给用户一点提示信息，那简直糟糕透了。">
@@ -179,7 +179,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 759 个字)
+                    5 分钟 读完 (大约 761 个字)
                 </span>
                 
                 
@@ -201,24 +201,24 @@ var _hmt = _hmt || [];
 <h2 id="如何知道网页加载完成"><a href="#如何知道网页加载完成" class="headerlink" title="如何知道网页加载完成"></a>如何知道网页加载完成</h2><p>DOM给我们提供了这样一个方法document.onreadystatechange。当一个文档的readyState属性发生更改时，readystatechange事件会被触发。document.readyState有两个值，interactive和complete。interactive状态表示文档已经完成加载，文档已被解析，但是诸如图像，样式表和框架之类的子资源仍在加载。complete状态则表示页面加载结束。那么我们可以在页面上写一个提示信息，当document.readyState变为complete状态就隐藏这个提示，这样就可以达到一个过渡的效果了。</p>
 <h2 id="文字提示效果"><a href="#文字提示效果" class="headerlink" title="文字提示效果"></a>文字提示效果</h2><p>我们从最简单的开始，可以给用户一个文字提示，比如“Loading…”。那么代码怎么写呢？</p>
 <h3 id="绘制加载提示"><a href="#绘制加载提示" class="headerlink" title="绘制加载提示"></a>绘制加载提示</h3><p>第一步，在body中绘制加载提示。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;loading&quot;&gt;Loading...&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"loading"</span>&gt;</span>Loading...<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>第二步，给提示内容一个居中的样式效果。在style标签中写样式</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#loading &#123;</span><br><span class="line">	position: absolute;</span><br><span class="line">	width: 50px;</span><br><span class="line">	height: 50px;</span><br><span class="line">	left: 50%;</span><br><span class="line">	top: 50%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-id">#loading</span> &#123;</span><br><span class="line">	<span class="hljs-attribute">position</span>: absolute;</span><br><span class="line">	<span class="hljs-attribute">width</span>: <span class="hljs-number">50px</span>;</span><br><span class="line">	<span class="hljs-attribute">height</span>: <span class="hljs-number">50px</span>;</span><br><span class="line">	<span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;</span><br><span class="line">	<span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>打开该html页面，我们可以看到初步的效果。</p>
 <h3 id="根据状态隐藏提示"><a href="#根据状态隐藏提示" class="headerlink" title="根据状态隐藏提示"></a>根据状态隐藏提示</h3><p>利用document.onreadystatechange方法监听页面加载状态，当document.readyState变为complete状态就隐藏加载提示。加入script标签，写入以下代码。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">document.onreadystatechange = () =&gt; &#123;</span><br><span class="line">  if (document.readyState === &apos;complete&apos;) &#123;</span><br><span class="line">    var loadingElement = document.getElementById(&apos;loading&apos;);</span><br><span class="line">    loadingElement.parentNode.removeChild(loadingElement);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">document</span>.onreadystatechange = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.readyState === <span class="hljs-string">'complete'</span>) &#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> loadingElement = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'loading'</span>);</span><br><span class="line">    loadingElement.parentNode.removeChild(loadingElement);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>刷新html页面，我们可以看到，当页面加载完成时，提示内容自动消失了。（由于资源缓存的关系，第二次的效果不会太明显，可以清空缓存观察效果。）</p>
 <h2 id="图片加载效果"><a href="#图片加载效果" class="headerlink" title="图片加载效果"></a>图片加载效果</h2><p>网上有很多加载圈的gif图片，将上述文字内容换成gif图片就可以做到。也可以使用静态图片，然后通过css3动画来做一些加载效果，如rotate旋转。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#loading &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  width: 50px;</span><br><span class="line">  height: 50px;</span><br><span class="line">  left: 50%;</span><br><span class="line">  top: 50%;</span><br><span class="line">  background: url(loading.jpg) center center no-repeat;</span><br><span class="line">  background-size: 100% 100%;</span><br><span class="line">  animation: rotate 1.5s ease-out infinite;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes rotate &#123;</span><br><span class="line">  0% &#123; transform: rotate(0deg);&#125;</span><br><span class="line">  100% &#123; transform: rotate(360deg);&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-id">#loading</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">position</span>: absolute;</span><br><span class="line">  <span class="hljs-attribute">width</span>: <span class="hljs-number">50px</span>;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">50px</span>;</span><br><span class="line">  <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;</span><br><span class="line">  <span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;</span><br><span class="line">  <span class="hljs-attribute">background</span>: <span class="hljs-built_in">url</span>(loading.jpg) center center no-repeat;</span><br><span class="line">  <span class="hljs-attribute">background-size</span>: <span class="hljs-number">100%</span> <span class="hljs-number">100%</span>;</span><br><span class="line">  <span class="hljs-attribute">animation</span>: rotate <span class="hljs-number">1.5s</span> ease-out infinite;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="hljs-keyword">keyframes</span> rotate &#123;</span><br><span class="line">  0% &#123; <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotate</span>(0deg);&#125;</span><br><span class="line">  100% &#123; <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">rotate</span>(360deg);&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 <h2 id="css3自定义加载效果"><a href="#css3自定义加载效果" class="headerlink" title="css3自定义加载效果"></a>css3自定义加载效果</h2><p>其实我们可以利用CSS3自定义加载效果，把我们想要的效果通过动画做出来即可。下面我们来实现一个圆弧加载效果。只要将背景图换成box-shadow效果即可。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">border-radius: 50%;</span><br><span class="line">box-shadow: 2px 0 black;</span><br><span class="line">animation: rotate 1.5s ease-out infinite;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">border-radius</span>: 50%;</span><br><span class="line"><span class="hljs-selector-tag">box-shadow</span>: 2<span class="hljs-selector-tag">px</span> 0 <span class="hljs-selector-tag">black</span>;</span><br><span class="line"><span class="hljs-selector-tag">animation</span>: <span class="hljs-selector-tag">rotate</span> 1<span class="hljs-selector-class">.5s</span> <span class="hljs-selector-tag">ease-out</span> <span class="hljs-selector-tag">infinite</span>;</span><br></pre></td></tr></table></figure>
 
-<p>这是我做的加载圈的效果页面，请<a href="demo/loading.html">点击查看</a>。</p>
+<p>这是我做的加载圈的效果页面，请<a href="/demo/loading.html" target="_blank">点击查看</a>。</p>
 
         </div>
         
@@ -281,7 +281,7 @@ var _hmt = _hmt || [];
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/jdk-guide.html">
+            <a class="level level-item has-link-grey  article-nav-next" href="/jdk下载和安装简明教程.html">
                 <span class="level-item">jdk下载和安装简明教程</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
@@ -442,6 +442,50 @@ var _hmt = _hmt || [];
                 </a>
             </li>
         
+            <li>
+                <a class="level is-mobile" href="https://www.whatled.com/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">少将博客</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.whatled.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41196185" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi CSDN</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://juejin.im/user/5ca40a18f265da30b8178b31" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi掘金</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">juejin.im</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.jiangshaobo.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Abel</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.jiangshaobo.cn</span>
+                    </span>
+                </a>
+            </li>
+        
         </ul>
         </div>
     </div>
@@ -574,15 +618,15 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
-                        <span class="tag">Chrome自动填充</span>
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Sass/">
-                        <span class="tag">Sass</span>
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -602,22 +646,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/baidu/">
-                        <span class="tag">baidu</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/bootstrap/">
                         <span class="tag">bootstrap</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/cnzz/">
-                        <span class="tag">cnzz</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -639,7 +669,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/demo/">
                         <span class="tag">demo</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -681,7 +711,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/gulp/">
                         <span class="tag">gulp</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -779,13 +809,20 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/vue/">
                         <span class="tag">vue</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/vue-router/">
                         <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -807,6 +844,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/电脑技能/">
                         <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -956,15 +1000,15 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
-                        <span class="tag">Chrome自动填充</span>
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Sass/">
-                        <span class="tag">Sass</span>
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -984,22 +1028,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/baidu/">
-                        <span class="tag">baidu</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/bootstrap/">
                         <span class="tag">bootstrap</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/cnzz/">
-                        <span class="tag">cnzz</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1021,7 +1051,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/demo/">
                         <span class="tag">demo</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1063,7 +1093,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/gulp/">
                         <span class="tag">gulp</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1161,13 +1191,20 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/vue/">
                         <span class="tag">vue</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/vue-router/">
                         <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1189,6 +1226,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/电脑技能/">
                         <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

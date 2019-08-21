@@ -19,7 +19,7 @@
 <meta property="og:description" content="做完简单的加载效果后，相信大家也想接着做一些更为复杂的效果。我也是这么想的。很多网页的加载动画都是由很多帧组成的，要做到这种效果也不难，说到底就是看你拆分动画的思路。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/loading_400x300.png">
-<meta property="og:updated_time" content="2019-08-20T10:56:53.482Z">
+<meta property="og:updated_time" content="2019-08-21T03:18:50.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web网页加载圈之进阶篇">
 <meta name="twitter:description" content="做完简单的加载效果后，相信大家也想接着做一些更为复杂的效果。我也是这么想的。很多网页的加载动画都是由很多帧组成的，要做到这种效果也不难，说到底就是看你拆分动画的思路。">
@@ -179,7 +179,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 700 个字)
+                    5 分钟 读完 (大约 686 个字)
                 </span>
                 
                 
@@ -215,7 +215,7 @@ var _hmt = _hmt || [];
 <h3 id="一轮动画结束后怎么重新开始"><a href="#一轮动画结束后怎么重新开始" class="headerlink" title="一轮动画结束后怎么重新开始"></a>一轮动画结束后怎么重新开始</h3><p>页面加载的时间或长或短，不可能动画只执行一轮就结束了。所以我们需要让一轮动画结束后，接着开始第二轮的动画。具体怎么做呢？<br><strong>我们可以监听最后一个圆点的动画结束事件animationend，然后在回调函数中移除动画类，经过短暂的延时后，重新添加动画类即可做到。</strong></p>
 <figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 关键代码</span></span><br><span class="line"><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'last'</span>).addEventListener(<span class="hljs-string">'animationend'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="hljs-keyword">var</span> points = <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">'loading-point'</span>);</span><br><span class="line">  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; points.length; i++) &#123;</span><br><span class="line">    points[i].classList.remove(<span class="hljs-string">'loading-animate'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; points.length; i++) &#123;</span><br><span class="line">      points[i].classList.add(<span class="hljs-string">'loading-animate'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, <span class="hljs-number">500</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<h2 id="根据状态隐藏圆点"><a href="#根据状态隐藏圆点" class="headerlink" title="根据状态隐藏圆点"></a>根据状态隐藏圆点</h2><p>这个跟上文说的是一样的，当document.readyState的值为complete时，隐藏圆点。<a href="/web网页加载圈之入门篇.html">点击参考上文</a>。到此就完成了整个效果，点击查看<a href="/demo/loading2.html">效果页面</a>。</p>
+<h2 id="根据状态隐藏圆点"><a href="#根据状态隐藏圆点" class="headerlink" title="根据状态隐藏圆点"></a>根据状态隐藏圆点</h2><p>这个跟上文说的是一样的，当document.readyState的值为complete时，隐藏圆点。<a href="/web网页加载圈之入门篇.html" target="_blank">点击参考上文</a>。到此就完成了整个效果，点击查看<a href="/demo/loading2.html" target="_blank">效果页面</a>。</p>
 
         </div>
         
@@ -439,6 +439,50 @@ var _hmt = _hmt || [];
                 </a>
             </li>
         
+            <li>
+                <a class="level is-mobile" href="https://www.whatled.com/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">少将博客</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.whatled.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41196185" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi CSDN</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://juejin.im/user/5ca40a18f265da30b8178b31" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi掘金</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">juejin.im</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.jiangshaobo.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Abel</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.jiangshaobo.cn</span>
+                    </span>
+                </a>
+            </li>
+        
         </ul>
         </div>
     </div>
@@ -571,15 +615,15 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
-                        <span class="tag">Chrome自动填充</span>
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Sass/">
-                        <span class="tag">Sass</span>
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -599,22 +643,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/baidu/">
-                        <span class="tag">baidu</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/bootstrap/">
                         <span class="tag">bootstrap</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/cnzz/">
-                        <span class="tag">cnzz</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -636,7 +666,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/demo/">
                         <span class="tag">demo</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -678,7 +708,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/gulp/">
                         <span class="tag">gulp</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -776,13 +806,20 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/vue/">
                         <span class="tag">vue</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/vue-router/">
                         <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -804,6 +841,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/电脑技能/">
                         <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -953,15 +997,15 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
-                        <span class="tag">Chrome自动填充</span>
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Sass/">
-                        <span class="tag">Sass</span>
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -981,22 +1025,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/baidu/">
-                        <span class="tag">baidu</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/bootstrap/">
                         <span class="tag">bootstrap</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/cnzz/">
-                        <span class="tag">cnzz</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1018,7 +1048,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/demo/">
                         <span class="tag">demo</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1060,7 +1090,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/gulp/">
                         <span class="tag">gulp</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1158,13 +1188,20 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/vue/">
                         <span class="tag">vue</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/vue-router/">
                         <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1186,6 +1223,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/电脑技能/">
                         <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

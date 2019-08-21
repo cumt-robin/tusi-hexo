@@ -7,23 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>express搭建简单的后台服务器（基础篇） - Tusi博客</title>
+<title>hexo+github打造个人博客系列之Coding Pages去广告 - Tusi博客</title>
 
 
-    <meta name="description" content="本文简单对express的一些重要基础知识做一下记录，以加深自己对express基础的了解。 不得不说的路由作为一个后台服务器，你必须要处理来自客户端的各种请求。这个时候，就要先定义各种请求的处理器，也就是路由。引用express官方的解释。  路由是由一个 URI、HTTP 请求（GET、POST等）和若干个句柄组成，它的结构如下： app.METHOD(path, [callback…], c">
-<meta name="keywords" content="express,nodejs">
+    <meta name="description" content="尴尬的广告大家应该可以看到，在第一次以自定义域名访问Coding Pages时，会有一个跳转广告。是不是很尴尬？">
+<meta name="keywords" content="hexo,coding">
 <meta property="og:type" content="article">
-<meta property="og:title" content="express搭建简单的后台服务器（基础篇）">
-<meta property="og:url" content="http://hexo.wbjiang.cn/express-server-base.html">
+<meta property="og:title" content="hexo+github打造个人博客系列之Coding Pages去广告">
+<meta property="og:url" content="http://hexo.wbjiang.cn/hexo+github打造个人博客系列之Coding Pages去广告.html">
 <meta property="og:site_name" content="Tusi博客">
-<meta property="og:description" content="本文简单对express的一些重要基础知识做一下记录，以加深自己对express基础的了解。 不得不说的路由作为一个后台服务器，你必须要处理来自客户端的各种请求。这个时候，就要先定义各种请求的处理器，也就是路由。引用express官方的解释。  路由是由一个 URI、HTTP 请求（GET、POST等）和若干个句柄组成，它的结构如下： app.METHOD(path, [callback…], c">
+<meta property="og:description" content="尴尬的广告大家应该可以看到，在第一次以自定义域名访问Coding Pages时，会有一个跳转广告。是不是很尴尬？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://hexo.wbjiang.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-07T06:30:58.846Z">
+<meta property="og:image" content="http://qncdn.wbjiang.cn/coding.png">
+<meta property="og:updated_time" content="2019-08-21T02:53:53.820Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="express搭建简单的后台服务器（基础篇）">
-<meta name="twitter:description" content="本文简单对express的一些重要基础知识做一下记录，以加深自己对express基础的了解。 不得不说的路由作为一个后台服务器，你必须要处理来自客户端的各种请求。这个时候，就要先定义各种请求的处理器，也就是路由。引用express官方的解释。  路由是由一个 URI、HTTP 请求（GET、POST等）和若干个句柄组成，它的结构如下： app.METHOD(path, [callback…], c">
-<meta name="twitter:image" content="http://hexo.wbjiang.cn/images/og_image.png">
+<meta name="twitter:title" content="hexo+github打造个人博客系列之Coding Pages去广告">
+<meta name="twitter:description" content="尴尬的广告大家应该可以看到，在第一次以自定义域名访问Coding Pages时，会有一个跳转广告。是不是很尴尬？">
+<meta name="twitter:image" content="http://qncdn.wbjiang.cn/coding.png">
 
 
 
@@ -107,7 +107,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="express搭建简单的后台服务器（基础篇）" height="28">
+                <img src="/images/logo.png" alt="hexo+github打造个人博客系列之Coding Pages去广告" height="28">
             
             </a>
         </div>
@@ -159,21 +159,27 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/coding.png" alt="hexo+github打造个人博客系列之Coding Pages去广告">
+        </span>
+    </div>
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-02-03T13:08:33.000Z">2018-02-03</time>
+                <time class="level-item has-text-grey" datetime="2018-02-02T13:35:02.000Z">2018-02-02</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/express框架/">express框架</a>
+                <a class="has-link-grey -link" href="/categories/hexo搭建博客/">hexo搭建博客</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    10 分钟 读完 (大约 1450 个字)
+                    3 分钟 读完 (大约 391 个字)
                 </span>
                 
                 
@@ -187,72 +193,31 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                express搭建简单的后台服务器（基础篇）
+                hexo+github打造个人博客系列之Coding Pages去广告
             
         </h1>
         <div class="content">
-            <p>本文简单对express的一些重要基础知识做一下记录，以加深自己对express基础的了解。</p>
-<h1 id="不得不说的路由"><a href="#不得不说的路由" class="headerlink" title="不得不说的路由"></a>不得不说的路由</h1><p>作为一个后台服务器，你必须要处理来自客户端的各种请求。这个时候，就要先定义各种请求的处理器，也就是路由。<br>引用express官方的解释。</p>
+            <h2 id="尴尬的广告"><a href="#尴尬的广告" class="headerlink" title="尴尬的广告"></a>尴尬的广告</h2><p>大家应该可以看到，在第一次以自定义域名访问Coding Pages时，会有一个跳转广告。是不是很尴尬？<a id="more"></a>经查阅官方说明，得知原因。</p>
 <blockquote>
-<p>路由是由一个 URI、HTTP 请求（GET、POST等）和若干个句柄组成，它的结构如下： app.METHOD(path, [callback…], callback)， app 是 express 对象的一个实例， METHOD 是一个 HTTP 请求方法， path 是服务器上的路径， callback 是当路由匹配时要执行的函数。</p>
+<p>银牌会员的 Coding Pages 在访问时默认会先加载 Pages 跳转页，您可选择在网站首页任意位置放置「Hosted by Coding Pages」的文字版或图片版，然后勾选下方的「已放置 Hosted by Coding Pages」选项，通过审核后您的 Pages 将不会显示跳转页。请务必将「Hosted by Coding Pages」持续保留在网站首页，撤掉后跳转页会再次出现。</p>
 </blockquote>
-<h2 id="路由方法"><a href="#路由方法" class="headerlink" title="路由方法"></a>路由方法</h2><a id="more"></a>
-<p>路由method有很多种，我们常见的有POST，GET两种。基本的写法如下。这里的路由地址可以是字符串，也可以是字符串模式或者正则表达式，req是请求对象，res是响应对象，next()负责将控制权交给下一个中间件。中间件的概念后面会提到。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// GET method route</span><br><span class="line">app.get(&apos;/&apos;, function (req, res, next) &#123;</span><br><span class="line">  res.send(&apos;GET request to the homepage&apos;);</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// POST method route</span><br><span class="line">app.post(&apos;/&apos;, function (req, res, next) &#123;</span><br><span class="line">  res.send(&apos;POST request to the homepage&apos;);</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>本来以为这个广告是去不掉了，看到这里我觉得Coding还算人性化。最多就是在首页底部声明一下「Hosted by Coding Pages」，总比每个人第一次一打开你的博客就是广告要舒服。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>官方已经提供了文字或者图片两种策略。我个人偏向于加文字声明。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;Hosted by &lt;a href=&quot;https://pages.coding.me&quot; style=&quot;font-weight: bold&quot;&gt;Coding Pages&lt;/a&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
 
-<p>还有一种不区分请求方式的写法，不管使用 GET、POST、PUT、DELETE 或其他任何 http 模块支持的 HTTP 请求，句柄都会得到执行。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.all(&apos;/secret&apos;, function (req, res, next) &#123;</span><br><span class="line">  console.log(&apos;Accessing the secret section ...&apos;);</span><br><span class="line">  next(); // pass control to the next handler</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="app-route"><a href="#app-route" class="headerlink" title="app.route()"></a>app.route()</h2><p>通过这个方法创建路由路径的链式路由句柄。由于路径在一个地方指定，这样做有助于创建模块化的路由，而且减少了代码冗余和拼写错误。书写格式如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">app.route(&apos;/book&apos;)</span><br><span class="line">  .get(function(req, res) &#123;</span><br><span class="line">    res.send(&apos;Get a random book&apos;);</span><br><span class="line">  &#125;)</span><br><span class="line">  .post(function(req, res) &#123;</span><br><span class="line">    res.send(&apos;Add a book&apos;);</span><br><span class="line">  &#125;)</span><br><span class="line">  .put(function(req, res) &#123;</span><br><span class="line">    res.send(&apos;Update the book&apos;);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="express-Router"><a href="#express-Router" class="headerlink" title="express.Router"></a>express.Router</h2><p>可使用 express.Router 类创建模块化、可挂载的路由句柄。Router 实例是一个完整的中间件和路由系统。这样我们就可以在一个文件中专门做路由处理，而在app.js中use这个中间件。<br>例如我们在一个routes.js文件中这样使用。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// routes.js文件</span><br><span class="line">var express = require(&apos;express&apos;);</span><br><span class="line">var router = express.Router();</span><br><span class="line">// 定义网站主页的路由</span><br><span class="line">router.get(&apos;/&apos;, function(req, res) &#123;</span><br><span class="line">  res.send(&apos;home page&apos;);</span><br><span class="line">&#125;);</span><br><span class="line">// 这里把中间件导出，供app.js使用</span><br><span class="line">module.exports = router;</span><br></pre></td></tr></table></figure>
-
-<p>app.js中这样使用：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var router = require(&apos;./router&apos;);</span><br><span class="line">// 其他处理逻辑代码</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">// 最后use路由中间件</span><br><span class="line">app.use(&apos;/&apos;, router);</span><br></pre></td></tr></table></figure>
-
-<h1 id="静态文件"><a href="#静态文件" class="headerlink" title="静态文件"></a>静态文件</h1><h2 id="使用静态文件服务"><a href="#使用静态文件服务" class="headerlink" title="使用静态文件服务"></a>使用静态文件服务</h2><p>express的静态文件可以放在public文件夹中。通过Express内置的express.static可以方便地托管静态文件，例如图片、CSS、JavaScript 文件等。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.static(&apos;public&apos;));</span><br></pre></td></tr></table></figure>
-
-<p>然后就可以访问public中的静态资源了。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000/images/avatar.jpg</span><br></pre></td></tr></table></figure>
-
-<h2 id="多个静态资源文件夹"><a href="#多个静态资源文件夹" class="headerlink" title="多个静态资源文件夹"></a>多个静态资源文件夹</h2><p>如果静态资源存放在多个目录下面，我们可以多次调用 express.static 中间件。例如：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.static(&apos;public&apos;));</span><br><span class="line">app.use(express.static(&apos;assets&apos;));</span><br></pre></td></tr></table></figure>
-
-<h2 id="挂在虚拟目录下"><a href="#挂在虚拟目录下" class="headerlink" title="挂在虚拟目录下"></a>挂在虚拟目录下</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(&apos;/resourse&apos;, express.static(&apos;public&apos;));</span><br></pre></td></tr></table></figure>
-
-<p>那么访问的方式就是</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:3000/resourse/images/avatar.jpg</span><br></pre></td></tr></table></figure>
-
-<h1 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>什么叫中间件，引用官方的解释就是：</p>
+<p>找到footer.swig文件，将这段代码加在自己觉得合适的位置就好，保存一下，看下效果。如果正常渲染了，就部署一下，然后在Coding Pages服务中提交审核申请。</p>
 <blockquote>
-<p>中间件（Middleware） 是一个函数，它可以访问请求对象（request object (req)）, 响应对象（response object (res)）, 和 web 应用中处于请求-响应循环流程中的中间件，一般被命名为 next 的变量。Express 是一个自身功能极简，完全是由路由和中间件构成一个的 web 开发框架：从本质上来说，一个 Express 应用就是在调用各种中间件。</p>
+<p>Hosted by Coding Pages 已提交审核，我们会在两个工作日内为您处理。</p>
 </blockquote>
-<h2 id="中间件可以做的事情"><a href="#中间件可以做的事情" class="headerlink" title="中间件可以做的事情"></a>中间件可以做的事情</h2><p>（1）<strong>执行任何代码</strong>。<br>（2）<strong>修改请求和响应对象</strong>。<br>（3）<strong>终结请求-响应循环</strong>。<br>（4）<strong>调用堆栈中的下一个中间件</strong>。</p>
-<h2 id="中间件分类"><a href="#中间件分类" class="headerlink" title="中间件分类"></a>中间件分类</h2><h3 id="应用级中间件"><a href="#应用级中间件" class="headerlink" title="应用级中间件"></a>应用级中间件</h3><p>应用级中间件绑定到app对象，使用 app.use() 和 app.METHOD()。其中METHOD 是需要处理的 HTTP 请求的方法，例如 GET, PUT, POST 等等，全部小写。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 没有挂载路径的中间件，应用的每个请求都会执行该中间件</span><br><span class="line">app.use(function (req, res, next) &#123;</span><br><span class="line">  console.log(&apos;Time:&apos;, Date.now());</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 挂载至 /user/:id 的中间件，任何指向 /user/:id 的请求都会执行它</span><br><span class="line">app.use(&apos;/user/:id&apos;, function (req, res, next) &#123;</span><br><span class="line">  console.log(&apos;Request Type:&apos;, req.method);</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br><span class="line">// app.get</span><br><span class="line">// app.post</span><br><span class="line">// ...</span><br></pre></td></tr></table></figure>
+<p>然后就等待审核结束就OK。</p>
 
-<h3 id="路由级中间件"><a href="#路由级中间件" class="headerlink" title="路由级中间件"></a>路由级中间件</h3><p>就是上文中说到的 express.Router()，是由app.use来调用。</p>
-<h3 id="错误处理中间件"><a href="#错误处理中间件" class="headerlink" title="错误处理中间件"></a>错误处理中间件</h3><blockquote>
-<p>错误处理中间件有 4 个参数，定义错误处理中间件时必须使用这 4 个参数。即使不需要 next 对象，也必须在签名中声明它，否则中间件会被识别为一个常规中间件，不能处理错误。</p>
-</blockquote>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(function(err, req, res, next) &#123;</span><br><span class="line">  console.error(err.stack);</span><br><span class="line">  res.status(500).send(&apos;Something broke!&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h2 id="内置中间件"><a href="#内置中间件" class="headerlink" title="内置中间件"></a>内置中间件</h2><p>express.static 是 Express 唯一内置的中间件。它负责在 Express 应用中托管静态资源。一般用法如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.static(path.join(__dirname, &apos;public&apos;), option));</span><br></pre></td></tr></table></figure>
-
-<p>express.static可以传option参数，option具体内容如下：<br><img src="http://pbqvu9tq2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180203210624.png" alt="express.static传参"></p>
-<h3 id="第三方中间件"><a href="#第三方中间件" class="headerlink" title="第三方中间件"></a>第三方中间件</h3><p>第三方提供的中间件，如 cookie-parser等。也是由app.use加载。</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var cookieParser = require(&apos;cookie-parser&apos;);</span><br><span class="line">// 加载用于解析 cookie 的中间件</span><br><span class="line">app.use(cookieParser());</span><br></pre></td></tr></table></figure>
         </div>
         
         <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/express/">express</a>, <a class="has-link-grey -link" href="/tags/nodejs/">nodejs</a>
+                    <a class="has-link-grey -link" href="/tags/coding/">coding</a>, <a class="has-link-grey -link" href="/tags/hexo/">hexo</a>
                 </div>
             </div>
         </div>
@@ -299,16 +264,16 @@ var _hmt = _hmt || [];
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/jdk-guide.html">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/express搭建简单的后台服务器（入门篇）.html">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">jdk下载和安装简明教程</span>
+                <span class="level-item">express搭建简单的后台服务器（入门篇）</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/express-server-guide.html">
-                <span class="level-item">express搭建简单的后台服务器（入门篇）</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/hexo+github打造个人博客系列之Coding托管（实现github+coding双线部署）.html">
+                <span class="level-item">hexo+github打造个人博客系列之Coding托管（实现github+coding双线部署）</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -329,7 +294,7 @@ var _hmt = _hmt || [];
     var gitalk = new Gitalk({
         clientID: 'e244808d754d6ef5f8aa',
         clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
-        id: '50fefd136ca9b6355276a8a4e8c2ef29',
+        id: 'd10212c9d97e8a829418d1461f24471f',
         repo: 'tusi-hexo',
         owner: 'cumt-robin',
         admin: "cumt-robin",
@@ -468,6 +433,50 @@ var _hmt = _hmt || [];
                 </a>
             </li>
         
+            <li>
+                <a class="level is-mobile" href="https://www.whatled.com/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">少将博客</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.whatled.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41196185" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi CSDN</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://juejin.im/user/5ca40a18f265da30b8178b31" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi掘金</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">juejin.im</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.jiangshaobo.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Abel</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.jiangshaobo.cn</span>
+                    </span>
+                </a>
+            </li>
+        
         </ul>
         </div>
     </div>
@@ -600,15 +609,15 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
-                        <span class="tag">Chrome自动填充</span>
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Sass/">
-                        <span class="tag">Sass</span>
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -628,22 +637,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/baidu/">
-                        <span class="tag">baidu</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/bootstrap/">
                         <span class="tag">bootstrap</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/cnzz/">
-                        <span class="tag">cnzz</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -665,7 +660,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/demo/">
                         <span class="tag">demo</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -707,7 +702,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/gulp/">
                         <span class="tag">gulp</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -805,13 +800,20 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/vue/">
                         <span class="tag">vue</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/vue-router/">
                         <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -833,6 +835,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/电脑技能/">
                         <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -982,15 +991,15 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
-                        <span class="tag">Chrome自动填充</span>
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/Sass/">
-                        <span class="tag">Sass</span>
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1010,22 +1019,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/baidu/">
-                        <span class="tag">baidu</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/bootstrap/">
                         <span class="tag">bootstrap</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/cnzz/">
-                        <span class="tag">cnzz</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1047,7 +1042,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/demo/">
                         <span class="tag">demo</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1089,7 +1084,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/gulp/">
                         <span class="tag">gulp</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1187,13 +1182,20 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/vue/">
                         <span class="tag">vue</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/vue-router/">
                         <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1215,6 +1217,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/电脑技能/">
                         <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1243,7 +1252,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="express搭建简单的后台服务器（基础篇）" height="28">
+                    <img src="/images/logo.png" alt="hexo+github打造个人博客系列之Coding Pages去广告" height="28">
                 
                 </a>
                 <p class="is-size-7">
