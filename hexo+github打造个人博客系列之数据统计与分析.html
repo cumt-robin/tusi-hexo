@@ -19,7 +19,7 @@
 <meta property="og:description" content="看到各种第三方服务，我就想折腾一下。本文简单说一下如何给自己的博客加上站点统计功能。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/hexo.svg">
-<meta property="og:updated_time" content="2019-08-21T03:53:07.620Z">
+<meta property="og:updated_time" content="2019-08-21T12:31:25.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo+github打造个人博客系列之数据统计与分析">
 <meta name="twitter:description" content="看到各种第三方服务，我就想折腾一下。本文简单说一下如何给自己的博客加上站点统计功能。">
@@ -179,7 +179,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 769 个字)
+                    4 分钟 读完 (大约 630 个字)
                 </span>
                 
                 
@@ -200,17 +200,17 @@ var _hmt = _hmt || [];
             <p>看到各种第三方服务，我就想折腾一下。本文简单说一下如何给自己的博客加上站点统计功能。</p>
 <a id="more"></a>
 <h2 id="百度统计"><a href="#百度统计" class="headerlink" title="百度统计"></a>百度统计</h2><h3 id="登录百度统计"><a href="#登录百度统计" class="headerlink" title="登录百度统计"></a>登录百度统计</h3><p>打开<a href="https://tongji.baidu.com/web/welcome/login" target="_blank" rel="noopener">百度统计</a>，输入百度账号密码即可。</p>
-<h3 id="添加网站"><a href="#添加网站" class="headerlink" title="添加网站"></a>添加网站</h3><p>来到个人中心的“管理”模块，点击“新增网站”按钮，填写博客网站的信息。<br><img src="http://img.blog.csdn.net/20180130214518312?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="获取统计ID"><a href="#获取统计ID" class="headerlink" title="获取统计ID"></a>获取统计ID</h3><p>点击左侧菜单的“代码获取”，然后找到?后的ID（截图中被马赛克覆盖的部分），复制到粘贴板，供hexo中配置使用。每个网站对应的统计ID都不同，不要复制别人的，否则就没什么意义了。<br><img src="http://img.blog.csdn.net/20180130214822824?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="修改主题配置"><a href="#修改主题配置" class="headerlink" title="修改主题配置"></a>修改主题配置</h3><p>将刚才复制的ID赋值给Next主题配置中的baidu_analytics字段<br><img src="http://img.blog.csdn.net/20180130215105046?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="添加网站"><a href="#添加网站" class="headerlink" title="添加网站"></a>添加网站</h3><p>来到个人中心的“管理”模块，点击“新增网站”按钮，填写博客网站的信息。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTMwMjE0NTE4MzEy" alt="新增网站"></p>
+<h3 id="获取统计ID"><a href="#获取统计ID" class="headerlink" title="获取统计ID"></a>获取统计ID</h3><p>点击左侧菜单的“代码获取”，然后找到?后的ID（截图中被马赛克覆盖的部分），复制到粘贴板，供hexo中配置使用。每个网站对应的统计ID都不同，不要复制别人的，否则就没什么意义了。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTMwMjE0ODIyODI0" alt="代码获取"></p>
+<h3 id="修改主题配置"><a href="#修改主题配置" class="headerlink" title="修改主题配置"></a>修改主题配置</h3><p>将刚才复制的ID赋值给Next主题配置中的baidu_analytics字段<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTMwMjE1MTA1MDQ2" alt="修改配置"></p>
 <h3 id="部署和查看数据"><a href="#部署和查看数据" class="headerlink" title="部署和查看数据"></a>部署和查看数据</h3><p>保存修改后，再次部署博客。</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>然后百度统计就可以统计到你的站点信息了。<br><img src="http://img.blog.csdn.net/20180130215254848?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="CNZZ统计"><a href="#CNZZ统计" class="headerlink" title="CNZZ统计"></a>CNZZ统计</h2><h3 id="注册友盟账号"><a href="#注册友盟账号" class="headerlink" title="注册友盟账号"></a>注册友盟账号</h3><p>打开<a href="https://passport.umeng.com/signup" target="_blank" rel="noopener">友盟注册页面</a>。注册完毕后点击“网站统计”进入站点管理页面。<br><img src="http://img.blog.csdn.net/20180130215846080?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="添加站点"><a href="#添加站点" class="headerlink" title="添加站点"></a>添加站点</h3><p>点击右侧的“添加站点”按钮，填写博客站点信息，完成添加。<br><img src="http://img.blog.csdn.net/20180130220049400?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="获取CNZZ统计ID"><a href="#获取CNZZ统计ID" class="headerlink" title="获取CNZZ统计ID"></a>获取CNZZ统计ID</h3><p>点击“统计代码”，可以查看到你的站点对应的统计ID。<br><img src="http://img.blog.csdn.net/20180130220250403?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><img src="http://img.blog.csdn.net/20180130220259253?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>然后百度统计就可以统计到你的站点信息了。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTMwMjE1MjU0ODQ4" alt="统计信息"></p>
+<h2 id="CNZZ统计"><a href="#CNZZ统计" class="headerlink" title="CNZZ统计"></a>CNZZ统计</h2><h3 id="注册友盟账号"><a href="#注册友盟账号" class="headerlink" title="注册友盟账号"></a>注册友盟账号</h3><p>打开<a href="https://passport.umeng.com/signup" target="_blank" rel="noopener">友盟注册页面</a>。注册完毕后点击“网站统计”进入站点管理页面。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTMwMjE1ODQ2MDgw" alt="注册友盟"></p>
+<h3 id="添加站点"><a href="#添加站点" class="headerlink" title="添加站点"></a>添加站点</h3><p>点击右侧的“添加站点”按钮，填写博客站点信息，完成添加。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTMwMjIwMDQ5NDAw" alt="添加站点"></p>
+<h3 id="获取CNZZ统计ID"><a href="#获取CNZZ统计ID" class="headerlink" title="获取CNZZ统计ID"></a>获取CNZZ统计ID</h3><p>点击“统计代码”，可以查看到你的站点对应的统计ID。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTMwMjIwMjUwNDAz" alt="获取CNZZ统计ID"></p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTMwMjIwMjU5MjUz" alt="代码获取"></p>
 <p>复制这个ID，以便后面配置Hexo使用。</p>
 <h3 id="修改Hexo中主题配置"><a href="#修改Hexo中主题配置" class="headerlink" title="修改Hexo中主题配置"></a>修改Hexo中主题配置</h3><p>修改next主题配置里面的cnzz_siteid字段，值为刚才复制的ID。修改完毕后，重新部署应用即可在cnzz我的站点中查看统计报表了。这里就能发现，CNZZ与百度统计是同一个套路，其他的第三方统计也是类似，不再赘述。</p>
 
@@ -275,7 +275,7 @@ var _hmt = _hmt || [];
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/hexo-skills.html">
+            <a class="level level-item has-link-grey  article-nav-next" href="/hexo+github打造个人博客系列之小技巧.html">
                 <span class="level-item">hexo+github打造个人博客系列之小技巧</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>

@@ -7,23 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>hexo+github打造个人博客系列之评论系统 - Tusi博客</title>
+<title>hexo助小白打造个人博客之入门篇 - Tusi博客</title>
 
 
-    <meta name="description" content="前言一个博客怎么能没有评论互动，那也太枯燥无味了吧，简直反人类。最近也是刚学会一点皮毛，把hexo博客搭了起来。于是就想折腾一下评论系统。网上查了下现在第三方评论系统的现状：多说已经关了，网易云跟帖8月1号关闭，畅言要备案，Disqus被墙。呵呵哒，那么还剩下什么？费了一番功夫搜索了很多，选出了几款我比较满意的评论系统：来必力（LiveRe），Valine，gitment。下面详细说一下。 来必力">
-<meta name="keywords" content="hexo,livere,valine,gitment">
+    <meta name="description" content="我一直想拥有一个个人的技术博客，苦恼不知如何开始。作为一个小白，还是从最简单的入手为好，在多方查找资料后，决定基于github+hexo打造一个简单的个人博客。下面我简单记录下过程。">
+<meta name="keywords" content="github,hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo+github打造个人博客系列之评论系统">
-<meta property="og:url" content="http://hexo.wbjiang.cn/hexo-comment-system.html">
+<meta property="og:title" content="hexo助小白打造个人博客之入门篇">
+<meta property="og:url" content="http://hexo.wbjiang.cn/hexo助小白打造个人博客之入门篇.html">
 <meta property="og:site_name" content="Tusi博客">
-<meta property="og:description" content="前言一个博客怎么能没有评论互动，那也太枯燥无味了吧，简直反人类。最近也是刚学会一点皮毛，把hexo博客搭了起来。于是就想折腾一下评论系统。网上查了下现在第三方评论系统的现状：多说已经关了，网易云跟帖8月1号关闭，畅言要备案，Disqus被墙。呵呵哒，那么还剩下什么？费了一番功夫搜索了很多，选出了几款我比较满意的评论系统：来必力（LiveRe），Valine，gitment。下面详细说一下。 来必力">
+<meta property="og:description" content="我一直想拥有一个个人的技术博客，苦恼不知如何开始。作为一个小白，还是从最简单的入手为好，在多方查找资料后，决定基于github+hexo打造一个简单的个人博客。下面我简单记录下过程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://hexo.wbjiang.cn/images/og_image.png">
-<meta property="og:updated_time" content="2019-08-07T06:30:58.850Z">
+<meta property="og:image" content="http://qncdn.wbjiang.cn/hexo.svg">
+<meta property="og:updated_time" content="2019-08-21T14:37:01.606Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo+github打造个人博客系列之评论系统">
-<meta name="twitter:description" content="前言一个博客怎么能没有评论互动，那也太枯燥无味了吧，简直反人类。最近也是刚学会一点皮毛，把hexo博客搭了起来。于是就想折腾一下评论系统。网上查了下现在第三方评论系统的现状：多说已经关了，网易云跟帖8月1号关闭，畅言要备案，Disqus被墙。呵呵哒，那么还剩下什么？费了一番功夫搜索了很多，选出了几款我比较满意的评论系统：来必力（LiveRe），Valine，gitment。下面详细说一下。 来必力">
-<meta name="twitter:image" content="http://hexo.wbjiang.cn/images/og_image.png">
+<meta name="twitter:title" content="hexo助小白打造个人博客之入门篇">
+<meta name="twitter:description" content="我一直想拥有一个个人的技术博客，苦恼不知如何开始。作为一个小白，还是从最简单的入手为好，在多方查找资料后，决定基于github+hexo打造一个简单的个人博客。下面我简单记录下过程。">
+<meta name="twitter:image" content="http://qncdn.wbjiang.cn/hexo.svg">
 
 
 
@@ -107,7 +107,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="hexo+github打造个人博客系列之评论系统" height="28">
+                <img src="/images/logo.png" alt="hexo助小白打造个人博客之入门篇" height="28">
             
             </a>
         </div>
@@ -159,11 +159,17 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/hexo.svg" alt="hexo助小白打造个人博客之入门篇">
+        </span>
+    </div>
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-01-27T03:24:00.000Z">2018-01-27</time>
+                <time class="level-item has-text-grey" datetime="2018-01-24T13:53:00.000Z">2018-01-24</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/hexo搭建博客/">hexo搭建博客</a>
@@ -173,7 +179,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    10 分钟 读完 (大约 1438 个字)
+                    5 分钟 读完 (大约 738 个字)
                 </span>
                 
                 
@@ -187,34 +193,36 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                hexo+github打造个人博客系列之评论系统
+                hexo助小白打造个人博客之入门篇
             
         </h1>
         <div class="content">
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一个博客怎么能没有评论互动，那也太枯燥无味了吧，简直反人类。最近也是刚学会一点皮毛，把hexo博客搭了起来。于是就想折腾一下评论系统。网上查了下现在第三方评论系统的现状：多说已经关了，网易云跟帖8月1号关闭，畅言要备案，Disqus被墙。呵呵哒，那么还剩下什么？费了一番功夫搜索了很多，选出了几款我比较满意的评论系统：来必力（LiveRe），Valine，gitment。下面详细说一下。</p>
-<h2 id="来必力"><a href="#来必力" class="headerlink" title="来必力"></a>来必力</h2><p>这个怎么玩呢？首先还是<a href="https://livere.com/login_form" target="_blank" rel="noopener">注册账号</a>。我发现hexo玩起来注册了好多账号啊！登录进去后点击右上角头像，进入个人管理页面。然后就是添加应用信息，下面是已经添加成功的页面了。<br><img src="http://img.blog.csdn.net/20180127093023609?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+            <p>我一直想拥有一个个人的技术博客，苦恼不知如何开始。作为一个小白，还是从最简单的入手为好，在多方查找资料后，决定基于github+hexo打造一个简单的个人博客。下面我简单记录下过程。</p>
 <a id="more"></a>
-<p>来必力还有个评论提醒的功能，人性化啊。<br><img src="http://img.blog.csdn.net/20180127093316105?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>最关键的一步，点击“代码管理”找到uid，复制下来。<br><img src="http://img.blog.csdn.net/20180127093515964?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>最后来到Next主题配置，修改_config.yml中的livere_uid，将复制的uid粘贴即可。然后部署一下，OK。</p>
-<p>页面效果如下，支持多种第三方账号登录，看起来很感人。<br><img src="http://img.blog.csdn.net/20180127094043312?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>经过测试，来必力好像不是很友好，发起评论直接报了个504错误（504错误是（网关超时） 服务器作为网关或代理，但是没有及时从上游服务器收到请求。）。蛋疼么？我在想是不是我配置问题，于是我去到别人的hexo博客上评论，也报了同样错误，最后又试了手机，都没法评论，这还怎么玩，发到朋友圈，都没法评论，还怎么装逼？（手动滑稽）。<br><img src="http://img.blog.csdn.net/20180127094128917?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>默默把livere_uid配置为空了。</p>
-<h2 id="Valine"><a href="#Valine" class="headerlink" title="Valine"></a>Valine</h2><p>开始折腾<a href="https://valine.js.org/#/" target="_blank" rel="noopener">Valine</a>。Valine 是一款基于Leancloud的快速、简洁且高效的无后端评论系统。</p>
-<h3 id="注册Leancloud"><a href="#注册Leancloud" class="headerlink" title="注册Leancloud"></a>注册Leancloud</h3><h4 id="打开Leancloud，注册登录后，进入个人页面，创建应用，选择开发版就OK。"><a href="#打开Leancloud，注册登录后，进入个人页面，创建应用，选择开发版就OK。" class="headerlink" title="打开Leancloud，注册登录后，进入个人页面，创建应用，选择开发版就OK。"></a>打开<a href="https://leancloud.cn/" target="_blank" rel="noopener">Leancloud</a>，注册登录后，进入个人页面，创建应用，选择开发版就OK。</h4><p><img src="http://img.blog.csdn.net/20180127095225770?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h4 id="创建完成后，点击应用右上方的设置按钮，进入设置页面。"><a href="#创建完成后，点击应用右上方的设置按钮，进入设置页面。" class="headerlink" title="创建完成后，点击应用右上方的设置按钮，进入设置页面。"></a>创建完成后，点击应用右上方的设置按钮，进入设置页面。</h4><h4 id="在应用Key可以查看App-ID，App-Key，用于在页面上new-Valine时使用。"><a href="#在应用Key可以查看App-ID，App-Key，用于在页面上new-Valine时使用。" class="headerlink" title="在应用Key可以查看App ID，App Key，用于在页面上new Valine时使用。"></a>在应用Key可以查看App ID，App Key，用于在页面上new Valine时使用。</h4><p><img src="http://img.blog.csdn.net/20180127095730121?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h4 id="在安全中心，填写Web安全域名，如https-cumtrobin-github-io-，防止别人盗用你的服务器资源。"><a href="#在安全中心，填写Web安全域名，如https-cumtrobin-github-io-，防止别人盗用你的服务器资源。" class="headerlink" title="在安全中心，填写Web安全域名，如https://cumtrobin.github.io/，防止别人盗用你的服务器资源。"></a>在安全中心，填写Web安全域名，如<a href="https://cumtrobin.github.io/，防止别人盗用你的服务器资源。" target="_blank" rel="noopener">https://cumtrobin.github.io/，防止别人盗用你的服务器资源。</a></h4><p><img src="http://img.blog.csdn.net/20180127095814874?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h4 id="在存储-数据中创建Class-‘Comment’，用作评论的数据库表。"><a href="#在存储-数据中创建Class-‘Comment’，用作评论的数据库表。" class="headerlink" title="在存储-数据中创建Class ‘Comment’，用作评论的数据库表。"></a>在存储-数据中创建Class ‘Comment’，用作评论的数据库表。</h4><p><img src="http://img.blog.csdn.net/20180127095901969?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h4 id="回到Next主题配置，修改valine相关配置"><a href="#回到Next主题配置，修改valine相关配置" class="headerlink" title="回到Next主题配置，修改valine相关配置"></a>回到Next主题配置，修改valine相关配置</h4><p><img src="http://img.blog.csdn.net/20180127095924582?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>部署后就可以看到效果了，评论功能终于都可以正常使用了。<br><img src="http://img.blog.csdn.net/20180127100052488?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="gitment"><a href="#gitment" class="headerlink" title="gitment"></a>gitment</h2><p>最后再折腾一下gitment。引用一下<a href="https://imsun.net/posts/gitment-introduction/" target="_blank" rel="noopener">作者</a>的话。</p>
-<blockquote>
-<p>Gitment 是作者实现的一款基于 GitHub Issues 的评论系统。支持在前端直接引入，不需要任何后端代码。可以在页面进行登录、查看、评论、点赞等操作，同时有完整的 Markdown / GFM 和代码高亮支持。尤为适合各种基于 GitHub Pages 的静态博客或项目页面。</p>
-</blockquote>
-<h3 id="注册-OAuth-Application"><a href="#注册-OAuth-Application" class="headerlink" title="注册 OAuth Application"></a>注册 OAuth Application</h3><p>打开<a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">注册页面</a>完成注册<br><img src="http://img.blog.csdn.net/20180127100733848?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>注册成功后会得到Client ID和Client Secret，然后开始配置Next<br><img src="http://img.blog.csdn.net/20180127112115298?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>部署一下就可以看到效果了。<br><img src="http://img.blog.csdn.net/20180127112145053?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2VpeGluXzQxMTk2MTg1/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>如果想要展示多个评论系统，需要改布局，需要了解的可以留言讨论。</p>
+
+<h2 id="为什么选择github-hexo"><a href="#为什么选择github-hexo" class="headerlink" title="为什么选择github+hexo?"></a>为什么选择github+hexo?</h2><p>github为每个注册用户都提供了免费的二级域名与空间，给博客小白提供了初期建立博客的实验环境，非常人性化。而hexo作为当前一个非常流行的博客框架，快速、简洁且高效。hexo 基于nodejs，非常适合前端开发者，很快可以入手。而且支持时下流行的 markdown（或其他渲染引擎）解析文章生成静态网页，文章编写会非常简单快速。</p>
+<h2 id="如何建立github-blog的雏形？"><a href="#如何建立github-blog的雏形？" class="headerlink" title="如何建立github blog的雏形？"></a>如何建立github blog的雏形？</h2><h3 id="在github上建立一个blog仓库，仓库信息简单填写即可。"><a href="#在github上建立一个blog仓库，仓库信息简单填写即可。" class="headerlink" title="在github上建立一个blog仓库，仓库信息简单填写即可。"></a>在github上建立一个blog仓库，仓库信息简单填写即可。</h3><p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTIxMjMxMTU3MDU5" alt="建仓库"></p>
+<h3 id="进入仓库设置页面，填写一些必要的信息。"><a href="#进入仓库设置页面，填写一些必要的信息。" class="headerlink" title="进入仓库设置页面，填写一些必要的信息。"></a>进入仓库设置页面，填写一些必要的信息。</h3><p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTIxMjMxMzEyOTA4" alt="进入仓库设置页"></p>
+<p>这里把仓库名称先填一下</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTIxMjMxNzQ2OTQ4" alt="填写仓库名称"></p>
+<p>接下来翻到下面，选择master分支，选择一个主题来发布博客页面。然后就可以通过提供的网址来访问到自己的博客了。</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTIxMjMyMTM2Mzcy" alt="pages服务"></p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTIxMjMyMzU3MjM0" alt="页面效果"></p>
+<h3 id="如何修改我的博客页面呢？"><a href="#如何修改我的博客页面呢？" class="headerlink" title="如何修改我的博客页面呢？"></a>如何修改我的博客页面呢？</h3><p>初始生成的页面是基于README.md内容的。所以你可以修改这个文件的内容来观察页面改动的效果。</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTIxMjMyNzA2Mjg4" alt="修改README"></p>
+<p>想要做更复杂的页面就可以用到博客框架hexo或者官方推荐的jekyll。这里我自己选用的是hexo。</p>
+<h2 id="利用hexo打造更生动的博客程序"><a href="#利用hexo打造更生动的博客程序" class="headerlink" title="利用hexo打造更生动的博客程序"></a>利用hexo打造更生动的博客程序</h2><h3 id="下载安装hexo-cli工具"><a href="#下载安装hexo-cli工具" class="headerlink" title="下载安装hexo cli工具"></a>下载安装hexo cli工具</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-Hexo-完成后，执行下列命令，Hexo-会在指定文件夹中新建所需要的文件。"><a href="#安装-Hexo-完成后，执行下列命令，Hexo-会在指定文件夹中新建所需要的文件。" class="headerlink" title="安装 Hexo 完成后，执行下列命令，Hexo 会在指定文件夹中新建所需要的文件。"></a>安装 Hexo 完成后，执行下列命令，Hexo 会在指定文件夹中新建所需要的文件。</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init myblog</span><br><span class="line">cd myblog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<h3 id="Hexo-3-0-把服务器独立成了个别模块，必须先安装-hexo-server-才能使用。"><a href="#Hexo-3-0-把服务器独立成了个别模块，必须先安装-hexo-server-才能使用。" class="headerlink" title="Hexo 3.0 把服务器独立成了个别模块，必须先安装 hexo-server 才能使用。"></a>Hexo 3.0 把服务器独立成了个别模块，必须先安装 hexo-server 才能使用。</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-server --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装好服务器模块后，运行这个命令来生成静态文件。"><a href="#安装好服务器模块后，运行这个命令来生成静态文件。" class="headerlink" title="安装好服务器模块后，运行这个命令来生成静态文件。"></a>安装好服务器模块后，运行这个命令来生成静态文件。</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">//或者 hexo g</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行启动服务器的命令，浏览器打开localhost-4000查看hexo博客页面效果"><a href="#运行启动服务器的命令，浏览器打开localhost-4000查看hexo博客页面效果" class="headerlink" title="运行启动服务器的命令，浏览器打开localhost:4000查看hexo博客页面效果"></a>运行启动服务器的命令，浏览器打开localhost:4000查看hexo博客页面效果</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTI0MjE1MTE4ODg5" alt="hexo效果图"></p>
+<p>好了，第一步算是大功告成了。想要做更深入的了解，请关注我的后续文章。</p>
 
         </div>
         
@@ -222,7 +230,7 @@ var _hmt = _hmt || [];
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/gitment/">gitment</a>, <a class="has-link-grey -link" href="/tags/hexo/">hexo</a>, <a class="has-link-grey -link" href="/tags/livere/">livere</a>, <a class="has-link-grey -link" href="/tags/valine/">valine</a>
+                    <a class="has-link-grey -link" href="/tags/github/">github</a>, <a class="has-link-grey -link" href="/tags/hexo/">hexo</a>
                 </div>
             </div>
         </div>
@@ -269,16 +277,16 @@ var _hmt = _hmt || [];
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/hexo-skills.html">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/hexo+github打造个人博客系列之主题和部署.html">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">hexo+github打造个人博客系列之小技巧</span>
+                <span class="level-item">hexo+github打造个人博客系列之主题和部署</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/hexothemedeploy.html">
-                <span class="level-item">hexo+github打造个人博客系列之主题和部署</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/ES5，ES6的简要说明及浏览器支持性总结.html">
+                <span class="level-item">ES5，ES6的简要说明及浏览器支持性总结</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -299,7 +307,7 @@ var _hmt = _hmt || [];
     var gitalk = new Gitalk({
         clientID: 'e244808d754d6ef5f8aa',
         clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
-        id: '0fc2ee01fd0a6dc25824a0195cd12d9b',
+        id: '5c590ec43a50288a405f15f7377316cb',
         repo: 'tusi-hexo',
         owner: 'cumt-robin',
         admin: "cumt-robin",
@@ -1257,7 +1265,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="hexo+github打造个人博客系列之评论系统" height="28">
+                    <img src="/images/logo.png" alt="hexo助小白打造个人博客之入门篇" height="28">
                 
                 </a>
                 <p class="is-size-7">
