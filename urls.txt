@@ -1,3 +1,7 @@
+http://hexo.wbjiang.cn/vue作用域插槽，你真的懂了吗.html
+http://hexo.wbjiang.cn/Nodejs开发微信公众号-获取access-token.html
+http://hexo.wbjiang.cn/Nodejs开发微信公众号-测试号配置篇.html
+http://hexo.wbjiang.cn/WebSocket实现实时通讯（socket-io实现简版聊天室）.html
 http://hexo.wbjiang.cn/windows系统下安装mysql8-0.html
 http://hexo.wbjiang.cn/回头再看JS模块化编程之AMD.html
 http://hexo.wbjiang.cn/回头再看JS模块化编程.html
