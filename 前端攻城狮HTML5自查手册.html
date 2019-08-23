@@ -1,0 +1,2038 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>前端攻城狮HTML5自查手册 - Tusi博客</title>
+
+
+    <meta name="description" content="前言HTML5自2014年发布以来，已经有快5个年头了。但是很多人对H5有哪些新特性，兼容性如何仍然是一头雾水的。为了让自己以后方便查阅，本文整理一下H5的相关知识点，不做深入的探讨，错误之处还请指正！">
+<meta name="keywords" content="html5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端攻城狮HTML5自查手册">
+<meta property="og:url" content="http://hexo.wbjiang.cn/前端攻城狮HTML5自查手册.html">
+<meta property="og:site_name" content="Tusi博客">
+<meta property="og:description" content="前言HTML5自2014年发布以来，已经有快5个年头了。但是很多人对H5有哪些新特性，兼容性如何仍然是一头雾水的。为了让自己以后方便查阅，本文整理一下H5的相关知识点，不做深入的探讨，错误之处还请指正！">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://qncdn.wbjiang.cn/html%E6%A0%87%E7%AD%BE.png">
+<meta property="og:updated_time" content="2019-08-23T05:55:10.494Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端攻城狮HTML5自查手册">
+<meta name="twitter:description" content="前言HTML5自2014年发布以来，已经有快5个年头了。但是很多人对H5有哪些新特性，兼容性如何仍然是一头雾水的。为了让自己以后方便查阅，本文整理一下H5的相关知识点，不做深入的探讨，错误之处还请指正！">
+<meta name="twitter:image" content="http://qncdn.wbjiang.cn/html%E6%A0%87%E7%AD%BE.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/rainbow.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0cc7298ff16e9d2c7ae3a15b3ee1d9e7";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+        <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="前端攻城狮HTML5自查手册" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">首页</a>
+                
+                <a class="navbar-item"
+                href="/archives">时间线</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Follow me on GitHub" href="https://github.com/cumt-robin">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="http://qncdn.wbjiang.cn/html%E6%A0%87%E7%AD%BE.png" alt="前端攻城狮HTML5自查手册">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-23T05:54:33.000Z">2019-08-23</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/html5/">html5</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    27 分钟 读完 (大约 4059 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                前端攻城狮HTML5自查手册
+            
+        </h1>
+        <div class="content">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>HTML5自2014年发布以来，已经有快5个年头了。但是很多人对H5有哪些新特性，兼容性如何仍然是一头雾水的。为了让自己以后方便查阅，本文整理一下H5的相关知识点，不做深入的探讨，错误之处还请指正！</p>
+<a id="more"></a>
+
+<h1 id="HTML5标签上的改动"><a href="#HTML5标签上的改动" class="headerlink" title="HTML5标签上的改动"></a>HTML5标签上的改动</h1><p><a href="http://www.w3school.com.cn/html5/html5_reference.asp" target="_blank" rel="noopener">HTML 5 参考手册</a></p>
+<h2 id="废弃或不支持的标签"><a href="#废弃或不支持的标签" class="headerlink" title="废弃或不支持的标签"></a>废弃或不支持的标签</h2><ul>
+<li><code>&lt;acronym&gt;</code></li>
+</ul>
+<p>定义首字母缩略词。HTML5 不支持 <code>&lt;acronym&gt;</code> 标签。请使用 <code>&lt;abbr&gt;</code> 标签代替它。</p>
+<ul>
+<li><code>&lt;applet&gt;</code></li>
+</ul>
+<p>可以嵌入Java语言编写的小应用程序。HTML5 不支持 <code>&lt;applet&gt;</code> 标签。请使用 <code>&lt;object&gt;</code> 标签代替它。在 HTML 4.01 中，<code>&lt;applet&gt;</code> 元素 已废弃。</p>
+<ul>
+<li><code>&lt;basefont&gt;</code></li>
+</ul>
+<p>只有 IE 9 和更早版本的 IE 浏览器支持 <code>&lt;basefont&gt;</code> 标签。应该避免使用该标签。在 HTML 4.01 中，<code>&lt;basefont&gt;</code> 元素 已废弃。</p>
+<ul>
+<li><code>&lt;big&gt;</code></li>
+</ul>
+<p>用来制作更大的文本。HTML5 不支持 <code>&lt;big&gt;</code> 标签。请用 CSS 代替。</p>
+<ul>
+<li><code>&lt;center&gt;</code></li>
+</ul>
+<p>对其所包括的文本进行水平居中。在 HTML 4.01 中，<code>&lt;center&gt;</code> 元素 已废弃</p>
+<ul>
+<li><code>&lt;dir&gt;</code></li>
+</ul>
+<p>被用来定义目录列表，类似ul，ol。在 HTML 4.01 中，<code>&lt;dir&gt;</code> 元素 已废弃。</p>
+<ul>
+<li><code>&lt;font&gt;</code></li>
+</ul>
+<p>规定文本的字体、字体尺寸、字体颜色。在 HTML 4.01 中，<code>&lt;font&gt;</code> 元素 已废弃。</p>
+<ul>
+<li><code>&lt;frame&gt;</code></li>
+</ul>
+<p>定义 <frameset> 中的子窗口（框架），必须放在<code>&lt;frameset&gt;</code>标签中，且不能与<code>&lt;body&gt;</code>共存。HTML5 不支持 <code>&lt;frame&gt;</code> 标签。</frameset></p>
+<ul>
+<li><code>&lt;frameset&gt;</code></li>
+</ul>
+<p>定义一个框架集，被用来组织一个或者多个<code>&lt;frame&gt;</code>元素。每个<code>&lt;frame&gt;</code>有各自独立的文档。HTML5 不支持<code>&lt;frameset&gt;</code>标签。</p>
+<ul>
+<li><code>&lt;isindex&gt;</code></li>
+</ul>
+<p>使浏览器显示一个对话框，提示用户输入单行文本，该特性已经从 Web 标准中删除。</p>
+<ul>
+<li><code>&lt;noframes&gt;</code></li>
+</ul>
+<p>可为那些不支持框架的浏览器显示文本。HTML5 不支持 <code>&lt;noframes&gt;</code>标签。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;frameset cols=&quot;25%,50%,25%&quot;&gt;</span><br><span class="line">  &lt;frame src=&quot;frame_a.htm&quot;&gt;</span><br><span class="line">  &lt;frame src=&quot;frame_b.htm&quot;&gt;</span><br><span class="line">  &lt;frame src=&quot;frame_c.htm&quot;&gt;</span><br><span class="line">  &lt;noframes&gt;Sorry, your browser does not handle frames!&lt;/noframes&gt;</span><br><span class="line">&lt;/frameset&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>&lt;strike&gt;</code></li>
+</ul>
+<p>定义加删除线文本。在 HTML 4.01 中，<code>&lt;strike&gt;</code> 元素 已废弃。HTML5 不支持 <code>&lt;strike&gt;</code> 标签。请用 <code>&lt;del&gt;</code> 标签代替。</p>
+<ul>
+<li><code>&lt;tt&gt;</code></li>
+</ul>
+<p>定义打字机文本。HTML5 不支持<code>&lt;tt&gt;</code>标签。请用 CSS 代替。</p>
+<h2 id="新增的标签"><a href="#新增的标签" class="headerlink" title="新增的标签"></a>新增的标签</h2><p>IE 9+、Firefox、Opera、Chrome 和 Safari 都支持新增的大部分 H5 标签。</p>
+<h3 id="结构标签"><a href="#结构标签" class="headerlink" title="结构标签"></a>结构标签</h3><ul>
+<li><code>&lt;main&gt;</code></li>
+</ul>
+<p>规定文档的主要内容。在一个文档中，不能出现一个以上的 <code>&lt;main&gt;</code> 元素。<code>&lt;main&gt;</code> 元素不能是以下元素的后代：<code>&lt;article&gt;</code>、<code>&lt;aside&gt;</code>、<code>&lt;footer&gt;</code>、<code>&lt;header&gt;</code> 或 <code>&lt;nav&gt;</code>。所有浏览器都支持<code>&lt;main&gt;</code>标签，除了 Internet Explorer。</p>
+<ul>
+<li><code>&lt;article&gt;</code></li>
+</ul>
+<p>定义独立的内容，内容本身必须是有意义的且必须是独立于文档的其余部分。比如：论坛帖子，博客文章，新闻故事，评论。</p>
+<ul>
+<li><code>&lt;aside&gt;</code></li>
+</ul>
+<p>常用作侧边栏。</p>
+<ul>
+<li><code>&lt;section&gt;</code></li>
+</ul>
+<p>定义了文档的某个区域。比如章节、头部、底部或者文档的其他区域。</p>
+<ul>
+<li><code>&lt;header&gt;</code></li>
+</ul>
+<p>定义文档或者文档的一部分区域的页眉。</p>
+<ul>
+<li><code>&lt;hgroup&gt;</code></li>
+</ul>
+<p>被用来对标题元素进行分组。</p>
+<ul>
+<li><code>&lt;footer&gt;</code></li>
+</ul>
+<p>定义文档或者文档的一部分区域的页脚。</p>
+<ul>
+<li><code>&lt;nav&gt;</code></li>
+</ul>
+<p>定义导航链接的部分。</p>
+<h3 id="媒体标签"><a href="#媒体标签" class="headerlink" title="媒体标签"></a>媒体标签</h3><ul>
+<li><code>&lt;audio&gt;</code></li>
+</ul>
+<p>定义声音，比如音乐或其他音频流。支持的3种文件格式：MP3、Wav、Ogg。</p>
+<ul>
+<li><code>&lt;video&gt;</code></li>
+</ul>
+<p>定义视频，比如电影片段或其他视频流。支持三种视频格式：MP4、WebM、Ogg。</p>
+<ul>
+<li><code>&lt;track&gt;</code></li>
+</ul>
+<p>为媒体元素（比如 <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code>）规定外部文本轨道。IE 10、Opera 和 Chrome 浏览器支持 <code>&lt;track&gt;</code> 标签，其他浏览器不支持。</p>
+<ul>
+<li><code>&lt;source&gt;</code></li>
+</ul>
+<p>为媒体元素（比如 <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code>）定义媒体资源。</p>
+<h3 id="其他标签"><a href="#其他标签" class="headerlink" title="其他标签"></a>其他标签</h3><ul>
+<li><code>&lt;canvas&gt;</code></li>
+</ul>
+<p>画布，可以绘制丰富的图形，赋予了html更多想象的空间。</p>
+<ul>
+<li><code>&lt;datalist&gt;</code></li>
+</ul>
+<p>配合<code>&lt;option&gt;</code>标签制作下拉列表，与<code>&lt;select&gt;</code>不同的一点是，<code>&lt;datalist&gt;</code>支持输入，模糊匹配。</p>
+<ul>
+<li><code>&lt;details&gt;</code></li>
+</ul>
+<p>类似于折叠面板的一个控件，规定了用户可见的或者隐藏的需求的补充细节。<code>&lt;summary&gt;</code>标签可以为 <code>&lt;details&gt;</code> 定义标题。标题是可见的，用户点击标题时，会显示出 <code>&lt;details&gt;</code>。目前，只有 Chrome 和 Safari 6 支持 <code>&lt;details&gt;</code> 标签。</p>
+<ul>
+<li><code>&lt;summary&gt;</code></li>
+</ul>
+<p>与<code>&lt;details&gt;</code>标签配合使用。只有 Chrome 和 Safari 6 支持 <code>&lt;summary&gt;</code> 标签。</p>
+<ul>
+<li><code>&lt;embed&gt;</code></li>
+</ul>
+<p>定义了一个容器，用来嵌入外部应用或者互动程序（插件），例如flash等。</p>
+<ul>
+<li><code>&lt;figure&gt;</code></li>
+</ul>
+<p>规定独立的流内容（图像、图表、照片、代码等等）。</p>
+<ul>
+<li><code>&lt;figcaption&gt;</code></li>
+</ul>
+<p><code>&lt;figcaption&gt;</code>元素被用来为<code>&lt;figure&gt;</code>元素定义标题。</p>
+<ul>
+<li><code>&lt;mark&gt;</code></li>
+</ul>
+<p>定义带有记号的文本。请在需要突出显示文本时使用<code>&lt;mark&gt;</code> 标签。</p>
+<ul>
+<li><code>&lt;meter&gt;</code></li>
+</ul>
+<p>定义度量衡。仅用于已知最大和最小值的度量。不能作为一个进度条来使用。Firefox、Opera、Chrome 和 Safari 6 支持 <code>&lt;meter&gt;</code> 标签。IE不支持该标签。</p>
+<ul>
+<li><code>&lt;progress&gt;</code></li>
+</ul>
+<p>定义运行中的任务进度（进程）。有value和max属性。</p>
+<ul>
+<li><code>&lt;output&gt;</code></li>
+</ul>
+<p>作为计算结果输出显示(比如执行脚本的输出)。配合两个<code>&lt;input&gt;</code>使用，可实时求和。Internet Explorer 浏览器不支持 <code>&lt;output&gt;</code> 标签。</p>
+<ul>
+<li><code>&lt;ruby&gt;</code></li>
+</ul>
+<p>定义 ruby 注释（中文注音或字符）。</p>
+<ul>
+<li><code>&lt;rp&gt;</code></li>
+</ul>
+<p>在 ruby 注释中使用，以定义不支持 ruby 元素的浏览器所显示的内容。</p>
+<ul>
+<li><code>&lt;rt&gt;</code></li>
+</ul>
+<p>定义字符（中文注音或字符）的解释或发音。</p>
+<ul>
+<li><code>&lt;time&gt;</code></li>
+</ul>
+<p>定义公历的时间（24 小时制）或日期，时间和时区偏移是可选的。用datetime属性对标签中的文字作时间解释。</p>
+<ul>
+<li><code>&lt;bdi&gt;</code></li>
+</ul>
+<p>允许您设置一段文本，使其脱离其父元素的文本方向设置。具体应用不详。</p>
+<h3 id="让IE8及以下版本也支持H5新标签"><a href="#让IE8及以下版本也支持H5新标签" class="headerlink" title="让IE8及以下版本也支持H5新标签"></a>让IE8及以下版本也支持H5新标签</h3><p>我们经常会用到<code>&lt;main&gt;</code>、<code>&lt;article&gt;</code>、<code>&lt;aside&gt;</code>、<code>&lt;footer&gt;</code>、<code>&lt;header&gt;</code> 、<code>&lt;nav&gt;</code>来进行页面布局，那么如何解决IE8及以下版本支持这些标签呢？只要利用createElement让浏览器识别这些标签，并在css中给他们设置一些属性即可，比如<code>display:block</code>。现成的解决方案就是<a href="https://github.com/aFarkas/html5shiv" target="_blank" rel="noopener"><code>htmlshiv.js</code></a>。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--[if lt IE 9]&gt;</span><br><span class="line">&lt;script src=&quot;js/html5shiv.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;![endif]--&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果有打印需求，则需要<code>html5shiv-printshiv.js</code>，它包含 <code>html5shiv.js</code> 的全部功能，并且额外支持 IE6-8 网页打印时 HTML5 元素样式化。</p>
+<h1 id="HTML5属性上的改动"><a href="#HTML5属性上的改动" class="headerlink" title="HTML5属性上的改动"></a>HTML5属性上的改动</h1><h2 id="新增的属性"><a href="#新增的属性" class="headerlink" title="新增的属性"></a>新增的属性</h2><p>IE 9+、Firefox、Opera、Chrome 和 Safari 都支持新增的大部分 H5 属性，特殊情况会在每一项处有说明。</p>
+<p><a href="http://www.w3school.com.cn/html5/html5_ref_standardattributes.asp" target="_blank" rel="noopener">HTML5标准属性</a></p>
+<ul>
+<li><code>contenteditable</code></li>
+</ul>
+<p>规定是否允许用户编辑内容。可用于制作富文本等功能。兼容性较好，见下图。<br><img src="http://qncdn.wbjiang.cn/contenteditable%E5%85%BC%E5%AE%B9%E6%80%A7%E8%89%AF%E5%A5%BD.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="contenteditable兼容性良好"></p>
+<ul>
+<li><code>contextmenu</code></li>
+</ul>
+<p>规定了元素的上下文菜单。当用户右击元素时将显示上下文菜单。<code>contextmenu</code> 属性的值是需要打开的<code>&lt;menu&gt;</code>元素的 id。兼容性不好，目前只有 Firefox 浏览器支持 <code>contextmenu</code> 属性。</p>
+<ul>
+<li><code>data-*</code></li>
+</ul>
+<p>管理自定义属性。自定义属性可通过元素的dataset进行访问。如ele.dataset.customAttr。</p>
+<p>兼容性见下图，IE6~8也支持data-*，但是不能通过dataset访问，必须用getAttribute访问。<br><img src="http://qncdn.wbjiang.cn/h5%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7%E5%85%BC%E5%AE%B9%E6%80%A7.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="h5自定义属性兼容性"></p>
+<ul>
+<li><code>draggable</code></li>
+</ul>
+<p>规定元素是否可拖动。链接和图像默认是可拖动的。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;element draggable=&quot;true|false|auto&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>主要关注的内容有属性<code>draggable</code>，事件<code>ondragstart</code>，事件<code>ondragover</code>，事件<code>ondrop</code>，数据属性<code>dataTransfer</code>，以及<code>dataTransfer</code>下的两个方法<code>setData</code>和<code>getData</code>。</p>
+<p>简单demo可以参考<a href="http://www.runoob.com/html/html5-draganddrop.html" target="_blank" rel="noopener">HTML5拖放教程</a>。</p>
+<ul>
+<li><code>hidden</code></li>
+</ul>
+<p>hidden 属性规定对元素进行隐藏。IE兼容性不太好，避免使用，用css替代即可。<br><img src="http://qncdn.wbjiang.cn/hidden%E5%85%BC%E5%AE%B9%E6%80%A7.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="hidden属性兼容性"></p>
+<ul>
+<li><code>spellcheck</code></li>
+</ul>
+<p>规定是否对元素内容进行拼写检查。启用后会对单词进行拼写检查，不正确的单词会有波浪线提示。<br>Internet Explorer 10, Firefox, Opera, Chrome, 和 Safari 浏览器支持 spellcheck 属性。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;element spellcheck=&quot;true|false&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="更丰富的表单"><a href="#更丰富的表单" class="headerlink" title="更丰富的表单"></a>更丰富的表单</h2><h3 id="input支持更多type"><a href="#input支持更多type" class="headerlink" title="input支持更多type"></a>input支持更多type</h3><p> HTML5 中的新类型：color、date、datetime、datetime-local、month、week、time、email、number、range、search、tel 和 url。其实也是一种语义化的表现。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>color</td>
+<td>定义拾色器。兼容性很差，对IE，Edge，Safari等浏览器不友好，详细情况见<a href="https://www.caniuse.com/#search=color" target="_blank" rel="noopener">兼容性</a></td>
+</tr>
+<tr>
+<td>date</td>
+<td>定义 date 控件（包括年、月、日，不包括时间）。<a href="https://www.caniuse.com/#search=date" target="_blank" rel="noopener">兼容性</a>很差。</td>
+</tr>
+<tr>
+<td>datetime</td>
+<td>定义 date 和 time 控件（包括年、月、日、时、分、秒、几分之一秒，基于 UTC 时区）。<a href="https://www.caniuse.com/#search=datetime" target="_blank" rel="noopener">兼容性</a>很差。</td>
+</tr>
+<tr>
+<td>datetime-local</td>
+<td>定义 date 和 time 控件（包括年、月、日、时、分、秒、几分之一秒，不带时区）。<a href="https://www.caniuse.com/#search=datetime-local" target="_blank" rel="noopener">兼容性</a>很差。</td>
+</tr>
+<tr>
+<td>month</td>
+<td>定义 month 和 year 控件（不带时区）。<a href="https://www.caniuse.com/#search=month" target="_blank" rel="noopener">兼容性</a>很差。</td>
+</tr>
+<tr>
+<td>week</td>
+<td>定义 week 和 year 控件（不带时区）。<a href="https://www.caniuse.com/#search=week" target="_blank" rel="noopener">兼容性</a>很差。</td>
+</tr>
+<tr>
+<td>time</td>
+<td>定义用于输入时间的控件（不带时区）。<a href="https://www.caniuse.com/#search=time" target="_blank" rel="noopener">兼容性</a>很差。</td>
+</tr>
+<tr>
+<td>email</td>
+<td>定义用于 e-mail 地址的字段。会对邮箱进行格式检查。支持IE10以上，详细情况见<a href="https://www.caniuse.com/#search=email" target="_blank" rel="noopener">兼容性</a></td>
+</tr>
+<tr>
+<td>number</td>
+<td>定义用于输入数字的字段。在各个浏览器上有一些<a href="https://www.caniuse.com/#search=number" target="_blank" rel="noopener">差异</a><img src="http://qncdn.wbjiang.cn/number%E5%85%BC%E5%AE%B9%E6%80%A7.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="number兼容性"></td>
+</tr>
+<tr>
+<td>range</td>
+<td>定义滑块。支持IE10以上，详细情况见<a href="https://www.caniuse.com/#search=range" target="_blank" rel="noopener">兼容性</a></td>
+</tr>
+<tr>
+<td>search</td>
+<td>定义用于输入搜索字符串的文本字段。支持IE10以上，但是在UI表现上与text没有差别。<a href="https://www.caniuse.com/#search=search" target="_blank" rel="noopener">查看详情</a></td>
+</tr>
+<tr>
+<td>tel</td>
+<td>定义用于输入电话号码的字段。支持IE10以上，详细情况见<a href="https://www.caniuse.com/#search=tel" target="_blank" rel="noopener">兼容性</a></td>
+</tr>
+<tr>
+<td>url</td>
+<td>定义用于输入 URL 的字段。会对url进行格式检查。支持IE10以上，详细情况见<a href="https://www.caniuse.com/#search=url" target="_blank" rel="noopener">兼容性</a></td>
+</tr>
+</tbody></table>
+<h3 id="其他表单控件属性"><a href="#其他表单控件属性" class="headerlink" title="其他表单控件属性"></a>其他表单控件属性</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>placeholder</td>
+<td>可描述输入字段预期值的简短的提示信息，支持IE10以上，适用于下面的 input 类型：text、search、url、tel、email 和 password。</td>
+</tr>
+<tr>
+<td>autofocus</td>
+<td>页面加载时自动获得焦点，支持IE10以上。</td>
+</tr>
+<tr>
+<td>multiple</td>
+<td>规定允许用户输入到 input 元素的多个值。适用于以下 input 类型：email 和 file。常见于上传文件时选择多个文件。</td>
+</tr>
+<tr>
+<td>form</td>
+<td>规定 input 元素所属的一个或多个表单的 id 列表，以空格分隔。可以实现将 input 放在 form 标签外部。但是不支持IE。</td>
+</tr>
+<tr>
+<td>required</td>
+<td>规定必需在提交表单之前填写输入字段，支持IE10以上。</td>
+</tr>
+<tr>
+<td>maxlength</td>
+<td>规定 input 元素中允许的最大字符数，适用于text类型。</td>
+</tr>
+<tr>
+<td>minlength</td>
+<td>规定 input 元素中允许的最小字符数，适用于text类型。</td>
+</tr>
+<tr>
+<td>max</td>
+<td>规定 input 元素的最大值，max 和 min 属性适用于以下 input 类型：number、range、date、datetime、datetime-local、month、time 和 week。支持IE10以上，不支持firefox，其中IE10不支持max用于date 和 time类型。</td>
+</tr>
+<tr>
+<td>min</td>
+<td>规定 input 元素的最小值。</td>
+</tr>
+<tr>
+<td>pattern</td>
+<td>规定 input 元素的正则表达式校验。适用于下面的 input 类型：text、search、url、tel、email 和 password。应该配合 title 属性提示用户。</td>
+</tr>
+<tr>
+<td># HTML5其他新特性</td>
+<td></td>
+</tr>
+<tr>
+<td>支持IE9+</td>
+<td></td>
+</tr>
+<tr>
+<td>## 音视频</td>
+<td></td>
+</tr>
+<tr>
+<td>标签</td>
+<td>描述</td>
+</tr>
+<tr>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>source</td>
+<td>为媒体元素（比如 video 和 audio）定义媒体资源。主要定义其 src 属性和 type 属性，src 规定媒体文件的 URL，type 规定媒体资源的 MIME 类型。</td>
+</tr>
+<tr>
+<td>audio</td>
+<td>定义音频。对mp3文件的兼容性最好。<img src="http://qncdn.wbjiang.cn/audio%E5%AA%92%E4%BD%93%E6%94%AF%E6%8C%81.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="audio媒体支持"></td>
+</tr>
+<tr>
+<td>video</td>
+<td>定义视频。对MP4文件的兼容性最好。<img src="http://qncdn.wbjiang.cn/video%E5%AA%92%E4%BD%93%E6%94%AF%E6%8C%81.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="video媒体支持"></td>
+</tr>
+</tbody></table>
+<h2 id="画布canvas"><a href="#画布canvas" class="headerlink" title="画布canvas"></a>画布canvas</h2><p>可以说是前端高级部分了，这里一言难尽，慢慢学习吧。支持IE9+。与之相关的svg也是支持IE9+。</p>
+<h2 id="Web存储"><a href="#Web存储" class="headerlink" title="Web存储"></a>Web存储</h2><p>主要包括sessionStorage和localStorage，操作的API都类似，区别是sessionStorage是会话级存储，localStorage是持久化存储。兼容性挺好，支持IE8+。</p>
+<h2 id="地理定位geolocation"><a href="#地理定位geolocation" class="headerlink" title="地理定位geolocation"></a>地理定位geolocation</h2><p>navigator下的一个属性，鉴于该特性可能侵犯用户的隐私，除非用户同意，否则用户位置信息是不可用的。支持IE9+。</p>
+<h2 id="HTML5-Application-Cache"><a href="#HTML5-Application-Cache" class="headerlink" title="HTML5 Application Cache"></a>HTML5 Application Cache</h2><p>实现网页离线访问的利器。支持IE10+。相关的最新技术还有PWA等。</p>
+<h2 id="Web-Worker"><a href="#Web-Worker" class="headerlink" title="Web Worker"></a>Web Worker</h2><p>让js也能做多线程的事情，相关内容可以参考<a href="http://www.ruanyifeng.com/blog/2018/07/web-worker.html" target="_blank" rel="noopener">Web Worker 使用教程</a>。<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Workers_API/Using_web_workers" target="_blank" rel="noopener">MDN</a>上也有比较详细的解释。</p>
+<h2 id="HTML-5-服务器发送事件-EventSource"><a href="#HTML-5-服务器发送事件-EventSource" class="headerlink" title="HTML 5 服务器发送事件 EventSource"></a>HTML 5 服务器发送事件 EventSource</h2><p>EventSource 接口用于接收服务器发送的事件。它通过HTTP连接到一个服务器，以text/event-stream 格式接收事件, 不关闭连接(即长连接)。兼容性不是很好，IE和Edge直接废了。不过有一个兼容方案 <a href="https://www.npmjs.com/package/event-source-polyfill" target="_blank" rel="noopener">event-source-polyfill</a>。</p>
+<h2 id="HTML5-WebSocket"><a href="#HTML5-WebSocket" class="headerlink" title="HTML5 WebSocket"></a>HTML5 WebSocket</h2><p>WebSocket 是 HTML5 开始提供的一种在单个 TCP 连接上进行全双工通讯的协议。对IE10+能较好兼容，对于不兼容的浏览器，也有很多优雅降级方案，一般是降级成ajax轮询等，像<a href="https://socket.io/" target="_blank" rel="noopener">socket.io</a>。</p>
+<h2 id="通知接口Notification"><a href="#通知接口Notification" class="headerlink" title="通知接口Notification"></a>通知接口Notification</h2><p>Notifications API 的通知接口用于向用户显示桌面通知。查看<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/notification" target="_blank" rel="noopener">具体用法</a>。<a href="https://www.caniuse.com/#search=Notification" target="_blank" rel="noopener">兼容性</a>不是很好，但是用起来网站的逼格高不少，如果是IE就直接放弃吧。</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/html5/">html5</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay_payme.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/ubuntu系统下sudo权限用户安装nodejs和nginx.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">ubuntu系统下sudo权限用户安装nodejs和nginx</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/CentOS7系统下修改mysql8-0版本密码.html">
+                <span class="level-item">CentOS7系统下修改mysql8.0版本密码</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: 'e244808d754d6ef5f8aa',
+        clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
+        id: '27c4252b19804453066abf2661b2fe51',
+        repo: 'tusi-hexo',
+        owner: 'cumt-robin',
+        admin: "cumt-robin",
+        createIssueManually: false,
+        distractionFreeMode: false
+    })
+    gitalk.render('comment-container')
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                        <figure class="image is-128x128 has-mb-6">
+                            <img class="is-rounded" src="/images/avatar.png" alt="Tusi">
+                        </figure>
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Tusi
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Frontend Engineer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>湖南长沙</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        59
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        28
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        55
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/cumt-robin" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/cumt-robin">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="WeChat" href="http://qncdn.wbjiang.cn/%E5%BE%AE%E4%BF%A1%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%90%8D%E7%89%87.jpg">
+                
+                <i class="fab fa-weixin"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            友情链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.wbjiang.cn" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi博客</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.wbjiang.cn</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.whatled.com/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">少将博客</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.whatled.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41196185" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi CSDN</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://juejin.im/user/5ca40a18f265da30b8178b31" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi掘金</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">juejin.im</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.jiangshaobo.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Abel</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.jiangshaobo.cn</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:11:22.000Z">2019-08-23</time></div>
+                    <a href="/在Linux和Windows系统中输出目录结构.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">在Linux和Windows系统中输出目录结构</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/linux/">linux</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/从部署上做到前后端分离.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:09:27.000Z">2019-08-23</time></div>
+                    <a href="/从部署上做到前后端分离.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">从部署上做到前后端分离</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/nginx/">nginx</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/微信小程序自定义tabBar.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:08:11.000Z">2019-08-23</time></div>
+                    <a href="/微信小程序自定义tabBar.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">微信小程序自定义tabBar</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/微信小程序/">微信小程序</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:06:32.000Z">2019-08-23</time></div>
+                    <a href="/一种在地图中处理曲线的通用方法.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">一种在地图中处理曲线的通用方法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/算法/">算法</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/vue项目中引入iconfont.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/iconfont.jpg" alt="vue项目中引入iconfont">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:04:44.000Z">2019-08-23</time></div>
+                    <a href="/vue项目中引入iconfont.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue项目中引入iconfont</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/vue/">vue</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Angular/">
+                        <span class="tag">Angular</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TortoiseGIT/">
+                        <span class="tag">TortoiseGIT</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VMware/">
+                        <span class="tag">VMware</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bootstrap/">
+                        <span class="tag">bootstrap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/coding/">
+                        <span class="tag">coding</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/demo/">
+                        <span class="tag">demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/es/">
+                        <span class="tag">es</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/express/">
+                        <span class="tag">express</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gitment/">
+                        <span class="tag">gitment</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gulp/">
+                        <span class="tag">gulp</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/http-server/">
+                        <span class="tag">http-server</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/iconfont/">
+                        <span class="tag">iconfont</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jdk/">
+                        <span class="tag">jdk</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jquery/">
+                        <span class="tag">jquery</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js/">
+                        <span class="tag">js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js模块化/">
+                        <span class="tag">js模块化</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/livere/">
+                        <span class="tag">livere</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/next/">
+                        <span class="tag">next</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ng-zorro/">
+                        <span class="tag">ng-zorro</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nginx/">
+                        <span class="tag">nginx</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nodejs/">
+                        <span class="tag">nodejs</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/npm速度慢/">
+                        <span class="tag">npm速度慢</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/socket-io/">
+                        <span class="tag">socket.io</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/svg/">
+                        <span class="tag">svg</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/valine/">
+                        <span class="tag">valine</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vscode/">
+                        <span class="tag">vscode</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue/">
+                        <span class="tag">vue</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue-router/">
+                        <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue作用域插槽/">
+                        <span class="tag">vue作用域插槽</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue升级/">
+                        <span class="tag">vue升级</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/websocket/">
+                        <span class="tag">websocket</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/windows/">
+                        <span class="tag">windows</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前后端分离/">
+                        <span class="tag">前后端分离</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/地图曲线/">
+                        <span class="tag">地图曲线</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信公众号/">
+                        <span class="tag">微信公众号</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信小程序/">
+                        <span class="tag">微信小程序</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/滑块美化/">
+                        <span class="tag">滑块美化</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/电脑技能/">
+                        <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自定义tabbar/">
+                        <span class="tag">自定义tabbar</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/记事本/">
+                        <span class="tag">记事本</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:11:22.000Z">2019-08-23</time></div>
+                    <a href="/在Linux和Windows系统中输出目录结构.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">在Linux和Windows系统中输出目录结构</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/linux/">linux</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/从部署上做到前后端分离.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:09:27.000Z">2019-08-23</time></div>
+                    <a href="/从部署上做到前后端分离.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">从部署上做到前后端分离</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/nginx/">nginx</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/微信小程序自定义tabBar.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:08:11.000Z">2019-08-23</time></div>
+                    <a href="/微信小程序自定义tabBar.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">微信小程序自定义tabBar</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/微信小程序/">微信小程序</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:06:32.000Z">2019-08-23</time></div>
+                    <a href="/一种在地图中处理曲线的通用方法.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">一种在地图中处理曲线的通用方法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/算法/">算法</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/vue项目中引入iconfont.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/iconfont.jpg" alt="vue项目中引入iconfont">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:04:44.000Z">2019-08-23</time></div>
+                    <a href="/vue项目中引入iconfont.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue项目中引入iconfont</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/vue/">vue</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Angular/">
+                        <span class="tag">Angular</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TortoiseGIT/">
+                        <span class="tag">TortoiseGIT</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VMware/">
+                        <span class="tag">VMware</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bootstrap/">
+                        <span class="tag">bootstrap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/coding/">
+                        <span class="tag">coding</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/demo/">
+                        <span class="tag">demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/es/">
+                        <span class="tag">es</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/express/">
+                        <span class="tag">express</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gitment/">
+                        <span class="tag">gitment</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gulp/">
+                        <span class="tag">gulp</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/http-server/">
+                        <span class="tag">http-server</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/iconfont/">
+                        <span class="tag">iconfont</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jdk/">
+                        <span class="tag">jdk</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jquery/">
+                        <span class="tag">jquery</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js/">
+                        <span class="tag">js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js模块化/">
+                        <span class="tag">js模块化</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/livere/">
+                        <span class="tag">livere</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/next/">
+                        <span class="tag">next</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ng-zorro/">
+                        <span class="tag">ng-zorro</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nginx/">
+                        <span class="tag">nginx</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nodejs/">
+                        <span class="tag">nodejs</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/npm速度慢/">
+                        <span class="tag">npm速度慢</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/socket-io/">
+                        <span class="tag">socket.io</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/svg/">
+                        <span class="tag">svg</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/valine/">
+                        <span class="tag">valine</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vscode/">
+                        <span class="tag">vscode</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue/">
+                        <span class="tag">vue</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue-router/">
+                        <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue作用域插槽/">
+                        <span class="tag">vue作用域插槽</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue升级/">
+                        <span class="tag">vue升级</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/websocket/">
+                        <span class="tag">websocket</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/windows/">
+                        <span class="tag">windows</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前后端分离/">
+                        <span class="tag">前后端分离</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/地图曲线/">
+                        <span class="tag">地图曲线</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信公众号/">
+                        <span class="tag">微信公众号</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信小程序/">
+                        <span class="tag">微信小程序</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/滑块美化/">
+                        <span class="tag">滑块美化</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/电脑技能/">
+                        <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自定义tabbar/">
+                        <span class="tag">自定义tabbar</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/记事本/">
+                        <span class="tag">记事本</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="前端攻城狮HTML5自查手册" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Tusi&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Follow me on GitHub" href="https://github.com/cumt-robin">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
