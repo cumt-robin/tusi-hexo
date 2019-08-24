@@ -19,7 +19,7 @@
 <meta property="og:description" content="Vue.js无疑是最近最火的一套渐进式前端框架。Vue的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/vue_375x300.png">
-<meta property="og:updated_time" content="2019-08-21T02:50:00.122Z">
+<meta property="og:updated_time" content="2019-08-23T09:30:21.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="撸一遍vue的基础特性">
 <meta name="twitter:description" content="Vue.js无疑是最近最火的一套渐进式前端框架。Vue的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。">
@@ -230,11 +230,11 @@ var _hmt = _hmt || [];
 <figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">v-for</span>=<span class="hljs-string">"(value, key, index) in vueForObject"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>&#123;&#123; index &#125;&#125;. &#123;&#123; key &#125;&#125; : &#123;&#123; value &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="计算属性computed"><a href="#计算属性computed" class="headerlink" title="计算属性computed"></a>计算属性computed</h2><p>对于插值表达式中涉及到的复杂计算，建议用计算属性computed来替代。在new Vue时可以使用computed属性。</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// html中</span></span><br><span class="line">&#123;&#123; reversedMessage &#125;&#125;</span><br><span class="line"><span class="hljs-comment">// vue实例中</span></span><br><span class="line">computed: &#123;</span><br><span class="line">  reversedMessage: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.testMessage.split(<span class="hljs-string">''</span>).reverse().join(<span class="hljs-string">''</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// html中</span></span><br><span class="line">&#123;&#123; reversedMessage &#125;&#125;</span><br><span class="line"><span class="hljs-comment">// vue实例中</span></span><br><span class="line">computed: &#123;</span><br><span class="line">  reversedMessage: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.testMessage.split(<span class="hljs-string">''</span>).reverse().join(<span class="hljs-string">''</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这里只是一个倒序的算法，不算很复杂，只是举例说明。</p>
 <h2 id="watch属性"><a href="#watch属性" class="headerlink" title="watch属性"></a>watch属性</h2><p>我们可以使用watch来进行侦听，来响应数据的变化。上面计算属性的应用，我们也可以改用watch来写：</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  testMessage: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.reversedMessage = <span class="hljs-keyword">this</span>.testMessage.split(<span class="hljs-string">''</span>).reverse().join(<span class="hljs-string">''</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  testMessage: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.reversedMessage = <span class="hljs-keyword">this</span>.testMessage.split(<span class="hljs-string">''</span>).reverse().join(<span class="hljs-string">''</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这里，我们通过侦听testMessage的变化来做出响应，用于改变reversedMessage的值。</p>
 <blockquote>
@@ -302,7 +302,7 @@ var _hmt = _hmt || [];
 <figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">:css</span>=<span class="hljs-string">"false"</span></span></span><br><span class="line"><span class="hljs-tag">  @<span class="hljs-attr">before-enter</span>=<span class="hljs-string">"beforeEnter"</span></span></span><br><span class="line"><span class="hljs-tag">  @<span class="hljs-attr">enter</span>=<span class="hljs-string">"enter"</span></span></span><br><span class="line"><span class="hljs-tag">  @<span class="hljs-attr">after-enter</span>=<span class="hljs-string">"afterEnter"</span></span></span><br><span class="line"><span class="hljs-tag">  @<span class="hljs-attr">enter-cancelled</span>=<span class="hljs-string">"enterCancelled"</span></span></span><br><span class="line"><span class="hljs-tag"></span></span><br><span class="line"><span class="hljs-tag">  @<span class="hljs-attr">before-leave</span>=<span class="hljs-string">"beforeLeave"</span></span></span><br><span class="line"><span class="hljs-tag">  @<span class="hljs-attr">leave</span>=<span class="hljs-string">"leave"</span></span></span><br><span class="line"><span class="hljs-tag">  @<span class="hljs-attr">after-leave</span>=<span class="hljs-string">"afterLeave"</span></span></span><br><span class="line"><span class="hljs-tag">  @<span class="hljs-attr">leave-cancelled</span>=<span class="hljs-string">"leaveCancelled"</span></span></span><br><span class="line"><span class="hljs-tag">&gt;</span></span><br><span class="line">......</span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">transition</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>钩子函数都有参数el，用于引用添加了transition包裹的元素。enter和leave钩子函数中额外有一个参数done，done是一个回调函数，是必须在最后调用的。否则，它们会被同步调用，过渡会立即完成。</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enter: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, done</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-comment">// ...</span></span><br><span class="line">  done();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enter: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">el, done</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-comment">// ...</span></span><br><span class="line">  done();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>有了js钩子函数，那么我就可以不使用class来定义过渡的效果了，我可以使用js动画库，如velocity.js，这个时候最好添加v-bind:css=”false”，Vue 会跳过 CSS 的检测。这也可以避免过渡过程中 CSS 的影响。</p>
 <p>我们可以给元素设置初始渲染的过渡效果。</p>
@@ -343,7 +343,7 @@ var _hmt = _hmt || [];
 <li>unbind</li>
 </ul>
 <p>目前未对指令进行深究，只写了一个简单的指令。</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">directives: &#123;</span><br><span class="line">  autoClick: &#123;</span><br><span class="line">    inserted: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">el</span>) </span>&#123;</span><br><span class="line">      el.click();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">directives: &#123;</span><br><span class="line">  autoClick: &#123;</span><br><span class="line">    inserted: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">el</span>) </span>&#123;</span><br><span class="line">      el.click();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="vue组件生命周期"><a href="#vue组件生命周期" class="headerlink" title="vue组件生命周期"></a>vue组件生命周期</h2><p>参考：<br>（1）<a href="https://segmentfault.com/a/1190000008010666" target="_blank" rel="noopener">Vue2.0 探索之路——生命周期和钩子函数的一些理解</a><br>（2）<a href="https://cn.vuejs.org/v2/api" target="_blank" rel="noopener">API</a></p>
 
@@ -478,7 +478,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        59
+                        60
                     </p>
                 </div>
             </div>
@@ -488,7 +488,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        28
+                        29
                     </p>
                 </div>
             </div>
@@ -623,6 +623,25 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/sea-js的同步魔法.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-24T05:13:55.000Z">2019-08-24</time></div>
+                    <a href="/sea-js的同步魔法.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">sea.js的同步魔法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
@@ -653,7 +672,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:09:27.000Z">2019-08-23</time></div>
                     <a href="/从部署上做到前后端分离.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">从部署上做到前后端分离</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/nginx/">nginx</a>
+                        <a class="has-link-grey -link" href="/categories/Nginx/">Nginx</a>
                     </p>
                 </div>
             </div>
@@ -697,25 +716,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/vue项目中引入iconfont.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/iconfont.jpg" alt="vue项目中引入iconfont">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:04:44.000Z">2019-08-23</time></div>
-                    <a href="/vue项目中引入iconfont.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue项目中引入iconfont</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/vue/">vue</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -736,8 +736,22 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Bootstrap/">
+                        <span class="tag">Bootstrap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/CNZZ统计/">
                         <span class="tag">CNZZ统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CSS单位/">
+                        <span class="tag">CSS单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -746,6 +760,76 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/Chrome自动填充/">
                         <span class="tag">Chrome自动填充</span>
                         <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ES6/">
+                        <span class="tag">ES6</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Express/">
+                        <span class="tag">Express</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/GitHub/">
+                        <span class="tag">GitHub</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Gulp/">
+                        <span class="tag">Gulp</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTML5/">
+                        <span class="tag">HTML5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Linux/">
+                        <span class="tag">Linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Nginx/">
+                        <span class="tag">Nginx</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/NodeJS/">
+                        <span class="tag">NodeJS</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -764,27 +848,6 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/bootstrap/">
-                        <span class="tag">bootstrap</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/coding/">
-                        <span class="tag">coding</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/css单位/">
-                        <span class="tag">css单位</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/demo/">
                         <span class="tag">demo</span>
                         <span class="tag is-grey">2</span>
@@ -792,57 +855,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/es/">
-                        <span class="tag">es</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/express/">
-                        <span class="tag">express</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/git/">
-                        <span class="tag">git</span>
-                        <span class="tag is-grey">3</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/github/">
-                        <span class="tag">github</span>
-                        <span class="tag is-grey">4</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/gitment/">
                         <span class="tag">gitment</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/gulp/">
-                        <span class="tag">gulp</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/hexo/">
-                        <span class="tag">hexo</span>
-                        <span class="tag is-grey">7</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/html5/">
-                        <span class="tag">html5</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -862,6 +876,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/jQuery/">
+                        <span class="tag">jQuery</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
                         <span class="tag is-grey">1</span>
@@ -876,30 +897,9 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/jquery/">
-                        <span class="tag">jquery</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/js/">
-                        <span class="tag">js</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/js模块化/">
                         <span class="tag">js模块化</span>
                         <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/linux/">
-                        <span class="tag">linux</span>
-                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -932,22 +932,22 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/nginx/">
-                        <span class="tag">nginx</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/nodejs/">
-                        <span class="tag">nodejs</span>
-                        <span class="tag is-grey">5</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/npm速度慢/">
                         <span class="tag">npm速度慢</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/require-js/">
+                        <span class="tag">require.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/sea-js/">
+                        <span class="tag">sea.js</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1138,6 +1138,25 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/sea-js的同步魔法.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-24T05:13:55.000Z">2019-08-24</time></div>
+                    <a href="/sea-js的同步魔法.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">sea.js的同步魔法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
@@ -1168,7 +1187,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:09:27.000Z">2019-08-23</time></div>
                     <a href="/从部署上做到前后端分离.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">从部署上做到前后端分离</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/nginx/">nginx</a>
+                        <a class="has-link-grey -link" href="/categories/Nginx/">Nginx</a>
                     </p>
                 </div>
             </div>
@@ -1212,25 +1231,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/vue项目中引入iconfont.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/iconfont.jpg" alt="vue项目中引入iconfont">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:04:44.000Z">2019-08-23</time></div>
-                    <a href="/vue项目中引入iconfont.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue项目中引入iconfont</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/vue/">vue</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1251,8 +1251,22 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Bootstrap/">
+                        <span class="tag">Bootstrap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/CNZZ统计/">
                         <span class="tag">CNZZ统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CSS单位/">
+                        <span class="tag">CSS单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1261,6 +1275,76 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/Chrome自动填充/">
                         <span class="tag">Chrome自动填充</span>
                         <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ES6/">
+                        <span class="tag">ES6</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Express/">
+                        <span class="tag">Express</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/GitHub/">
+                        <span class="tag">GitHub</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Gulp/">
+                        <span class="tag">Gulp</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTML5/">
+                        <span class="tag">HTML5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Linux/">
+                        <span class="tag">Linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Nginx/">
+                        <span class="tag">Nginx</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/NodeJS/">
+                        <span class="tag">NodeJS</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -1279,27 +1363,6 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/bootstrap/">
-                        <span class="tag">bootstrap</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/coding/">
-                        <span class="tag">coding</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/css单位/">
-                        <span class="tag">css单位</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/demo/">
                         <span class="tag">demo</span>
                         <span class="tag is-grey">2</span>
@@ -1307,57 +1370,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/es/">
-                        <span class="tag">es</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/express/">
-                        <span class="tag">express</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/git/">
-                        <span class="tag">git</span>
-                        <span class="tag is-grey">3</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/github/">
-                        <span class="tag">github</span>
-                        <span class="tag is-grey">4</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/gitment/">
                         <span class="tag">gitment</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/gulp/">
-                        <span class="tag">gulp</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/hexo/">
-                        <span class="tag">hexo</span>
-                        <span class="tag is-grey">7</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/html5/">
-                        <span class="tag">html5</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1377,6 +1391,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/jQuery/">
+                        <span class="tag">jQuery</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
                         <span class="tag is-grey">1</span>
@@ -1391,30 +1412,9 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/jquery/">
-                        <span class="tag">jquery</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/js/">
-                        <span class="tag">js</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/js模块化/">
                         <span class="tag">js模块化</span>
                         <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/linux/">
-                        <span class="tag">linux</span>
-                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -1447,22 +1447,22 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/nginx/">
-                        <span class="tag">nginx</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/nodejs/">
-                        <span class="tag">nodejs</span>
-                        <span class="tag is-grey">5</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/npm速度慢/">
                         <span class="tag">npm速度慢</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/require-js/">
+                        <span class="tag">require.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/sea-js/">
+                        <span class="tag">sea.js</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

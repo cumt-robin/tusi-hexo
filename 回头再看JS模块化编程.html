@@ -19,7 +19,7 @@
 <meta property="og:description" content="什么是模块？我们可能要从需求上出发进行理解，当web应用的规模变得越来越大，业务变得越来越复杂时，我们需要将一些函数分门别类，在分类的基础上对函数进行封装，这就形成了模块。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/js_code.png">
-<meta property="og:updated_time" content="2019-08-23T04:32:02.541Z">
+<meta property="og:updated_time" content="2019-08-24T05:14:46.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="回头再看JS模块化编程">
 <meta name="twitter:description" content="什么是模块？我们可能要从需求上出发进行理解，当web应用的规模变得越来越大，业务变得越来越复杂时，我们需要将一些函数分门别类，在分类的基础上对函数进行封装，这就形成了模块。">
@@ -172,14 +172,14 @@ var _hmt = _hmt || [];
                 <time class="level-item has-text-grey" datetime="2019-08-23T04:29:23.000Z">2019-08-23</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/js/">js</a>
+                <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    14 分钟 读完 (大约 2127 个字)
+                    15 分钟 读完 (大约 2179 个字)
                 </span>
                 
                 
@@ -199,27 +199,27 @@ var _hmt = _hmt || [];
         <div class="content">
             <p>什么是模块？我们可能要从需求上出发进行理解，当web应用的规模变得越来越大，业务变得越来越复杂时，我们需要将一些函数分门别类，在分类的基础上对函数进行封装，这就形成了模块。<a id="more"></a>下面看一下js模块的一些形式。</p>
 <h1 id="对象模块"><a href="#对象模块" class="headerlink" title="对象模块"></a>对象模块</h1><p>假如我们有多个函数，想作为一个模块使用，最原始的做法就是把这几个函数全部放在一个js文件，通过文件的形式来对js进行划分模块。</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// my_module.js</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multiply</span>(<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">return</span> a * b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// my_module.js</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multiply</span>(<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">return</span> a * b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>然而这样的做法会污染全局环境，引用这个js后，window对象就会多了两个方法。那么如何减少这种对全局环境的污染呢？想到的最简单的一个办法就是，把这几个函数都放在一个对象中，只暴露一个对象。</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// my_module.js</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> MyModule = &#123;</span><br><span class="line">	add: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">		<span class="hljs-keyword">return</span> a + b;</span><br><span class="line">	&#125;,</span><br><span class="line">	multiply: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">		<span class="hljs-keyword">return</span> a * b;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// my_module.js</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> MyModule = &#123;</span><br><span class="line">	add: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">		<span class="hljs-keyword">return</span> a + b;</span><br><span class="line">	&#125;,</span><br><span class="line">	multiply: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">		<span class="hljs-keyword">return</span> a * b;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="IIFE"><a href="#IIFE" class="headerlink" title="IIFE"></a>IIFE</h1><p>IIFE（immediately invoked function expression），也就是立即执行函数表达式。假设有这样一个场景，你的模块需要定义默认参数，而你又希望这个默认参数不被外界所改变，那么使用对象模块的方式就没有办法做到了，因为这个对象已经暴露在全局环境中。那么如何能隔离作用域呢？聪明的你已经想到了函数，对的，函数可以做到。我们通过IIFE为window挂载了setColor方法。</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">global</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">var</span> default_option = &#123;</span><br><span class="line">		color: <span class="hljs-string">'blue'</span></span><br><span class="line">	&#125;</span><br><span class="line">	global.setColor = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id, colorValue</span>) </span>&#123;</span><br><span class="line">		<span class="hljs-built_in">document</span>.getElementById(id).style.color = colorValue || default_option.color</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)(<span class="hljs-keyword">this</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">global</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">var</span> default_option = &#123;</span><br><span class="line">		color: <span class="hljs-string">'blue'</span></span><br><span class="line">	&#125;</span><br><span class="line">	global.setColor = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">id, colorValue</span>) </span>&#123;</span><br><span class="line">		<span class="hljs-built_in">document</span>.getElementById(id).style.color = colorValue || default_option.color</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)(<span class="hljs-keyword">this</span>)</span><br></pre></td></tr></table></figure>
 
 <p>这里的default_option就不会暴露在全局环境中，你可以尝试一下在控制台console.log(window.default_option)，得到的就是undefined。</p>
 <h1 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h1><p>引用百度给出的定义</p>
 <blockquote>
 <p>CommonJS API定义很多普通应用程序（主要指非浏览器的应用）使用的API，从而填补了这个空白。它的终极目标是提供一个类似Python，Ruby和Java标准库。</p>
 </blockquote>
-<p>CommonJS提供的模块方案认为，一个js就是一个模块，我们经常用到的变量和函数有global，module，exports，require。global是nodejs环境的全局对象，类似与浏览器环境的window，也是根对象，任何在全局环境下定义的变量或函数都是global的属性或方法，global涉及很多东西，这里不再赘述。而module是模块对象，exports包含该模块要导出的变量或函数，require是导入模块的方法。我们首先写两个简单的js来认识它们。</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// a.js</span></span><br><span class="line"><span class="hljs-built_in">module</span>.exports.add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// b.js</span></span><br><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./a.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> result = a.add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(result); <span class="hljs-comment">// 输出3</span></span><br></pre></td></tr></table></figure>
+<p><a href="http://www.commonjs.org/process/" target="_blank" rel="noopener">CommonJS</a>提供的模块方案认为，一个js就是一个模块，我们经常用到的变量和函数有global，module，exports，require。global是nodejs环境的全局对象，类似与浏览器环境的window，也是根对象，任何在全局环境下定义的变量或函数都是global的属性或方法，global涉及很多东西，这里不再赘述。而module是模块对象，exports包含该模块要导出的变量或函数，require是导入模块的方法。我们首先写两个简单的js来认识它们。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// a.js</span></span><br><span class="line"><span class="hljs-built_in">module</span>.exports.add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// b.js</span></span><br><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./a.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> result = a.add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(result); <span class="hljs-comment">// 输出3</span></span><br></pre></td></tr></table></figure>
 
 <p>这是最简单的模块写法，a.js通过exports导出add函数，而b.js通过require导入a模块，便可以调用a模块的add函数。</p>
 <h2 id="module"><a href="#module" class="headerlink" title="module"></a>module</h2><p>那么我们先来看看module这个对象。在b.js中我们console.log(module)，则会打印出模块b的信息。</p>
 <p><img src="http://qncdn.wbjiang.cn/moduleB.png" alt="moduleB"></p>
 <p>可以看到，模块b的children里有模块a，说明模块b引用了模块a。我们再观察一下模块a，修改a.js的代码如下，再运行b.js</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">module</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">module</span>.exports.add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">module</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">module</span>.exports.add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="http://qncdn.wbjiang.cn/moduleA.png" alt="moduleA"></p>
 <p>可以看到，模块a的parent指向模块b，是因为执行的是b.js，而b.js引用了模块a。注意此时模块a的loaded属性值仍是false，因为此时模块还没加载完成。如果我们在add方法中打日志，而b.js调用a.js的add函数，则会发现此时模块a的loaded已经变成了true</p>
@@ -234,17 +234,17 @@ var _hmt = _hmt || [];
 <li>paths：对于加载模块时没给出./ ../ /…/时，加载模块的搜索路径。依次从第一个路径搜索到最后一个路径。</li>
 </ul>
 <h2 id="exports"><a href="#exports" class="headerlink" title="exports"></a>exports</h2><p>接下来我们说说exports，在这里要了解module.exports与exports的区别。Node.js 在初始化时执行了 exports = module.exports , 所以 exports 与 module.exports 指向了相同的内存。当不改变两者的指向时，两者还是全等的。因此，我前面的写法 exports.add 只是给 exports 指向的对象上添加了add方法，并未改变其指向。这之后exports与module.exports仍是一致的。到这里大家应该明白了什么情况两者会不相等了。</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 如果采用这种改变指向的写法，那么之后exports与module.exports就不一样了。</span></span><br><span class="line"><span class="hljs-built_in">module</span>.exports = &#123;</span><br><span class="line">	add: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">		<span class="hljs-keyword">return</span> a + b</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 如果采用这种改变指向的写法，那么之后exports与module.exports就不一样了。</span></span><br><span class="line"><span class="hljs-built_in">module</span>.exports = &#123;</span><br><span class="line">	add: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">		<span class="hljs-keyword">return</span> a + b</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>通过exports导出的函数和属性可以被其他模块调用，这一点想必大家都清楚了。</p>
-<h1 id="require"><a href="#require" class="headerlink" title="require"></a>require</h1><p>这里先说一下模块的分类，NodeJS中模块分为核心模块和文件模块。核心模块是被编译成二进制代码，引用的时候只需require表示符即可，如require(‘fs’)，不需要加路径的。而引用文件模块时需要加上路径，表示对文件的引用。假如你加载一个自定义的test.js模块时，没有指定路径，那么它会首先从当前目录的node_modules子目录下寻找test.js，如果没有，则查找上一级目录的node_modules子目录，一直查到盘符的根目录为止。也就是前面提到的module.paths的查找顺序。</p>
+<h2 id="require"><a href="#require" class="headerlink" title="require"></a>require</h2><p>这里先说一下模块的分类，NodeJS中模块分为核心模块和文件模块。核心模块是被编译成二进制代码，引用的时候只需require表示符即可，如require(‘fs’)，不需要加路径的。而引用文件模块时需要加上路径，表示对文件的引用。假如你加载一个自定义的test.js模块时，没有指定路径，那么它会首先从当前目录的node_modules子目录下寻找test.js，如果没有，则查找上一级目录的node_modules子目录，一直查到盘符的根目录为止。也就是前面提到的module.paths的查找顺序。</p>
 <p>说到这里，我们再来回顾一下我们在开发时，npm install 安装的一些依赖包。它们的package.json一般都包含了main字段，用来标识入口js文件。</p>
 <p><img src="http://qncdn.wbjiang.cn/npm%E5%8C%85%E7%9A%84%E5%85%A5%E5%8F%A3%E8%AF%B4%E6%98%8E.png" alt="package.json的main字段"></p>
 <p>如果没有指定main字段，那么nodejs会默认去加载index.js或者index.node文件。例如：</p>
 <p><img src="http://qncdn.wbjiang.cn/npm%E5%8C%85index%E5%85%A5%E5%8F%A3.png" alt="index.js作为入口js文件"></p>
 <p>看到这里，是不是突然有点懂了node_modules哪些依赖包的写法了。好的，接着往下看。</p>
 <p>我们在c.js中打出日志，观察require方法的结构。</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">require</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">require</span>)</span><br></pre></td></tr></table></figure>
 
 <p><img src="http://qncdn.wbjiang.cn/require%E6%96%B9%E6%B3%95%E7%BB%93%E6%9E%84.png" alt="require方法的结构"></p>
 <p>可以知道，require函数包含了以下属性和方法。</p>
@@ -255,10 +255,13 @@ var _hmt = _hmt || [];
 <li>require.extensions：根据文件的后缀名，调用不同的执行函数</li>
 </ul>
 <p>我们再细致看一下，主要看看resolve和extensions</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./a.js'</span>);</span><br><span class="line"><span class="hljs-keyword">var</span> b = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./b.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'resolve测试'</span>)</span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">require</span>.resolve(<span class="hljs-string">'./a.js'</span>))</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'extensions测试'</span>)</span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">require</span>.extensions[<span class="hljs-string">'.js'</span>].toString())</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">require</span>.extensions[<span class="hljs-string">'.json'</span>].toString())</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">require</span>.extensions[<span class="hljs-string">'.node'</span>].toString())</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./a.js'</span>);</span><br><span class="line"><span class="hljs-keyword">var</span> b = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./b.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'resolve测试'</span>)</span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">require</span>.resolve(<span class="hljs-string">'./a.js'</span>))</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'extensions测试'</span>)</span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">require</span>.extensions[<span class="hljs-string">'.js'</span>].toString())</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">require</span>.extensions[<span class="hljs-string">'.json'</span>].toString())</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">require</span>.extensions[<span class="hljs-string">'.node'</span>].toString())</span><br></pre></td></tr></table></figure>
 
 <p>得到的结果如下图所示：</p>
 <p><img src="http://qncdn.wbjiang.cn/module%E7%9A%84extensions.png" alt="module的resolve和extensions"></p>
+<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>使用<code>require()</code>加载模块是有缓存的，如果要清理缓存，则需要调用<code>delete require.cache</code>，示例如下：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">delete</span> <span class="hljs-built_in">require</span>.cache[<span class="hljs-built_in">require</span>.resolve(<span class="hljs-string">'./json/damei_admin.json'</span>)];</span><br></pre></td></tr></table></figure>
+
 <p>写到这里，算是对模块有一点初步的认识。接下来我们还需要了解AMD，CMD，UMD的概念。由于篇幅太长，接下来我将分篇叙述这些概念，请阅读后续系列文章！以上观点源于自己的一些理解，如有描述不对的地方，请您指正！</p>
 
         </div>
@@ -401,7 +404,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        59
+                        60
                     </p>
                 </div>
             </div>
@@ -411,7 +414,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        28
+                        29
                     </p>
                 </div>
             </div>
@@ -546,6 +549,25 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/sea-js的同步魔法.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-24T05:13:55.000Z">2019-08-24</time></div>
+                    <a href="/sea-js的同步魔法.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">sea.js的同步魔法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
@@ -576,7 +598,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:09:27.000Z">2019-08-23</time></div>
                     <a href="/从部署上做到前后端分离.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">从部署上做到前后端分离</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/nginx/">nginx</a>
+                        <a class="has-link-grey -link" href="/categories/Nginx/">Nginx</a>
                     </p>
                 </div>
             </div>
@@ -620,25 +642,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/vue项目中引入iconfont.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/iconfont.jpg" alt="vue项目中引入iconfont">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:04:44.000Z">2019-08-23</time></div>
-                    <a href="/vue项目中引入iconfont.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue项目中引入iconfont</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/vue/">vue</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -659,8 +662,22 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Bootstrap/">
+                        <span class="tag">Bootstrap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/CNZZ统计/">
                         <span class="tag">CNZZ统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CSS单位/">
+                        <span class="tag">CSS单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -669,6 +686,76 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/Chrome自动填充/">
                         <span class="tag">Chrome自动填充</span>
                         <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ES6/">
+                        <span class="tag">ES6</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Express/">
+                        <span class="tag">Express</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/GitHub/">
+                        <span class="tag">GitHub</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Gulp/">
+                        <span class="tag">Gulp</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTML5/">
+                        <span class="tag">HTML5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Linux/">
+                        <span class="tag">Linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Nginx/">
+                        <span class="tag">Nginx</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/NodeJS/">
+                        <span class="tag">NodeJS</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -687,27 +774,6 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/bootstrap/">
-                        <span class="tag">bootstrap</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/coding/">
-                        <span class="tag">coding</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/css单位/">
-                        <span class="tag">css单位</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/demo/">
                         <span class="tag">demo</span>
                         <span class="tag is-grey">2</span>
@@ -715,57 +781,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/es/">
-                        <span class="tag">es</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/express/">
-                        <span class="tag">express</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/git/">
-                        <span class="tag">git</span>
-                        <span class="tag is-grey">3</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/github/">
-                        <span class="tag">github</span>
-                        <span class="tag is-grey">4</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/gitment/">
                         <span class="tag">gitment</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/gulp/">
-                        <span class="tag">gulp</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/hexo/">
-                        <span class="tag">hexo</span>
-                        <span class="tag is-grey">7</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/html5/">
-                        <span class="tag">html5</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -785,6 +802,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/jQuery/">
+                        <span class="tag">jQuery</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
                         <span class="tag is-grey">1</span>
@@ -799,30 +823,9 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/jquery/">
-                        <span class="tag">jquery</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/js/">
-                        <span class="tag">js</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/js模块化/">
                         <span class="tag">js模块化</span>
                         <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/linux/">
-                        <span class="tag">linux</span>
-                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -855,22 +858,22 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/nginx/">
-                        <span class="tag">nginx</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/nodejs/">
-                        <span class="tag">nodejs</span>
-                        <span class="tag is-grey">5</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/npm速度慢/">
                         <span class="tag">npm速度慢</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/require-js/">
+                        <span class="tag">require.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/sea-js/">
+                        <span class="tag">sea.js</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1061,6 +1064,25 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/sea-js的同步魔法.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-24T05:13:55.000Z">2019-08-24</time></div>
+                    <a href="/sea-js的同步魔法.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">sea.js的同步魔法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
@@ -1091,7 +1113,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:09:27.000Z">2019-08-23</time></div>
                     <a href="/从部署上做到前后端分离.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">从部署上做到前后端分离</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/nginx/">nginx</a>
+                        <a class="has-link-grey -link" href="/categories/Nginx/">Nginx</a>
                     </p>
                 </div>
             </div>
@@ -1135,25 +1157,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/vue项目中引入iconfont.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/iconfont.jpg" alt="vue项目中引入iconfont">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:04:44.000Z">2019-08-23</time></div>
-                    <a href="/vue项目中引入iconfont.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">vue项目中引入iconfont</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/vue/">vue</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1174,8 +1177,22 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Bootstrap/">
+                        <span class="tag">Bootstrap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/CNZZ统计/">
                         <span class="tag">CNZZ统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CSS单位/">
+                        <span class="tag">CSS单位</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1184,6 +1201,76 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/Chrome自动填充/">
                         <span class="tag">Chrome自动填充</span>
                         <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ES6/">
+                        <span class="tag">ES6</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Express/">
+                        <span class="tag">Express</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Git/">
+                        <span class="tag">Git</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/GitHub/">
+                        <span class="tag">GitHub</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Gulp/">
+                        <span class="tag">Gulp</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTML5/">
+                        <span class="tag">HTML5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hexo/">
+                        <span class="tag">Hexo</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Linux/">
+                        <span class="tag">Linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Nginx/">
+                        <span class="tag">Nginx</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/NodeJS/">
+                        <span class="tag">NodeJS</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -1202,27 +1289,6 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/bootstrap/">
-                        <span class="tag">bootstrap</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/coding/">
-                        <span class="tag">coding</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/css单位/">
-                        <span class="tag">css单位</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/demo/">
                         <span class="tag">demo</span>
                         <span class="tag is-grey">2</span>
@@ -1230,57 +1296,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/es/">
-                        <span class="tag">es</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/express/">
-                        <span class="tag">express</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/git/">
-                        <span class="tag">git</span>
-                        <span class="tag is-grey">3</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/github/">
-                        <span class="tag">github</span>
-                        <span class="tag is-grey">4</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/gitment/">
                         <span class="tag">gitment</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/gulp/">
-                        <span class="tag">gulp</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/hexo/">
-                        <span class="tag">hexo</span>
-                        <span class="tag is-grey">7</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/html5/">
-                        <span class="tag">html5</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1300,6 +1317,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/jQuery/">
+                        <span class="tag">jQuery</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/java/">
                         <span class="tag">java</span>
                         <span class="tag is-grey">1</span>
@@ -1314,30 +1338,9 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/jquery/">
-                        <span class="tag">jquery</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/js/">
-                        <span class="tag">js</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/js模块化/">
                         <span class="tag">js模块化</span>
                         <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/linux/">
-                        <span class="tag">linux</span>
-                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -1370,22 +1373,22 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/nginx/">
-                        <span class="tag">nginx</span>
-                        <span class="tag is-grey">2</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/nodejs/">
-                        <span class="tag">nodejs</span>
-                        <span class="tag is-grey">5</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/npm速度慢/">
                         <span class="tag">npm速度慢</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/require-js/">
+                        <span class="tag">require.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/sea-js/">
+                        <span class="tag">sea.js</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
