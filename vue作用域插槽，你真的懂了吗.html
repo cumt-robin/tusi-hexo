@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="http://qncdn.wbjiang.cn/vue_375x300.png" alt="vue作用域插槽，你真的懂了吗">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/vue_375x300.png" alt="vue作用域插槽，你真的懂了吗">
         </span>
     </div>
     
@@ -208,11 +208,11 @@ var _hmt = _hmt || [];
 <ol>
 <li>给slot传入普通文本</li>
 </ol>
-<p><img src="http://qncdn.wbjiang.cn/slot%E6%99%AE%E9%80%9A%E6%96%87%E6%9C%AC.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="slot传入普通文本"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/slot%E6%99%AE%E9%80%9A%E6%96%87%E6%9C%AC.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="slot传入普通文本"></p>
 <ol start="2">
 <li>给slot传入了一个图像处理组件</li>
 </ol>
-<p><img src="http://qncdn.wbjiang.cn/slot%E4%BC%A0%E5%85%A5%E7%BB%84%E4%BB%B6.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="slot传入普通文本"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/slot%E4%BC%A0%E5%85%A5%E7%BB%84%E4%BB%B6.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="slot传入普通文本"></p>
 <ul>
 <li>具名插槽也很简单，比如有多个插槽，我作为父组件，肯定想区别子组件中的几个插槽，那就要用slot标签的name属性来标识了，而父组件要决定在什么插槽里面放什么内容，就要将name的值赋值给slot属性传递给对应的插槽。如果slot没有name属性，就是匿名插槽了，而父组件中不指定slot属性的内容，就会被丢到匿名插槽中。</li>
 </ul>
@@ -231,7 +231,7 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>假设第一个场景，需要你写一个商品卡片组件，并通过循环去展示多个卡片，并且要求能响应每个卡片上的图片或者其他内容的点击事件而跳转到商品详情页，你会怎么写？</p>
 </blockquote>
-<p><img src="http://qncdn.wbjiang.cn/%E6%B7%98%E5%AE%9D%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="淘宝商品列表"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/%E6%B7%98%E5%AE%9D%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="淘宝商品列表"></p>
 <p>我会使用如下的处理方式，首先将商品卡片写成一个组件Commodity.vue，而在CommodityList.vue中用一个v-for来处理商品卡片列表的展示。</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;commodity v-for=&quot;(item,index) in commodities&quot; @clickCommodity=&quot;onCommodityClick&quot;&gt;&lt;/commodity&gt;</span><br></pre></td></tr></table></figure>
 
@@ -239,7 +239,7 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>如果再往上抽象一下呢？比如我有多个运营栏目，像淘宝首页有“有好货”，“爱逛街”这样两个栏目，每个栏目下都需要有一个商品卡片列表，那么商品卡片列表CommodityList.vue就要抽成组件了。而这个包含多个运营栏目的vue组件我假设它叫ColumnList.vue，在其中通过v-for调用了CommodityList组件。</p>
 </blockquote>
-<p><img src="http://qncdn.wbjiang.cn/%E6%B7%98%E5%AE%9D%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8%E5%8A%A0%E8%BF%90%E8%90%A5%E6%A0%8F%E7%9B%AE.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="淘宝运营栏目列表"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/%E6%B7%98%E5%AE%9D%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8%E5%8A%A0%E8%BF%90%E8%90%A5%E6%A0%8F%E7%9B%AE.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="淘宝运营栏目列表"></p>
 <p><strong>注意</strong>：业务来了，我希望把点击商品卡片的业务放在ColumnList.vue中处理。你们想象一下要怎么做？一种土办法就是商品按钮点击时，Commodity组件$emit通知CommodityList.vue，而CommodityList接着把事件用$emit往上抛，那么ColumnList.vue就能处理这个点击事件了。这样做完全没有问题，但是显得子组件很不纯粹，跟业务都扯上关系了。</p>
 <p>那么如何优雅地解决这个问题呢？这个时候，作用域插槽真正派上用场了。</p>
 <p>通过作用域插槽将本应该由CommodityList处理的商品卡片点击业务onCommodityClick提升到ColumnList处理。</p>
@@ -248,7 +248,7 @@ var _hmt = _hmt || [];
 <p>而CommodityList组件内部应该是改造成这样，slot接收来自父组件的商品卡片组件，这里面不涉及关于商品组件的业务，只关注其他业务和布局即可。最终就实现了组件和业务的剥离，这也是组件化的精髓所在吧。不知道有没有帮到您呢？</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-row :gutter=&quot;20&quot;&gt;</span><br><span class="line">        &lt;el-col :span=&quot;8&quot; v-for=&quot;(item, index) in commodities&quot; :key=&quot;index&quot; style=&quot;margin-top:20px;&quot;&gt;</span><br><span class="line">            &lt;slot :row=&quot;item&quot;&gt;&lt;/slot&gt;</span><br><span class="line">        &lt;/el-col&gt;</span><br><span class="line">&lt;/el-row&gt;</span><br></pre></td></tr></table></figure>
 
-<p>这是我实现的效果，忽略样式吧，原理都懂了，做个漂亮的卡片有多难？<br><img src="http://qncdn.wbjiang.cn/%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD%E5%AE%9E%E7%8E%B0%E7%9A%84%E4%B8%89%E7%BA%A7%E7%BB%84%E4%BB%B6.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="淘宝运营栏目列表"><br><img src="http://qncdn.wbjiang.cn/%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD%E7%82%B9%E5%87%BB%E6%9F%90%E4%B8%80%E9%A1%B9.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="淘宝运营栏目列表"></p>
+<p>这是我实现的效果，忽略样式吧，原理都懂了，做个漂亮的卡片有多难？<br><img src=""data-src="http://qncdn.wbjiang.cn/%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD%E5%AE%9E%E7%8E%B0%E7%9A%84%E4%B8%89%E7%BA%A7%E7%BB%84%E4%BB%B6.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="淘宝运营栏目列表"><br><img src=""data-src="http://qncdn.wbjiang.cn/%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD%E7%82%B9%E5%87%BB%E6%9F%90%E4%B8%80%E9%A1%B9.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="淘宝运营栏目列表"></p>
 <blockquote>
 <p>总结一下，作用域插槽适合的场景是至少包含三级以上的组件层级，是一种优秀的组件化方案！</p>
 </blockquote>
@@ -292,7 +292,7 @@ var _hmt = _hmt || [];
         <i class="fab fa-weixin"></i>
     </span>
     <span>微信</span>
-    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+    <div class="qrcode"><img data-src="/images/wechat_payme.jpg" alt="微信"></div>
 </a>
 
                 
@@ -364,7 +364,7 @@ var _hmt = _hmt || [];
                 <div>
                     
                         <figure class="image is-128x128 has-mb-6">
-                            <img class="is-rounded" src="/images/avatar.png" alt="Tusi">
+                            <img class="is-rounded" data-src="/images/avatar.png" alt="Tusi">
                         </figure>
                     
                     
@@ -540,7 +540,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -559,7 +559,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -578,7 +578,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -597,7 +597,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -616,7 +616,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1062,7 +1062,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -1081,7 +1081,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -1100,7 +1100,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -1119,7 +1119,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -1138,7 +1138,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1714,6 +1714,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <script src="/js/main.js" defer></script>
+
+<script src="/js/lazyload.js" defer></script>
 
     
     <div class="searchbox ins-search">

@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
         </span>
     </div>
     
@@ -202,7 +202,7 @@ var _hmt = _hmt || [];
 
 <h1 id="模拟的tabBar页面（不推荐）"><a href="#模拟的tabBar页面（不推荐）" class="headerlink" title="模拟的tabBar页面（不推荐）"></a>模拟的tabBar页面（不推荐）</h1><h2 id="使用策略"><a href="#使用策略" class="headerlink" title="使用策略"></a>使用策略</h2><ul>
 <li><p><code>app.json</code>不配置<code>tabBar</code>，用普通<code>page</code>来代替<code>tabbar</code>页面，暂且称之为模拟的<code>tabbar</code>页面。</p>
-<p><img src="http://qncdn.wbjiang.cn/tabbar1.png" alt="tabbar效果图1"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/tabbar1.png" alt="tabbar效果图1"></p>
 </li>
 <li><p>每个模拟的<code>tabbar</code>页面都需要引入自定义<code>tabbar</code>组件。</p>
 </li>
@@ -267,7 +267,7 @@ var _hmt = _hmt || [];
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    activeTab: <span class="hljs-string">'home'</span>,</span><br><span class="line">    panels: [</span><br><span class="line">      &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">'home'</span>, <span class="hljs-attr">icon</span>: <span class="hljs-string">'home-o'</span>, <span class="hljs-attr">label</span>: <span class="hljs-string">'首页'</span> &#125;,</span><br><span class="line">      &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">'category'</span>, <span class="hljs-attr">icon</span>: <span class="hljs-string">'label-o'</span>, <span class="hljs-attr">badge</span>: <span class="hljs-string">'5'</span>, <span class="hljs-attr">label</span>: <span class="hljs-string">'分类'</span> &#125;,</span><br><span class="line">      &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">'msgs'</span>, <span class="hljs-attr">icon</span>: <span class="hljs-string">'comment-o'</span>, <span class="hljs-attr">badge</span>: <span class="hljs-string">'99+'</span>, <span class="hljs-attr">label</span>: <span class="hljs-string">'留言'</span> &#125;,</span><br><span class="line">      &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">'my'</span>, <span class="hljs-attr">icon</span>: <span class="hljs-string">'user-o'</span>, <span class="hljs-attr">label</span>: <span class="hljs-string">'我的'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  onTabChange(event) &#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.setData(&#123;</span><br><span class="line">      activeTab: event.detail</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>效果如下：</p>
-<p><img src="http://qncdn.wbjiang.cn/tabbar2.png" alt="tabbar效果图2"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/tabbar2.png" alt="tabbar效果图2"></p>
 <h2 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h2><p>由于是通过<code>wx:if</code>控制组件的创建和销毁，是局部更新，所以不会导致底部<code>tabbar</code>的重新渲染，所以底部闪一下的问题就解决了。缺点我想是如果频繁切换<code>tab</code>可能导致<code>wx:if</code>的渲染开销大吧。</p>
 <h1 id="官方自定义tabBar"><a href="#官方自定义tabBar" class="headerlink" title="官方自定义tabBar"></a>官方自定义tabBar</h1><p>官方也提供了自定义<code>tabbar</code>的方法，见<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/ability/custom-tabbar.html" target="_blank" rel="noopener">自定义 tabBar</a>。</p>
 <blockquote>
@@ -313,7 +313,7 @@ var _hmt = _hmt || [];
         <i class="fab fa-weixin"></i>
     </span>
     <span>微信</span>
-    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+    <div class="qrcode"><img data-src="/images/wechat_payme.jpg" alt="微信"></div>
 </a>
 
                 
@@ -385,7 +385,7 @@ var _hmt = _hmt || [];
                 <div>
                     
                         <figure class="image is-128x128 has-mb-6">
-                            <img class="is-rounded" src="/images/avatar.png" alt="Tusi">
+                            <img class="is-rounded" data-src="/images/avatar.png" alt="Tusi">
                         </figure>
                     
                     
@@ -561,7 +561,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -580,7 +580,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -599,7 +599,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -618,7 +618,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -637,7 +637,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1083,7 +1083,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -1102,7 +1102,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -1121,7 +1121,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -1140,7 +1140,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -1159,7 +1159,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1735,6 +1735,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <script src="/js/main.js" defer></script>
+
+<script src="/js/lazyload.js" defer></script>
 
     
     <div class="searchbox ins-search">

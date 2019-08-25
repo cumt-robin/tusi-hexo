@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="http://qncdn.wbjiang.cn/git%E9%80%9A%E7%94%A8.jpg" alt="通过TortoiseGIT怎么把本地项目上传到GitHub？">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/git%E9%80%9A%E7%94%A8.jpg" alt="通过TortoiseGIT怎么把本地项目上传到GitHub？">
         </span>
     </div>
     
@@ -199,17 +199,17 @@ var _hmt = _hmt || [];
         <div class="content">
             <p>在本地修改代码，没有一个修改日志记录，确实很不方便。所以想着把本地的代码放在github上面。<a id="more"></a>虽然在公司有大神搭建好的git服务器，按着流程commit, push, merge request走一遍就行了，但是自己是一知半解的。所以自己弄一遍流程是有必要的。</p>
 <h1 id="1-明确一下自己的需求"><a href="#1-明确一下自己的需求" class="headerlink" title="1.明确一下自己的需求"></a>1.明确一下自己的需求</h1><p>暂时不考虑多人协作的情况了，先把自己的代码弄上去再说吧。欲速则不达，一步一步来吧。</p>
-<h1 id="2-创建GitHub仓库"><a href="#2-创建GitHub仓库" class="headerlink" title="2.创建GitHub仓库"></a>2.创建GitHub仓库</h1><p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMjE1MTMyMDI2NTYx?x-oss-process=image/format,png" alt="创建GitHub仓库"></p>
+<h1 id="2-创建GitHub仓库"><a href="#2-创建GitHub仓库" class="headerlink" title="2.创建GitHub仓库"></a>2.创建GitHub仓库</h1><p><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMjE1MTMyMDI2NTYx?x-oss-process=image/format,png" alt="创建GitHub仓库"></p>
 <p>点击New repository创建仓库，然后把相关信息填一下就OK了</p>
 <h1 id="3-创建本地仓库"><a href="#3-创建本地仓库" class="headerlink" title="3.创建本地仓库"></a>3.创建本地仓库</h1><p>在自己的项目文件夹，点击右键，选择GIT Create respository here</p>
-<p>然后右键选择Settings进行设置。主要是remote里面的设置项。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMjE1MTMyODQzNjk4?x-oss-process=image/format,png" alt="Settings"></p>
+<p>然后右键选择Settings进行设置。主要是remote里面的设置项。<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMjE1MTMyODQzNjk4?x-oss-process=image/format,png" alt="Settings"></p>
 <p>Remote的名字一般是origin。<br>URL是你的GitHub仓库对应的URL，复制粘贴一下就好了。<br>Putty是你本地的私钥，找到对应的文件。<br>设置完后选择Add New，在弹出的确认框选择‘否’就好。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMjE1MTMzMTUzOTU5?x-oss-process=image/format,png" alt="Add New选择“否”"></p>
-<h1 id="4-把本地代码提交到GitHub"><a href="#4-把本地代码提交到GitHub" class="headerlink" title="4.把本地代码提交到GitHub"></a>4.把本地代码提交到GitHub</h1><p>第一步，选择GIT commit提交代码。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMjE1MTMzNzU0MjMw?x-oss-process=image/format,png" alt="git commit"></p>
+<p><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMjE1MTMzMTUzOTU5?x-oss-process=image/format,png" alt="Add New选择“否”"></p>
+<h1 id="4-把本地代码提交到GitHub"><a href="#4-把本地代码提交到GitHub" class="headerlink" title="4.把本地代码提交到GitHub"></a>4.把本地代码提交到GitHub</h1><p>第一步，选择GIT commit提交代码。<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMjE1MTMzNzU0MjMw?x-oss-process=image/format,png" alt="git commit"></p>
 <p>填好必要的提交信息，选择需要提交的文件，然后点击commit</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMjE1MTMzOTU4MDIw?x-oss-process=image/format,png" alt="填写commit信息"></p>
+<p><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMjE1MTMzOTU4MDIw?x-oss-process=image/format,png" alt="填写commit信息"></p>
 <p>commit之后记得一定要将代码push到远程服务器端。操作就是Git<br>Push。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMjE1MTM0MTI1NTg1?x-oss-process=image/format,png" alt="git push"></p>
+<p><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMjE1MTM0MTI1NTg1?x-oss-process=image/format,png" alt="git push"></p>
 <p>然后在GitHub上面就能看到自己提交的代码了，也可以看到提交的记录。</p>
 
         </div>
@@ -251,7 +251,7 @@ var _hmt = _hmt || [];
         <i class="fab fa-weixin"></i>
     </span>
     <span>微信</span>
-    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+    <div class="qrcode"><img data-src="/images/wechat_payme.jpg" alt="微信"></div>
 </a>
 
                 
@@ -323,7 +323,7 @@ var _hmt = _hmt || [];
                 <div>
                     
                         <figure class="image is-128x128 has-mb-6">
-                            <img class="is-rounded" src="/images/avatar.png" alt="Tusi">
+                            <img class="is-rounded" data-src="/images/avatar.png" alt="Tusi">
                         </figure>
                     
                     
@@ -499,7 +499,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -518,7 +518,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -537,7 +537,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -556,7 +556,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -575,7 +575,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1021,7 +1021,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -1040,7 +1040,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -1059,7 +1059,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -1078,7 +1078,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -1097,7 +1097,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1673,6 +1673,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <script src="/js/main.js" defer></script>
+
+<script src="/js/lazyload.js" defer></script>
 
     
     <div class="searchbox ins-search">

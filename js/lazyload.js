@@ -1,0 +1,1 @@
+!function(){function t(){for(var t,o,r=Array.prototype.slice.call($("img[data-src]")),e=0;e<r.length;e++){var c=r[e];o=void 0,t=$(c).offset(),o=$(window),0<t.top&&0<t.left&&t.top+50>o.scrollTop()&&t.top-50<o.height()+o.scrollTop()&&(c.src=c.dataset.src,c.removeAttribute("data-src"))}}$(document).ready(function(){t(),window.addEventListener("scroll",function(){t()})})}();

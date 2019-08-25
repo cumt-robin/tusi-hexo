@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="http://qncdn.wbjiang.cn/iconfont.jpg" alt="vue项目中引入iconfont">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/iconfont.jpg" alt="vue项目中引入iconfont">
         </span>
     </div>
     
@@ -199,9 +199,9 @@ var _hmt = _hmt || [];
         <div class="content">
             <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>对于前端而言，图标的发展可谓日新月异。从<code>img</code>标签，到雪碧图，再到字体图标，<code>svg</code>，甚至<code>svg</code>也有了类似于雪碧图的方案<code>svg-sprite-loader</code>。<a id="more"></a>雪碧图没有什么好讲的了，只是简单地利用了<code>background-position</code>来做图标定位。今天咱们先聊聊怎么使用字体图标和<code>svg</code>图标。其实字体图标也不陌生了，<code>bootstrap</code>，<code>font-awesome</code>，<code>element-ui</code>等<code>UI</code>库都基本标配了字体图标。</p>
 <h1 id="简单说下原理"><a href="#简单说下原理" class="headerlink" title="简单说下原理"></a>简单说下原理</h1><p><code>unicode</code>预留了<code>E000-F8FF</code>范围作为私有保留区域，这个区间的<code>unicode</code>码非常适合做字体图标，前端根据<code>unicode</code>码就能显示对应的图标。</p>
-<h1 id="vue项目引入iconfont"><a href="#vue项目引入iconfont" class="headerlink" title="vue项目引入iconfont"></a>vue项目引入iconfont</h1><h2 id="1-在iconfont新建项目"><a href="#1-在iconfont新建项目" class="headerlink" title="1. 在iconfont新建项目"></a>1. 在iconfont新建项目</h2><p><img src="http://qncdn.wbjiang.cn/iconfont%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="iconfont新建项目"></p>
+<h1 id="vue项目引入iconfont"><a href="#vue项目引入iconfont" class="headerlink" title="vue项目引入iconfont"></a>vue项目引入iconfont</h1><h2 id="1-在iconfont新建项目"><a href="#1-在iconfont新建项目" class="headerlink" title="1. 在iconfont新建项目"></a>1. 在iconfont新建项目</h2><p><img src=""data-src="http://qncdn.wbjiang.cn/iconfont%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="iconfont新建项目"></p>
 <p>注：这里修正一下，前缀应该是<code>test-icon-</code>。</p>
-<h2 id="2-添加图标至项目"><a href="#2-添加图标至项目" class="headerlink" title="2. 添加图标至项目"></a>2. 添加图标至项目</h2><p><img src="http://qncdn.wbjiang.cn/%E6%B7%BB%E5%8A%A0%E5%9B%BE%E6%A0%87%E8%87%B3%E9%A1%B9%E7%9B%AE.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="添加图标至项目"></p>
+<h2 id="2-添加图标至项目"><a href="#2-添加图标至项目" class="headerlink" title="2. 添加图标至项目"></a>2. 添加图标至项目</h2><p><img src=""data-src="http://qncdn.wbjiang.cn/%E6%B7%BB%E5%8A%A0%E5%9B%BE%E6%A0%87%E8%87%B3%E9%A1%B9%E7%9B%AE.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="添加图标至项目"></p>
 <h2 id="3-使用iconfont"><a href="#3-使用iconfont" class="headerlink" title="3. 使用iconfont"></a>3. 使用iconfont</h2><h3 id="Unicode方式（不推荐）"><a href="#Unicode方式（不推荐）" class="headerlink" title="Unicode方式（不推荐）"></a>Unicode方式（不推荐）</h3><h4 id="在线使用"><a href="#在线使用" class="headerlink" title="在线使用"></a>在线使用</h4><ul>
 <li><code>index.scss</code>中引入在线字体</li>
 </ul>
@@ -215,19 +215,19 @@ var _hmt = _hmt || [];
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;i class=&quot;iconfont&quot;&gt;&amp;#xe7ee;&lt;/i&gt;</span><br><span class="line">        &lt;i class=&quot;iconfont&quot;&gt;&amp;#xe7ed;&lt;/i&gt;</span><br><span class="line">        &lt;i class=&quot;iconfont&quot;&gt;&amp;#xe7ec;&lt;/i&gt;</span><br><span class="line">        &lt;i class=&quot;iconfont&quot;&gt;&amp;#xe7eb;&lt;/i&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
 
 <p>效果图如下：</p>
-<p><img src="http://qncdn.wbjiang.cn/iconfont%E6%95%88%E6%9E%9C%E5%9B%BE.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="iconfont效果图"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/iconfont%E6%95%88%E6%9E%9C%E5%9B%BE.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="iconfont效果图"></p>
 <h4 id="本地使用"><a href="#本地使用" class="headerlink" title="本地使用"></a>本地使用</h4><p>有时候网络不是那么给力的，或者是内网环境，那么就不要考虑用在线引用的方式了。</p>
 <ol>
 <li>本地使用需要先将字体库下载并放到项目中。</li>
 </ol>
-<p><img src="http://qncdn.wbjiang.cn/unicode%E4%B8%8B%E8%BD%BD%E8%87%B3%E6%9C%AC%E5%9C%B0.png" alt="iconfont项目下载"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/unicode%E4%B8%8B%E8%BD%BD%E8%87%B3%E6%9C%AC%E5%9C%B0.png" alt="iconfont项目下载"></p>
 <ol start="2">
 <li><p>在全局样式文件中定义如下代码</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@font-face &#123;</span><br><span class="line">  font-family: &quot;iconfont&quot;;</span><br><span class="line">  src: url(&apos;../fonts/iconfont.eot&apos;); /* IE9*/</span><br><span class="line">  src: url(&apos;../fonts/iconfont.eot#iefix&apos;) format(&apos;embedded-opentype&apos;), /* IE6-IE8 */</span><br><span class="line">  url(&apos;../fonts/iconfont.woff&apos;) format(&apos;woff&apos;), /* chrome, firefox */</span><br><span class="line">  url(&apos;../fonts/iconfont.woff2&apos;) format(&apos;woff2&apos;), /* chrome, firefox */</span><br><span class="line">  url(&apos;../fonts/iconfont.ttf&apos;) format(&apos;truetype&apos;), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/</span><br><span class="line">  url(&apos;../assets/fonts/iconfont.svg#iconfont&apos;) format(&apos;svg&apos;); /* iOS 4.1- */</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.iconfont &#123;</span><br><span class="line">  font-family: &quot;iconfont&quot; !important;</span><br><span class="line">  font-size: 16px;</span><br><span class="line">  font-style: normal;</span><br><span class="line">  -webkit-font-smoothing: antialiased;</span><br><span class="line">  -moz-osx-font-smoothing: grayscale;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
-<p><img src="http://qncdn.wbjiang.cn/unicode%E6%96%B9%E5%BC%8F%E6%9C%AC%E5%9C%B0%E5%BC%95%E7%94%A8iconfont.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="unicode方式本地引用iconfont"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/unicode%E6%96%B9%E5%BC%8F%E6%9C%AC%E5%9C%B0%E5%BC%95%E7%94%A8iconfont.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="unicode方式本地引用iconfont"></p>
 <ol start="3">
 <li><p>使用方式</p>
 <p>与在线引用方式是一样的，都是使用<code>unicode</code>码去展示图标。</p>
@@ -242,7 +242,7 @@ var _hmt = _hmt || [];
 </ul>
 <h3 id="Font-class方式（较友好）"><a href="#Font-class方式（较友好）" class="headerlink" title="Font class方式（较友好）"></a>Font class方式（较友好）</h3><p>一种更友好的封装，类似于<code>font-awesome</code>，我们只要使用<code>class</code>，就可以调用图标了。其原理就是利用<code>before</code>伪元素来显示图标。</p>
 <h4 id="在线使用-1"><a href="#在线使用-1" class="headerlink" title="在线使用"></a>在线使用</h4><p>超级简单，只要在线生成代码，引用在线的<code>css</code>文件即可使用。</p>
-<p><img src="http://qncdn.wbjiang.cn/%E5%9C%A8%E7%BA%BF%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E4%BB%A3%E7%A0%81.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="复制在线fontclass的css文件路径"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/%E5%9C%A8%E7%BA%BF%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87%E4%BB%A3%E7%A0%81.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="复制在线fontclass的css文件路径"></p>
 <p>在<code>index.html</code>中引用它。</p>
 <figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"//at.alicdn.com/t/font_1261797_48wm20jf8z.css"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -261,20 +261,20 @@ var _hmt = _hmt || [];
 <h4 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h4><p>由于加了新的图标需要重新在<code>iconfont.cn</code>重新生成代码，所以这种方式也不算很方便，但是相对于<code>unicode</code>还是高级不少。根据我的经验，建议在调试时，不要每次图标更新，就下载到本地更换。应该先使用在线使用的方式，调试完毕确认无误后，再下载到本地使用，这样对于效率提升有很大帮助。</p>
 <h3 id="symbol方式（支持多色图标）"><a href="#symbol方式（支持多色图标）" class="headerlink" title="symbol方式（支持多色图标）"></a>symbol方式（支持多色图标）</h3><p><code>svg</code>的<code>symbol</code>提供了类似于雪碧图的功能，让<code>svg</code>的使用变得更简单，也可以满足做图标系统的需求。可以参考<a href="https://www.zhangxinxu.com/wordpress/2014/07/introduce-svg-sprite-technology/" target="_blank" rel="noopener">张大大博客</a>了解更多关于<code>svg symbol</code>的知识。</p>
 <h4 id="在线使用-2"><a href="#在线使用-2" class="headerlink" title="在线使用"></a>在线使用</h4><p>首先在<code>iconfont</code>项目中选择<code>symbol</code>方式，并在线生成<code>js</code>代码</p>
-<p><img src="http://qncdn.wbjiang.cn/%E5%9C%A8%E7%BA%BFsvg%20symbol%E4%BB%A3%E7%A0%81.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="在线svg symbol代码"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/%E5%9C%A8%E7%BA%BFsvg%20symbol%E4%BB%A3%E7%A0%81.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="在线svg symbol代码"></p>
 <p>然后在<code>index.html</code>中引入这个js文件</p>
 <figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//at.alicdn.com/t/font_1254715_oewlgci0ut.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>这个<code>js</code>的作用是在文档中生成<code>svg symbol</code></p>
-<p><img src="http://qncdn.wbjiang.cn/symbol%E6%A0%87%E7%AD%BE.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="1562638406124"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/symbol%E6%A0%87%E7%AD%BE.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="1562638406124"></p>
 <p>最后就可以在页面中通过<code>use</code>标签使用<code>svg</code>图标了。<code>xlink:href</code>的值设置为对应的<code>symbol</code>的<code>id</code>即可。</p>
 <figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">xlink:href</span>=<span class="hljs-string">"#test-icon-word-ext"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">use</span>&gt;</span> </span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>效果如下：</p>
-<p><img src="http://qncdn.wbjiang.cn/%E5%A4%9A%E8%89%B2svg%E6%95%88%E6%9E%9C%E5%9B%BE.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="多色svg效果图"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/%E5%A4%9A%E8%89%B2svg%E6%95%88%E6%9E%9C%E5%9B%BE.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="多色svg效果图"></p>
 <p>多色图标还是酷！</p>
 <h4 id="本地使用-2"><a href="#本地使用-2" class="headerlink" title="本地使用"></a>本地使用</h4><p>本地使用也是一样的道理，主要是依赖这个在线生成的<code>js</code>文件，将在线<code>js</code>文件的链接在浏览器空标签中打开，就可以得到其内容，然后复制内容，自己命名一个<code>js</code>文件，并把它放在本地项目静态资源目录下，引用即可。</p>
-<p><img src="http://qncdn.wbjiang.cn/symbol%E7%9A%84js%E6%96%87%E4%BB%B6.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="symbol的js文件"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/symbol%E7%9A%84js%E6%96%87%E4%BB%B6.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="symbol的js文件"></p>
 <figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./static/js/symbols.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="图标自动管理（必看）"><a href="#图标自动管理（必看）" class="headerlink" title="图标自动管理（必看）"></a>图标自动管理（必看）</h4><p>即使使用了<code>symbol</code>方式，当设计小姐姐新增图标时，我们还是无法避免重新生成图标代码。那么有没有更优雅的解决方案呢？答案是有的。<code>svg-sprite-loader</code> + <code>require.context</code>。</p>
@@ -326,7 +326,7 @@ var _hmt = _hmt || [];
         <i class="fab fa-weixin"></i>
     </span>
     <span>微信</span>
-    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+    <div class="qrcode"><img data-src="/images/wechat_payme.jpg" alt="微信"></div>
 </a>
 
                 
@@ -398,7 +398,7 @@ var _hmt = _hmt || [];
                 <div>
                     
                         <figure class="image is-128x128 has-mb-6">
-                            <img class="is-rounded" src="/images/avatar.png" alt="Tusi">
+                            <img class="is-rounded" data-src="/images/avatar.png" alt="Tusi">
                         </figure>
                     
                     
@@ -574,7 +574,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -593,7 +593,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -612,7 +612,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -631,7 +631,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -650,7 +650,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1096,7 +1096,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -1115,7 +1115,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -1134,7 +1134,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -1153,7 +1153,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -1172,7 +1172,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1748,6 +1748,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <script src="/js/main.js" defer></script>
+
+<script src="/js/lazyload.js" defer></script>
 
     
     <div class="searchbox ins-search">

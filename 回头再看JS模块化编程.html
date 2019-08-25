@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="http://qncdn.wbjiang.cn/js_code.png" alt="回头再看JS模块化编程">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/js_code.png" alt="回头再看JS模块化编程">
         </span>
     </div>
     
@@ -217,11 +217,11 @@ var _hmt = _hmt || [];
 
 <p>这是最简单的模块写法，a.js通过exports导出add函数，而b.js通过require导入a模块，便可以调用a模块的add函数。</p>
 <h2 id="module"><a href="#module" class="headerlink" title="module"></a>module</h2><p>那么我们先来看看module这个对象。在b.js中我们console.log(module)，则会打印出模块b的信息。</p>
-<p><img src="http://qncdn.wbjiang.cn/moduleB.png" alt="moduleB"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/moduleB.png" alt="moduleB"></p>
 <p>可以看到，模块b的children里有模块a，说明模块b引用了模块a。我们再观察一下模块a，修改a.js的代码如下，再运行b.js</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">module</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">module</span>.exports.add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://qncdn.wbjiang.cn/moduleA.png" alt="moduleA"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/moduleA.png" alt="moduleA"></p>
 <p>可以看到，模块a的parent指向模块b，是因为执行的是b.js，而b.js引用了模块a。注意此时模块a的loaded属性值仍是false，因为此时模块还没加载完成。如果我们在add方法中打日志，而b.js调用a.js的add函数，则会发现此时模块a的loaded已经变成了true</p>
 <p>从上面可以了解到，module对象下面有以下属性</p>
 <ul>
@@ -239,14 +239,14 @@ var _hmt = _hmt || [];
 <p>通过exports导出的函数和属性可以被其他模块调用，这一点想必大家都清楚了。</p>
 <h2 id="require"><a href="#require" class="headerlink" title="require"></a>require</h2><p>这里先说一下模块的分类，NodeJS中模块分为核心模块和文件模块。核心模块是被编译成二进制代码，引用的时候只需require表示符即可，如require(‘fs’)，不需要加路径的。而引用文件模块时需要加上路径，表示对文件的引用。假如你加载一个自定义的test.js模块时，没有指定路径，那么它会首先从当前目录的node_modules子目录下寻找test.js，如果没有，则查找上一级目录的node_modules子目录，一直查到盘符的根目录为止。也就是前面提到的module.paths的查找顺序。</p>
 <p>说到这里，我们再来回顾一下我们在开发时，npm install 安装的一些依赖包。它们的package.json一般都包含了main字段，用来标识入口js文件。</p>
-<p><img src="http://qncdn.wbjiang.cn/npm%E5%8C%85%E7%9A%84%E5%85%A5%E5%8F%A3%E8%AF%B4%E6%98%8E.png" alt="package.json的main字段"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/npm%E5%8C%85%E7%9A%84%E5%85%A5%E5%8F%A3%E8%AF%B4%E6%98%8E.png" alt="package.json的main字段"></p>
 <p>如果没有指定main字段，那么nodejs会默认去加载index.js或者index.node文件。例如：</p>
-<p><img src="http://qncdn.wbjiang.cn/npm%E5%8C%85index%E5%85%A5%E5%8F%A3.png" alt="index.js作为入口js文件"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/npm%E5%8C%85index%E5%85%A5%E5%8F%A3.png" alt="index.js作为入口js文件"></p>
 <p>看到这里，是不是突然有点懂了node_modules哪些依赖包的写法了。好的，接着往下看。</p>
 <p>我们在c.js中打出日志，观察require方法的结构。</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">require</span>)</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://qncdn.wbjiang.cn/require%E6%96%B9%E6%B3%95%E7%BB%93%E6%9E%84.png" alt="require方法的结构"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/require%E6%96%B9%E6%B3%95%E7%BB%93%E6%9E%84.png" alt="require方法的结构"></p>
 <p>可以知道，require函数包含了以下属性和方法。</p>
 <ul>
 <li>require.resolve()：将模块名解析，得到该模块的绝对路径</li>
@@ -258,7 +258,7 @@ var _hmt = _hmt || [];
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./a.js'</span>);</span><br><span class="line"><span class="hljs-keyword">var</span> b = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./b.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'resolve测试'</span>)</span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">require</span>.resolve(<span class="hljs-string">'./a.js'</span>))</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'extensions测试'</span>)</span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">require</span>.extensions[<span class="hljs-string">'.js'</span>].toString())</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">require</span>.extensions[<span class="hljs-string">'.json'</span>].toString())</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">require</span>.extensions[<span class="hljs-string">'.node'</span>].toString())</span><br></pre></td></tr></table></figure>
 
 <p>得到的结果如下图所示：</p>
-<p><img src="http://qncdn.wbjiang.cn/module%E7%9A%84extensions.png" alt="module的resolve和extensions"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/module%E7%9A%84extensions.png" alt="module的resolve和extensions"></p>
 <h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>使用<code>require()</code>加载模块是有缓存的，如果要清理缓存，则需要调用<code>delete require.cache</code>，示例如下：</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">delete</span> <span class="hljs-built_in">require</span>.cache[<span class="hljs-built_in">require</span>.resolve(<span class="hljs-string">'./json/damei_admin.json'</span>)];</span><br></pre></td></tr></table></figure>
 
@@ -303,7 +303,7 @@ var _hmt = _hmt || [];
         <i class="fab fa-weixin"></i>
     </span>
     <span>微信</span>
-    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+    <div class="qrcode"><img data-src="/images/wechat_payme.jpg" alt="微信"></div>
 </a>
 
                 
@@ -375,7 +375,7 @@ var _hmt = _hmt || [];
                 <div>
                     
                         <figure class="image is-128x128 has-mb-6">
-                            <img class="is-rounded" src="/images/avatar.png" alt="Tusi">
+                            <img class="is-rounded" data-src="/images/avatar.png" alt="Tusi">
                         </figure>
                     
                     
@@ -551,7 +551,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -570,7 +570,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -589,7 +589,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -608,7 +608,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -627,7 +627,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1073,7 +1073,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -1092,7 +1092,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -1111,7 +1111,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -1130,7 +1130,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -1149,7 +1149,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1725,6 +1725,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <script src="/js/main.js" defer></script>
+
+<script src="/js/lazyload.js" defer></script>
 
     
     <div class="searchbox ins-search">

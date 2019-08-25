@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="http://qncdn.wbjiang.cn/ubuntu2_400x300.png" alt="ubuntu系统下sudo权限用户安装nodejs和nginx">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/ubuntu2_400x300.png" alt="ubuntu系统下sudo权限用户安装nodejs和nginx">
         </span>
     </div>
     
@@ -199,20 +199,20 @@ var _hmt = _hmt || [];
         <div class="content">
             <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>为了支撑公司某 <code>ios app</code> 上线，今天做了个隐私政策 <code>h5</code> 页面并上线，顺手体验了一把 <code>ubuntu</code>系统的 <code>sudo</code> 权限。<a id="more"></a>本来想用 <code>nodejs</code> 的 <code>express</code> 框架搭个简单的静态资源托管服务，然后用 <code>nginx</code> 做下反向代理。但是在安装 <code>express-generator</code> 时遇到点问题，可能 <code>sudo</code> 权限玩得不够熟练，跟 <code>root</code> 用户还是有很大区别的。本文简单说下自己在 <code>ubuntu</code> 系统下 <code>sudo</code> 权限用户安装 <code>nodejs</code> 和 <code>nginx</code> 的过程。</p>
 <h1 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h1><h2 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h2><p>话不多说，直接上<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">nodejs下载链接</a>。</p>
-<p><img src="http://qncdn.wbjiang.cn/%E4%B8%8B%E8%BD%BDubuntu64%E4%BD%8Dnodejs%E5%8C%85.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="nodejs下载"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/%E4%B8%8B%E8%BD%BDubuntu64%E4%BD%8Dnodejs%E5%8C%85.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="nodejs下载"></p>
 <h2 id="解压和软连接"><a href="#解压和软连接" class="headerlink" title="解压和软连接"></a>解压和软连接</h2><p>下载到的 <code>nodejs</code> 包是一个 <code>.tar.xz</code> 格式的包，解压命令如下：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf node-v10.15.3-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://qncdn.wbjiang.cn/ubuntu%E8%A7%A3%E5%8E%8Bnodejs.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="解压nodejs包"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/ubuntu%E8%A7%A3%E5%8E%8Bnodejs.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="解压nodejs包"></p>
 <p>为了让 <code>node</code> 和 <code>npm</code> 命令行全局可用，我采用了软连接的方式</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /home/devadmin/frontend/download/node/bin/node /usr/local/bin/node</span><br><span class="line">sudo ln -s /home/devadmin/frontend/download/node/bin/npm /usr/local/bin/npm</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://qncdn.wbjiang.cn/sudo%E8%BD%AF%E8%BF%9E%E6%8E%A5node%E5%92%8Cnpm%E5%91%BD%E4%BB%A4.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="软连接"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/sudo%E8%BD%AF%E8%BF%9E%E6%8E%A5node%E5%92%8Cnpm%E5%91%BD%E4%BB%A4.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="软连接"></p>
 <p>然后就可以舒服地使用 <code>node</code> 和 <code>npm</code> 命令行了。</p>
 <h2 id="设置npm代理"><a href="#设置npm代理" class="headerlink" title="设置npm代理"></a>设置npm代理</h2><p>为了提升 <code>npm install</code> 的速度和体验，我还用到了 <code>npm</code> 代理。</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://qncdn.wbjiang.cn/ubuntu%E7%9A%84npm%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86.png" alt="npm设置代理"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/ubuntu%E7%9A%84npm%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86.png" alt="npm设置代理"></p>
 <p>这样 <code>nodejs</code> 就算安装完成了。</p>
 <h1 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h1><p>安装 <code>nginx</code> 时采用的是 <code>apt-get</code> 的下载方式</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></figure>
@@ -284,7 +284,7 @@ var _hmt = _hmt || [];
         <i class="fab fa-weixin"></i>
     </span>
     <span>微信</span>
-    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+    <div class="qrcode"><img data-src="/images/wechat_payme.jpg" alt="微信"></div>
 </a>
 
                 
@@ -356,7 +356,7 @@ var _hmt = _hmt || [];
                 <div>
                     
                         <figure class="image is-128x128 has-mb-6">
-                            <img class="is-rounded" src="/images/avatar.png" alt="Tusi">
+                            <img class="is-rounded" data-src="/images/avatar.png" alt="Tusi">
                         </figure>
                     
                     
@@ -532,7 +532,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -551,7 +551,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -570,7 +570,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -589,7 +589,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -608,7 +608,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1054,7 +1054,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -1073,7 +1073,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -1092,7 +1092,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -1111,7 +1111,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -1130,7 +1130,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1706,6 +1706,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <script src="/js/main.js" defer></script>
+
+<script src="/js/lazyload.js" defer></script>
 
     
     <div class="searchbox ins-search">

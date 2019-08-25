@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="http://qncdn.wbjiang.cn/hexo.svg" alt="hexo+github打造个人博客系列之主题和部署">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/hexo.svg" alt="hexo+github打造个人博客系列之主题和部署">
         </span>
     </div>
     
@@ -200,21 +200,21 @@ var _hmt = _hmt || [];
             <p>这篇文章主要记录基于hexo实现博客中一些复杂功能点的相关操作细节，为自己做一个笔记，也为后来者提供一些思路。</p>
 <a id="more"></a>
 <h2 id="hexo应用主题"><a href="#hexo应用主题" class="headerlink" title="hexo应用主题"></a>hexo应用主题</h2><p>我也不知道哪种是最好的，看大家用得比较多的就是Next，yilia，casper等。我自己选择了Next主题。Next坚持将复杂的细节隐藏，提供尽量少并且简便的设置，保持最大限度的易用性，界面上简洁大方，给我眼前一亮的感觉。</p>
-<h3 id="安装next主题"><a href="#安装next主题" class="headerlink" title="安装next主题"></a>安装next主题</h3><p>点击<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">Next主题中文网</a>，克隆最新版本或者下载最新稳定版本。我选择下载了稳定版本。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTI0MjIyNDA2NDY2" alt="下载主题"></p>
+<h3 id="安装next主题"><a href="#安装next主题" class="headerlink" title="安装next主题"></a>安装next主题</h3><p>点击<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">Next主题中文网</a>，克隆最新版本或者下载最新稳定版本。我选择下载了稳定版本。<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTI0MjIyNDA2NDY2" alt="下载主题"></p>
 <h3 id="在hexo中使用next主题"><a href="#在hexo中使用next主题" class="headerlink" title="在hexo中使用next主题"></a>在hexo中使用next主题</h3><p>在站点配置_config.yml中配置主题</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
 
-<p>保存一下，再打开localhost:4000就可以看到效果了。终于脱坑了，不再是与亿万人相同的初始化界面了。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTI0MjIyNjE4NzA5" alt="主题效果"></p>
+<p>保存一下，再打开localhost:4000就可以看到效果了。终于脱坑了，不再是与亿万人相同的初始化界面了。<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTI0MjIyNjE4NzA5" alt="主题效果"></p>
 <h2 id="利用hexo将博客部署到github空间"><a href="#利用hexo将博客部署到github空间" class="headerlink" title="利用hexo将博客部署到github空间"></a>利用hexo将博客部署到github空间</h2><p>上文中提到过，github为每个注册用户都提供了免费的二级域名与空间。所以我们可以轻松让博客上线。步骤也比较简单。</p>
 <h3 id="安装-hexo-deployer-git"><a href="#安装-hexo-deployer-git" class="headerlink" title="安装 hexo-deployer-git"></a>安装 hexo-deployer-git</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
-<h3 id="修改deploy配置"><a href="#修改deploy配置" class="headerlink" title="修改deploy配置"></a>修改deploy配置</h3><p>然后在站点配置中修改deploy配置<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTI3MDkwNzUwMDEx" alt="修改deploy配置"></p>
+<h3 id="修改deploy配置"><a href="#修改deploy配置" class="headerlink" title="修改deploy配置"></a>修改deploy配置</h3><p>然后在站点配置中修改deploy配置<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTI3MDkwNzUwMDEx" alt="修改deploy配置"></p>
 <p>这是我的配置，repo是对应仓库的地址，branch我是放在master分支上的。</p>
 <h3 id="完成部署"><a href="#完成部署" class="headerlink" title="完成部署"></a>完成部署</h3><p>保存后运行</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>部署完成后，稍等片刻，然后打开对应域名，就可以访问到自己的博客了。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTI3MDkxMzQ0MTM5" alt="部署完成"></p>
-<p>不知道域名的请打开仓库的设置页面，翻到下面就能看到。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTI3MDkxMTQwNjg3" alt="仓库设置页面查看域名"></p>
+<p>部署完成后，稍等片刻，然后打开对应域名，就可以访问到自己的博客了。<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTI3MDkxMzQ0MTM5" alt="部署完成"></p>
+<p>不知道域名的请打开仓库的设置页面，翻到下面就能看到。<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTI3MDkxMTQwNjg3" alt="仓库设置页面查看域名"></p>
 <p>好了，基本上就大功告成了。</p>
 
         </div>
@@ -256,7 +256,7 @@ var _hmt = _hmt || [];
         <i class="fab fa-weixin"></i>
     </span>
     <span>微信</span>
-    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+    <div class="qrcode"><img data-src="/images/wechat_payme.jpg" alt="微信"></div>
 </a>
 
                 
@@ -328,7 +328,7 @@ var _hmt = _hmt || [];
                 <div>
                     
                         <figure class="image is-128x128 has-mb-6">
-                            <img class="is-rounded" src="/images/avatar.png" alt="Tusi">
+                            <img class="is-rounded" data-src="/images/avatar.png" alt="Tusi">
                         </figure>
                     
                     
@@ -504,7 +504,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -523,7 +523,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -542,7 +542,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -561,7 +561,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -580,7 +580,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1026,7 +1026,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -1045,7 +1045,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -1064,7 +1064,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -1083,7 +1083,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -1102,7 +1102,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1678,6 +1678,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <script src="/js/main.js" defer></script>
+
+<script src="/js/lazyload.js" defer></script>
 
     
     <div class="searchbox ins-search">

@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="http://qncdn.wbjiang.cn/girl_600x400.png" alt="一张图带你了解webpack的require.context">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/girl_600x400.png" alt="一张图带你了解webpack的require.context">
         </span>
     </div>
     
@@ -198,7 +198,7 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <p>很多人应该像我一样，对于<code>webpack</code>的<code>require.context</code>都是一知半解吧。网上很多关于<code>require.context</code>的使用案例，但是我没找到可以帮助我理解这个知识点的，于是也决定自己来探索一下。<a id="more"></a>下面以网上流行的<code>svg</code>图标方案为例说明。对了，本文的重点是<code>require.context</code>，并不会去解释<code>svg symbol</code>方案<code>svg-sprite-loader</code>。</p>
-<h1 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h1><p><img src="http://qncdn.wbjiang.cn/require.context%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="关键代码"></p>
+<h1 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h1><p><img src=""data-src="http://qncdn.wbjiang.cn/require.context%E5%85%B3%E9%94%AE%E4%BB%A3%E7%A0%81.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="关键代码"></p>
 <p><code>src/icons/index.js</code></p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> context = <span class="hljs-built_in">require</span>.context(<span class="hljs-string">"./svg"</span>, <span class="hljs-literal">true</span>, /\.svg$/)</span><br><span class="line"></span><br><span class="line">context.keys().map(context)</span><br></pre></td></tr></table></figure>
 
@@ -208,13 +208,13 @@ var _hmt = _hmt || [];
 <p><code>webpack.base.config.js</code></p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    test: <span class="hljs-regexp">/\.svg$/</span>,</span><br><span class="line">    loader: <span class="hljs-string">"svg-sprite-loader"</span>,</span><br><span class="line">    include: [resolve(<span class="hljs-string">"src/icons"</span>)],</span><br><span class="line">    options: &#123;</span><br><span class="line">    	symbolId: <span class="hljs-string">"icon-[name]"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">    test: <span class="hljs-regexp">/\.(png|jpe?g|gif|svg)(\?.*)?$/</span>,</span><br><span class="line">    loader: <span class="hljs-string">"url-loader"</span>,</span><br><span class="line">    exclude: [resolve(<span class="hljs-string">"src/icons"</span>)],</span><br><span class="line">    options: &#123;</span><br><span class="line">        limit: <span class="hljs-number">10000</span>,</span><br><span class="line">        name: utils.assetsPath(<span class="hljs-string">"img/[name].[hash:7].[ext]"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 
-<h1 id="why"><a href="#why" class="headerlink" title="why?"></a>why?</h1><p><img src="http://qncdn.wbjiang.cn/nickyang.jpg?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt></p>
+<h1 id="why"><a href="#why" class="headerlink" title="why?"></a>why?</h1><p><img src=""data-src="http://qncdn.wbjiang.cn/nickyang.jpg?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt></p>
 <p>很多人跟我一样，一开始只想说，为什么这样就可以，why???</p>
 <p>要知道是什么，就上打印大法。</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> context = <span class="hljs-built_in">require</span>.context(<span class="hljs-string">"./svg"</span>, <span class="hljs-literal">true</span>, /\.svg$/)</span><br><span class="line"><span class="hljs-comment">// 看看你是何方神圣</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(context)</span><br><span class="line"></span><br><span class="line">context.keys().map(context)</span><br></pre></td></tr></table></figure>
 
 <p>下面就真的以一张图进行解释，有问题的欢迎留言交流呀！</p>
-<p><img src="http://qncdn.wbjiang.cn/require.context%E5%88%86%E6%9E%90.png" alt="一张图说明"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/require.context%E5%88%86%E6%9E%90.png" alt="一张图说明"></p>
 
         </div>
         
@@ -255,7 +255,7 @@ var _hmt = _hmt || [];
         <i class="fab fa-weixin"></i>
     </span>
     <span>微信</span>
-    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+    <div class="qrcode"><img data-src="/images/wechat_payme.jpg" alt="微信"></div>
 </a>
 
                 
@@ -327,7 +327,7 @@ var _hmt = _hmt || [];
                 <div>
                     
                         <figure class="image is-128x128 has-mb-6">
-                            <img class="is-rounded" src="/images/avatar.png" alt="Tusi">
+                            <img class="is-rounded" data-src="/images/avatar.png" alt="Tusi">
                         </figure>
                     
                     
@@ -503,7 +503,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -522,7 +522,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -541,7 +541,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -560,7 +560,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -579,7 +579,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1025,7 +1025,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -1044,7 +1044,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -1063,7 +1063,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -1082,7 +1082,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -1101,7 +1101,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1677,6 +1677,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <script src="/js/main.js" defer></script>
+
+<script src="/js/lazyload.js" defer></script>
 
     
     <div class="searchbox ins-search">

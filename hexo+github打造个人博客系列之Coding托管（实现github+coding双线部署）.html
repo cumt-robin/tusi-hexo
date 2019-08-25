@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="http://qncdn.wbjiang.cn/coding.png" alt="hexo+github打造个人博客系列之Coding托管（实现github+coding双线部署）">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/coding.png" alt="hexo+github打造个人博客系列之Coding托管（实现github+coding双线部署）">
         </span>
     </div>
     
@@ -198,26 +198,26 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>从网上搜索的结果来看，很多人都认为<code>github</code>博客在国内的<code>seo</code>情况不太好，不被百度爬虫所青睐。一个比较好的方案是，同时将<code>hexo</code>博客部署到<code>github</code>和<code>Coding</code>上。<a id="more"></a>所以我也想试一下，顺便了解一下<code>Coding</code>这个代码托管平台。</p>
-<h2 id="注册Coding"><a href="#注册Coding" class="headerlink" title="注册Coding"></a>注册Coding</h2><p>点击<a href="https://coding.net/" target="_blank" rel="noopener">Coding官网</a>，完成注册。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjIyNTIwODc0" alt="注册"></p>
+<h2 id="注册Coding"><a href="#注册Coding" class="headerlink" title="注册Coding"></a>注册Coding</h2><p>点击<a href="https://coding.net/" target="_blank" rel="noopener">Coding官网</a>，完成注册。<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjIyNTIwODc0" alt="注册"></p>
 <p>注册完成后，按照提示绑定一下手机和邮箱，就成为所谓的银牌会员了，会提升空间大小，方便后续使用。</p>
-<h2 id="创建一个项目"><a href="#创建一个项目" class="headerlink" title="创建一个项目"></a>创建一个项目</h2><p>按照下图指示，创建一个公开项目，类似于github的仓库。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjIzOTE0NTQw" alt="创建项目"></p>
-<h2 id="设置ssh秘钥"><a href="#设置ssh秘钥" class="headerlink" title="设置ssh秘钥"></a>设置ssh秘钥</h2><h3 id="查询公钥"><a href="#查询公钥" class="headerlink" title="查询公钥"></a>查询公钥</h3><p>与github是一样的，使用服务需要验证ssh秘钥。首先在计算机对应的文件夹中找到公钥。一般是这样一个目录。以前没有生成过ssh秘钥的，需要查阅一下如何生成ssh秘钥。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjI0NDE0Nzk3" alt="查询公钥"></p>
-<h3 id="设置公钥"><a href="#设置公钥" class="headerlink" title="设置公钥"></a>设置公钥</h3><p>将公钥的内容存储到Coding的账户中。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjI0NTUzNTI0" alt="设置公钥"></p>
+<h2 id="创建一个项目"><a href="#创建一个项目" class="headerlink" title="创建一个项目"></a>创建一个项目</h2><p>按照下图指示，创建一个公开项目，类似于github的仓库。<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjIzOTE0NTQw" alt="创建项目"></p>
+<h2 id="设置ssh秘钥"><a href="#设置ssh秘钥" class="headerlink" title="设置ssh秘钥"></a>设置ssh秘钥</h2><h3 id="查询公钥"><a href="#查询公钥" class="headerlink" title="查询公钥"></a>查询公钥</h3><p>与github是一样的，使用服务需要验证ssh秘钥。首先在计算机对应的文件夹中找到公钥。一般是这样一个目录。以前没有生成过ssh秘钥的，需要查阅一下如何生成ssh秘钥。<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjI0NDE0Nzk3" alt="查询公钥"></p>
+<h3 id="设置公钥"><a href="#设置公钥" class="headerlink" title="设置公钥"></a>设置公钥</h3><p>将公钥的内容存储到Coding的账户中。<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjI0NTUzNTI0" alt="设置公钥"></p>
 <h3 id="验证SSH服务"><a href="#验证SSH服务" class="headerlink" title="验证SSH服务"></a>验证SSH服务</h3><p>配置完成后，验证一下是否可以ssh连接coding.net，在git bash中敲命令</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@git.coding.net</span><br></pre></td></tr></table></figure>
 
-<p>如果界面显示这样的信息，那么证明ssh连接是OK的。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjI1NTE2MzY1" alt="验证SSH服务"></p>
-<h2 id="Hexo配置"><a href="#Hexo配置" class="headerlink" title="Hexo配置"></a>Hexo配置</h2><p>然后配置hexo，在deploy字段下新增一个git仓库，repo是coding项目对应的ssh url<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjMwNjI5NTM0" alt="Hexo配置"></p>
+<p>如果界面显示这样的信息，那么证明ssh连接是OK的。<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjI1NTE2MzY1" alt="验证SSH服务"></p>
+<h2 id="Hexo配置"><a href="#Hexo配置" class="headerlink" title="Hexo配置"></a>Hexo配置</h2><p>然后配置hexo，在deploy字段下新增一个git仓库，repo是coding项目对应的ssh url<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjMwNjI5NTM0" alt="Hexo配置"></p>
 <p>配置完后，运行deploy部署命令，就可以在coding仓库中看到代码了。</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjM1MDU3MTE1" alt="deploy"></p>
-<h2 id="使用Coding-Pages服务"><a href="#使用Coding-Pages服务" class="headerlink" title="使用Coding Pages服务"></a>使用Coding Pages服务</h2><p>Coding也提供了类似github的Pages服务，按照流程填写一下，就可以开启Pages服务了。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjM1NTI0MDA4" alt="coding pages"></p>
-<p>启用Pages服务后，就可以通过Coding提供的二级域名访问博客页面了。但是刚启动，好像看到了很多403，404错误。扎心了老铁，还得慢慢排错啊。。。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjM1NzE5MjU3" alt="页面展示异常"></p>
-<h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><p>查阅了各个资源文件的获取情况，发现是子目录不对造成的。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAyMDAyMTQyMTc4" alt="子目录不对"></p>
+<p><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjM1MDU3MTE1" alt="deploy"></p>
+<h2 id="使用Coding-Pages服务"><a href="#使用Coding-Pages服务" class="headerlink" title="使用Coding Pages服务"></a>使用Coding Pages服务</h2><p>Coding也提供了类似github的Pages服务，按照流程填写一下，就可以开启Pages服务了。<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjM1NTI0MDA4" alt="coding pages"></p>
+<p>启用Pages服务后，就可以通过Coding提供的二级域名访问博客页面了。但是刚启动，好像看到了很多403，404错误。扎心了老铁，还得慢慢排错啊。。。<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAxMjM1NzE5MjU3" alt="页面展示异常"></p>
+<h2 id="排错"><a href="#排错" class="headerlink" title="排错"></a>排错</h2><p>查阅了各个资源文件的获取情况，发现是子目录不对造成的。<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAyMDAyMTQyMTc4" alt="子目录不对"></p>
 <p>可以看到，部署在Coding该项目下的资源都是在hexo-blog子目录下的，而这里http访问的url是没有hexo-blog的。所以造成了访问403，404各种错误。那么如何解决这个问题呢？那就是将Coding pages的地址作为一个CNAME解析到<a href="http://hexo.wbjiang.cn">我的域名</a>下。</p>
-<h2 id="添加CNAME解析"><a href="#添加CNAME解析" class="headerlink" title="添加CNAME解析"></a>添加CNAME解析</h2><p>来到阿里云的控制台，找到域名解析。添加CNAME解析。<br>将原来的指向github主机的A记录切换到海外线路。添加pages.coding.me的CNAME记录。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAyMDAyNjQ5Njg5" alt="CNAME解析"></p>
-<h2 id="Coding-Pages添加自定义域名"><a href="#Coding-Pages添加自定义域名" class="headerlink" title="Coding Pages添加自定义域名"></a>Coding Pages添加自定义域名</h2><p>完成上一步后，就可以在Coding Pages添加自定义域名了。<br><img src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAyMDAyNzQxODI1" alt="自定义域名"></p>
+<h2 id="添加CNAME解析"><a href="#添加CNAME解析" class="headerlink" title="添加CNAME解析"></a>添加CNAME解析</h2><p>来到阿里云的控制台，找到域名解析。添加CNAME解析。<br>将原来的指向github主机的A记录切换到海外线路。添加pages.coding.me的CNAME记录。<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAyMDAyNjQ5Njg5" alt="CNAME解析"></p>
+<h2 id="Coding-Pages添加自定义域名"><a href="#Coding-Pages添加自定义域名" class="headerlink" title="Coding Pages添加自定义域名"></a>Coding Pages添加自定义域名</h2><p>完成上一步后，就可以在Coding Pages添加自定义域名了。<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMjAyMDAyNzQxODI1" alt="自定义域名"></p>
 <p>这个时候再点击<a href="http://hexo.wbjiang.cn">自己的域名</a>，已经是正常访问了，也没有页面错乱，报错的现象了，大功告成！</p>
 <p>至此，我们也完成了github+coding双线部署！</p>
 
@@ -260,7 +260,7 @@ var _hmt = _hmt || [];
         <i class="fab fa-weixin"></i>
     </span>
     <span>微信</span>
-    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+    <div class="qrcode"><img data-src="/images/wechat_payme.jpg" alt="微信"></div>
 </a>
 
                 
@@ -332,7 +332,7 @@ var _hmt = _hmt || [];
                 <div>
                     
                         <figure class="image is-128x128 has-mb-6">
-                            <img class="is-rounded" src="/images/avatar.png" alt="Tusi">
+                            <img class="is-rounded" data-src="/images/avatar.png" alt="Tusi">
                         </figure>
                     
                     
@@ -508,7 +508,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -527,7 +527,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -546,7 +546,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -565,7 +565,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -584,7 +584,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1030,7 +1030,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -1049,7 +1049,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -1068,7 +1068,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -1087,7 +1087,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -1106,7 +1106,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1682,6 +1682,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <script src="/js/main.js" defer></script>
+
+<script src="/js/lazyload.js" defer></script>
 
     
     <div class="searchbox ins-search">

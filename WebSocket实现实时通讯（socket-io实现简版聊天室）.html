@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="http://qncdn.wbjiang.cn/websocket%E9%80%9A%E7%94%A8.jpg" alt="WebSocket实现实时通讯（socket.io实现简版聊天室）">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/websocket%E9%80%9A%E7%94%A8.jpg" alt="WebSocket实现实时通讯（socket.io实现简版聊天室）">
         </span>
     </div>
     
@@ -215,11 +215,11 @@ var _hmt = _hmt || [];
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">import io from &apos;socket.io-client&apos;;</span><br><span class="line">// 创建和管理socket</span><br><span class="line">createSocket() &#123;</span><br><span class="line">    let self = this</span><br><span class="line">	this.socket = io(this.$store.state.config.API_ROOT);</span><br><span class="line">	this.socket.on(&apos;connect&apos;, function()&#123;</span><br><span class="line">		console.log(&apos;连上了&apos;)</span><br><span class="line">	&#125;);</span><br><span class="line">	// 这里接收服务端发来的单独消息</span><br><span class="line">	this.socket.on(&apos;singleMsg&apos;, function(msg)&#123;</span><br><span class="line">        console.log(msg)</span><br><span class="line">        switch (msg.event) &#123;</span><br><span class="line">	        // 如来自服务端的问候，虽然这里没写什么，但是可以据此做一些页面上的效果</span><br><span class="line">            case &apos;greet_from_server&apos;:</span><br><span class="line">                break</span><br><span class="line">            default:</span><br><span class="line">                break</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;)</span><br><span class="line">	// 目前还没用到，可拓展</span><br><span class="line">    this.socket.on(&apos;broadcastAll&apos;, function(msg)&#123;</span><br><span class="line">        console.log(msg)</span><br><span class="line">    &#125;)</span><br><span class="line">    // 监听广播</span><br><span class="line">    this.socket.on(&apos;broadcast&apos;, function(msg)&#123;</span><br><span class="line">        console.log(msg)</span><br><span class="line">        switch (msg.event) &#123;</span><br><span class="line">	        // 新用户加入聊天室</span><br><span class="line">            case &apos;new_user_join&apos;:</span><br><span class="line">                self.msgList.push(&#123;</span><br><span class="line">                    time: new Date().toLocaleString(),</span><br><span class="line">                    user: &apos;系统通知&apos;,</span><br><span class="line">                    content: `用户 $&#123;msg.data.user&#125; 加入了聊天室......`</span><br><span class="line">                &#125;)</span><br><span class="line">                break</span><br><span class="line">            // 用户退出聊天室</span><br><span class="line">            case &apos;someone_exit&apos;:</span><br><span class="line">                self.msgList.push(&#123;</span><br><span class="line">                    time: new Date().toLocaleString(),</span><br><span class="line">                    user: &apos;系统通知&apos;,</span><br><span class="line">                    content: `用户 $&#123;msg.data.user&#125; 退出了聊天室......`</span><br><span class="line">                &#125;)</span><br><span class="line">                break</span><br><span class="line">            // 接收某用户的聊天内容</span><br><span class="line">            case &apos;new_chat_content&apos;:</span><br><span class="line">                self.msgList.push(&#123;</span><br><span class="line">                    time: new Date().toLocaleString(),</span><br><span class="line">                    user: msg.data.user,</span><br><span class="line">                    content: msg.data.content</span><br><span class="line">                &#125;)</span><br><span class="line">                break</span><br><span class="line">            default:</span><br><span class="line">                break</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">	this.socket.on(&apos;disconnect&apos;, function()&#123;</span><br><span class="line">		console.log(&apos;连接断开了&apos;)</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;,</span><br><span class="line">// 监听输入框回车事件</span><br><span class="line">onInpuKeyDown(e) &#123;</span><br><span class="line">    console.log(e)</span><br><span class="line">    if (e.keyCode == 13) &#123;</span><br><span class="line">	    // 将输入的聊天内容推送给服务端</span><br><span class="line">        this.socket.emit(&apos;chat&apos;, e.target.value)</span><br><span class="line">        this.msgList.push(&#123;</span><br><span class="line">            time: new Date().toLocaleString(),</span><br><span class="line">            user: &apos;我说&apos;,</span><br><span class="line">            content: e.target.value</span><br><span class="line">        &#125;)</span><br><span class="line">        this.newMsg = &apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>我们用打开多个窗口的方式模拟多个用户的加入，我这里开了三个窗口，最后的效果大概是这样的。</p>
-<p>用户1看到用户2和用户3谈到了很晚的事情<br><img src="http://qncdn.wbjiang.cn/%E8%81%8A%E5%A4%A91.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="聊天内容1"></p>
-<p>切到了当前用户2的界面<br><img src="http://qncdn.wbjiang.cn/%E8%81%8A%E5%A4%A92.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="聊天内容2"></p>
-<p>切到了当前用户3的界面<br><img src="http://qncdn.wbjiang.cn/%E8%81%8A%E5%A4%A93.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="聊天内容3"></p>
-<p>用户3退出了聊天室，在用户2的界面上可以看到推送的系统通知，然后用户2说了一句话也退出了<br><img src="http://qncdn.wbjiang.cn/%E8%81%8A%E5%A4%A94.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="聊天内容4"></p>
-<p>用户1看到用户2和用户3的退出情况<br><img src="http://qncdn.wbjiang.cn/%E8%81%8A%E5%A4%A95.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="聊天内容5"></p>
+<p>用户1看到用户2和用户3谈到了很晚的事情<br><img src=""data-src="http://qncdn.wbjiang.cn/%E8%81%8A%E5%A4%A91.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="聊天内容1"></p>
+<p>切到了当前用户2的界面<br><img src=""data-src="http://qncdn.wbjiang.cn/%E8%81%8A%E5%A4%A92.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="聊天内容2"></p>
+<p>切到了当前用户3的界面<br><img src=""data-src="http://qncdn.wbjiang.cn/%E8%81%8A%E5%A4%A93.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="聊天内容3"></p>
+<p>用户3退出了聊天室，在用户2的界面上可以看到推送的系统通知，然后用户2说了一句话也退出了<br><img src=""data-src="http://qncdn.wbjiang.cn/%E8%81%8A%E5%A4%A94.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="聊天内容4"></p>
+<p>用户1看到用户2和用户3的退出情况<br><img src=""data-src="http://qncdn.wbjiang.cn/%E8%81%8A%E5%A4%A95.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="聊天内容5"></p>
 
         </div>
         
@@ -260,7 +260,7 @@ var _hmt = _hmt || [];
         <i class="fab fa-weixin"></i>
     </span>
     <span>微信</span>
-    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+    <div class="qrcode"><img data-src="/images/wechat_payme.jpg" alt="微信"></div>
 </a>
 
                 
@@ -332,7 +332,7 @@ var _hmt = _hmt || [];
                 <div>
                     
                         <figure class="image is-128x128 has-mb-6">
-                            <img class="is-rounded" src="/images/avatar.png" alt="Tusi">
+                            <img class="is-rounded" data-src="/images/avatar.png" alt="Tusi">
                         </figure>
                     
                     
@@ -508,7 +508,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -527,7 +527,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -546,7 +546,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -565,7 +565,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -584,7 +584,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1030,7 +1030,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -1049,7 +1049,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -1068,7 +1068,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -1087,7 +1087,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -1106,7 +1106,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1682,6 +1682,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <script src="/js/main.js" defer></script>
+
+<script src="/js/lazyload.js" defer></script>
 
     
     <div class="searchbox ins-search">

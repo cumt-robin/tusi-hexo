@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="http://qncdn.wbjiang.cn/mysql%E9%80%9A%E7%94%A8.jpeg" alt="windows系统下安装mysql8.0">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mysql%E9%80%9A%E7%94%A8.jpeg" alt="windows系统下安装mysql8.0">
         </span>
     </div>
     
@@ -199,7 +199,7 @@ var _hmt = _hmt || [];
         <div class="content">
             <h1 id="下载mysql"><a href="#下载mysql" class="headerlink" title="下载mysql"></a>下载mysql</h1><p>进入到<a href="https://www.mysql.com/downloads/" target="_blank" rel="noopener">官网下载页面</a>，下载免费的社区版就可以了。本人一开始下载了installer，安装卸载了两次，可能是使用不当吧，遇到了很多坑，最终选择了下载zip版本。</p>
 <a id="more"></a>
-<p><img src="http://qncdn.wbjiang.cn/mysql%E4%B8%8B%E8%BD%BD%E6%8E%A8%E8%8D%90.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="mysql下载推荐">)</p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/mysql%E4%B8%8B%E8%BD%BD%E6%8E%A8%E8%8D%90.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="mysql下载推荐">)</p>
 <h1 id="如何安装使用"><a href="#如何安装使用" class="headerlink" title="如何安装使用"></a>如何安装使用</h1><p>将下载的zip压缩包解压到D:\Program Files\MySQL目录下，创建my.ini配置文件</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line"># 设置3306端口</span><br><span class="line">port=3306</span><br><span class="line"># 设置mysql的安装目录</span><br><span class="line">basedir=D:\Program Files\MySQL</span><br><span class="line"># 设置mysql数据库的数据的存放目录</span><br><span class="line">datadir=D:\Program Files\MySQL\data</span><br><span class="line"># 允许最大连接数</span><br><span class="line">max_connections=200</span><br><span class="line"># 允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统</span><br><span class="line">max_connect_errors=10</span><br><span class="line"># 服务端使用的字符集默认为UTF8</span><br><span class="line">character-set-server=utf8</span><br><span class="line"># 创建新表时将使用的默认存储引擎</span><br><span class="line">default-storage-engine=INNODB</span><br><span class="line"># 默认使用“mysql_native_password”插件认证</span><br><span class="line">default_authentication_plugin=mysql_native_password</span><br><span class="line">[mysql]</span><br><span class="line"># 设置mysql客户端默认字符集</span><br><span class="line">default-character-set=utf8</span><br><span class="line">[client]</span><br><span class="line"># 设置mysql客户端连接服务端时默认使用的端口</span><br><span class="line">port=3306</span><br><span class="line">default-character-set=utf8</span><br></pre></td></tr></table></figure>
 
@@ -211,11 +211,11 @@ var _hmt = _hmt || [];
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">;D:\Program Files\MySQL\bin</span><br></pre></td></tr></table></figure>
 
 <p>接着运行net start mysql，可以看到启动mysql服务已经成功。</p>
-<p><img src="http://qncdn.wbjiang.cn/%E5%88%9D%E5%A7%8B%E5%8C%96mysql.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="mysql初始化"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/%E5%88%9D%E5%A7%8B%E5%8C%96mysql.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="mysql初始化"></p>
 <h1 id="测试root账号"><a href="#测试root账号" class="headerlink" title="测试root账号"></a>测试root账号</h1><p>运行登录命令</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
 
-<p>输入密码后登录成功。<br><img src="http://qncdn.wbjiang.cn/mysql%E7%94%A8root%E8%B4%A6%E5%8F%B7%E6%88%90%E5%8A%9F%E7%99%BB%E5%BD%95.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="mysql登录成功"></p>
+<p>输入密码后登录成功。<br><img src=""data-src="http://qncdn.wbjiang.cn/mysql%E7%94%A8root%E8%B4%A6%E5%8F%B7%E6%88%90%E5%8A%9F%E7%99%BB%E5%BD%95.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="mysql登录成功"></p>
 <p>接着输入数据库查询语句，随便输什么都报一个错。比如show databases，use mysql等。</p>
 <blockquote>
 <p>You must reset your password using ALTER USER statement before executing this statement.</p>
@@ -224,7 +224,7 @@ var _hmt = _hmt || [];
 <p>不说了，运行这个命令，修改一下root的密码。</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter user user() identified by &quot;123456&quot;;</span><br></pre></td></tr></table></figure>
 
-<p>修改后，就可以正常访问使用mysql数据库了。<br><img src="http://qncdn.wbjiang.cn/mysql%E6%8F%90%E7%A4%BA%E5%AF%86%E7%A0%81%E8%BF%87%E6%9C%9F.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="修改密码后正常使用"></p>
+<p>修改后，就可以正常访问使用mysql数据库了。<br><img src=""data-src="http://qncdn.wbjiang.cn/mysql%E6%8F%90%E7%A4%BA%E5%AF%86%E7%A0%81%E8%BF%87%E6%9C%9F.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d2JqaWFuZy5jbg==/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="修改密码后正常使用"></p>
 <hr>
 <p><strong>2018.8.7</strong></p>
 <p>今天在win10上按照以上步骤安装时，遇到了一个问题。运行net start mysql时报错</p>
@@ -276,7 +276,7 @@ var _hmt = _hmt || [];
         <i class="fab fa-weixin"></i>
     </span>
     <span>微信</span>
-    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+    <div class="qrcode"><img data-src="/images/wechat_payme.jpg" alt="微信"></div>
 </a>
 
                 
@@ -348,7 +348,7 @@ var _hmt = _hmt || [];
                 <div>
                     
                         <figure class="image is-128x128 has-mb-6">
-                            <img class="is-rounded" src="/images/avatar.png" alt="Tusi">
+                            <img class="is-rounded" data-src="/images/avatar.png" alt="Tusi">
                         </figure>
                     
                     
@@ -524,7 +524,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -543,7 +543,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -562,7 +562,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -581,7 +581,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -600,7 +600,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1046,7 +1046,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -1065,7 +1065,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -1084,7 +1084,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -1103,7 +1103,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -1122,7 +1122,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1698,6 +1698,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <script src="/js/main.js" defer></script>
+
+<script src="/js/lazyload.js" defer></script>
 
     
     <div class="searchbox ins-search">

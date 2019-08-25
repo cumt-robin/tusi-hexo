@@ -161,7 +161,7 @@ var _hmt = _hmt || [];
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="http://qncdn.wbjiang.cn/html%E6%A0%87%E7%AD%BE.png" alt="自定义滑块Range Slider">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/html%E6%A0%87%E7%AD%BE.png" alt="自定义滑块Range Slider">
         </span>
     </div>
     
@@ -201,7 +201,7 @@ var _hmt = _hmt || [];
 <h1 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h1><p>我在一个视频类demo中，使用到了滑块组件（也就是range类型的input组件）。</p>
 <figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"range"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"&#123;&#123;currentTime&#125;&#125;"</span> <span class="hljs-attr">min</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">max</span>=<span class="hljs-string">"&#123;&#123;duration&#125;&#125;"</span> <span class="hljs-attr">step</span>=<span class="hljs-string">"1"</span> (<span class="hljs-attr">input</span>)=<span class="hljs-string">"progressChange($event)"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>未做定制的效果如下：<br><img src="http://qncdn.wbjiang.cn/%E5%8E%9F%E5%A7%8B%E7%9A%84range%E7%B1%BB%E5%9E%8Binput%E5%A4%96%E8%A7%82.png" alt="视频进度条和音量条"></p>
+<p>未做定制的效果如下：<br><img src=""data-src="http://qncdn.wbjiang.cn/%E5%8E%9F%E5%A7%8B%E7%9A%84range%E7%B1%BB%E5%9E%8Binput%E5%A4%96%E8%A7%82.png" alt="视频进度条和音量条"></p>
 <p>用到input的有两处，一个是视频的进度条，一个是音量条。不能说这个样式很丑，但是还有美化的空间。那么我们如何来修改input默认的样式呢？</p>
 <h1 id="自定义样式"><a href="#自定义样式" class="headerlink" title="自定义样式"></a>自定义样式</h1><p>input组件主要由两部分组成，轨道和滑块，它们都是伪元素。我们只要针对这两个伪元素来做试探性修改css就可以看到效果了。</p>
 <figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 轨道的伪元素，分别对应chrome，firefox，IE浏览器。</span><br><span class="line">// ::-webkit-slider-runnable-track</span><br><span class="line">// ::-moz-range-track</span><br><span class="line">// ::-ms-track</span><br><span class="line"></span><br><span class="line">// 滑块的伪元素，分别对应chrome，firefox，IE浏览器。</span><br><span class="line">// ::-webkit-slider-thumb</span><br><span class="line">// ::-moz-range-thumb</span><br><span class="line">// ::-ms-thumb</span><br></pre></td></tr></table></figure>
@@ -215,7 +215,7 @@ var _hmt = _hmt || [];
 <h2 id="修改滑块css"><a href="#修改滑块css" class="headerlink" title="修改滑块css"></a>修改滑块css</h2><p>废话不多说，上代码。</p>
 <figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">input</span><span class="hljs-selector-attr">[type=range]</span><span class="hljs-selector-pseudo">::-webkit-slider-thumb</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">-webkit-appearance</span>: none;</span><br><span class="line">  <span class="hljs-attribute">-moz-appearance</span>: none;</span><br><span class="line">  <span class="hljs-attribute">width</span>: <span class="hljs-number">10px</span>;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">10px</span>;</span><br><span class="line">  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;</span><br><span class="line">  <span class="hljs-attribute">position</span>: relative;</span><br><span class="line">  <span class="hljs-attribute">top</span>: -<span class="hljs-number">2px</span>;</span><br><span class="line">  <span class="hljs-attribute">background</span>: <span class="hljs-number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>修改完毕，我们来看一下效果图。感觉还不错吧，加以修改，相信能做出更美的效果。<br><img src="http://qncdn.wbjiang.cn/%E7%BE%8E%E5%8C%96%E5%90%8E%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1%E5%92%8C%E9%9F%B3%E9%87%8F%E6%9D%A1.png" alt="修改后效果图"></p>
+<p>修改完毕，我们来看一下效果图。感觉还不错吧，加以修改，相信能做出更美的效果。<br><img src=""data-src="http://qncdn.wbjiang.cn/%E7%BE%8E%E5%8C%96%E5%90%8E%E7%9A%84%E8%BF%9B%E5%BA%A6%E6%9D%A1%E5%92%8C%E9%9F%B3%E9%87%8F%E6%9D%A1.png" alt="修改后效果图"></p>
 <p>放一个<a href="http://angular.wbjiang.cn" target="_blank" rel="noopener">demo链接</a>，大家自行查阅。</p>
 
         </div>
@@ -257,7 +257,7 @@ var _hmt = _hmt || [];
         <i class="fab fa-weixin"></i>
     </span>
     <span>微信</span>
-    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+    <div class="qrcode"><img data-src="/images/wechat_payme.jpg" alt="微信"></div>
 </a>
 
                 
@@ -329,7 +329,7 @@ var _hmt = _hmt || [];
                 <div>
                     
                         <figure class="image is-128x128 has-mb-6">
-                            <img class="is-rounded" src="/images/avatar.png" alt="Tusi">
+                            <img class="is-rounded" data-src="/images/avatar.png" alt="Tusi">
                         </figure>
                     
                     
@@ -505,7 +505,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -524,7 +524,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -543,7 +543,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -562,7 +562,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -581,7 +581,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1027,7 +1027,7 @@ var _hmt = _hmt || [];
             
             <a href="/sea-js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
             </a>
             
@@ -1046,7 +1046,7 @@ var _hmt = _hmt || [];
             
             <a href="/在Linux和Windows系统中输出目录结构.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book3_600x400.png" alt="在Linux和Windows系统中输出目录结构">
                 </p>
             </a>
             
@@ -1065,7 +1065,7 @@ var _hmt = _hmt || [];
             
             <a href="/从部署上做到前后端分离.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/riven2_400x300.png" alt="从部署上做到前后端分离">
                 </p>
             </a>
             
@@ -1084,7 +1084,7 @@ var _hmt = _hmt || [];
             
             <a href="/微信小程序自定义tabBar.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
                 </p>
             </a>
             
@@ -1103,7 +1103,7 @@ var _hmt = _hmt || [];
             
             <a href="/一种在地图中处理曲线的通用方法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
                 </p>
             </a>
             
@@ -1679,6 +1679,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <script src="/js/main.js" defer></script>
+
+<script src="/js/lazyload.js" defer></script>
 
     
     <div class="searchbox ins-search">
