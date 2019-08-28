@@ -11,7 +11,7 @@
 
 
     <meta name="description" content="为了梳理代码，我单独给微信的接口进行了一些封装。">
-<meta name="keywords" content="微信公众号,NodeJS">
+<meta name="keywords" content="nodejs,微信公众号,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nodejs开发微信公众号--获取access_token">
 <meta property="og:url" content="http://hexo.wbjiang.cn/Nodejs开发微信公众号-获取access-token.html">
@@ -19,7 +19,7 @@
 <meta property="og:description" content="为了梳理代码，我单独给微信的接口进行了一些封装。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/book2_600x400.png">
-<meta property="og:updated_time" content="2019-08-24T05:31:28.130Z">
+<meta property="og:updated_time" content="2019-08-28T08:39:44.353Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nodejs开发微信公众号--获取access_token">
 <meta name="twitter:description" content="为了梳理代码，我单独给微信的接口进行了一些封装。">
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 721 个字)
+                    5 分钟 读完 (大约 760 个字)
                 </span>
                 
                 
@@ -214,6 +214,9 @@ var _hmt = _hmt || [];
 
 <hr>
 <p>2018.10.17<br>考虑到每次重启服务器都会调用GetAccessToken，会导致频繁调用。因此想到一个修改方法，将accessToken作为属性存在wechat对象中的同时，还将其写入到本地文件token.json中。这样服务器重启时，就可以先读取token.json文件中的access_token及expires_in，先判断是否过期，如果过期了，则直接进行access_token更新操作，否则计算出过期时间，用定时器控制在过期时间时进行access_token更新操作。</p>
+<hr>
+<p>扫一扫微信小程序或搜索<code>Tusi博客</code>，即刻阅读最新文章！</p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/Tusi%E5%8D%9A%E5%AE%A2.jpg" alt="Tusi博客"></p>
 
         </div>
         
@@ -645,6 +648,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Demo/">
+                        <span class="tag">Demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ES6/">
                         <span class="tag">ES6</span>
                         <span class="tag is-grey">1</span>
@@ -764,8 +774,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/demo/">
-                        <span class="tag">demo</span>
+                    <a class="tags has-addons" href="/tags/Windows/">
+                        <span class="tag">Windows</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
@@ -914,13 +924,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/websocket/">
                         <span class="tag">websocket</span>
                         <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/windows/">
-                        <span class="tag">windows</span>
-                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1174,6 +1177,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Demo/">
+                        <span class="tag">Demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ES6/">
                         <span class="tag">ES6</span>
                         <span class="tag is-grey">1</span>
@@ -1293,8 +1303,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/demo/">
-                        <span class="tag">demo</span>
+                    <a class="tags has-addons" href="/tags/Windows/">
+                        <span class="tag">Windows</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
@@ -1443,13 +1453,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/websocket/">
                         <span class="tag">websocket</span>
                         <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/windows/">
-                        <span class="tag">windows</span>
-                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 

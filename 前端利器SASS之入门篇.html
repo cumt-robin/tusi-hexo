@@ -11,7 +11,7 @@
 
 
     <meta name="description" content="前端开发过程中，我们会给各个元素指定样式，甚至有很多重复的样式，在后期维护过程中，如果我们要改动一些页面样式，可能得一个个css文件去修改，这样非常麻烦。">
-<meta name="keywords" content="Tusi,博客,前端,全栈,微信小程序">
+<meta name="keywords" content="sass,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端利器SASS之入门篇">
 <meta property="og:url" content="http://hexo.wbjiang.cn/前端利器SASS之入门篇.html">
@@ -19,7 +19,7 @@
 <meta property="og:description" content="前端开发过程中，我们会给各个元素指定样式，甚至有很多重复的样式，在后期维护过程中，如果我们要改动一些页面样式，可能得一个个css文件去修改，这样非常麻烦。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/css.jpg">
-<meta property="og:updated_time" content="2019-08-21T02:50:06.239Z">
+<meta property="og:updated_time" content="2019-08-28T08:36:58.354Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端利器SASS之入门篇">
 <meta name="twitter:description" content="前端开发过程中，我们会给各个元素指定样式，甚至有很多重复的样式，在后期维护过程中，如果我们要改动一些页面样式，可能得一个个css文件去修改，这样非常麻烦。">
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    10 分钟 读完 (大约 1497 个字)
+                    10 分钟 读完 (大约 1536 个字)
                 </span>
                 
                 
@@ -261,6 +261,9 @@ var _hmt = _hmt || [];
 <figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$parent-width: 40px;</span><br><span class="line">$self-width: 10px;</span><br><span class="line"></span><br><span class="line">@<span class="hljs-keyword">function</span> get-left($n) &#123;</span><br><span class="line">  @<span class="hljs-keyword">return</span> (parent-width - self-width) / <span class="hljs-number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-id">#somediv</span> &#123; <span class="hljs-attribute">left</span>: <span class="hljs-built_in">get-left</span>(5); &#125;</span><br></pre></td></tr></table></figure>
 
 <p>ps：函数的语法类似于mixin，但是函数返回的是一个值，而不是一段css。</p>
+<hr>
+<p>扫一扫微信小程序或搜索<code>Tusi博客</code>，即刻阅读最新文章！</p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/Tusi%E5%8D%9A%E5%AE%A2.jpg" alt="Tusi博客"></p>
 
         </div>
         
@@ -683,6 +686,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Demo/">
+                        <span class="tag">Demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ES6/">
                         <span class="tag">ES6</span>
                         <span class="tag is-grey">1</span>
@@ -802,8 +812,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/demo/">
-                        <span class="tag">demo</span>
+                    <a class="tags has-addons" href="/tags/Windows/">
+                        <span class="tag">Windows</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
@@ -952,13 +962,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/websocket/">
                         <span class="tag">websocket</span>
                         <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/windows/">
-                        <span class="tag">windows</span>
-                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1212,6 +1215,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Demo/">
+                        <span class="tag">Demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ES6/">
                         <span class="tag">ES6</span>
                         <span class="tag is-grey">1</span>
@@ -1331,8 +1341,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/demo/">
-                        <span class="tag">demo</span>
+                    <a class="tags has-addons" href="/tags/Windows/">
+                        <span class="tag">Windows</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
@@ -1481,13 +1491,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/websocket/">
                         <span class="tag">websocket</span>
                         <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/windows/">
-                        <span class="tag">windows</span>
-                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 

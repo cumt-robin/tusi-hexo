@@ -11,7 +11,7 @@
 
 
     <meta name="description" content="由于CommonJS采用适合服务器端的同步加载方式，这种方式不适合天生异步的浏览器端。在这种形势下，AMD（Asynchronous Module Definition，异步模块定义）应运而生。">
-<meta name="keywords" content="js模块化">
+<meta name="keywords" content="javascript,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="回头再看JS模块化编程之AMD">
 <meta property="og:url" content="http://hexo.wbjiang.cn/回头再看JS模块化编程之AMD.html">
@@ -19,7 +19,7 @@
 <meta property="og:description" content="由于CommonJS采用适合服务器端的同步加载方式，这种方式不适合天生异步的浏览器端。在这种形势下，AMD（Asynchronous Module Definition，异步模块定义）应运而生。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/js_400x300.png">
-<meta property="og:updated_time" content="2019-08-24T15:42:01.839Z">
+<meta property="og:updated_time" content="2019-08-28T08:36:13.365Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="回头再看JS模块化编程之AMD">
 <meta name="twitter:description" content="由于CommonJS采用适合服务器端的同步加载方式，这种方式不适合天生异步的浏览器端。在这种形势下，AMD（Asynchronous Module Definition，异步模块定义）应运而生。">
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    8 分钟 读完 (大约 1164 个字)
+                    8 分钟 读完 (大约 1203 个字)
                 </span>
                 
                 
@@ -230,6 +230,11 @@ var _hmt = _hmt || [];
 <p>这两种不同的文件路径下，baseUrl都必须参考requirejs.html的路径，否则就会发生引用404报错了。</p>
 <h3 id="shim"><a href="#shim" class="headerlink" title="shim"></a>shim</h3><p>有些早期的js库并不支持AMD写法，所以需要在requirejs中配置shim才可以使用它们，shim写法如下：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">require.config(&#123;</span><br><span class="line">    shim: &#123;</span><br><span class="line">        &quot;underscore&quot; : &#123;</span><br><span class="line">            exports : &quot;_&quot;;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;jquery&quot; : &#123;</span><br><span class="line">            exports : &quot;$&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>扫一扫微信小程序或搜索<code>Tusi博客</code>，即刻阅读最新文章！</p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/Tusi%E5%8D%9A%E5%AE%A2.jpg" alt="Tusi博客"></p>
+
         </div>
         
         <div class="level is-size-7 is-uppercase">
@@ -660,6 +665,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Demo/">
+                        <span class="tag">Demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ES6/">
                         <span class="tag">ES6</span>
                         <span class="tag is-grey">1</span>
@@ -779,8 +791,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/demo/">
-                        <span class="tag">demo</span>
+                    <a class="tags has-addons" href="/tags/Windows/">
+                        <span class="tag">Windows</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
@@ -929,13 +941,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/websocket/">
                         <span class="tag">websocket</span>
                         <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/windows/">
-                        <span class="tag">windows</span>
-                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1189,6 +1194,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Demo/">
+                        <span class="tag">Demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ES6/">
                         <span class="tag">ES6</span>
                         <span class="tag is-grey">1</span>
@@ -1308,8 +1320,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/demo/">
-                        <span class="tag">demo</span>
+                    <a class="tags has-addons" href="/tags/Windows/">
+                        <span class="tag">Windows</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
@@ -1458,13 +1470,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/websocket/">
                         <span class="tag">websocket</span>
                         <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/windows/">
-                        <span class="tag">windows</span>
-                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 

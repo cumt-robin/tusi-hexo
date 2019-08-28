@@ -11,7 +11,7 @@
 
 
     <meta name="description" content="最近在找工作，面试过程中发现自己对一些概念的叙述不是特别清楚。唉，让我自己写代码可能没有毛病，但是好像就是说不出这些概念，这无疑让自己在面试中丢了分。">
-<meta name="keywords" content="Tusi,博客,前端,全栈,微信小程序">
+<meta name="keywords" content="面试,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端面试题记录">
 <meta property="og:url" content="http://hexo.wbjiang.cn/前端面试题记录.html">
@@ -19,7 +19,7 @@
 <meta property="og:description" content="最近在找工作，面试过程中发现自己对一些概念的叙述不是特别清楚。唉，让我自己写代码可能没有毛病，但是好像就是说不出这些概念，这无疑让自己在面试中丢了分。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/html%E6%A0%87%E7%AD%BE.png">
-<meta property="og:updated_time" content="2019-08-23T09:30:21.621Z">
+<meta property="og:updated_time" content="2019-08-28T08:37:05.215Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试题记录">
 <meta name="twitter:description" content="最近在找工作，面试过程中发现自己对一些概念的叙述不是特别清楚。唉，让我自己写代码可能没有毛病，但是好像就是说不出这些概念，这无疑让自己在面试中丢了分。">
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    10 分钟 读完 (大约 1519 个字)
+                    10 分钟 读完 (大约 1558 个字)
                 </span>
                 
                 
@@ -214,6 +214,11 @@ var _hmt = _hmt || [];
 
 <p>2.js查询对象属性时，会首先从对象本身查找，如果找不到，则会顺着原型链（<strong>proto</strong>，而不是prototype）查找。常见的原型链继承写法：</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> Father = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;&#125;;</span><br><span class="line">Father.prototype.type = <span class="hljs-string">'male'</span>;</span><br><span class="line">Father.prototype.age = <span class="hljs-string">'40'</span>;</span><br><span class="line"><span class="hljs-keyword">var</span> Son = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;&#125;;</span><br><span class="line">Son.prototype = <span class="hljs-built_in">Object</span>.create(Father.prototype);</span><br><span class="line">Son.prototype.constructor = Son;</span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">new</span> Son().type);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>扫一扫微信小程序或搜索<code>Tusi博客</code>，即刻阅读最新文章！</p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/Tusi%E5%8D%9A%E5%AE%A2.jpg" alt="Tusi博客"></p>
+
         </div>
         
         
@@ -635,6 +640,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Demo/">
+                        <span class="tag">Demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ES6/">
                         <span class="tag">ES6</span>
                         <span class="tag is-grey">1</span>
@@ -754,8 +766,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/demo/">
-                        <span class="tag">demo</span>
+                    <a class="tags has-addons" href="/tags/Windows/">
+                        <span class="tag">Windows</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
@@ -904,13 +916,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/websocket/">
                         <span class="tag">websocket</span>
                         <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/windows/">
-                        <span class="tag">windows</span>
-                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1164,6 +1169,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Demo/">
+                        <span class="tag">Demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ES6/">
                         <span class="tag">ES6</span>
                         <span class="tag is-grey">1</span>
@@ -1283,8 +1295,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/demo/">
-                        <span class="tag">demo</span>
+                    <a class="tags has-addons" href="/tags/Windows/">
+                        <span class="tag">Windows</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
@@ -1433,13 +1445,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/websocket/">
                         <span class="tag">websocket</span>
                         <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/windows/">
-                        <span class="tag">windows</span>
-                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 

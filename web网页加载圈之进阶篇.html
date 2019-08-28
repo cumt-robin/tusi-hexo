@@ -11,7 +11,7 @@
 
 
     <meta name="description" content="做完简单的加载效果后，相信大家也想接着做一些更为复杂的效果。我也是这么想的。很多网页的加载动画都是由很多帧组成的，要做到这种效果也不难，说到底就是看你拆分动画的思路。">
-<meta name="keywords" content="demo">
+<meta name="keywords" content="demo,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="web网页加载圈之进阶篇">
 <meta property="og:url" content="http://hexo.wbjiang.cn/web网页加载圈之进阶篇.html">
@@ -19,7 +19,7 @@
 <meta property="og:description" content="做完简单的加载效果后，相信大家也想接着做一些更为复杂的效果。我也是这么想的。很多网页的加载动画都是由很多帧组成的，要做到这种效果也不难，说到底就是看你拆分动画的思路。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/loading_400x300.png">
-<meta property="og:updated_time" content="2019-08-24T15:40:34.175Z">
+<meta property="og:updated_time" content="2019-08-28T08:40:44.749Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web网页加载圈之进阶篇">
 <meta name="twitter:description" content="做完简单的加载效果后，相信大家也想接着做一些更为复杂的效果。我也是这么想的。很多网页的加载动画都是由很多帧组成的，要做到这种效果也不难，说到底就是看你拆分动画的思路。">
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 686 个字)
+                    5 分钟 读完 (大约 725 个字)
                 </span>
                 
                 
@@ -211,6 +211,9 @@ var _hmt = _hmt || [];
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 关键代码</span></span><br><span class="line"><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'last'</span>).addEventListener(<span class="hljs-string">'animationend'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="hljs-keyword">var</span> points = <span class="hljs-built_in">document</span>.getElementsByClassName(<span class="hljs-string">'loading-point'</span>);</span><br><span class="line">  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; points.length; i++) &#123;</span><br><span class="line">    points[i].classList.remove(<span class="hljs-string">'loading-animate'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; points.length; i++) &#123;</span><br><span class="line">      points[i].classList.add(<span class="hljs-string">'loading-animate'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, <span class="hljs-number">500</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h2 id="根据状态隐藏圆点"><a href="#根据状态隐藏圆点" class="headerlink" title="根据状态隐藏圆点"></a>根据状态隐藏圆点</h2><p>这个跟上文说的是一样的，当document.readyState的值为complete时，隐藏圆点。<a href="/web网页加载圈之入门篇.html" target="_blank">点击参考上文</a>。到此就完成了整个效果，点击查看<a href="/demo/loading2.html" target="_blank">效果页面</a>。</p>
+<hr>
+<p>扫一扫微信小程序或搜索<code>Tusi博客</code>，即刻阅读最新文章！</p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/Tusi%E5%8D%9A%E5%AE%A2.jpg" alt="Tusi博客"></p>
 
         </div>
         
@@ -218,7 +221,7 @@ var _hmt = _hmt || [];
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/demo/">demo</a>
+                    <a class="has-link-grey -link" href="/tags/Demo/">Demo</a>
                 </div>
             </div>
         </div>
@@ -642,6 +645,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Demo/">
+                        <span class="tag">Demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ES6/">
                         <span class="tag">ES6</span>
                         <span class="tag is-grey">1</span>
@@ -761,8 +771,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/demo/">
-                        <span class="tag">demo</span>
+                    <a class="tags has-addons" href="/tags/Windows/">
+                        <span class="tag">Windows</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
@@ -911,13 +921,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/websocket/">
                         <span class="tag">websocket</span>
                         <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/windows/">
-                        <span class="tag">windows</span>
-                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1171,6 +1174,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/Demo/">
+                        <span class="tag">Demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/ES6/">
                         <span class="tag">ES6</span>
                         <span class="tag is-grey">1</span>
@@ -1290,8 +1300,8 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/demo/">
-                        <span class="tag">demo</span>
+                    <a class="tags has-addons" href="/tags/Windows/">
+                        <span class="tag">Windows</span>
                         <span class="tag is-grey">2</span>
                     </a>
                 </div>
@@ -1440,13 +1450,6 @@ var _hmt = _hmt || [];
                     <a class="tags has-addons" href="/tags/websocket/">
                         <span class="tag">websocket</span>
                         <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
-                    <a class="tags has-addons" href="/tags/windows/">
-                        <span class="tag">windows</span>
-                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
