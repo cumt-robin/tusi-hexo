@@ -10,3 +10,5 @@ Disallow: /css/
 Disallow: /lib/
 
 Sitemap: http://hexo.wbjiang.cn/sitemap.xml
+
+Sitemap: http://hexo.wbjiang.cn/baidusitemap.xml
