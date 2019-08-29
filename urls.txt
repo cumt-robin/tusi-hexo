@@ -1,5 +1,6 @@
+http://hexo.wbjiang.cn/可能是最详细的UMD模块入门指南.html
 http://hexo.wbjiang.cn/Chrome远程调试手机端UC浏览器.html
-http://hexo.wbjiang.cn/sea-js的同步魔法.html
+http://hexo.wbjiang.cn/sea.js的同步魔法.html
 http://hexo.wbjiang.cn/在Linux和Windows系统中输出目录结构.html
 http://hexo.wbjiang.cn/从部署上做到前后端分离.html
 http://hexo.wbjiang.cn/微信小程序自定义tabBar.html

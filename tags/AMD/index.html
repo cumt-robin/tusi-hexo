@@ -7,23 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>sea.js的同步魔法 - Tusi博客</title>
+<title>标签: AMD - Tusi博客|分享最新开发心得</title>
 
 
-    <meta name="description" content="前些时间也是想写点关于CMD模块规范的文字，以便帮助自己理解。今天看到一篇知乎回答，算是给了我一点启发。">
-<meta name="keywords" content="javascript,sea.js,require,js,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
-<meta property="og:type" content="article">
-<meta property="og:title" content="sea.js的同步魔法">
-<meta property="og:url" content="http://hexo.wbjiang.cn/sea-js的同步魔法.html">
-<meta property="og:site_name" content="Tusi博客">
-<meta property="og:description" content="前些时间也是想写点关于CMD模块规范的文字，以便帮助自己理解。今天看到一篇知乎回答，算是给了我一点启发。">
+    <meta name="description" content="专注前端技术开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
+<meta name="keywords" content="蒋文斌,Tusi,博客,前端,全栈,微信小程序">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tusi博客|分享最新开发心得">
+<meta property="og:url" content="http://hexo.wbjiang.cn/tags/AMD/index.html">
+<meta property="og:site_name" content="Tusi博客|分享最新开发心得">
+<meta property="og:description" content="专注前端技术开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://qncdn.wbjiang.cn/mangseng_600x400.png">
-<meta property="og:updated_time" content="2019-08-28T08:43:43.922Z">
+<meta property="og:image" content="http://hexo.wbjiang.cn/images/og_image.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sea.js的同步魔法">
-<meta name="twitter:description" content="前些时间也是想写点关于CMD模块规范的文字，以便帮助自己理解。今天看到一篇知乎回答，算是给了我一点启发。">
-<meta name="twitter:image" content="http://qncdn.wbjiang.cn/mangseng_600x400.png">
+<meta name="twitter:title" content="Tusi博客|分享最新开发心得">
+<meta name="twitter:description" content="专注前端技术开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
+<meta name="twitter:image" content="http://hexo.wbjiang.cn/images/og_image.png">
 
 
 
@@ -102,7 +101,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="sea.js的同步魔法" height="28">
+                <img src="/images/logo.png" alt="Tusi博客|分享最新开发心得" height="28">
             
             </a>
         </div>
@@ -153,18 +152,29 @@ var _hmt = _hmt || [];
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">标签</a></li>
+            <li class="is-active"><a href="#" aria-current="page">AMD</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    <div class="card">
     
     <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
-        </span>
+        <a href="/回头再看JS模块化编程之AMD.html" class="image is-7by1">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/js_400x300.png" alt="回头再看JS模块化编程之AMD">
+        </a>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-24T05:13:55.000Z">2019-08-24</time>
+                <time class="level-item has-text-grey" datetime="2019-08-23T04:35:07.000Z">2019-08-23</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
@@ -174,163 +184,42 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    6 分钟 读完 (大约 971 个字)
+                    8 分钟 读完 (大约 1206 个字)
                 </span>
                 
-                
-                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
-                    <i class="far fa-eye"></i>
-                    <span id="busuanzi_value_page_pv">0</span>次访问
-                </span>
                 
             </div>
         </div>
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                sea.js的同步魔法
+                <a class="has-link-black-ter" href="/回头再看JS模块化编程之AMD.html">回头再看JS模块化编程之AMD</a>
             
         </h1>
         <div class="content">
-            <p>前些时间也是想写点关于<code>CMD</code>模块规范的文字，以便帮助自己理解。今天看到一篇知乎回答，算是给了我一点启发。</p>
-<a id="more"></a>
-
-<h1 id="同步写法却不阻塞？"><a href="#同步写法却不阻塞？" class="headerlink" title="同步写法却不阻塞？"></a>同步写法却不阻塞？</h1><p>先上一个<code>sea.js</code>很经典的模块写法：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 定义一个模块</span></span><br><span class="line">define(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">require, exports, module</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-comment">// 加载jquery模块</span></span><br><span class="line">  <span class="hljs-keyword">var</span> $ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'jquery'</span>);</span><br><span class="line">  <span class="hljs-comment">// 直接使用模块里的方法</span></span><br><span class="line">  $(<span class="hljs-string">'#header'</span>).hide();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>按道理加载模块，就是需要等<code>jquery.js</code>加载完毕才能使用，应该是一个异步的过程，为什么可以写成同步的形式呢？这是用了什么黑科技？</p>
-<p>原来作者玉伯大佬用了一个小魔法来“欺骗”我们。而<a href="https://www.zhihu.com/people/lubobill1990/activities" target="_blank" rel="noopener">卢勃</a>大神在<a href="https://www.zhihu.com/question/20342350/answer/14828786" target="_blank" rel="noopener">知乎</a>给了一个很精彩的解释，这里直接分享下：</p>
-<p><img src=""data-src="http://qncdn.wbjiang.cn/sea.js%E5%90%8C%E6%AD%A5%E5%86%99%E6%B3%95%E8%A7%A3%E9%87%8A.png" alt="sea.js同步写法解释"></p>
-<p>也就是说，<code>require.js</code>和<code>sea.js</code>都是在执行模块前预加载了依赖的模块，并没有比<code>require.js</code>显得更“懒加载”，只是所依赖模块的代码执行时机不同。<code>require.js</code>加载时执行，而<code>sea.js</code>是使用时执行。</p>
-<p>其实从代码的写法也看得出来，<code>require.js</code>的依赖模块在加载后便有了执行结果，并作为回调函数的实参传入。</p>
-<ul>
-<li><code>reuiqre.js</code>写法：</li>
-</ul>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 加载完jquery.js后，得到的执行结果$作为参数传入了回调函数</span></span><br><span class="line">define([<span class="hljs-string">'jquery'</span>], <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$</span>) </span>&#123;</span><br><span class="line">  $(<span class="hljs-string">'#header'</span>).hide();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>sea.js</code>写法：</li>
-</ul>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 预加载了jquery.js</span></span><br><span class="line">define(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">require, exports, module</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-comment">// 执行jquery.js模块，并得到结果赋值给$</span></span><br><span class="line">  <span class="hljs-keyword">var</span> $ = <span class="hljs-built_in">require</span>(<span class="hljs-string">'jquery'</span>);</span><br><span class="line">  <span class="hljs-comment">// 调用jquery.js模块提供的方法</span></span><br><span class="line">  $(<span class="hljs-string">'#header'</span>).hide();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>从这一点上来看，两者在性能上并没有太多差异。因为最影响页面渲染速度的当然是资源的加载速度，既然都是预加载，那么加载模块资源的耗时是一样的（网络情况相同时）。</p>
-<p>而模块代码的执行时机并没有那么影响性能（除非你的模块太大），现在的<code>js</code>引擎如<code>V8</code>引擎足够强，没什么压力。</p>
-<h1 id="懒加载是否存在？"><a href="#懒加载是否存在？" class="headerlink" title="懒加载是否存在？"></a>懒加载是否存在？</h1><p>懒加载是存在的。我刚才说的<code>sea.js</code>并没有比<code>require.js</code>更显得“懒加载”是指模块加载的时机上两者是一致的，都是预先加载，而不是说不能懒加载。</p>
-<p>比如说，有一个模块，页面渲染时，我不需要加载使用，但是在做了某种交互时（比如点了按钮），才需要加载使用，这个时候“懒加载”的作用就体现了。下面以<code>require.js</code>举个实例：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">require</span>.config(&#123;</span><br><span class="line">    baseUrl: <span class="hljs-string">'./assets/js/'</span>,</span><br><span class="line">    paths: &#123;</span><br><span class="line">        modulea: <span class="hljs-string">'module-a'</span>,</span><br><span class="line">        moduleb: <span class="hljs-string">'module-b'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">require</span>([<span class="hljs-string">"modulea"</span>], <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">modulea</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> btnNode = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#btn-load'</span>);</span><br><span class="line">    <span class="hljs-keyword">var</span> node1 = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'span'</span>);</span><br><span class="line">    node1.innerText = <span class="hljs-string">'模块A已经加载！'</span></span><br><span class="line">    btnNode.insertAdjacentElement(<span class="hljs-string">'beforebegin'</span>,  node1)</span><br><span class="line">    btnNode.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">        <span class="hljs-built_in">require</span>([<span class="hljs-string">"moduleb"</span>], <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">moduleb</span>) </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">var</span> node2 = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'span'</span>);</span><br><span class="line">            node2.innerText = <span class="hljs-string">'模块B已经加载！'</span></span><br><span class="line">            btnNode.insertAdjacentElement(<span class="hljs-string">'afterend'</span>,  node2)</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>页面渲染时只加载模块A</p>
-<p><img src=""data-src="http://qncdn.wbjiang.cn/%E5%8F%AA%E5%8A%A0%E8%BD%BD%E4%BA%86A.png" alt="页面渲染时只加载模块A"></p>
-</li>
-<li><p>点击按钮后加载模块B</p>
-<p><img src=""data-src="http://qncdn.wbjiang.cn/%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E4%BA%86B.png" alt="点击按钮后加载模块B"></p>
-</li>
-</ul>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>虽然<code>AMD</code>和<code>CMD</code>两种思想有一些差异，但都不失为一种优秀的模块化方案，为大佬们打call！</p>
-<hr>
-<p>扫一扫下方小程序二维码或搜索<code>Tusi博客</code>，即刻阅读最新文章！</p>
-<p><img src=""data-src="http://qncdn.wbjiang.cn/Tusi%E5%8D%9A%E5%AE%A2.jpg" alt="Tusi博客"></p>
-
+            <p>由于<code>CommonJS</code>采用适合服务器端的同步加载方式，这种方式不适合天生异步的浏览器端。在这种形势下，<code>AMD</code>（<code>Asynchronous Module Definition</code>，异步模块定义）应运而生。</p>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/require-js/">require.js</a>, <a class="has-link-grey -link" href="/tags/sea-js/">sea.js</a>
+                <a class="button is-size-7 is-light" href="/回头再看JS模块化编程之AMD.html#more">继续阅读</a>
                 </div>
             </div>
         </div>
         
         
-        
-        <div class="social-share"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
-<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
-        
     </div>
 </div>
 
 
 
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-info donate">
-    <span class="icon is-small">
-        <i class="fab fa-alipay"></i>
-    </span>
-    <span>支付宝</span>
-    <div class="qrcode"><img src="/images/alipay_payme.jpg" alt="支付宝"></div>
-</a>
-
-                
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>微信</span>
-    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
-</a>
-
-                
-        </div>
-    </div>
-</div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/Chrome远程调试手机端UC浏览器.html">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Chrome远程调试手机端UC浏览器</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/在Linux和Windows系统中输出目录结构.html">
-                <span class="level-item">在Linux和Windows系统中输出目录结构</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
 
 
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="title is-5 has-text-weight-normal">评论</h3>
-        
-<div id="comment-container"></div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.min.js"></script>
-<script>
-    var gitalk = new Gitalk({
-        clientID: 'e244808d754d6ef5f8aa',
-        clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
-        id: '30e07f68d49ebab89814fc51d482ee5f',
-        repo: 'tusi-hexo',
-        owner: 'cumt-robin',
-        admin: "cumt-robin",
-        createIssueManually: false,
-        distractionFreeMode: false
-    })
-    gitalk.render('comment-container')
-</script>
-
-    </div>
-</div>
 </div>
                 
 
@@ -376,7 +265,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        61
+                        62
                     </p>
                 </div>
             </div>
@@ -396,7 +285,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        57
+                        60
                     </p>
                 </div>
             </div>
@@ -521,6 +410,25 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/可能是最详细的UMD模块入门指南.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/hug_600x400.png" alt="可能是最详细的UMD模块入门指南">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-29T05:19:05.000Z">2019-08-29</time></div>
+                    <a href="/可能是最详细的UMD模块入门指南.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">可能是最详细的UMD模块入门指南</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/Chrome远程调试手机端UC浏览器.html" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/uc-mini.svg" alt="Chrome远程调试手机端UC浏览器">
@@ -540,7 +448,7 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/sea-js的同步魔法.html" class="media-left">
+            <a href="/sea.js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
@@ -549,7 +457,7 @@ var _hmt = _hmt || [];
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-24T05:13:55.000Z">2019-08-24</time></div>
-                    <a href="/sea-js的同步魔法.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">sea.js的同步魔法</a>
+                    <a href="/sea.js的同步魔法.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">sea.js的同步魔法</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
                     </p>
@@ -595,25 +503,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/微信小程序自定义tabBar.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:08:11.000Z">2019-08-23</time></div>
-                    <a href="/微信小程序自定义tabBar.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">微信小程序自定义tabBar</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/微信小程序/">微信小程序</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -625,6 +514,13 @@ var _hmt = _hmt || [];
                 标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AMD/">
+                        <span class="tag">AMD</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Angular/">
@@ -657,6 +553,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Chrome自动填充/">
                         <span class="tag">Chrome自动填充</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CommonJS/">
+                        <span class="tag">CommonJS</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -774,6 +677,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/UMD/">
+                        <span class="tag">UMD</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/VMware/">
                         <span class="tag">VMware</span>
                         <span class="tag is-grey">2</span>
@@ -839,7 +749,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/js模块化/">
                         <span class="tag">js模块化</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -1050,6 +960,25 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/可能是最详细的UMD模块入门指南.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/hug_600x400.png" alt="可能是最详细的UMD模块入门指南">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-29T05:19:05.000Z">2019-08-29</time></div>
+                    <a href="/可能是最详细的UMD模块入门指南.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">可能是最详细的UMD模块入门指南</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/Chrome远程调试手机端UC浏览器.html" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/uc-mini.svg" alt="Chrome远程调试手机端UC浏览器">
@@ -1069,7 +998,7 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/sea-js的同步魔法.html" class="media-left">
+            <a href="/sea.js的同步魔法.html" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/mangseng_600x400.png" alt="sea.js的同步魔法">
                 </p>
@@ -1078,7 +1007,7 @@ var _hmt = _hmt || [];
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-24T05:13:55.000Z">2019-08-24</time></div>
-                    <a href="/sea-js的同步魔法.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">sea.js的同步魔法</a>
+                    <a href="/sea.js的同步魔法.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">sea.js的同步魔法</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
                     </p>
@@ -1124,25 +1053,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/微信小程序自定义tabBar.html" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/weapp.jpg" alt="微信小程序自定义tabBar">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T06:08:11.000Z">2019-08-23</time></div>
-                    <a href="/微信小程序自定义tabBar.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">微信小程序自定义tabBar</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/微信小程序/">微信小程序</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1154,6 +1064,13 @@ var _hmt = _hmt || [];
                 标签
             </h3>
             <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/AMD/">
+                        <span class="tag">AMD</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Angular/">
@@ -1186,6 +1103,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Chrome自动填充/">
                         <span class="tag">Chrome自动填充</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CommonJS/">
+                        <span class="tag">CommonJS</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1303,6 +1227,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/UMD/">
+                        <span class="tag">UMD</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/VMware/">
                         <span class="tag">VMware</span>
                         <span class="tag is-grey">2</span>
@@ -1368,7 +1299,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/js模块化/">
                         <span class="tag">js模块化</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -1571,7 +1502,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="sea.js的同步魔法" height="28">
+                    <img src="/images/logo.png" alt="Tusi博客|分享最新开发心得" height="28">
                 
                 </a>
                 <p class="is-size-7">
