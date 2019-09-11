@@ -7,23 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>hexo+github打造个人博客系列之小技巧 - Tusi博客|分享最新开发心得</title>
+<title>webpack4平滑升级 - Tusi博客|分享最新开发心得</title>
 
 
-    <meta name="description" content="这篇博客记录一下hexo+github打造个人博客过程想到的一些小技巧，分享给大家。">
-<meta name="keywords" content="hexo,valine,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
+    <meta name="description" content="背景最近有感觉到，随着系统模块数量的增加，wepack编译打包的速度越来越慢，于是我想给项目做一下优化升级，也借此机会系统地学习一下webpack4。">
+<meta name="keywords" content="webpack4,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo+github打造个人博客系列之小技巧">
-<meta property="og:url" content="http://hexo.wbjiang.cn/hexo+github打造个人博客系列之小技巧.html">
+<meta property="og:title" content="webpack4平滑升级">
+<meta property="og:url" content="http://hexo.wbjiang.cn/webpack4平滑升级.html">
 <meta property="og:site_name" content="Tusi博客|分享最新开发心得">
-<meta property="og:description" content="这篇博客记录一下hexo+github打造个人博客过程想到的一些小技巧，分享给大家。">
+<meta property="og:description" content="背景最近有感觉到，随着系统模块数量的增加，wepack编译打包的速度越来越慢，于是我想给项目做一下优化升级，也借此机会系统地学习一下webpack4。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://qncdn.wbjiang.cn/h-mini.svg">
-<meta property="og:updated_time" content="2019-08-28T08:43:43.920Z">
+<meta property="og:image" content="http://qncdn.wbjiang.cn/webpack_400x400.png">
+<meta property="og:updated_time" content="2019-09-11T08:03:51.485Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo+github打造个人博客系列之小技巧">
-<meta name="twitter:description" content="这篇博客记录一下hexo+github打造个人博客过程想到的一些小技巧，分享给大家。">
-<meta name="twitter:image" content="http://qncdn.wbjiang.cn/h-mini.svg">
+<meta name="twitter:title" content="webpack4平滑升级">
+<meta name="twitter:description" content="背景最近有感觉到，随着系统模块数量的增加，wepack编译打包的速度越来越慢，于是我想给项目做一下优化升级，也借此机会系统地学习一下webpack4。">
+<meta name="twitter:image" content="http://qncdn.wbjiang.cn/webpack_400x400.png">
 
 
 
@@ -102,7 +102,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="hexo+github打造个人博客系列之小技巧" height="28">
+                <img src="/images/logo.png" alt="webpack4平滑升级" height="28">
             
             </a>
         </div>
@@ -156,7 +156,7 @@ var _hmt = _hmt || [];
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/h-mini.svg" alt="hexo+github打造个人博客系列之小技巧">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/webpack_400x400.png" alt="webpack4平滑升级">
         </span>
     </div>
     
@@ -164,17 +164,17 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-01-27T07:15:00.000Z">2018-01-27</time>
+                <time class="level-item has-text-grey" datetime="2019-09-11T07:09:27.000Z">2019-09-11</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Hexo/">Hexo</a>
+                <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 258 个字)
+                    11 分钟 读完 (大约 1622 个字)
                 </span>
                 
                 
@@ -188,18 +188,79 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                hexo+github打造个人博客系列之小技巧
+                webpack4平滑升级
             
         </h1>
         <div class="content">
-            <p>这篇博客记录一下hexo+github打造个人博客过程想到的一些小技巧，分享给大家。</p>
+            <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近有感觉到，随着系统模块数量的增加，<code>wepack</code>编译打包的速度越来越慢，于是我想给项目做一下优化升级，也借此机会系统地学习一下<code>webpack4</code>。</p>
 <a id="more"></a>
 
-<h2 id="去除valine的Powered-By"><a href="#去除valine的Powered-By" class="headerlink" title="去除valine的Powered By"></a>去除valine的Powered By</h2><p>valine评论系统自带Powered By，如下图所示。<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTI3MTUwNzM3ODk4" alt="valine的Powered By"></p>
-<p>我喜欢简洁一点，所以想去掉这个提示。查看Elements可以看到这个div，那么我只要移除这个div下的所有子节点，就可以去掉这个Powered By了。修改对应的文件valine.swig，直接上代码：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">new Valine(&#123;</span><br><span class="line">...</span><br><span class="line">pageSize:&apos;&#123;&#123; theme.valine.pageSize &#125;&#125;&apos; || 10,</span><br><span class="line">&#125;);</span><br><span class="line">//新增以下代码即可，可以移除.info下所有子节点。</span><br><span class="line">var infoEle = document.querySelector(&apos;#comments .info&apos;);</span><br><span class="line">if (infoEle &amp;&amp; infoEle.childNodes &amp;&amp; infoEle.childNodes.length &gt; 0)&#123;</span><br><span class="line">  infoEle.childNodes.forEach(function(item) &#123;</span><br><span class="line">    item.parentNode.removeChild(item);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="升级过程"><a href="#升级过程" class="headerlink" title="升级过程"></a>升级过程</h1><h2 id="当前版本"><a href="#当前版本" class="headerlink" title="当前版本"></a>当前版本</h2><figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">"dependencies": &#123;</span><br><span class="line">    "@fullcalendar/core": "^4.2.0",</span><br><span class="line">    "@fullcalendar/daygrid": "^4.2.0",</span><br><span class="line">    "@fullcalendar/interaction": "^4.2.0",</span><br><span class="line">    "@fullcalendar/vue": "^4.2.2",</span><br><span class="line">    "axios": "0.18.1",</span><br><span class="line">    "babel-polyfill": "6.26.0",</span><br><span class="line">    "echarts": "4.0.4",</span><br><span class="line">    "element-ui": "2.10.0",</span><br><span class="line">    "jquery": "3.3.1",</span><br><span class="line">    "js-cookie": "2.2.0",</span><br><span class="line">    "js-md5": "0.7.3",</span><br><span class="line">    "lodash": "4.17.5",</span><br><span class="line">    "moment": "^2.24.0",</span><br><span class="line">    "node-sass": "^4.11.0",</span><br><span class="line">    "normalize.css": "7.0.0",</span><br><span class="line">    "nprogress": "0.2.0",</span><br><span class="line">    "qs": "6.5.1",</span><br><span class="line">    "vue": "2.6.10",</span><br><span class="line">    "vue-router": "3.0.3",</span><br><span class="line">    "vuex": "3.1.1"</span><br><span class="line">&#125;,</span><br><span class="line">"devDependencies": &#123;</span><br><span class="line">    "autoprefixer": "7.2.3",</span><br><span class="line">    "babel-core": "6.26.0",</span><br><span class="line">    "babel-eslint": "8.0.3",</span><br><span class="line">    "babel-helper-vue-jsx-merge-props": "2.0.3",</span><br><span class="line">    "babel-loader": "7.1.2",</span><br><span class="line">    "babel-plugin-syntax-jsx": "6.18.0",</span><br><span class="line">    "babel-plugin-transform-runtime": "6.23.0",</span><br><span class="line">    "babel-plugin-transform-vue-jsx": "3.7.0",</span><br><span class="line">    "babel-preset-env": "1.6.1",</span><br><span class="line">    "babel-preset-stage-2": "6.24.1",</span><br><span class="line">    "chalk": "2.3.0",</span><br><span class="line">    "copy-webpack-plugin": "4.2.3",</span><br><span class="line">    "css-loader": "0.28.7",</span><br><span class="line">    "eslint": "4.13.1",</span><br><span class="line">    "eslint-friendly-formatter": "3.0.0",</span><br><span class="line">    "eslint-loader": "1.9.0",</span><br><span class="line">    "eslint-plugin-html": "4.0.1",</span><br><span class="line">    "eventsource-polyfill": "0.9.6",</span><br><span class="line">    "extract-text-webpack-plugin": "3.0.2",</span><br><span class="line">    "file-loader": "1.1.5",</span><br><span class="line">    "friendly-errors-webpack-plugin": "1.6.1",</span><br><span class="line">    "html-webpack-plugin": "2.30.1",</span><br><span class="line">    "node-notifier": "5.1.2",</span><br><span class="line">    "optimize-css-assets-webpack-plugin": "3.2.0",</span><br><span class="line">    "ora": "1.3.0",</span><br><span class="line">    "portfinder": "1.0.13",</span><br><span class="line">    "postcss-import": "11.0.0",</span><br><span class="line">    "postcss-loader": "2.0.9",</span><br><span class="line">    "rimraf": "2.6.2",</span><br><span class="line">    "sass-loader": "6.0.6",</span><br><span class="line">    "semver": "5.4.1",</span><br><span class="line">    "shelljs": "0.7.8",</span><br><span class="line">    "svg-sprite-loader": "4.1.6",</span><br><span class="line">    "uglifyjs-webpack-plugin": "1.1.3",</span><br><span class="line">    "url-loader": "0.6.2",</span><br><span class="line">    "vue-loader": "15.7.0",</span><br><span class="line">    "vue-style-loader": "4.1.2",</span><br><span class="line">    "vue-template-compiler": "2.6.10",</span><br><span class="line">    "webpack": "3.10.0",</span><br><span class="line">    "webpack-bundle-analyzer": "2.9.1",</span><br><span class="line">    "webpack-dev-server": "2.9.7",</span><br><span class="line">    "webpack-merge": "4.1.1"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>修改后效果：<br><img src=""data-src="https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTI3MTUxNTMwMDM1" alt="效果"></p>
+<h2 id="目标版本"><a href="#目标版本" class="headerlink" title="目标版本"></a>目标版本</h2><figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">"dependencies": &#123;</span><br><span class="line">    "@fullcalendar/core": "^4.2.0",</span><br><span class="line">    "@fullcalendar/daygrid": "^4.2.0",</span><br><span class="line">    "@fullcalendar/interaction": "^4.2.0",</span><br><span class="line">    "@fullcalendar/vue": "^4.2.2",</span><br><span class="line">    "axios": "0.18.1",</span><br><span class="line">    "babel-polyfill": "6.26.0",</span><br><span class="line">    "echarts": "4.0.4",</span><br><span class="line">    "element-ui": "2.10.0",</span><br><span class="line">    "jquery": "3.3.1",</span><br><span class="line">    "js-cookie": "2.2.0",</span><br><span class="line">    "js-md5": "0.7.3",</span><br><span class="line">    "lodash": "4.17.5",</span><br><span class="line">    "moment": "^2.24.0",</span><br><span class="line">    "node-sass": "^4.11.0",</span><br><span class="line">    "normalize.css": "7.0.0",</span><br><span class="line">    "nprogress": "0.2.0",</span><br><span class="line">    "qs": "6.5.1",</span><br><span class="line">    "vue": "2.6.10",</span><br><span class="line">    "vue-router": "3.0.3",</span><br><span class="line">    "vuex": "3.1.1"</span><br><span class="line">&#125;,</span><br><span class="line">"devDependencies": &#123;</span><br><span class="line">    "autoprefixer": "9.6.1",</span><br><span class="line">    "babel-core": "6.26.3",</span><br><span class="line">    "babel-eslint": "10.0.3",</span><br><span class="line">    "babel-helper-vue-jsx-merge-props": "2.0.3",</span><br><span class="line">    "babel-loader": "^7.1.5",</span><br><span class="line">    "babel-plugin-syntax-jsx": "6.18.0",</span><br><span class="line">    "babel-plugin-transform-runtime": "6.23.0",</span><br><span class="line">    "babel-plugin-transform-vue-jsx": "3.7.0",</span><br><span class="line">    "babel-preset-env": "1.7.0",</span><br><span class="line">    "babel-preset-stage-2": "6.24.1",</span><br><span class="line">    "chalk": "2.4.2",</span><br><span class="line">    "copy-webpack-plugin": "5.0.4",</span><br><span class="line">    "css-loader": "3.2.0",</span><br><span class="line">    "eslint": "6.3.0",</span><br><span class="line">    "eslint-friendly-formatter": "3.0.0",</span><br><span class="line">    "eslint-import-resolver-webpack": "^0.11.1",</span><br><span class="line">    "eslint-loader": "3.0.0",</span><br><span class="line">    "eslint-plugin-vue": "^5.2.3",</span><br><span class="line">    "eventsource-polyfill": "0.9.6",</span><br><span class="line">    "file-loader": "4.2.0",</span><br><span class="line">    "friendly-errors-webpack-plugin": "1.7.0",</span><br><span class="line">    "html-webpack-plugin": "3.2.0",</span><br><span class="line">    "mini-css-extract-plugin": "^0.8.0",</span><br><span class="line">    "node-notifier": "5.1.2",</span><br><span class="line">    "optimize-css-assets-webpack-plugin": "3.2.0",</span><br><span class="line">    "ora": "1.3.0",</span><br><span class="line">    "portfinder": "1.0.13",</span><br><span class="line">    "postcss-import": "12.0.1",</span><br><span class="line">    "postcss-loader": "3.0.0",</span><br><span class="line">    "rimraf": "2.6.2",</span><br><span class="line">    "sass-loader": "8.0.0",</span><br><span class="line">    "semver": "5.4.1",</span><br><span class="line">    "shelljs": "0.7.8",</span><br><span class="line">    "svg-sprite-loader": "4.1.6",</span><br><span class="line">    "uglifyjs-webpack-plugin": "2.2.0",</span><br><span class="line">    "url-loader": "2.1.0",</span><br><span class="line">    "vue-loader": "15.7.1",</span><br><span class="line">    "vue-style-loader": "4.1.2",</span><br><span class="line">    "vue-template-compiler": "2.6.10",</span><br><span class="line">    "webpack": "4.39.3",</span><br><span class="line">    "webpack-bundle-analyzer": "3.4.1",</span><br><span class="line">    "webpack-cli": "^3.3.8",</span><br><span class="line">    "webpack-dev-server": "3.8.0",</span><br><span class="line">    "webpack-merge": "4.2.2"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>升级<code>webpack</code>到<code>4.39.3</code>版本，<code>npm run dev</code>遇到了报错……</p>
+<h2 id="npm-run-dev报错"><a href="#npm-run-dev报错" class="headerlink" title="npm run dev报错"></a>npm run dev报错</h2><h3 id="webpack-dev-server版本过低"><a href="#webpack-dev-server版本过低" class="headerlink" title="webpack-dev-server版本过低"></a>webpack-dev-server版本过低</h3><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: Cannot find module 'webpack/bin/config-yargs'</span><br></pre></td></tr></table></figure>
+
+<p>应该是<code>webpack</code>与<code>webpack-dev-server</code>版本不符，于是升级<code>webpack-dev-server</code>到<code>3.8.0</code>版本。</p>
+<h3 id="webpack-cli缺失"><a href="#webpack-cli缺失" class="headerlink" title="webpack-cli缺失"></a>webpack-cli缺失</h3><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">The CLI moved into a separate package: webpack-cli</span><br><span class="line">Please install 'webpack-cli' in addition to webpack itself to use the CLI</span><br><span class="line"><span class="hljs-meta">-&gt;</span> When using npm: npm i -D webpack-cli</span><br><span class="line"><span class="hljs-meta">-&gt;</span> When using yarn: yarn add -D webpack-cli</span><br><span class="line">internal/modules/cjs/loader.js:584</span><br><span class="line">    throw err;</span><br><span class="line">    ^</span><br><span class="line"></span><br><span class="line">Error: Cannot find module 'webpack-cli/bin/config-yargs'</span><br></pre></td></tr></table></figure>
+
+<p><code>webpack4</code>将<code>webpack-cli</code>单独分离出来了，因此提示我们安装<code>webpack-cli</code>，那就直接安装吧。</p>
+<h3 id="html-webpack-plugin版本问题"><a href="#html-webpack-plugin版本问题" class="headerlink" title="html-webpack-plugin版本问题"></a>html-webpack-plugin版本问题</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">10% building 2/2 modules 0 active(node:8596) DeprecationWarning: Tapable.plugin is deprecated. Use new API on `.hooks` instead</span><br><span class="line">(node:8596) DeprecationWarning: Tapable.apply is deprecated. Call apply on the plugin directly instead</span><br><span class="line">53% building 363/366 modules 3 active D:\coollu\projects\coollu-v3\source-code\develop\coollu-cloud-web\node_modules\core-js\modules\_array-reduce.jsD:\coollu\projects\coollu-v3\source-code\develop\coollu-cloud-web\node_modules\html-webpack-plugin\lib\compiler.js:81</span><br><span class="line">        var outputName = compilation.mainTemplate.applyPluginsWaterfall(&apos;asset-path&apos;, outputOptions.filename, &#123;</span><br><span class="line">                                                  ^</span><br><span class="line"></span><br><span class="line">TypeError: compilation.mainTemplate.applyPluginsWaterfall is not a function</span><br></pre></td></tr></table></figure>
+
+<p>考虑是<code>html-webpack-plugin</code>版本问题，升级至<code>3.2.0</code></p>
+<h3 id="extract-text-webpack-plugin"><a href="#extract-text-webpack-plugin" class="headerlink" title="extract-text-webpack-plugin?"></a>extract-text-webpack-plugin?</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10% building 2/2 modules 0 active(node:19732) DeprecationWarning: Tapable.plugin is deprecated. Use new API on `.hooks` instead</span><br></pre></td></tr></table></figure>
+
+<p>查到是因为<code>extract-text-webpack-plugin</code>不再支持<code>webpack4.3</code>，需要改用<code>mini-css-extract-plugin</code>。</p>
+<p><strong>ps:</strong> <code>extract-text-webpack-plugin</code>是用来抽取依赖的<code>.css</code>文件的，防止样式全部打包在<code>js bundle</code>里太大。改用了<code>mini-css-extract-plugin</code>后，该报错并未消除，考虑要用<code>compiler</code>钩子重写一些东西，先在这埋个坑，后面弄明白了再来填坑。</p>
+<h3 id="eslint-loader升版本"><a href="#eslint-loader升版本" class="headerlink" title="eslint-loader升版本"></a>eslint-loader升版本</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Module build failed (from ./node_modules/eslint-loader/index.js):</span><br><span class="line">TypeError: Cannot read property &apos;eslint&apos; of undefined</span><br><span class="line">    at Object.module.exports (D:\coollu\projects\coollu-v3\source-code\develop\coollu-cloud-web\node_modules\eslint-loader\index.js:148:18)</span><br></pre></td></tr></table></figure>
+
+<p>升级<code>eslint-loader</code></p>
+<h3 id="file-loader升版本"><a href="#file-loader升版本" class="headerlink" title="file-loader升版本"></a>file-loader升版本</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Module build failed (from ./node_modules/file-loader/dist/cjs.js):</span><br><span class="line">TypeError: Cannot read property &apos;context&apos; of undefined</span><br><span class="line">    at Object.loader (D:\coollu\projects\coollu-v3\source-code\develop\coollu-cloud-web\node_modules\file-loader\dist\index.js:34:49)</span><br></pre></td></tr></table></figure>
+
+<p>升级<code>file-loader</code></p>
+<h2 id="npm-run-build报错"><a href="#npm-run-build报错" class="headerlink" title="npm run build报错"></a>npm run build报错</h2><h3 id="改用splitChunks"><a href="#改用splitChunks" class="headerlink" title="改用splitChunks"></a>改用splitChunks</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack.optimize.CommonsChunkPlugin has been removed, please use config.optimization.splitChunks instead.</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>webpack4</code>的<code>optimization.splitChunks</code>替代<code>CommonsChunkPlugin</code></p>
+<h3 id="vue-loader升版本"><a href="#vue-loader升版本" class="headerlink" title="vue-loader升版本"></a>vue-loader升版本</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ERROR in ./src/App.vue?vue&amp;type=style&amp;index=0&amp;id=7c362b6c&amp;lang=scss&amp;scoped=tr (./node_modules/mini-css-extract-plugin/dist/loader.js??ref--10-0!./node_mods/vue-loader/lib??vue-loader-options!./src/App.vue?vue&amp;type=style&amp;index=0&amp;id=62b6c&amp;lang=scss&amp;scoped=true&amp;)</span><br><span class="line">Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.:</span><br><span class="line">ModuleParseError: Module parse failed: Unexpected character &apos;#&apos; (14:0)</span><br><span class="line">File was processed with these loaders:</span><br><span class="line"> * ./node_modules/vue-loader/lib/index.js</span><br><span class="line">You may need an additional loader to handle the result of these loaders.</span><br></pre></td></tr></table></figure>
+
+<p>考虑是<code>vue-loader</code>版本问题，先升级<code>vue-loader@15.7.1</code></p>
+<h3 id="babel-loader降版本"><a href="#babel-loader降版本" class="headerlink" title="babel-loader降版本"></a>babel-loader降版本</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ERROR in ./src/main.js</span><br><span class="line">Module build failed (from ./node_modules/babel-loader/lib/index.js):</span><br><span class="line">Error: Cannot find module &apos;@babel/core&apos;</span><br><span class="line"> babel-loader@8 requires Babel 7.x (the package &apos;@babel/core&apos;). If you&apos;d like to use Babel 6.x (&apos;babel-core&apos;), you should install &apos;babel-loader@7&apos;.</span><br></pre></td></tr></table></figure>
+
+<p>把<code>babel-loader@8</code>降低了版本，调整为<code>babel-loader@7</code></p>
+<p><strong>ps</strong>: 想了一下，觉得可能其他的<code>loader</code>版本也会过低，于是将其他的<code>loader</code>都进行了升级，具体见<a href="#目标版本">package.json</a>。</p>
+<h2 id="优化打包速度"><a href="#优化打包速度" class="headerlink" title="优化打包速度"></a>优化打包速度</h2><h3 id="happypack"><a href="#happypack" class="headerlink" title="happypack"></a>happypack</h3><p>一个号称用多进程策略提升<code>webpack</code>打包速度的插件，真的挺管用的。</p>
+<blockquote>
+<p>happypack允许您并行转换多个文件，从而加快了webpack的构建速度。</p>
+</blockquote>
+<p>安装：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev happypack</span><br></pre></td></tr></table></figure>
+
+<p>简单配置如下：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> HappyPack = <span class="hljs-built_in">require</span>(<span class="hljs-string">'happypack'</span>)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// webpack配置，只列出关于happypack的配置</span></span><br><span class="line">rules: [</span><br><span class="line">  <span class="hljs-comment">// ...其他rule</span></span><br><span class="line">  &#123;</span><br><span class="line">    test: <span class="hljs-regexp">/\.js$/</span>,</span><br><span class="line">    <span class="hljs-comment">// 注释掉原来的babel-loader，改用happypack/loader</span></span><br><span class="line">    <span class="hljs-comment">// loader: "babel-loader",</span></span><br><span class="line">    use: [<span class="hljs-string">'happypack/loader'</span>],</span><br><span class="line">    include: [</span><br><span class="line">      resolve(<span class="hljs-string">"src"</span>)</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">],</span><br><span class="line">plugins: [</span><br><span class="line">  <span class="hljs-comment">// ...其他plugin</span></span><br><span class="line">  <span class="hljs-comment">// 安装说明简单配置了一下</span></span><br><span class="line">  <span class="hljs-keyword">new</span> HappyPack(&#123;</span><br><span class="line">    <span class="hljs-comment">// 将我们刚才注释的loader放在这，告诉happypack</span></span><br><span class="line">    loaders: [<span class="hljs-string">'babel-loader'</span>],</span><br><span class="line">    <span class="hljs-comment">// 开启4个子进程，据说是最优解</span></span><br><span class="line">    threads: <span class="hljs-number">4</span></span><br><span class="line">  &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>经过大量<code>npm</code>包版本的调整，以及<code>webpack</code>配置的修改（主要是<code>optimization</code>的调整；把<code>extract-text-webpack-plugin</code>换成了<code>mini-css-extract-plugin</code>；加入了<code>happypack</code>），报错基本上消除了，经测试，<code>dev</code>和<code>prod</code>环境都没有功能上的问题，热加载，编译，打包速度确实得到了显著提升。</p>
+<ul>
+<li><p>热加载</p>
+<p>速度得到了显著提升，之前改一行代码，热加载编译的时间差不多要花<code>1min</code>，让人难受；优化后，基本上控制在<code>&lt;=5s</code></p>
+</li>
+<li><p><code>webpack</code>升级前打包：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Hash: 35f207120dd3736758dd</span><br><span class="line">Version: webpack 3.10.0</span><br><span class="line">Time: 95987ms</span><br></pre></td></tr></table></figure>
+
+<p>大概需要<code>96s</code>的打包时间。</p>
+</li>
+<li><p><code>webpack</code>升级后打包：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Hash: fb73468076752cad58f6</span><br><span class="line">Version: webpack 4.39.3</span><br><span class="line">Time: 61597ms</span><br></pre></td></tr></table></figure>
+
+<p>打包时间降低到<code>61.6s</code>，节约了<code>34.4s</code>，打包效率提升了<code>35.8%</code>以上。</p>
+</li>
+<li><p>使用<code>happypack</code>后：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Happy[1]: Version: 5.0.1. Threads: 4</span><br><span class="line">Happy[1]: All set; signaling webpack to proceed.</span><br><span class="line">Hash: a635e8b39b7064adf41c</span><br><span class="line">Version: webpack 4.39.3</span><br><span class="line">Time: 41047ms</span><br></pre></td></tr></table></figure>
+
+<p>打包时间降低到<code>41s</code>，再次节约了<code>20.6s</code>！总共节约了<code>55s</code>，与升级前相比，打包效率提升了<code>57%</code>以上。</p>
+</li>
+</ul>
+<p>当然可优化的空间还很大，<code>webpack4</code>还有很多东西值得我们去折腾，优化之路还在继续！</p>
 <hr>
 <p>扫一扫下方小程序二维码或搜索<code>Tusi博客</code>，即刻阅读最新文章！</p>
 <p><img src=""data-src="http://qncdn.wbjiang.cn/Tusi%E5%8D%9A%E5%AE%A2.jpg" alt="Tusi博客"></p>
@@ -210,7 +271,7 @@ var _hmt = _hmt || [];
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/Hexo/">Hexo</a>, <a class="has-link-grey -link" href="/tags/valine/">valine</a>
+                    <a class="has-link-grey -link" href="/tags/webpack4/">webpack4</a>
                 </div>
             </div>
         </div>
@@ -260,17 +321,10 @@ var _hmt = _hmt || [];
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/hexo+github打造个人博客系列之数据统计与分析.html">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">hexo+github打造个人博客系列之数据统计与分析</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/hexo+github打造个人博客系列之评论系统.html">
-                <span class="level-item">hexo+github打造个人博客系列之评论系统</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/可能是最详细的UMD模块入门指南.html">
+                <span class="level-item">可能是最详细的UMD模块入门指南</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -291,7 +345,7 @@ var _hmt = _hmt || [];
     var gitalk = new Gitalk({
         clientID: 'e244808d754d6ef5f8aa',
         clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
-        id: '5bdd48acef1309eebd9fb6b4c380d7c1',
+        id: '360bedcb126dae3260937c9fcb3beaef',
         repo: 'tusi-hexo',
         owner: 'cumt-robin',
         admin: "cumt-robin",
@@ -1599,7 +1653,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="hexo+github打造个人博客系列之小技巧" height="28">
+                    <img src="/images/logo.png" alt="webpack4平滑升级" height="28">
                 
                 </a>
                 <p class="is-size-7">
