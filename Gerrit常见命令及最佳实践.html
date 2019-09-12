@@ -7,22 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>分类: 算法 - Tusi博客|分享最新开发心得</title>
+<title>Gerrit常见命令及最佳实践 - Tusi博客|分享最新开发心得</title>
 
 
-    <meta name="description" content="专注前端技术开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
-<meta name="keywords" content="蒋文斌,Tusi,博客,前端,全栈,微信小程序">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tusi博客|分享最新开发心得">
-<meta property="og:url" content="http://hexo.wbjiang.cn/categories/算法/index.html">
+    <meta name="description" content="概述本文记录了笔者在使用Gerrit过程中的一些微小的经验，在这里做个简单的分享。">
+<meta name="keywords" content="Gerrit,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gerrit常见命令及最佳实践">
+<meta property="og:url" content="http://hexo.wbjiang.cn/Gerrit常见命令及最佳实践.html">
 <meta property="og:site_name" content="Tusi博客|分享最新开发心得">
-<meta property="og:description" content="专注前端技术开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
+<meta property="og:description" content="概述本文记录了笔者在使用Gerrit过程中的一些微小的经验，在这里做个简单的分享。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://hexo.wbjiang.cn/images/og_image.png">
+<meta property="og:image" content="http://qncdn.wbjiang.cn/book_600x400.png">
+<meta property="og:updated_time" content="2019-09-12T05:55:19.310Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tusi博客|分享最新开发心得">
-<meta name="twitter:description" content="专注前端技术开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
-<meta name="twitter:image" content="http://hexo.wbjiang.cn/images/og_image.png">
+<meta name="twitter:title" content="Gerrit常见命令及最佳实践">
+<meta name="twitter:description" content="概述本文记录了笔者在使用Gerrit过程中的一些微小的经验，在这里做个简单的分享。">
+<meta name="twitter:image" content="http://qncdn.wbjiang.cn/book_600x400.png">
 
 
 
@@ -101,7 +102,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="Tusi博客|分享最新开发心得" height="28">
+                <img src="/images/logo.png" alt="Gerrit常见命令及最佳实践" height="28">
             
             </a>
         </div>
@@ -152,75 +153,183 @@ var _hmt = _hmt || [];
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/categories">分类</a></li>
-            
-            <li class="is-active"><a href="#" aria-current="page">算法</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-image">
-        <a href="/一种在地图中处理曲线的通用方法.html" class="image is-7by1">
-            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/map.png" alt="一种在地图中处理曲线的通用方法">
-        </a>
+        <span  class="image is-7by1">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book_600x400.png" alt="Gerrit常见命令及最佳实践">
+        </span>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-08-23T06:06:32.000Z">2019-08-23</time>
+                <time class="level-item has-text-grey" datetime="2019-09-12T05:55:23.000Z">2019-09-12</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/算法/">算法</a>
+                <a class="has-link-grey -link" href="/categories/Git/">Git</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 717 个字)
+                    2 分钟 读完 (大约 372 个字)
                 </span>
                 
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
                 
             </div>
         </div>
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/一种在地图中处理曲线的通用方法.html">一种在地图中处理曲线的通用方法</a>
+                Gerrit常见命令及最佳实践
             
         </h1>
         <div class="content">
-            <p>本文分享一种可以用于处理曲线的算法，是本人在百度地图开源库基础上改造的，可以用于其他地图场景中处理点数据，只要两个以上的点，就可以得到平滑的曲线。例如小程序，将处理后得到的点赋值给<code>polyline</code>的points即可。</p>
+            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文记录了笔者在使用<code>Gerrit</code>过程中的一些微小的经验，在这里做个简单的分享。</p>
+<a id="more"></a>
+
+<h1 id="克隆工程"><a href="#克隆工程" class="headerlink" title="克隆工程"></a>克隆工程</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone ssh://tusi@xx.xx.cn:29428/project-name</span><br></pre></td></tr></table></figure>
+
+<p>如果使用了<code>Git</code>代理，请将<code>xx.xx.cn:29428</code>换成<code>ip:port</code></p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone ssh://tusi@ip:port/project-name</span><br></pre></td></tr></table></figure>
+
+<h1 id="创建develop分支"><a href="#创建develop分支" class="headerlink" title="创建develop分支"></a>创建develop分支</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b develop origin/develop</span><br></pre></td></tr></table></figure>
+
+<h1 id="添加到暂存区"><a href="#添加到暂存区" class="headerlink" title="添加到暂存区"></a>添加到暂存区</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 添加所有文件到暂存区</span><br><span class="line">git add .</span><br><span class="line">// 添加某目录或文件到暂存区</span><br><span class="line">git add src</span><br></pre></td></tr></table></figure>
+
+<h1 id="提交暂存区改动"><a href="#提交暂存区改动" class="headerlink" title="提交暂存区改动"></a>提交暂存区改动</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m '测试commit'</span><br></pre></td></tr></table></figure>
+
+<h1 id="推送到远程分支"><a href="#推送到远程分支" class="headerlink" title="推送到远程分支"></a>推送到远程分支</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin HEAD:refs/for/develop</span><br></pre></td></tr></table></figure>
+
+<h1 id="常见报错"><a href="#常见报错" class="headerlink" title="常见报错"></a>常见报错</h1><h2 id="missing-Change-Id-in-commit-message-footer"><a href="#missing-Change-Id-in-commit-message-footer" class="headerlink" title="missing Change-Id in commit message footer"></a>missing Change-Id in commit message footer</h2><p>先执行这两条命令，命令中的信息改成自己的</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitdir=$(git rev-parse --git-dir); scp -p -P 80 tusi@ip:hooks/commit-msg $&#123;gitdir&#125;/hooks/</span><br><span class="line">git commit --amend</span><br></pre></td></tr></table></figure>
+
+<p>再次<code>push</code></p>
+<h2 id="Gerrit-merge-conflict"><a href="#Gerrit-merge-conflict" class="headerlink" title="Gerrit merge conflict"></a>Gerrit merge conflict</h2><ol>
+<li>在<code>Gerrit</code>上<code>abandon</code>这次<code>push</code></li>
+<li>软回滚</li>
+</ol>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --soft origin/master</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><code>pull</code>代码</li>
+</ol>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>再次<code>commit</code>, <code>push</code></li>
+</ol>
+<h1 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h1><h2 id="git-status检查仓库状态"><a href="#git-status检查仓库状态" class="headerlink" title="git status检查仓库状态"></a>git status检查仓库状态</h2><p>一个很好的习惯，add, commit, push等操作前后都可以用git status检查下，有助于理解Git的原理。</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<h2 id="hotfix合入master"><a href="#hotfix合入master" class="headerlink" title="hotfix合入master"></a>hotfix合入master</h2><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git merge origin/hotfix/20190909</span><br><span class="line">git push origin HEAD:refs/for/master</span><br></pre></td></tr></table></figure>
+
+<h2 id="强制与远程分支同步"><a href="#强制与远程分支同步" class="headerlink" title="强制与远程分支同步"></a>强制与远程分支同步</h2><p>慎重操作！！！会覆盖掉本地代码！</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard origin/develop</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>扫一扫下方小程序码或搜索<code>Tusi博客</code>，即刻阅读最新文章！</p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/Tusi%E5%8D%9A%E5%AE%A2.jpg" alt="Tusi博客"></p>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/一种在地图中处理曲线的通用方法.html#more">继续阅读</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Gerrit/">Gerrit</a>
                 </div>
             </div>
         </div>
         
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
         
     </div>
 </div>
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay_payme.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/webpack4平滑升级.html">
+                <span class="level-item">webpack4平滑升级</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: 'e244808d754d6ef5f8aa',
+        clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
+        id: 'c8e394282f1ca68c08188e70a01d665c',
+        repo: 'tusi-hexo',
+        owner: 'cumt-robin',
+        admin: "cumt-robin",
+        createIssueManually: false,
+        distractionFreeMode: false
+    })
+    gitalk.render('comment-container')
+</script>
+
+    </div>
+</div>
 </div>
                 
 
@@ -1531,7 +1640,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="Tusi博客|分享最新开发心得" height="28">
+                    <img src="/images/logo.png" alt="Gerrit常见命令及最佳实践" height="28">
                 
                 </a>
                 <p class="is-size-7">
