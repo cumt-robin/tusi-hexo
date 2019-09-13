@@ -19,7 +19,7 @@
 <meta property="og:description" content="概述本文记录了笔者在使用Gerrit过程中的一些微小的经验，在这里做个简单的分享。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/book_600x400.png">
-<meta property="og:updated_time" content="2019-09-12T05:55:19.310Z">
+<meta property="og:updated_time" content="2019-09-13T14:11:05.530Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gerrit常见命令及最佳实践">
 <meta name="twitter:description" content="概述本文记录了笔者在使用Gerrit过程中的一些微小的经验，在这里做个简单的分享。">
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 372 个字)
+                    3 分钟 读完 (大约 496 个字)
                 </span>
                 
                 
@@ -197,7 +197,7 @@ var _hmt = _hmt || [];
 
 <h1 id="克隆工程"><a href="#克隆工程" class="headerlink" title="克隆工程"></a>克隆工程</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone ssh://tusi@xx.xx.cn:29428/project-name</span><br></pre></td></tr></table></figure>
 
-<p>如果使用了<code>Git</code>代理，请将<code>xx.xx.cn:29428</code>换成<code>ip:port</code></p>
+<p>如果使用了<code>Git</code>代理，请将<code>xx.xx.cn:29428</code>换成代理后的<code>ip:port</code></p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone ssh://tusi@ip:port/project-name</span><br></pre></td></tr></table></figure>
 
 <h1 id="创建develop分支"><a href="#创建develop分支" class="headerlink" title="创建develop分支"></a>创建develop分支</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b develop origin/develop</span><br></pre></td></tr></table></figure>
@@ -233,6 +233,27 @@ var _hmt = _hmt || [];
 
 <h2 id="强制与远程分支同步"><a href="#强制与远程分支同步" class="headerlink" title="强制与远程分支同步"></a>强制与远程分支同步</h2><p>慎重操作！！！会覆盖掉本地代码！</p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard origin/develop</span><br></pre></td></tr></table></figure>
+
+<h2 id="git-add-后想撤销"><a href="#git-add-后想撤销" class="headerlink" title="git add 后想撤销"></a>git add 后想撤销</h2><p>不小心添加了文件到暂存区？使用以下命令：</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- src/main.js</span><br></pre></td></tr></table></figure>
+
+<h2 id="git-commit-后想回退"><a href="#git-commit-后想回退" class="headerlink" title="git commit 后想回退"></a>git commit 后想回退</h2><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 不小心commit了1次</span><br><span class="line">git reset --soft HEAD^</span><br><span class="line">// 不小心commit了2次</span><br><span class="line">git reset --soft HEAD~2</span><br></pre></td></tr></table></figure>
+
+<h2 id="紧急bug来了，临时保存feature代码"><a href="#紧急bug来了，临时保存feature代码" class="headerlink" title="紧急bug来了，临时保存feature代码"></a>紧急bug来了，临时保存feature代码</h2><ol>
+<li>先保存代码</li>
+</ol>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>检查确认下</li>
+</ol>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash list</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>切换分支去修复<code>bug</code></li>
+<li>修复完毕，切回<code>feature</code>分支，释出<code>stash</code>代码接着干</li>
+</ol>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
 
 <hr>
 <p>扫一扫下方小程序码或搜索<code>Tusi博客</code>，即刻阅读最新文章！</p>
