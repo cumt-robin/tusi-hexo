@@ -10,19 +10,19 @@
 <title>Gerrit常见命令及最佳实践 - Tusi博客|分享最新开发心得</title>
 
 
-    <meta name="description" content="概述本文记录了笔者在使用Gerrit过程中的一些微小的经验，在这里做个简单的分享。">
+    <meta name="description" content="概述本文记录了笔者在使用Gerrit（一种免费、开放源代码的代码审查软件）过程中的一些微小的经验，在这里做个简单的分享。">
 <meta name="keywords" content="Gerrit,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gerrit常见命令及最佳实践">
 <meta property="og:url" content="http://hexo.wbjiang.cn/Gerrit常见命令及最佳实践.html">
 <meta property="og:site_name" content="Tusi博客|分享最新开发心得">
-<meta property="og:description" content="概述本文记录了笔者在使用Gerrit过程中的一些微小的经验，在这里做个简单的分享。">
+<meta property="og:description" content="概述本文记录了笔者在使用Gerrit（一种免费、开放源代码的代码审查软件）过程中的一些微小的经验，在这里做个简单的分享。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/book_600x400.png">
-<meta property="og:updated_time" content="2019-09-13T14:11:05.530Z">
+<meta property="og:updated_time" content="2019-09-16T03:16:42.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gerrit常见命令及最佳实践">
-<meta name="twitter:description" content="概述本文记录了笔者在使用Gerrit过程中的一些微小的经验，在这里做个简单的分享。">
+<meta name="twitter:description" content="概述本文记录了笔者在使用Gerrit（一种免费、开放源代码的代码审查软件）过程中的一些微小的经验，在这里做个简单的分享。">
 <meta name="twitter:image" content="http://qncdn.wbjiang.cn/book_600x400.png">
 
 
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 496 个字)
+                    4 分钟 读完 (大约 581 个字)
                 </span>
                 
                 
@@ -192,7 +192,7 @@ var _hmt = _hmt || [];
             
         </h1>
         <div class="content">
-            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文记录了笔者在使用<code>Gerrit</code>过程中的一些微小的经验，在这里做个简单的分享。</p>
+            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文记录了笔者在使用<code>Gerrit</code>（一种免费、开放源代码的代码审查软件）过程中的一些微小的经验，在这里做个简单的分享。</p>
 <a id="more"></a>
 
 <h1 id="克隆工程"><a href="#克隆工程" class="headerlink" title="克隆工程"></a>克隆工程</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone ssh://tusi@xx.xx.cn:29428/project-name</span><br></pre></td></tr></table></figure>
@@ -200,11 +200,14 @@ var _hmt = _hmt || [];
 <p>如果使用了<code>Git</code>代理，请将<code>xx.xx.cn:29428</code>换成代理后的<code>ip:port</code></p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone ssh://tusi@ip:port/project-name</span><br></pre></td></tr></table></figure>
 
-<h1 id="创建develop分支"><a href="#创建develop分支" class="headerlink" title="创建develop分支"></a>创建develop分支</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b develop origin/develop</span><br></pre></td></tr></table></figure>
+<h1 id="创建develop分支"><a href="#创建develop分支" class="headerlink" title="创建develop分支"></a>创建develop分支</h1><p>一般我们不会将代码直接提交到<code>master</code>分支，而是会选择在<code>develop</code>分支进行开发</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b develop origin/develop</span><br></pre></td></tr></table></figure>
 
-<h1 id="添加到暂存区"><a href="#添加到暂存区" class="headerlink" title="添加到暂存区"></a>添加到暂存区</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 添加所有文件到暂存区</span><br><span class="line">git add .</span><br><span class="line">// 添加某目录或文件到暂存区</span><br><span class="line">git add src</span><br></pre></td></tr></table></figure>
+<h1 id="添加到暂存区"><a href="#添加到暂存区" class="headerlink" title="添加到暂存区"></a>添加到暂存区</h1><p>修改代码后，将所修改的代码从工作区添加到暂存区</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 添加所有文件到暂存区</span><br><span class="line">git add .</span><br><span class="line">// 添加某目录或文件到暂存区</span><br><span class="line">git add src</span><br></pre></td></tr></table></figure>
 
-<h1 id="提交暂存区改动"><a href="#提交暂存区改动" class="headerlink" title="提交暂存区改动"></a>提交暂存区改动</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m '测试commit'</span><br></pre></td></tr></table></figure>
+<h1 id="提交暂存区改动"><a href="#提交暂存区改动" class="headerlink" title="提交暂存区改动"></a>提交暂存区改动</h1><p>将暂存区内容提交到版本库</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m '测试commit'</span><br></pre></td></tr></table></figure>
 
 <h1 id="推送到远程分支"><a href="#推送到远程分支" class="headerlink" title="推送到远程分支"></a>推送到远程分支</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin HEAD:refs/for/develop</span><br></pre></td></tr></table></figure>
 
@@ -226,7 +229,7 @@ var _hmt = _hmt || [];
 <ol start="4">
 <li>再次<code>commit</code>, <code>push</code></li>
 </ol>
-<h1 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h1><h2 id="git-status检查仓库状态"><a href="#git-status检查仓库状态" class="headerlink" title="git status检查仓库状态"></a>git status检查仓库状态</h2><p>一个很好的习惯，add, commit, push等操作前后都可以用git status检查下，有助于理解Git的原理。</p>
+<h1 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h1><h2 id="git-status检查仓库状态"><a href="#git-status检查仓库状态" class="headerlink" title="git status检查仓库状态"></a>git status检查仓库状态</h2><p>一个很好的习惯，<code>add</code>, <code>commit</code>, <code>push</code>等操作前后都可以用<code>git status</code>检查下，有助于理解<code>Git</code>的原理。</p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
 
 <h2 id="hotfix合入master"><a href="#hotfix合入master" class="headerlink" title="hotfix合入master"></a>hotfix合入master</h2><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git merge origin/hotfix/20190909</span><br><span class="line">git push origin HEAD:refs/for/master</span><br></pre></td></tr></table></figure>
