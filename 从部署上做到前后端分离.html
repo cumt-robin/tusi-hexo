@@ -10,19 +10,19 @@
 <title>从部署上做到前后端分离 - Tusi博客|分享最新开发心得</title>
 
 
-    <meta name="description" content="前言记得在让Nodejs支持H5 History模式（connect-history-api-fallback源码分析）一文中提到了HTML5的History Mode。然而在最近的使用过程中发现connect-history-api-fallback这个包效果并不是那么理想，用一段时间就会报错。而且本身我的博客项目前后端并未完全分离，虽然开发时是独立的工程，但是前端工程打包后还是放在了expre">
+    <meta name="description" content="记得在让Nodejs支持H5 History模式（connect-history-api-fallback源码分析）一文中提到了HTML5的History Mode。然而在最近的使用过程中发现connect-history-api-fallback这个包效果并不是那么理想，用一段时间就会报错。而且本身我的博客项目前后端并未完全分离，虽然开发时是独立的工程，但是前端工程打包后还是放在了express">
 <meta name="keywords" content="Nginx,前后端分离,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从部署上做到前后端分离">
 <meta property="og:url" content="http://hexo.wbjiang.cn/从部署上做到前后端分离.html">
 <meta property="og:site_name" content="Tusi博客|分享最新开发心得">
-<meta property="og:description" content="前言记得在让Nodejs支持H5 History模式（connect-history-api-fallback源码分析）一文中提到了HTML5的History Mode。然而在最近的使用过程中发现connect-history-api-fallback这个包效果并不是那么理想，用一段时间就会报错。而且本身我的博客项目前后端并未完全分离，虽然开发时是独立的工程，但是前端工程打包后还是放在了expre">
+<meta property="og:description" content="记得在让Nodejs支持H5 History模式（connect-history-api-fallback源码分析）一文中提到了HTML5的History Mode。然而在最近的使用过程中发现connect-history-api-fallback这个包效果并不是那么理想，用一段时间就会报错。而且本身我的博客项目前后端并未完全分离，虽然开发时是独立的工程，但是前端工程打包后还是放在了express">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/riven2_400x300.png">
-<meta property="og:updated_time" content="2019-09-12T04:00:04.121Z">
+<meta property="og:updated_time" content="2019-09-21T06:50:10.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从部署上做到前后端分离">
-<meta name="twitter:description" content="前言记得在让Nodejs支持H5 History模式（connect-history-api-fallback源码分析）一文中提到了HTML5的History Mode。然而在最近的使用过程中发现connect-history-api-fallback这个包效果并不是那么理想，用一段时间就会报错。而且本身我的博客项目前后端并未完全分离，虽然开发时是独立的工程，但是前端工程打包后还是放在了expre">
+<meta name="twitter:description" content="记得在让Nodejs支持H5 History模式（connect-history-api-fallback源码分析）一文中提到了HTML5的History Mode。然而在最近的使用过程中发现connect-history-api-fallback这个包效果并不是那么理想，用一段时间就会报错。而且本身我的博客项目前后端并未完全分离，虽然开发时是独立的工程，但是前端工程打包后还是放在了express">
 <meta name="twitter:image" content="http://qncdn.wbjiang.cn/riven2_400x300.png">
 
 
@@ -167,14 +167,14 @@ var _hmt = _hmt || [];
                 <time class="level-item has-text-grey" datetime="2019-08-23T06:09:27.000Z">2019-08-23</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Nginx/">Nginx</a>
+                <a class="has-link-grey -link" href="/categories/nginx/">nginx</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 547 个字)
+                    4 分钟 读完 (大约 545 个字)
                 </span>
                 
                 
@@ -192,7 +192,7 @@ var _hmt = _hmt || [];
             
         </h1>
         <div class="content">
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>记得在<a href="https://blog.wbjiang.cn/article/165" target="_blank" rel="noopener">让Nodejs支持H5 History模式（connect-history-api-fallback源码分析）</a>一文中提到了<code>HTML5</code>的<code>History Mode</code>。然而在最近的使用过程中发现<code>connect-history-api-fallback</code>这个包效果并不是那么理想，用一段时间就会报错。而且本身我的博客项目前后端并未完全分离，虽然开发时是独立的工程，但是前端工程打包后还是放在了<code>express</code>的静态资源文件夹下进行部署。考虑到这两个痛点，我决定在<code>nginx</code>配置中对前后端进行部署分离。</p>
+            <p>记得在<a href="https://blog.wbjiang.cn/article/165" target="_blank" rel="noopener">让Nodejs支持H5 History模式（connect-history-api-fallback源码分析）</a>一文中提到了<code>HTML5</code>的<code>History Mode</code>。然而在最近的使用过程中发现<code>connect-history-api-fallback</code>这个包效果并不是那么理想，用一段时间就会报错。而且本身我的博客项目前后端并未完全分离，虽然开发时是独立的工程，但是前端工程打包后还是放在了<code>express</code>的静态资源文件夹下进行部署。考虑到这两个痛点，我决定在<code>nginx</code>配置中对前后端进行部署分离。</p>
 <a id="more"></a>
 
 <h1 id="前端独立部署"><a href="#前端独立部署" class="headerlink" title="前端独立部署"></a>前端独立部署</h1><p>前端工程<code>npm run build</code>打包后，不再<code>copy</code>到后端工程<code>public</code>目录下。而是独立部署在<code>nginx</code>的静态资源目录下，我放置的目录是<code>/usr/nginx/share/html/blog</code></p>
@@ -536,7 +536,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-18T07:21:26.000Z">2019-09-18</time></div>
                     <a href="/即将是史上最全的meta大全.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">即将是史上最全的meta大全</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/HTML/">HTML</a>
+                        <a class="has-link-grey -link" href="/categories/html/">html</a>
                     </p>
                 </div>
             </div>
@@ -555,7 +555,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-12T05:55:23.000Z">2019-09-12</time></div>
                     <a href="/Gerrit常见命令及最佳实践.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Gerrit常见命令及最佳实践</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Git/">Git</a>
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
                     </p>
                 </div>
             </div>
@@ -1114,7 +1114,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-18T07:21:26.000Z">2019-09-18</time></div>
                     <a href="/即将是史上最全的meta大全.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">即将是史上最全的meta大全</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/HTML/">HTML</a>
+                        <a class="has-link-grey -link" href="/categories/html/">html</a>
                     </p>
                 </div>
             </div>
@@ -1133,7 +1133,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-12T05:55:23.000Z">2019-09-12</time></div>
                     <a href="/Gerrit常见命令及最佳实践.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Gerrit常见命令及最佳实践</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Git/">Git</a>
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
                     </p>
                 </div>
             </div>

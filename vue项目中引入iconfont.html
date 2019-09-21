@@ -10,19 +10,19 @@
 <title>vue项目中引入iconfont - Tusi博客|分享最新开发心得</title>
 
 
-    <meta name="description" content="背景对于前端而言，图标的发展可谓日新月异。从img标签，到雪碧图，再到字体图标，svg，甚至svg也有了类似于雪碧图的方案svg-sprite-loader。">
+    <meta name="description" content="对于前端而言，图标的发展可谓日新月异。从img标签，到雪碧图，再到字体图标，svg，甚至svg也有了类似于雪碧图的方案svg-sprite-loader。">
 <meta name="keywords" content="vue,iconfont,svg,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue项目中引入iconfont">
 <meta property="og:url" content="http://hexo.wbjiang.cn/vue项目中引入iconfont.html">
 <meta property="og:site_name" content="Tusi博客|分享最新开发心得">
-<meta property="og:description" content="背景对于前端而言，图标的发展可谓日新月异。从img标签，到雪碧图，再到字体图标，svg，甚至svg也有了类似于雪碧图的方案svg-sprite-loader。">
+<meta property="og:description" content="对于前端而言，图标的发展可谓日新月异。从img标签，到雪碧图，再到字体图标，svg，甚至svg也有了类似于雪碧图的方案svg-sprite-loader。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/iconfont.jpg">
-<meta property="og:updated_time" content="2019-09-12T04:00:04.121Z">
+<meta property="og:updated_time" content="2019-09-21T06:48:19.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue项目中引入iconfont">
-<meta name="twitter:description" content="背景对于前端而言，图标的发展可谓日新月异。从img标签，到雪碧图，再到字体图标，svg，甚至svg也有了类似于雪碧图的方案svg-sprite-loader。">
+<meta name="twitter:description" content="对于前端而言，图标的发展可谓日新月异。从img标签，到雪碧图，再到字体图标，svg，甚至svg也有了类似于雪碧图的方案svg-sprite-loader。">
 <meta name="twitter:image" content="http://qncdn.wbjiang.cn/iconfont.jpg">
 
 
@@ -167,14 +167,14 @@ var _hmt = _hmt || [];
                 <time class="level-item has-text-grey" datetime="2019-08-23T06:04:44.000Z">2019-08-23</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Vue/">Vue</a>
+                <a class="has-link-grey -link" href="/categories/vue/">vue</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    15 分钟 读完 (大约 2193 个字)
+                    15 分钟 读完 (大约 2191 个字)
                 </span>
                 
                 
@@ -192,7 +192,7 @@ var _hmt = _hmt || [];
             
         </h1>
         <div class="content">
-            <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>对于前端而言，图标的发展可谓日新月异。从<code>img</code>标签，到雪碧图，再到字体图标，<code>svg</code>，甚至<code>svg</code>也有了类似于雪碧图的方案<code>svg-sprite-loader</code>。<a id="more"></a>雪碧图没有什么好讲的了，只是简单地利用了<code>background-position</code>来做图标定位。今天咱们先聊聊怎么使用字体图标和<code>svg</code>图标。其实字体图标也不陌生了，<code>bootstrap</code>，<code>font-awesome</code>，<code>element-ui</code>等<code>UI</code>库都基本标配了字体图标。</p>
+            <p>对于前端而言，图标的发展可谓日新月异。从<code>img</code>标签，到雪碧图，再到字体图标，<code>svg</code>，甚至<code>svg</code>也有了类似于雪碧图的方案<code>svg-sprite-loader</code>。<a id="more"></a>雪碧图没有什么好讲的了，只是简单地利用了<code>background-position</code>来做图标定位。今天咱们先聊聊怎么使用字体图标和<code>svg</code>图标。其实字体图标也不陌生了，<code>bootstrap</code>，<code>font-awesome</code>，<code>element-ui</code>等<code>UI</code>库都基本标配了字体图标。</p>
 <h1 id="简单说下原理"><a href="#简单说下原理" class="headerlink" title="简单说下原理"></a>简单说下原理</h1><p><code>unicode</code>预留了<code>E000-F8FF</code>范围作为私有保留区域，这个区间的<code>unicode</code>码非常适合做字体图标，前端根据<code>unicode</code>码就能显示对应的图标。</p>
 <h1 id="vue项目引入iconfont"><a href="#vue项目引入iconfont" class="headerlink" title="vue项目引入iconfont"></a>vue项目引入iconfont</h1><h2 id="1-在iconfont新建项目"><a href="#1-在iconfont新建项目" class="headerlink" title="1. 在iconfont新建项目"></a>1. 在iconfont新建项目</h2><p><img src=""data-src="http://qncdn.wbjiang.cn/iconfont%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE.png?imageMogr2/auto-orient/blur/1x0/quality/75%7Cwatermark/2/text/d3d3LndiamlhbmcuY24=/font/5qW35L2T/fontsize/640/fill/IzQ5NzZEQg==/dissolve/90/gravity/SouthWest/dx/10/dy/10" alt="iconfont新建项目"></p>
 <p>注：这里修正一下，前缀应该是<code>test-icon-</code>。</p>
@@ -604,7 +604,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-18T07:21:26.000Z">2019-09-18</time></div>
                     <a href="/即将是史上最全的meta大全.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">即将是史上最全的meta大全</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/HTML/">HTML</a>
+                        <a class="has-link-grey -link" href="/categories/html/">html</a>
                     </p>
                 </div>
             </div>
@@ -623,7 +623,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-12T05:55:23.000Z">2019-09-12</time></div>
                     <a href="/Gerrit常见命令及最佳实践.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Gerrit常见命令及最佳实践</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Git/">Git</a>
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
                     </p>
                 </div>
             </div>
@@ -1182,7 +1182,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-18T07:21:26.000Z">2019-09-18</time></div>
                     <a href="/即将是史上最全的meta大全.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">即将是史上最全的meta大全</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/HTML/">HTML</a>
+                        <a class="has-link-grey -link" href="/categories/html/">html</a>
                     </p>
                 </div>
             </div>
@@ -1201,7 +1201,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-12T05:55:23.000Z">2019-09-12</time></div>
                     <a href="/Gerrit常见命令及最佳实践.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Gerrit常见命令及最佳实践</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Git/">Git</a>
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
                     </p>
                 </div>
             </div>

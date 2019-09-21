@@ -10,19 +10,19 @@
 <title>webpack4平滑升级 - Tusi博客|分享最新开发心得</title>
 
 
-    <meta name="description" content="背景最近有感觉到，随着系统模块数量的增加，wepack编译打包的速度越来越慢，于是我想给项目做一下优化升级，也借此机会系统地学习一下webpack4。">
+    <meta name="description" content="最近有感觉到，随着系统模块数量的增加，wepack编译打包的速度越来越慢，于是我想给项目做一下优化升级，也借此机会系统地学习一下webpack4。">
 <meta name="keywords" content="webpack4,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack4平滑升级">
 <meta property="og:url" content="http://hexo.wbjiang.cn/webpack4平滑升级.html">
 <meta property="og:site_name" content="Tusi博客|分享最新开发心得">
-<meta property="og:description" content="背景最近有感觉到，随着系统模块数量的增加，wepack编译打包的速度越来越慢，于是我想给项目做一下优化升级，也借此机会系统地学习一下webpack4。">
+<meta property="og:description" content="最近有感觉到，随着系统模块数量的增加，wepack编译打包的速度越来越慢，于是我想给项目做一下优化升级，也借此机会系统地学习一下webpack4。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/webpack_400x400.png">
-<meta property="og:updated_time" content="2019-09-12T04:00:04.121Z">
+<meta property="og:updated_time" content="2019-09-21T06:44:13.360Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack4平滑升级">
-<meta name="twitter:description" content="背景最近有感觉到，随着系统模块数量的增加，wepack编译打包的速度越来越慢，于是我想给项目做一下优化升级，也借此机会系统地学习一下webpack4。">
+<meta name="twitter:description" content="最近有感觉到，随着系统模块数量的增加，wepack编译打包的速度越来越慢，于是我想给项目做一下优化升级，也借此机会系统地学习一下webpack4。">
 <meta name="twitter:image" content="http://qncdn.wbjiang.cn/webpack_400x400.png">
 
 
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 读完 (大约 1620 个字)
+                    11 分钟 读完 (大约 1618 个字)
                 </span>
                 
                 
@@ -192,7 +192,7 @@ var _hmt = _hmt || [];
             
         </h1>
         <div class="content">
-            <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>最近有感觉到，随着系统模块数量的增加，<code>wepack</code>编译打包的速度越来越慢，于是我想给项目做一下优化升级，也借此机会系统地学习一下<code>webpack4</code>。</p>
+            <p>最近有感觉到，随着系统模块数量的增加，<code>wepack</code>编译打包的速度越来越慢，于是我想给项目做一下优化升级，也借此机会系统地学习一下<code>webpack4</code>。</p>
 <a id="more"></a>
 
 <h1 id="升级过程"><a href="#升级过程" class="headerlink" title="升级过程"></a>升级过程</h1><h2 id="当前版本"><a href="#当前版本" class="headerlink" title="当前版本"></a>当前版本</h2><figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">"dependencies": &#123;</span><br><span class="line">    "@fullcalendar/core": "^4.2.0",</span><br><span class="line">    "@fullcalendar/daygrid": "^4.2.0",</span><br><span class="line">    "@fullcalendar/interaction": "^4.2.0",</span><br><span class="line">    "@fullcalendar/vue": "^4.2.2",</span><br><span class="line">    "axios": "0.18.1",</span><br><span class="line">    "babel-polyfill": "6.26.0",</span><br><span class="line">    "echarts": "4.0.4",</span><br><span class="line">    "element-ui": "2.10.0",</span><br><span class="line">    "jquery": "3.3.1",</span><br><span class="line">    "js-cookie": "2.2.0",</span><br><span class="line">    "js-md5": "0.7.3",</span><br><span class="line">    "lodash": "4.17.5",</span><br><span class="line">    "moment": "^2.24.0",</span><br><span class="line">    "node-sass": "^4.11.0",</span><br><span class="line">    "normalize.css": "7.0.0",</span><br><span class="line">    "nprogress": "0.2.0",</span><br><span class="line">    "qs": "6.5.1",</span><br><span class="line">    "vue": "2.6.10",</span><br><span class="line">    "vue-router": "3.0.3",</span><br><span class="line">    "vuex": "3.1.1"</span><br><span class="line">&#125;,</span><br><span class="line">"devDependencies": &#123;</span><br><span class="line">    "autoprefixer": "7.2.3",</span><br><span class="line">    "babel-core": "6.26.0",</span><br><span class="line">    "babel-eslint": "8.0.3",</span><br><span class="line">    "babel-helper-vue-jsx-merge-props": "2.0.3",</span><br><span class="line">    "babel-loader": "7.1.2",</span><br><span class="line">    "babel-plugin-syntax-jsx": "6.18.0",</span><br><span class="line">    "babel-plugin-transform-runtime": "6.23.0",</span><br><span class="line">    "babel-plugin-transform-vue-jsx": "3.7.0",</span><br><span class="line">    "babel-preset-env": "1.6.1",</span><br><span class="line">    "babel-preset-stage-2": "6.24.1",</span><br><span class="line">    "chalk": "2.3.0",</span><br><span class="line">    "copy-webpack-plugin": "4.2.3",</span><br><span class="line">    "css-loader": "0.28.7",</span><br><span class="line">    "eslint": "4.13.1",</span><br><span class="line">    "eslint-friendly-formatter": "3.0.0",</span><br><span class="line">    "eslint-loader": "1.9.0",</span><br><span class="line">    "eslint-plugin-html": "4.0.1",</span><br><span class="line">    "eventsource-polyfill": "0.9.6",</span><br><span class="line">    "extract-text-webpack-plugin": "3.0.2",</span><br><span class="line">    "file-loader": "1.1.5",</span><br><span class="line">    "friendly-errors-webpack-plugin": "1.6.1",</span><br><span class="line">    "html-webpack-plugin": "2.30.1",</span><br><span class="line">    "node-notifier": "5.1.2",</span><br><span class="line">    "optimize-css-assets-webpack-plugin": "3.2.0",</span><br><span class="line">    "ora": "1.3.0",</span><br><span class="line">    "portfinder": "1.0.13",</span><br><span class="line">    "postcss-import": "11.0.0",</span><br><span class="line">    "postcss-loader": "2.0.9",</span><br><span class="line">    "rimraf": "2.6.2",</span><br><span class="line">    "sass-loader": "6.0.6",</span><br><span class="line">    "semver": "5.4.1",</span><br><span class="line">    "shelljs": "0.7.8",</span><br><span class="line">    "svg-sprite-loader": "4.1.6",</span><br><span class="line">    "uglifyjs-webpack-plugin": "1.1.3",</span><br><span class="line">    "url-loader": "0.6.2",</span><br><span class="line">    "vue-loader": "15.7.0",</span><br><span class="line">    "vue-style-loader": "4.1.2",</span><br><span class="line">    "vue-template-compiler": "2.6.10",</span><br><span class="line">    "webpack": "3.10.0",</span><br><span class="line">    "webpack-bundle-analyzer": "2.9.1",</span><br><span class="line">    "webpack-dev-server": "2.9.7",</span><br><span class="line">    "webpack-merge": "4.1.1"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -584,7 +584,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-18T07:21:26.000Z">2019-09-18</time></div>
                     <a href="/即将是史上最全的meta大全.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">即将是史上最全的meta大全</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/HTML/">HTML</a>
+                        <a class="has-link-grey -link" href="/categories/html/">html</a>
                     </p>
                 </div>
             </div>
@@ -603,7 +603,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-12T05:55:23.000Z">2019-09-12</time></div>
                     <a href="/Gerrit常见命令及最佳实践.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Gerrit常见命令及最佳实践</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Git/">Git</a>
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
                     </p>
                 </div>
             </div>
@@ -1162,7 +1162,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-18T07:21:26.000Z">2019-09-18</time></div>
                     <a href="/即将是史上最全的meta大全.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">即将是史上最全的meta大全</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/HTML/">HTML</a>
+                        <a class="has-link-grey -link" href="/categories/html/">html</a>
                     </p>
                 </div>
             </div>
@@ -1181,7 +1181,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-12T05:55:23.000Z">2019-09-12</time></div>
                     <a href="/Gerrit常见命令及最佳实践.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Gerrit常见命令及最佳实践</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Git/">Git</a>
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
                     </p>
                 </div>
             </div>
