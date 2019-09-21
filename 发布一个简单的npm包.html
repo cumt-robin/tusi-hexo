@@ -7,22 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>分类: Hexo - Tusi博客|分享最新开发心得</title>
+<title>发布一个简单的npm包 - Tusi博客|分享最新开发心得</title>
 
 
-    <meta name="description" content="专注前端技术开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
-<meta name="keywords" content="蒋文斌,Tusi,博客,前端,全栈,微信小程序">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tusi博客|分享最新开发心得">
-<meta property="og:url" content="http://hexo.wbjiang.cn/categories/Hexo/index.html">
+    <meta name="description" content="概述本文简单地记录了发布一个简单npm包的过程，以便后续参考使用。">
+<meta name="keywords" content="npm,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="发布一个简单的npm包">
+<meta property="og:url" content="http://hexo.wbjiang.cn/发布一个简单的npm包.html">
 <meta property="og:site_name" content="Tusi博客|分享最新开发心得">
-<meta property="og:description" content="专注前端技术开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
+<meta property="og:description" content="概述本文简单地记录了发布一个简单npm包的过程，以便后续参考使用。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://hexo.wbjiang.cn/images/og_image.png">
+<meta property="og:image" content="http://qncdn.wbjiang.cn/npm%E9%80%9A%E7%94%A8.jpg">
+<meta property="og:updated_time" content="2019-09-21T06:40:45.293Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tusi博客|分享最新开发心得">
-<meta name="twitter:description" content="专注前端技术开发与架构，分享自己的开发心得，致力于成长为优秀的前端架构师">
-<meta name="twitter:image" content="http://hexo.wbjiang.cn/images/og_image.png">
+<meta name="twitter:title" content="发布一个简单的npm包">
+<meta name="twitter:description" content="概述本文简单地记录了发布一个简单npm包的过程，以便后续参考使用。">
+<meta name="twitter:image" content="http://qncdn.wbjiang.cn/npm%E9%80%9A%E7%94%A8.jpg">
 
 
 
@@ -101,7 +102,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="Tusi博客|分享最新开发心得" height="28">
+                <img src="/images/logo.png" alt="发布一个简单的npm包" height="28">
             
             </a>
         </div>
@@ -152,383 +153,174 @@ var _hmt = _hmt || [];
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/npm%E9%80%9A%E7%94%A8.jpg" alt="发布一个简单的npm包">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-09-21T06:37:47.000Z">2019-09-21</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/npm/">npm</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 分钟 读完 (大约 673 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                发布一个简单的npm包
+            
+        </h1>
+        <div class="content">
+            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文简单地记录了发布一个简单<code>npm</code>包的过程，以便后续参考使用。</p>
+<a id="more"></a>
+
+<h1 id="初始化npm-init"><a href="#初始化npm-init" class="headerlink" title="初始化npm init"></a>初始化npm init</h1><p>通过<code>npm init</code>创建一个<code>package.json</code>文件</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">D:\robin\lib\weapp-utils&gt;npm init</span><br><span class="line">This utility will walk you through creating a package.json file.</span><br><span class="line">It only covers the most common items, and tries to guess sensible defaults.</span><br><span class="line"></span><br><span class="line">See `npm help json` for definitive documentation on these fields</span><br><span class="line">and exactly what they do.</span><br><span class="line"></span><br><span class="line">Use `npm install &lt;pkg&gt;` afterwards to install a package and</span><br><span class="line">save it as a dependency in the package.json file.</span><br><span class="line"></span><br><span class="line">Press ^C at any time to quit.</span><br><span class="line">package name: (weapp-utils)</span><br><span class="line">version: (1.0.0)</span><br><span class="line">description: some foundmental utils for weapp</span><br><span class="line">entry point: (lib/index.js)</span><br><span class="line">test command:</span><br><span class="line">git repository:</span><br><span class="line">keywords: weapp,utils</span><br><span class="line">author: tusi666</span><br><span class="line">license: (ISC) MIT</span><br><span class="line">About to write to D:\robin\lib\weapp-utils\package.json:</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;weapp-utils&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;some foundmental utils for weapp&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;lib/index.js&quot;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;keywords&quot;: [</span><br><span class="line">    &quot;weapp&quot;,</span><br><span class="line">    &quot;utils&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;author&quot;: &quot;tusi666&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;MIT&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>main</code>字段是入口文件</p>
+<h1 id="写好README"><a href="#写好README" class="headerlink" title="写好README"></a>写好README</h1><p>一个完备的<code>README</code>文件是必要的，以便别人了解你的包是做什么用途。</p>
+<h1 id="确认registry"><a href="#确认registry" class="headerlink" title="确认registry"></a>确认registry</h1><p>一般我们开发时会修改<code>npm registry</code>为<code>https://registry.npm.taobao.org</code>。</p>
+<p>但是发布<code>npm</code>包时，我们需要将其改回来，不然是会报错的。</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry http://registry.npmjs.org/</span><br></pre></td></tr></table></figure>
+
+<h1 id="npm注册账号"><a href="#npm注册账号" class="headerlink" title="npm注册账号"></a>npm注册账号</h1><p>打开<code>npm</code><a href="https://www.npmjs.com/" target="_blank" rel="noopener">官网</a>，开始注册账号。</p>
+<p><strong>ps：</strong>记得要验证邮箱哦！</p>
+<h1 id="添加npm账户"><a href="#添加npm账户" class="headerlink" title="添加npm账户"></a>添加npm账户</h1><p>使用<code>npm adduser</code>添加账户，别名<code>npm login</code></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">D:\robin\lib\weapp-utils&gt;npm adduser</span><br><span class="line">Username: tusi666</span><br><span class="line">Password:</span><br><span class="line">Email: (this IS public) cumtrobin@163.com</span><br><span class="line">Logged in as tusi666 on https://registry.npm.taobao.org/.</span><br></pre></td></tr></table></figure>
+
+<h1 id="添加github仓库"><a href="#添加github仓库" class="headerlink" title="添加github仓库"></a>添加github仓库</h1><p>在<code>package.json</code>添加配置项，不加也没事，看自己需求。</p>
+<figure class="highlight hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"repository": &#123;</span><br><span class="line">  "type": "git",</span><br><span class="line">  "url": "https://github.com/xxx/zqh_test2.git"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish</span><br></pre></td></tr></table></figure>
+
+<p>如果发布时报这样的错，</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The operation was rejected by your operating system.</span><br><span class="line">npm ERR! It's possible that the file was already in use (by a text editor or antivirus),</span><br><span class="line">npm ERR! or that you lack permissions to access it.</span><br></pre></td></tr></table></figure>
+
+<p>建议还是检查下<code>registry</code>，或者<code>npm adduser</code>是不是成功了。</p>
+<p>发布成功，会有这样的提示，</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">npm notice</span><br><span class="line">npm notice package: weapp-utils@1.0.0</span><br><span class="line">npm notice === Tarball Contents ===</span><br><span class="line">npm notice 397B   package.json</span><br><span class="line">npm notice 1.1kB  LICENSE</span><br><span class="line">npm notice 2.7kB  README.md</span><br><span class="line">npm notice 12.9kB lib/index.js</span><br><span class="line">npm notice === Tarball Details ===</span><br><span class="line">npm notice name:          weapp-utils</span><br><span class="line">npm notice version:       1.0.0</span><br><span class="line">npm notice package size:  5.1 kB</span><br><span class="line">npm notice unpacked size: 17.1 kB</span><br><span class="line">npm notice shasum:        a7f2f428d9334dd1dd749d2a492dbc4df7195d0d</span><br><span class="line">npm notice integrity:     sha512-Cp8jPhOMq73y6[...]bfofe7X+4cLeg==</span><br><span class="line">npm notice total files:   4</span><br><span class="line">npm notice</span><br><span class="line">+ weapp-utils@1.0.0</span><br></pre></td></tr></table></figure>
+
+<p>上<code>npm</code>搜索<code>wechat-utils</code>，发现有了！</p>
+<p><img src=""data-src="C:%5CUsers%5CJiang.Wenbin%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1568277181305.png" alt="1568277181305"></p>
+<h1 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h1><p>发布成功了，也要验证下，是否可正常使用。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> &#123; merge &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"weapp-utils"</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">let</span> mergedOptions = merge(DEFAULT_OPTIONS, options)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>扫一扫下方小程序码或搜索<code>Tusi博客</code>，即刻阅读最新文章！</p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/Tusi%E5%8D%9A%E5%AE%A2.jpg" alt="Tusi博客"></p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/发布npm包/">发布npm包</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/categories">分类</a></li>
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
             
-            <li class="is-active"><a href="#" aria-current="page">Hexo</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay_payme.jpg" alt="支付宝"></div>
+</a>
 
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/hexo+github打造个人博客系列之Coding Pages去广告.html" class="image is-7by1">
-            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/coding.png" alt="hexo+github打造个人博客系列之Coding Pages去广告">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-02-02T13:35:02.000Z">2018-02-02</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Hexo/">Hexo</a>
-                </div>
                 
                 
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3 分钟 读完 (大约 431 个字)
-                </span>
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+</a>
+
                 
-                
-            </div>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/hexo+github打造个人博客系列之Coding Pages去广告.html">hexo+github打造个人博客系列之Coding Pages去广告</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="尴尬的广告"><a href="#尴尬的广告" class="headerlink" title="尴尬的广告"></a>尴尬的广告</h2><p>大家应该可以看到，在第一次以自定义域名访问Coding Pages时，会有一个跳转广告。是不是很尴尬？</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/hexo+github打造个人博客系列之Coding Pages去广告.html#more">继续阅读</a>
-                </div>
-            </div>
-        </div>
-        
-        
     </div>
 </div>
 
 
 
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/hexo+github打造个人博客系列之Coding托管（实现github+coding双线部署）.html" class="image is-7by1">
-            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/coding.png" alt="hexo+github打造个人博客系列之Coding托管（实现github+coding双线部署）">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-02-01T14:16:49.000Z">2018-02-01</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Hexo/">Hexo</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    7 分钟 读完 (大约 1014 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/hexo+github打造个人博客系列之Coding托管（实现github+coding双线部署）.html">hexo+github打造个人博客系列之Coding托管（实现github+coding双线部署）</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>从网上搜索的结果来看，很多人都认为<code>github</code>博客在国内的<code>seo</code>情况不太好，不被百度爬虫所青睐。一个比较好的方案是，同时将<code>hexo</code>博客部署到<code>github</code>和<code>Coding</code>上。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/hexo+github打造个人博客系列之Coding托管（实现github+coding双线部署）.html#more">继续阅读</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/hexo+github打造个人博客系列之数据统计与分析.html" class="image is-7by1">
-            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/h-mini.svg" alt="hexo+github打造个人博客系列之数据统计与分析">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-01-29T14:41:14.000Z">2018-01-29</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Hexo/">Hexo</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    4 分钟 读完 (大约 670 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/hexo+github打造个人博客系列之数据统计与分析.html">hexo+github打造个人博客系列之数据统计与分析</a>
-            
-        </h1>
-        <div class="content">
-            <p>看到各种第三方服务，我就想折腾一下。本文简单说一下如何给自己的博客加上站点统计功能。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/hexo+github打造个人博客系列之数据统计与分析.html#more">继续阅读</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/hexo+github打造个人博客系列之小技巧.html" class="image is-7by1">
-            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/h-mini.svg" alt="hexo+github打造个人博客系列之小技巧">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-01-27T07:15:00.000Z">2018-01-27</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Hexo/">Hexo</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 分钟 读完 (大约 256 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/hexo+github打造个人博客系列之小技巧.html">hexo+github打造个人博客系列之小技巧</a>
-            
-        </h1>
-        <div class="content">
-            <p>这篇博客记录一下hexo+github打造个人博客过程想到的一些小技巧，分享给大家。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/hexo+github打造个人博客系列之小技巧.html#more">继续阅读</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/hexo+github打造个人博客系列之评论系统.html" class="image is-7by1">
-            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/h-mini.svg" alt="hexo+github打造个人博客系列之评论系统">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-01-27T03:24:00.000Z">2018-01-27</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Hexo/">Hexo</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    8 分钟 读完 (大约 1240 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/hexo+github打造个人博客系列之评论系统.html">hexo+github打造个人博客系列之评论系统</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一个博客怎么能没有评论互动，那也太枯燥无味了吧，简直反人类。最近也是刚学会一点皮毛，把hexo博客搭了起来。于是就想折腾一下评论系统。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/hexo+github打造个人博客系列之评论系统.html#more">继续阅读</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/hexo+github打造个人博客系列之主题和部署.html" class="image is-7by1">
-            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/h-mini.svg" alt="hexo+github打造个人博客系列之主题和部署">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-01-24T14:33:00.000Z">2018-01-24</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Hexo/">Hexo</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    4 分钟 读完 (大约 603 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/hexo+github打造个人博客系列之主题和部署.html">hexo+github打造个人博客系列之主题和部署</a>
-            
-        </h1>
-        <div class="content">
-            <p>这篇文章主要记录基于hexo实现博客中一些复杂功能点的相关操作细节，为自己做一个笔记，也为后来者提供一些思路。</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/hexo+github打造个人博客系列之主题和部署.html#more">继续阅读</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-    
 <div class="card card-transparent">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <div class="pagination-previous is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/categories/Hexo/page/0/">上一页</a>
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/即将是史上最全的meta大全.html">
+                <span class="level-item">即将是史上最全的meta大全</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/categories/Hexo/page/2/">下一页</a>
-        </div>
-        <ul class="pagination-list is-hidden-mobile">
-            
-            <li><a class="pagination-link is-current" href="/categories/Hexo/">1</a></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/categories/Hexo/page/2/">2</a></li>
-            
-        </ul>
-    </nav>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: 'e244808d754d6ef5f8aa',
+        clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
+        id: '3747a580bdd1dde965406c49861326d3',
+        repo: 'tusi-hexo',
+        owner: 'cumt-robin',
+        admin: "cumt-robin",
+        createIssueManually: false,
+        distractionFreeMode: false
+    })
+    gitalk.render('comment-container')
+</script>
+
+    </div>
 </div>
 </div>
                 
@@ -1868,7 +1660,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="Tusi博客|分享最新开发心得" height="28">
+                    <img src="/images/logo.png" alt="发布一个简单的npm包" height="28">
                 
                 </a>
                 <p class="is-size-7">
