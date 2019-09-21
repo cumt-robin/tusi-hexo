@@ -26,7 +26,6 @@ http://hexo.wbjiang.cn/WebSocket实现实时通讯（socket-io实现简版聊天
 http://hexo.wbjiang.cn/windows系统下安装mysql8-0.html
 http://hexo.wbjiang.cn/回头再看JS模块化编程之AMD.html
 http://hexo.wbjiang.cn/回头再看JS模块化编程.html
-http://hexo.wbjiang.cn/干货！Git-如何使用多个托管平台管理代码.html
 http://hexo.wbjiang.cn/解决Chrome的表单自动填充问题.html
 http://hexo.wbjiang.cn/自定义滑块Range Slider.html
 http://hexo.wbjiang.cn/前端面试题记录.html
