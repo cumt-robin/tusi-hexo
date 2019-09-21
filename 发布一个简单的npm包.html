@@ -19,7 +19,7 @@
 <meta property="og:description" content="本文简单地记录了发布一个简单npm包的过程，以便后续参考使用。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/npm%E9%80%9A%E7%94%A8.jpg">
-<meta property="og:updated_time" content="2019-09-21T06:43:06.083Z">
+<meta property="og:updated_time" content="2019-09-21T07:14:56.112Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="发布一个简单的npm包">
 <meta name="twitter:description" content="本文简单地记录了发布一个简单npm包的过程，以便后续参考使用。">
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 671 个字)
+                    5 分钟 读完 (大约 691 个字)
                 </span>
                 
                 
@@ -221,8 +221,8 @@ var _hmt = _hmt || [];
 <p>发布成功，会有这样的提示，</p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">npm notice</span><br><span class="line">npm notice package: weapp-utils@1.0.0</span><br><span class="line">npm notice === Tarball Contents ===</span><br><span class="line">npm notice 397B   package.json</span><br><span class="line">npm notice 1.1kB  LICENSE</span><br><span class="line">npm notice 2.7kB  README.md</span><br><span class="line">npm notice 12.9kB lib/index.js</span><br><span class="line">npm notice === Tarball Details ===</span><br><span class="line">npm notice name:          weapp-utils</span><br><span class="line">npm notice version:       1.0.0</span><br><span class="line">npm notice package size:  5.1 kB</span><br><span class="line">npm notice unpacked size: 17.1 kB</span><br><span class="line">npm notice shasum:        a7f2f428d9334dd1dd749d2a492dbc4df7195d0d</span><br><span class="line">npm notice integrity:     sha512-Cp8jPhOMq73y6[...]bfofe7X+4cLeg==</span><br><span class="line">npm notice total files:   4</span><br><span class="line">npm notice</span><br><span class="line">+ weapp-utils@1.0.0</span><br></pre></td></tr></table></figure>
 
-<p>上<code>npm</code>搜索<code>wechat-utils</code>，发现有了！</p>
-<p><img src=""data-src="C:%5CUsers%5CJiang.Wenbin%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1568277181305.png" alt="1568277181305"></p>
+<p>上<code>npm</code>搜索<code>weapp-utils</code>，发现有了！</p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/npm%E6%9F%A5%E8%AF%A2%E5%88%B0%E5%8F%91%E5%B8%83%E7%9A%84%E5%8C%85.png" alt="npm查询到所发布的包"></p>
 <h1 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h1><p>发布成功了，也要验证下，是否可正常使用。</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> &#123; merge &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"weapp-utils"</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">let</span> mergedOptions = merge(DEFAULT_OPTIONS, options)</span><br></pre></td></tr></table></figure>
 
