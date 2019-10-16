@@ -1,3 +1,4 @@
+http://hexo.wbjiang.cn/如何判断IE OCX插件正常安装？.html
 http://hexo.wbjiang.cn/耐人寻味的CSS属性white-space.html
 http://hexo.wbjiang.cn/块级元素和行内元素.html
 http://hexo.wbjiang.cn/发布一个简单的npm包.html
