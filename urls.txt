@@ -1,3 +1,4 @@
+http://hexo.wbjiang.cn/cordova开发环境搭建.html
 http://hexo.wbjiang.cn/gradle环境搭建.html
 http://hexo.wbjiang.cn/耐人寻味的CSS属性font-family.html
 http://hexo.wbjiang.cn/如何判断IE OCX插件正常安装？.html
