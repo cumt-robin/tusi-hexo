@@ -1,0 +1,2061 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>用初中数学知识撸一个canvas环形进度条 - Tusi博客|分享最新开发心得</title>
+
+
+    <meta name="description" content="周末好，今天给大家带来一款接地气的环形进度条组件vue-awesome-progress。">
+<meta name="keywords" content="canvas,进度条,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用初中数学知识撸一个canvas环形进度条">
+<meta property="og:url" content="http://hexo.wbjiang.cn/用初中数学知识撸一个canvas环形进度条.html">
+<meta property="og:site_name" content="Tusi博客|分享最新开发心得">
+<meta property="og:description" content="周末好，今天给大家带来一款接地气的环形进度条组件vue-awesome-progress。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://qncdn.wbjiang.cn/vue-awesome-progress.png">
+<meta property="og:updated_time" content="2019-11-10T05:49:52.561Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用初中数学知识撸一个canvas环形进度条">
+<meta name="twitter:description" content="周末好，今天给大家带来一款接地气的环形进度条组件vue-awesome-progress。">
+<meta name="twitter:image" content="https://qncdn.wbjiang.cn/vue-awesome-progress.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/rainbow.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0cc7298ff16e9d2c7ae3a15b3ee1d9e7";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+        <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="用初中数学知识撸一个canvas环形进度条" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">首页</a>
+                
+                <a class="navbar-item"
+                href="/archives">时间线</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Follow me on GitHub" href="https://github.com/cumt-robin">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/vue-awesome-progress.png" alt="用初中数学知识撸一个canvas环形进度条">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-11-10T05:47:37.000Z">2019-11-10</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/canvas/">canvas</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    23 分钟 读完 (大约 3484 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                用初中数学知识撸一个canvas环形进度条
+            
+        </h1>
+        <div class="content">
+            <p>周末好，今天给大家带来一款接地气的环形进度条组件<code>vue-awesome-progress</code>。</p>
+<a id="more"></a>
+<p>近日被设计小姐姐要求实现这么一个环形进度条效果，大体由四部分组成，分别是底色圆环，进度弧，环内文字，进度圆点。设计稿截图如下：</p>
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E7%8E%AF%E7%8A%B6%E8%BF%9B%E5%BA%A6%E6%9D%A1%E8%AE%BE%E8%AE%A1%E7%A8%BF.png" alt="环形进度条设计稿"></p>
+<p>我的第一反应还是找现成的组件，市面上很多组件都实现了前3点，独独没找到能画进度圆点的组件，不然稍加定制也能复用。既然没有现成的组件，只有自己用<code>vue + canvas</code>撸一个了。</p>
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E6%88%91%E4%B9%9F%E5%BE%88%E6%97%A0%E5%A5%88%E5%95%8A.jpg" alt="我也很无奈啊"></p>
+<h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p>先放个效果图，然后再说下具体实现过程，各位看官且听我慢慢道来。</p>
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E7%8E%AF%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%95%88%E6%9E%9C%E5%9B%BE.gif" alt="环形进度条效果图"></p>
+<h1 id="安装与使用"><a href="#安装与使用" class="headerlink" title="安装与使用"></a>安装与使用</h1><p><a href="https://github.com/cumt-robin/vue-awesome-progress" target="_blank" rel="noopener">源码地址</a>，欢迎<code>star</code>和提<code>issue</code>。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save vue-awesome-progress</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="全局注册"><a href="#全局注册" class="headerlink" title="全局注册"></a>全局注册</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span></span><br><span class="line"><span class="hljs-keyword">import</span> VueAwesomeProgress <span class="hljs-keyword">from</span> <span class="hljs-string">"vue-awesome-progress"</span></span><br><span class="line">Vue.use(VueAwesomeProgress)</span><br></pre></td></tr></table></figure>
+
+<h3 id="局部使用"><a href="#局部使用" class="headerlink" title="局部使用"></a>局部使用</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import VueAwesomeProgress from &quot;vue-awesome-progress&quot;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">        VueAwesomeProgress</span><br><span class="line">    &#125;,</span><br><span class="line">    // 其他代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="webpack配置"><a href="#webpack配置" class="headerlink" title="webpack配置"></a>webpack配置</h3><p>由于当前版本发布时，未进行<code>babel</code>编译，因此使用时需要自行将<code>vue-awesome-progress</code>纳入<code>babel-loader</code>的解析范围。示例如下：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// resolve函数是连接路径的，方法体是path.join(__dirname, "..", dir)</span></span><br><span class="line">&#123;</span><br><span class="line">  test: <span class="hljs-regexp">/\.js$/</span>,</span><br><span class="line">  loader: <span class="hljs-string">"babel-loader"</span>,</span><br><span class="line">  include: [</span><br><span class="line">    resolve(<span class="hljs-string">"src"</span>),</span><br><span class="line">    resolve(<span class="hljs-string">"node_modules/vue-awesome-progress"</span>)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="静态展示"><a href="#静态展示" class="headerlink" title="静态展示"></a>静态展示</h1><p>任何事都不是一蹴而就的，我们首先来实现一个静态的效果，然后再实现动画效果，甚至是复杂的控制逻辑。</p>
+<h2 id="确定画布大小"><a href="#确定画布大小" class="headerlink" title="确定画布大小"></a>确定画布大小</h2><p>第一步是确定画布大小。从设计稿我们可以直观地看到，整个环形进度条的最外围是由进度圆点确定的，而进度圆点的圆心在圆环圆周上。</p>
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E7%8E%AF%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%A8%A1%E5%9E%8B.png" alt="环形进度条模型"></p>
+<p>因此我们得出伪代码如下：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// canvasSize: canvas宽度/高度</span></span><br><span class="line"><span class="hljs-comment">// outerRadius: 外围半径</span></span><br><span class="line"><span class="hljs-comment">// pointRadius: 圆点半径</span></span><br><span class="line"><span class="hljs-comment">// pointRadius: 圆环半径</span></span><br><span class="line">canvasSize = <span class="hljs-number">2</span> * outerRadius = <span class="hljs-number">2</span> * (pointRadius + circleRadius)</span><br></pre></td></tr></table></figure>
+
+<p>据此我们可以定义如下组件属性：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">  circleRadius: &#123;</span><br><span class="line">    type: <span class="hljs-built_in">Number</span>,</span><br><span class="line">    <span class="hljs-keyword">default</span>: <span class="hljs-number">40</span></span><br><span class="line">  &#125;,</span><br><span class="line">  pointRadius: &#123;</span><br><span class="line">    type: <span class="hljs-built_in">Number</span>,</span><br><span class="line">    <span class="hljs-keyword">default</span>: <span class="hljs-number">6</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">computed: &#123;</span><br><span class="line">  <span class="hljs-comment">// 外围半径</span></span><br><span class="line">  outerRadius() &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.circleRadius + <span class="hljs-keyword">this</span>.pointRadius</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="hljs-comment">// canvas宽/高</span></span><br><span class="line">  canvasSize() &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-number">2</span> * <span class="hljs-keyword">this</span>.outerRadius + <span class="hljs-string">'px'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么<code>canvas</code>大小也可以先进行绑定了</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"canvasDemo"</span> <span class="hljs-attr">:width</span>=<span class="hljs-string">"canvasSize"</span> <span class="hljs-attr">:height</span>=<span class="hljs-string">"canvasSize"</span> /&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="获取绘图上下文"><a href="#获取绘图上下文" class="headerlink" title="获取绘图上下文"></a>获取绘图上下文</h2><p><code>getContext(&#39;2d&#39;)</code>方法返回一个用于在<code>canvas</code>上绘图的环境，支持一系列<code>2d</code>绘图<code>API</code>。 </p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">  <span class="hljs-comment">// 在$nextTick初始化画布，不然dom还未渲染好</span></span><br><span class="line">  <span class="hljs-keyword">this</span>.$nextTick(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.initCanvas()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">  initCanvas() &#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> canvas = <span class="hljs-keyword">this</span>.$refs.canvasDemo;</span><br><span class="line">    <span class="hljs-keyword">var</span> ctx = canvas.getContext(<span class="hljs-string">'2d'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="画底色圆环"><a href="#画底色圆环" class="headerlink" title="画底色圆环"></a>画底色圆环</h2><p>完成了上述步骤后，我们就可以着手画各个元素了。我们先画圆环，这时我们还要定义两个属性，分别是圆环线宽<code>circleWidth</code>和圆环颜色<code>circleColor</code>。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">circleWidth: &#123;</span><br><span class="line">  type: <span class="hljs-built_in">Number</span>,</span><br><span class="line">  <span class="hljs-keyword">default</span>: <span class="hljs-number">2</span></span><br><span class="line">&#125;,</span><br><span class="line">circleColor: &#123;</span><br><span class="line">  type: <span class="hljs-built_in">String</span>,</span><br><span class="line">  <span class="hljs-keyword">default</span>: <span class="hljs-string">'#3B77E3'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>canvas</code>提供的画圆弧的方法是<code>ctx.arc()</code>，需要提供圆心坐标，半径，起止弧度，是否逆时针等参数。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise);</span><br></pre></td></tr></table></figure>
+
+<p> 我们知道，<code>Web</code>网页中的坐标系是这样的，从绝对定位的设置上其实就能看出来（<code>top</code>，<code>left</code>设置正负值会发生什么变化），而且原点<code>(0, 0)</code>是在盒子（比如说<code>canvas</code>）的左上角哦。 </p>
+<p><img src=""data-src="https://qncdn.wbjiang.cn/web%E5%9D%90%E6%A0%87%E7%B3%BB.jpeg" alt="web坐标系"></p>
+<p>对于角度而言，<code>0°</code>是<code>x</code>轴正向，默认是顺时针方向旋转。</p>
+<p>圆环的圆心就是<code>canvas</code>的中心，所以<code>x</code>, <code>y</code> 取<code>outerRadius</code>的值就可以了。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ctx.strokeStyle = <span class="hljs-keyword">this</span>.circleColor;</span><br><span class="line">ctx.lineWidth = <span class="hljs-keyword">this</span>.circleWidth;</span><br><span class="line">ctx.beginPath();</span><br><span class="line">ctx.arc(<span class="hljs-keyword">this</span>.outerRadius, <span class="hljs-keyword">this</span>.outerRadius, <span class="hljs-keyword">this</span>.circleRadius, <span class="hljs-number">0</span>, <span class="hljs-keyword">this</span>.deg2Arc(<span class="hljs-number">360</span>));</span><br><span class="line">ctx.stroke();</span><br></pre></td></tr></table></figure>
+
+<p>注意<code>arc</code>传的是弧度参数，而不是我们常理解的<code>360°</code>这种概念，因此我们需要将我们理解的<code>360°</code>转为弧度。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// deg转弧度</span></span><br><span class="line">deg2Arc(deg) &#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> deg / <span class="hljs-number">180</span> * <span class="hljs-built_in">Math</span>.PI</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E7%94%BB%E5%9C%86%E7%8E%AF.png" alt="画圆环"></p>
+<h2 id="画文字"><a href="#画文字" class="headerlink" title="画文字"></a>画文字</h2><p>调用<code>fillText</code>绘制文字，利用<code>canvas.clientWidth / 2</code>和<code>canvas.clientWidth / 2</code>取得中点坐标，结合控制文字对齐的两个属性<code>textAlign</code>和<code>textBaseline</code>，我们可以将文字绘制在画布中央。文字的值由<code>label</code>属性接收，字体大小由<code>fontSize</code>属性接收，颜色则取的<code>fontColor</code>。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.label) &#123;</span><br><span class="line">  ctx.font = <span class="hljs-string">`<span class="hljs-subst">$&#123;<span class="hljs-keyword">this</span>.fontSize&#125;</span>px Arial,"Microsoft YaHei"`</span></span><br><span class="line">  ctx.fillStyle = <span class="hljs-keyword">this</span>.fontColor;</span><br><span class="line">  ctx.textAlign = <span class="hljs-string">'center'</span></span><br><span class="line">  ctx.textBaseline = <span class="hljs-string">'middle'</span></span><br><span class="line">  ctx.fillText(<span class="hljs-keyword">this</span>.label, canvas.clientWidth / <span class="hljs-number">2</span>, canvas.clientWidth / <span class="hljs-number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E7%94%BB%E6%96%87%E5%AD%97.png" alt="画文字"></p>
+<h2 id="画进度弧"><a href="#画进度弧" class="headerlink" title="画进度弧"></a>画进度弧</h2><p>支持普通颜色和渐变色，<code>withGradient</code>默认为<code>true</code>，代表使用渐变色绘制进度弧，渐变方向我默认给的从上到下。如果希望使用普通颜色，<code>withGradient</code>传<code>false</code>即可，并可以通过<code>lineColor</code>自定义颜色。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.withGradient) &#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.gradient = ctx.createLinearGradient(<span class="hljs-keyword">this</span>.circleRadius, <span class="hljs-number">0</span>, <span class="hljs-keyword">this</span>.circleRadius, <span class="hljs-keyword">this</span>.circleRadius * <span class="hljs-number">2</span>);</span><br><span class="line">  <span class="hljs-keyword">this</span>.lineColorStops.forEach(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.gradient.addColorStop(item.percent, item.color);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>lineColorStops</code>是渐变色的颜色偏移断点，由父组件传入，可传入任意个颜色断点，格式如下：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">colorStops2: [</span><br><span class="line">  &#123; <span class="hljs-attr">percent</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">color</span>: <span class="hljs-string">'#FF9933'</span> &#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">percent</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">color</span>: <span class="hljs-string">'#FF4949'</span> &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>画一条从上到下的进度弧，即<code>270°</code>到<code>90°</code></p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ctx.strokeStyle = <span class="hljs-keyword">this</span>.withGradient ? <span class="hljs-keyword">this</span>.gradient : <span class="hljs-keyword">this</span>.lineColor;</span><br><span class="line">ctx.lineWidth = <span class="hljs-keyword">this</span>.lineWidth;</span><br><span class="line">ctx.beginPath();</span><br><span class="line">ctx.arc(<span class="hljs-keyword">this</span>.outerRadius, <span class="hljs-keyword">this</span>.outerRadius, <span class="hljs-keyword">this</span>.circleRadius, <span class="hljs-keyword">this</span>.deg2Arc(<span class="hljs-number">270</span>), <span class="hljs-keyword">this</span>.deg2Arc(<span class="hljs-number">90</span>));</span><br><span class="line">ctx.stroke();</span><br></pre></td></tr></table></figure>
+
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E7%94%BB%E8%BF%9B%E5%BA%A6%E5%BC%A7.png" alt="画进度弧"></p>
+<p>其中<code>lineWidth</code>是弧线的宽度，由父组件传入</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lineWidth: &#123;</span><br><span class="line">  type: <span class="hljs-built_in">Number</span>,</span><br><span class="line">  <span class="hljs-keyword">default</span>: <span class="hljs-number">8</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="画进度圆点"><a href="#画进度圆点" class="headerlink" title="画进度圆点"></a>画进度圆点</h2><p>最后我们需要把进度圆点补上，我们先写死一个角度<code>90°</code>，显而易见，圆点坐标为<code>(this.outerRadius, this.outerRadius + this.circleRadius)</code></p>
+<p><img src=""data-src="https://qncdn.wbjiang.cn/90%E5%BA%A6%E5%9C%86%E7%82%B9%E5%9D%90%E6%A0%87.png" alt="90度圆点坐标"></p>
+<p>画圆点的代码如下：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ctx.fillStyle = <span class="hljs-keyword">this</span>.pointColor;</span><br><span class="line">ctx.beginPath();</span><br><span class="line">ctx.arc(<span class="hljs-keyword">this</span>.outerRadius, <span class="hljs-keyword">this</span>.outerRadius + <span class="hljs-keyword">this</span>.circleRadius, <span class="hljs-keyword">this</span>.pointRadius, <span class="hljs-number">0</span>, <span class="hljs-keyword">this</span>.deg2Arc(<span class="hljs-number">360</span>));</span><br><span class="line">ctx.fill();</span><br></pre></td></tr></table></figure>
+
+<p>其中<code>pointRadius</code>是圆点的半径，由父组件传入：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pointRadius: &#123;</span><br><span class="line">  type: <span class="hljs-built_in">Number</span>,</span><br><span class="line">  <span class="hljs-keyword">default</span>: <span class="hljs-number">6</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src=""data-src="https://qncdn.wbjiang.cn/90%E5%BA%A6%E7%94%BB%E5%9C%86%E7%82%B9.png" alt="90度画圆点"></p>
+<h2 id="角度自定义"><a href="#角度自定义" class="headerlink" title="角度自定义"></a>角度自定义</h2><p>当然，进度条的角度是灵活定义的，包括开始角度，结束角度，都应该由调用者随意给出。因此我们再定义一个属性<code>angleRange</code>，用于接收起止角度。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">angleRange: &#123;</span><br><span class="line">  type: <span class="hljs-built_in">Array</span>,</span><br><span class="line">  <span class="hljs-keyword">default</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> [<span class="hljs-number">270</span>, <span class="hljs-number">90</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有了这个属性，我们就可以随意地画进度弧和圆点了，哈哈哈哈。</p>
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E7%AD%89%E7%AD%89%E4%BD%A0%E5%BF%98%E4%BA%86%E8%BF%99%E4%B8%AA%E5%9C%BA%E6%99%AF.jpg" alt="等等，你忘了这个场景"></p>
+<p>老哥，这种圆点坐标怎么求？</p>
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E7%89%B9%E6%AE%8A%E8%A7%92%E5%BA%A6%E6%80%8E%E4%B9%88%E6%B1%82%E5%9D%90%E6%A0%87.png" alt="特殊角度怎么求圆点圆心坐标"></p>
+<p>噗……看来高兴过早了，最重要的是根据不同角度求得圆点的圆心坐标，这让我顿时犯了难。</p>
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E6%96%8C%E5%93%A5%E4%BD%A0%E8%A6%81%E5%86%B7%E9%9D%99.gif" alt="你要冷静"></p>
+<p>经过冷静思考，我脑子里闪过了一个利用正余弦公式求坐标的思路，但前提是坐标系原点如果在圆环外接矩形的左上角才好算。仔细想想，冇问题啦，我先给坐标系平移一下，最后求出来结果，再补个平移差值不就行了嘛。</p>
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E5%B9%B3%E7%A7%BB%E5%9D%90%E6%A0%87%E7%B3%BB%E5%90%8E%E6%B1%82%E5%9C%86%E7%82%B9%E5%9D%90%E6%A0%87.png" alt="平移坐标系后求圆点坐标"></p>
+<p>👆画图工具不是很熟练，这里图没画好，线歪了，请忽略细节。</p>
+<p>好的，我们先给坐标系向右下方平移<code>pointRadius</code>，最后求得结果再加上<code>pointRadius</code>就好了。伪代码如下：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// realx：真实的x坐标</span></span><br><span class="line"><span class="hljs-comment">// realy：真实的y坐标</span></span><br><span class="line"><span class="hljs-comment">// resultx：平移后求取的x坐标</span></span><br><span class="line"><span class="hljs-comment">// resultx：平移后求取的y坐标</span></span><br><span class="line"><span class="hljs-comment">// pointRadius 圆点半径</span></span><br><span class="line">realx = resultx + pointRadius</span><br><span class="line">realy = resulty = pointRadius</span><br></pre></td></tr></table></figure>
+
+<p>求解坐标的思路大概如下，分四个范围判断，得出求解公式，应该还可以化简，不过我数学太菜了，先这样吧。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">getPositionsByDeg(deg) &#123;</span><br><span class="line">    <span class="hljs-keyword">let</span> x = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">let</span> y = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">if</span> (deg &gt;= <span class="hljs-number">0</span> &amp;&amp; deg &lt;= <span class="hljs-number">90</span>) &#123;</span><br><span class="line">        <span class="hljs-comment">// 0~90度</span></span><br><span class="line">        x = <span class="hljs-keyword">this</span>.circleRadius * (<span class="hljs-number">1</span> + <span class="hljs-built_in">Math</span>.cos(<span class="hljs-keyword">this</span>.deg2Arc(deg)))</span><br><span class="line">        y = <span class="hljs-keyword">this</span>.circleRadius * (<span class="hljs-number">1</span> + <span class="hljs-built_in">Math</span>.sin(<span class="hljs-keyword">this</span>.deg2Arc(deg)))</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (deg &gt; <span class="hljs-number">90</span> &amp;&amp; deg &lt;= <span class="hljs-number">180</span>) &#123;</span><br><span class="line">        <span class="hljs-comment">// 90~180度</span></span><br><span class="line">        x = <span class="hljs-keyword">this</span>.circleRadius * (<span class="hljs-number">1</span> - <span class="hljs-built_in">Math</span>.cos(<span class="hljs-keyword">this</span>.deg2Arc(<span class="hljs-number">180</span> - deg)))</span><br><span class="line">        y = <span class="hljs-keyword">this</span>.circleRadius * (<span class="hljs-number">1</span> + <span class="hljs-built_in">Math</span>.sin(<span class="hljs-keyword">this</span>.deg2Arc(<span class="hljs-number">180</span> - deg)))</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (deg &gt; <span class="hljs-number">180</span> &amp;&amp; deg &lt;= <span class="hljs-number">270</span>) &#123;</span><br><span class="line">        <span class="hljs-comment">// 180~270度</span></span><br><span class="line">        x = <span class="hljs-keyword">this</span>.circleRadius * (<span class="hljs-number">1</span> - <span class="hljs-built_in">Math</span>.sin(<span class="hljs-keyword">this</span>.deg2Arc(<span class="hljs-number">270</span> - deg)))</span><br><span class="line">        y = <span class="hljs-keyword">this</span>.circleRadius * (<span class="hljs-number">1</span> - <span class="hljs-built_in">Math</span>.cos(<span class="hljs-keyword">this</span>.deg2Arc(<span class="hljs-number">270</span> - deg)))</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">        <span class="hljs-comment">// 270~360度</span></span><br><span class="line">        x = <span class="hljs-keyword">this</span>.circleRadius * (<span class="hljs-number">1</span> + <span class="hljs-built_in">Math</span>.cos(<span class="hljs-keyword">this</span>.deg2Arc(<span class="hljs-number">360</span> - deg)))</span><br><span class="line">        y = <span class="hljs-keyword">this</span>.circleRadius * (<span class="hljs-number">1</span> - <span class="hljs-built_in">Math</span>.sin(<span class="hljs-keyword">this</span>.deg2Arc(<span class="hljs-number">360</span> - deg)))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> &#123; x, y &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后再补上偏移值即可。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> pointPosition = <span class="hljs-keyword">this</span>.getPositionsByDeg(nextDeg);</span><br><span class="line">ctx.arc(pointPosition.x + <span class="hljs-keyword">this</span>.pointRadius, pointPosition.y + <span class="hljs-keyword">this</span>.pointRadius, <span class="hljs-keyword">this</span>.pointRadius, <span class="hljs-number">0</span>, <span class="hljs-keyword">this</span>.deg2Arc(<span class="hljs-number">360</span>));</span><br></pre></td></tr></table></figure>
+
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E4%BB%BB%E6%84%8F%E8%A7%92%E5%BA%A6%E7%94%BB%E5%BC%A7%E7%BA%BF%E5%92%8C%E5%9C%86%E7%82%B9.png" alt=" 任意角度画弧线和圆点 "></p>
+<p>这样，一个基本的<code>canvas</code>环形进度条就成型了。</p>
+<h1 id="动画展示"><a href="#动画展示" class="headerlink" title="动画展示"></a>动画展示</h1><p>静态的东西逼格自然是不够的，因此我们需要再搞点动画效果装装逼。</p>
+<h2 id="基础动画"><a href="#基础动画" class="headerlink" title="基础动画"></a>基础动画</h2><p>我们先简单实现一个线性的动画效果。基本思路是把开始角度和结束角度的差值分为<code>N</code>段，利用<code>window.requestAnimationFrame</code>依次执行动画。</p>
+<p>比如从<code>30°</code>到<code>90°</code>，我给它分为6段，每次画<code>10°</code>。要注意<code>canvas</code>画这种动画过程一般是要重复地清空画布并重绘的，所以第一次我画的弧线范围就是<code>30°~40°</code>，第二次我画的弧线范围就是<code>30°~50°</code>，以此类推……</p>
+<p>基本的代码结构如下，具体代码请参考<a href="https://github.com/cumt-robin/vue-awesome-progress" target="_blank" rel="noopener">vue-awesome-progress</a> <code>v1.1.0</code>版本，如果顺手帮忙点个<code>star</code>也是极好的。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">animateDrawArc(canvas, ctx, startDeg, endDeg, nextDeg, step) &#123;</span><br><span class="line">  <span class="hljs-built_in">window</span>.requestAnimationFrame(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-comment">// 清空画布</span></span><br><span class="line">    ctx.clearRect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, canvas.clientWidth, canvas.clientHeight);</span><br><span class="line">    <span class="hljs-comment">// 求下一个目标角度</span></span><br><span class="line">    nextDeg = <span class="hljs-keyword">this</span>.getTargetDeg(nextDeg || startDeg, endDeg, step);</span><br><span class="line">    <span class="hljs-comment">// 画圆环</span></span><br><span class="line">    <span class="hljs-comment">// 画文字</span></span><br><span class="line">    <span class="hljs-comment">// 画进度弧线</span></span><br><span class="line">    <span class="hljs-comment">// 画进度圆点</span></span><br><span class="line">    <span class="hljs-keyword">if</span> (nextDeg !== endDeg) &#123;</span><br><span class="line">      <span class="hljs-comment">// 满足条件继续调用动画，否则结束动画</span></span><br><span class="line">      <span class="hljs-keyword">this</span>.animateDrawArc(canvas, ctx, startDeg, endDeg, nextDeg, step)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E7%8E%AF%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1%E6%99%AE%E9%80%9A%E5%8A%A8%E7%94%BB.gif" alt="线性动画"></p>
+<h2 id="缓动效果"><a href="#缓动效果" class="headerlink" title="缓动效果"></a>缓动效果</h2><p>线性动画显得有点单调，可操作性不大，因此我考虑引入贝塞尔缓动函数<code>easing</code>，并且支持传入动画执行时间周期<code>duration</code>，增强了可定制性，使用体验更好。这里不列出实现代码了，请前往<a href="https://github.com/cumt-robin/vue-awesome-progress" target="_blank" rel="noopener">vue-awesome-progress</a>查看。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">vue-awesome-progress</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"188人"</span> <span class="hljs-attr">:duration</span>=<span class="hljs-string">"10"</span> <span class="hljs-attr">easing</span>=<span class="hljs-string">"0,0,1,1"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">vue-awesome-progress</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">label</span>=<span class="hljs-string">"36℃"</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">circle-color</span>=<span class="hljs-string">"#FF4949"</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">:line-color-stops</span>=<span class="hljs-string">"colorStops"</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">:angle-range</span>=<span class="hljs-string">"[60, 180]"</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">:duration</span>=<span class="hljs-string">"5"</span></span></span><br><span class="line"><span class="hljs-tag">/&gt;</span></span><br><span class="line"></span><br><span class="line">// 省略部分...</span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">vue-awesome-progress</span> <span class="hljs-attr">label</span>=<span class="hljs-string">"188人"</span> <span class="hljs-attr">easing</span>=<span class="hljs-string">"1,0.28,0.17,0.53"</span> <span class="hljs-attr">:duration</span>=<span class="hljs-string">"10"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">vue-awesome-progress</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">label</span>=<span class="hljs-string">"36℃"</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">circle-color</span>=<span class="hljs-string">"#FF4949"</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">:line-color-stops</span>=<span class="hljs-string">"colorStops"</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">:angle-range</span>=<span class="hljs-string">"[60, 180]"</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">:duration</span>=<span class="hljs-string">"5"</span></span></span><br><span class="line"><span class="hljs-tag">  <span class="hljs-attr">easing</span>=<span class="hljs-string">"0.17,0.67,0.83,0.67"</span></span></span><br><span class="line"><span class="hljs-tag">/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E7%8E%AF%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%BC%93%E5%8A%A8%E6%95%88%E6%9E%9C.gif" alt="环形进度条缓动效果"></p>
+<p>可以看到，当传入不同的动画周期<code>duration</code>和缓动参数<code>easing</code>时，动画效果各异，完全取决于使用者自己。</p>
+<h1 id="其他效果"><a href="#其他效果" class="headerlink" title="其他效果"></a>其他效果</h1><p>当然根据组件支持的属性，我们也可以定制出其他效果，比如不显示文字，不显示圆点，弧线线宽与圆环线宽一样，不使用渐变色，不需要动画，等等。我们后续也会考虑支持更多能力，比如控制进度，数字动态增长等！具体使用方法，请参考<a href="https://github.com/cumt-robin/vue-awesome-progress" target="_blank" rel="noopener">vue-awesome-progress</a>。</p>
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E7%8E%AF%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1%E5%85%B6%E4%BB%96%E6%95%88%E6%9E%9C%E6%A1%88%E4%BE%8B.gif" alt="其他效果案例"></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>写完这个组件有让我感觉到，程序员最终不是输给了代码和技术的快速迭代，而是输给了自己的逻辑思维能力和数学功底。就<a href="https://github.com/cumt-robin/vue-awesome-progress" target="_blank" rel="noopener">vue-awesome-progress</a>这个组件而言，根据这个思路，我们也能迅速开发出适用于<code>React</code>，<code>Angular</code>以及其他框架生态下的组件。工作三年有余，接触了不少框架和技术，经历了<code>MVVM</code>，<code>Hybrid</code>，<code>小程序</code>，<code>跨平台</code>，<code>大前端</code>，<code>serverless</code>的大火，也时常感慨“学不动了”，在这个快速演进的代码世界里常常感到失落。好在自己还没有丢掉分析问题的能力，而不仅仅是调用各种<code>API</code>和插件，这可能是程序员最宝贵的财富吧。前路坎坷，我辈当不忘初心，愿你出走半生，归来仍是少年！</p>
+<hr>
+<p><strong>2019年11月10日更新</strong></p>
+<p>由于我从业务场景出发做了这个组件，没有考虑到大部分场景都是传百分比控制进度的，因此在<code>v1.4.0</code>版本做了如下修正：</p>
+<ol>
+<li><p>废弃<code>angle-range</code>，改用<code>percentage</code>控制进度，同时提供<code>start-deg</code>属性控制起始角度；</p>
+</li>
+<li><p><code>with-gradient</code>改为<code>use-gradient</code></p>
+</li>
+<li><p>通过<code>show-text</code>控制是否显示进度文字</p>
+</li>
+<li><p>支持通过<code>format</code>函数自定义显示文字的规则</p>
+</li>
+</ol>
+<p><img src=""data-src="https://qncdn.wbjiang.cn/v1.4.0%E6%95%88%E6%9E%9C%E5%9B%BE.gif" alt="v1.4.0版本效果"></p>
+<hr>
+<p><a href="https://juejin.im/post/5dc626125188253aec025a60" target="_blank" rel="noopener">首发链接</a></p>
+<hr>
+<p>扫一扫下方小程序码或搜索<code>Tusi博客</code>，即刻阅读最新文章！</p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/Tusi%E5%8D%9A%E5%AE%A2.jpg" alt="Tusi博客"></p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/canvas/">canvas</a>, <a class="has-link-grey -link" href="/tags/progress/">progress</a>, <a class="has-link-grey -link" href="/tags/vue/">vue</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay_payme.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/ionic初体验.html">
+                <span class="level-item">ionic初体验</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: 'e244808d754d6ef5f8aa',
+        clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
+        id: '66ef33a3f400ef2943eb3b5a74cd4461',
+        repo: 'tusi-hexo',
+        owner: 'cumt-robin',
+        admin: "cumt-robin",
+        createIssueManually: false,
+        distractionFreeMode: false
+    })
+    gitalk.render('comment-container')
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                        <figure class="image is-128x128 has-mb-6">
+                            <img class="is-rounded" data-src="/images/avatar.png" alt="Tusi">
+                        </figure>
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Tusi
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Frontend Engineer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>湖南长沙</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        74
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        30
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        72
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/cumt-robin" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/cumt-robin">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="WeChat" href="http://qncdn.wbjiang.cn/%E5%BE%AE%E4%BF%A1%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%90%8D%E7%89%87.jpg">
+                
+                <i class="fab fa-weixin"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            友情链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="http://www.wbjiang.cn" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi的个人主页</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.wbjiang.cn</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.wbjiang.cn" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi博客</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.wbjiang.cn</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41196185" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi的CSDN</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://juejin.im/user/5ca40a18f265da30b8178b31" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi掘金</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">juejin.im</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://segmentfault.com/u/tusi_5c8a591841687" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi的SegmentFault</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">segmentfault.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.whatled.com/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">少将博客</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.whatled.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.jiangshaobo.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Abel</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.jiangshaobo.cn</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/用初中数学知识撸一个canvas环形进度条.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/vue-awesome-progress.png" alt="用初中数学知识撸一个canvas环形进度条">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-10T05:47:37.000Z">2019-11-10</time></div>
+                    <a href="/用初中数学知识撸一个canvas环形进度条.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">用初中数学知识撸一个canvas环形进度条</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/canvas/">canvas</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/ionic初体验.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book_600x400.png" alt="ionic初体验">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-05T10:19:00.000Z">2019-11-05</time></div>
+                    <a href="/ionic初体验.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">ionic初体验</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/hybrid/">hybrid</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cordova开发环境搭建.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/cordova%E6%9E%B6%E6%9E%84.png" alt="cordova开发环境搭建">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-01T02:32:56.000Z">2019-11-01</time></div>
+                    <a href="/cordova开发环境搭建.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">cordova开发环境搭建</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/hybrid/">hybrid</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/gradle环境搭建.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/gradle.png" alt="gradle环境搭建">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-28T03:56:54.000Z">2019-10-28</time></div>
+                    <a href="/gradle环境搭建.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">gradle环境搭建</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/java/">java</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/耐人寻味的CSS属性font-family.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/welcome_600x400.png" alt="耐人寻味的CSS属性font-family">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-23T06:39:41.000Z">2019-10-23</time></div>
+                    <a href="/耐人寻味的CSS属性font-family.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">耐人寻味的CSS属性font-family</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/css/">css</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CommonJS/">
+                        <span class="tag">CommonJS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ES6/">
+                        <span class="tag">ES6</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Gerrit/">
+                        <span class="tag">Gerrit</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Next主题/">
+                        <span class="tag">Next主题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TortoiseGIT/">
+                        <span class="tag">TortoiseGIT</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VMware/">
+                        <span class="tag">VMware</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/amd规范/">
+                        <span class="tag">amd规范</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/angular/">
+                        <span class="tag">angular</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bootstrap/">
+                        <span class="tag">bootstrap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/canvas/">
+                        <span class="tag">canvas</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cordova/">
+                        <span class="tag">cordova</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css/">
+                        <span class="tag">css</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/demo/">
+                        <span class="tag">demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/express/">
+                        <span class="tag">express</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gitment/">
+                        <span class="tag">gitment</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gradle/">
+                        <span class="tag">gradle</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gulp/">
+                        <span class="tag">gulp</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html/">
+                        <span class="tag">html</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/http-server/">
+                        <span class="tag">http-server</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/iconfont/">
+                        <span class="tag">iconfont</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ionic/">
+                        <span class="tag">ionic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jdk/">
+                        <span class="tag">jdk</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jquery/">
+                        <span class="tag">jquery</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js模块化/">
+                        <span class="tag">js模块化</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/livere/">
+                        <span class="tag">livere</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/meta/">
+                        <span class="tag">meta</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ng-zorro/">
+                        <span class="tag">ng-zorro</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nginx/">
+                        <span class="tag">nginx</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nodejs/">
+                        <span class="tag">nodejs</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/npm速度慢/">
+                        <span class="tag">npm速度慢</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ocx/">
+                        <span class="tag">ocx</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/progress/">
+                        <span class="tag">progress</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/require-js/">
+                        <span class="tag">require.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/sea-js/">
+                        <span class="tag">sea.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/socket-io/">
+                        <span class="tag">socket.io</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/svg/">
+                        <span class="tag">svg</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/umd规范/">
+                        <span class="tag">umd规范</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/valine/">
+                        <span class="tag">valine</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vscode/">
+                        <span class="tag">vscode</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue/">
+                        <span class="tag">vue</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue-router/">
+                        <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue作用域插槽/">
+                        <span class="tag">vue作用域插槽</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue升级/">
+                        <span class="tag">vue升级</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack4/">
+                        <span class="tag">webpack4</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/websocket/">
+                        <span class="tag">websocket</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/windows/">
+                        <span class="tag">windows</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前后端分离/">
+                        <span class="tag">前后端分离</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/发布npm包/">
+                        <span class="tag">发布npm包</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/地图曲线/">
+                        <span class="tag">地图曲线</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信公众号/">
+                        <span class="tag">微信公众号</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信小程序/">
+                        <span class="tag">微信小程序</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/滑块美化/">
+                        <span class="tag">滑块美化</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/电脑技能/">
+                        <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/移动端调试/">
+                        <span class="tag">移动端调试</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自定义tabbar/">
+                        <span class="tag">自定义tabbar</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/记事本/">
+                        <span class="tag">记事本</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/面试题/">
+                        <span class="tag">面试题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/用初中数学知识撸一个canvas环形进度条.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/vue-awesome-progress.png" alt="用初中数学知识撸一个canvas环形进度条">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-10T05:47:37.000Z">2019-11-10</time></div>
+                    <a href="/用初中数学知识撸一个canvas环形进度条.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">用初中数学知识撸一个canvas环形进度条</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/canvas/">canvas</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/ionic初体验.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book_600x400.png" alt="ionic初体验">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-05T10:19:00.000Z">2019-11-05</time></div>
+                    <a href="/ionic初体验.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">ionic初体验</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/hybrid/">hybrid</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/cordova开发环境搭建.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/cordova%E6%9E%B6%E6%9E%84.png" alt="cordova开发环境搭建">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-01T02:32:56.000Z">2019-11-01</time></div>
+                    <a href="/cordova开发环境搭建.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">cordova开发环境搭建</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/hybrid/">hybrid</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/gradle环境搭建.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/gradle.png" alt="gradle环境搭建">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-28T03:56:54.000Z">2019-10-28</time></div>
+                    <a href="/gradle环境搭建.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">gradle环境搭建</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/java/">java</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/耐人寻味的CSS属性font-family.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/welcome_600x400.png" alt="耐人寻味的CSS属性font-family">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-23T06:39:41.000Z">2019-10-23</time></div>
+                    <a href="/耐人寻味的CSS属性font-family.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">耐人寻味的CSS属性font-family</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/css/">css</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CommonJS/">
+                        <span class="tag">CommonJS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ES6/">
+                        <span class="tag">ES6</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Gerrit/">
+                        <span class="tag">Gerrit</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Next主题/">
+                        <span class="tag">Next主题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TortoiseGIT/">
+                        <span class="tag">TortoiseGIT</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VMware/">
+                        <span class="tag">VMware</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/amd规范/">
+                        <span class="tag">amd规范</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/angular/">
+                        <span class="tag">angular</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bootstrap/">
+                        <span class="tag">bootstrap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/canvas/">
+                        <span class="tag">canvas</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cordova/">
+                        <span class="tag">cordova</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css/">
+                        <span class="tag">css</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/demo/">
+                        <span class="tag">demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/express/">
+                        <span class="tag">express</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gitment/">
+                        <span class="tag">gitment</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gradle/">
+                        <span class="tag">gradle</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gulp/">
+                        <span class="tag">gulp</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html/">
+                        <span class="tag">html</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/http-server/">
+                        <span class="tag">http-server</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/iconfont/">
+                        <span class="tag">iconfont</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ionic/">
+                        <span class="tag">ionic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jdk/">
+                        <span class="tag">jdk</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jquery/">
+                        <span class="tag">jquery</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js模块化/">
+                        <span class="tag">js模块化</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/livere/">
+                        <span class="tag">livere</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/meta/">
+                        <span class="tag">meta</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ng-zorro/">
+                        <span class="tag">ng-zorro</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nginx/">
+                        <span class="tag">nginx</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nodejs/">
+                        <span class="tag">nodejs</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/npm速度慢/">
+                        <span class="tag">npm速度慢</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ocx/">
+                        <span class="tag">ocx</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/progress/">
+                        <span class="tag">progress</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/require-js/">
+                        <span class="tag">require.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/sea-js/">
+                        <span class="tag">sea.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/socket-io/">
+                        <span class="tag">socket.io</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/svg/">
+                        <span class="tag">svg</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/umd规范/">
+                        <span class="tag">umd规范</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/valine/">
+                        <span class="tag">valine</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vscode/">
+                        <span class="tag">vscode</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue/">
+                        <span class="tag">vue</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue-router/">
+                        <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue作用域插槽/">
+                        <span class="tag">vue作用域插槽</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue升级/">
+                        <span class="tag">vue升级</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack4/">
+                        <span class="tag">webpack4</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/websocket/">
+                        <span class="tag">websocket</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/windows/">
+                        <span class="tag">windows</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前后端分离/">
+                        <span class="tag">前后端分离</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/发布npm包/">
+                        <span class="tag">发布npm包</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/地图曲线/">
+                        <span class="tag">地图曲线</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信公众号/">
+                        <span class="tag">微信公众号</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信小程序/">
+                        <span class="tag">微信小程序</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/滑块美化/">
+                        <span class="tag">滑块美化</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/电脑技能/">
+                        <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/移动端调试/">
+                        <span class="tag">移动端调试</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自定义tabbar/">
+                        <span class="tag">自定义tabbar</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/记事本/">
+                        <span class="tag">记事本</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/面试题/">
+                        <span class="tag">面试题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="用初中数学知识撸一个canvas环形进度条" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Tusi&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Follow me on GitHub" href="https://github.com/cumt-robin">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+<script src="/js/lazyload.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

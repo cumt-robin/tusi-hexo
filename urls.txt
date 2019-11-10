@@ -1,3 +1,4 @@
+http://hexo.wbjiang.cn/用初中数学知识撸一个canvas环形进度条.html
 http://hexo.wbjiang.cn/ionic初体验.html
 http://hexo.wbjiang.cn/cordova开发环境搭建.html
 http://hexo.wbjiang.cn/gradle环境搭建.html
