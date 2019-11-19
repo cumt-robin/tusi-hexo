@@ -10,19 +10,19 @@
 <title>Git多个远程仓库不同步时的补救办法 - Tusi博客|分享最新开发心得</title>
 
 
-    <meta name="description" content="远程仓库间出现差异git本地仓库是可以与多个远程仓库关联的，如果想知道怎么配置，请参考Git如何使用多个托管平台管理代码 。 当git remote关联了多个远程仓库时，总会遇到一些问题。今天就遇到了两个远程仓库不一致导致无法push的情况。">
+    <meta name="description" content="git本地仓库是可以与多个远程仓库关联的，如果想知道怎么配置，请参考Git如何使用多个托管平台管理代码 。 当git remote关联了多个远程仓库时，总会遇到一些问题。今天就遇到了两个远程仓库不一致导致无法push的情况。">
 <meta name="keywords" content="git,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git多个远程仓库不同步时的补救办法">
 <meta property="og:url" content="http://hexo.wbjiang.cn/Git多个远程仓库不同步时的补救办法.html">
 <meta property="og:site_name" content="Tusi博客|分享最新开发心得">
-<meta property="og:description" content="远程仓库间出现差异git本地仓库是可以与多个远程仓库关联的，如果想知道怎么配置，请参考Git如何使用多个托管平台管理代码 。 当git remote关联了多个远程仓库时，总会遇到一些问题。今天就遇到了两个远程仓库不一致导致无法push的情况。">
+<meta property="og:description" content="git本地仓库是可以与多个远程仓库关联的，如果想知道怎么配置，请参考Git如何使用多个托管平台管理代码 。 当git remote关联了多个远程仓库时，总会遇到一些问题。今天就遇到了两个远程仓库不一致导致无法push的情况。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://qncdn.wbjiang.cn/git%E5%A4%9A%E4%BB%93%E5%BA%93%E5%B7%AE%E5%BC%82.png">
-<meta property="og:updated_time" content="2019-11-19T10:33:56.331Z">
+<meta property="og:updated_time" content="2019-11-19T10:38:51.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git多个远程仓库不同步时的补救办法">
-<meta name="twitter:description" content="远程仓库间出现差异git本地仓库是可以与多个远程仓库关联的，如果想知道怎么配置，请参考Git如何使用多个托管平台管理代码 。 当git remote关联了多个远程仓库时，总会遇到一些问题。今天就遇到了两个远程仓库不一致导致无法push的情况。">
+<meta name="twitter:description" content="git本地仓库是可以与多个远程仓库关联的，如果想知道怎么配置，请参考Git如何使用多个托管平台管理代码 。 当git remote关联了多个远程仓库时，总会遇到一些问题。今天就遇到了两个远程仓库不一致导致无法push的情况。">
 <meta name="twitter:image" content="https://qncdn.wbjiang.cn/git%E5%A4%9A%E4%BB%93%E5%BA%93%E5%B7%AE%E5%BC%82.png">
 
 
@@ -192,11 +192,11 @@ var _hmt = _hmt || [];
             
         </h1>
         <div class="content">
-            <h1 id="远程仓库间出现差异"><a href="#远程仓库间出现差异" class="headerlink" title="远程仓库间出现差异"></a>远程仓库间出现差异</h1><p><code>git</code>本地仓库是可以与多个远程仓库关联的，如果想知道怎么配置，请参考<a href="http://hexo.wbjiang.cn/干货！Git-如何使用多个托管平台管理代码.html">Git如何使用多个托管平台管理代码</a> 。</p>
+            <p><code>git</code>本地仓库是可以与多个远程仓库关联的，如果想知道怎么配置，请参考<a href="http://hexo.wbjiang.cn/干货！Git-如何使用多个托管平台管理代码.html">Git如何使用多个托管平台管理代码</a> 。</p>
 <p>当<code>git remote</code>关联了多个远程仓库时，总会遇到一些问题。今天就遇到了两个远程仓库不一致导致无法<code>push</code>的情况。</p>
 <a id="more"></a>
 
-<p>大概情况是这样的，我是一个本地仓库关联了<code>github</code>和<code>gitee</code>两个远程仓库。</p>
+<h1 id="远程仓库间出现差异"><a href="#远程仓库间出现差异" class="headerlink" title="远程仓库间出现差异"></a>远程仓库间出现差异</h1><p>大概情况是这样的，我是一个本地仓库关联了<code>github</code>和<code>gitee</code>两个远程仓库。</p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add all git@github.com:cumt-robin/BlogFrontEnd.git</span><br><span class="line">git remote set-url --add all git@gitee.com:tusi/BlogFrontEnd.git</span><br></pre></td></tr></table></figure>
 
 <p>由于不小心在远程仓库<code>gitee</code>上手动修改了<code>README.md</code>文件，导致两个远程仓库出现了差异。所以当我在本地完成了一部分功能，准备提交到远程仓库时，出现了报错。</p>
