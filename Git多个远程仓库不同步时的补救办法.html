@@ -7,23 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>利用gulp优化web页面加载速度 - Tusi博客|分享最新开发心得</title>
+<title>Git多个远程仓库不同步时的补救办法 - Tusi博客|分享最新开发心得</title>
 
 
-    <meta name="description" content="利用hexo搭建好博客之后，发现博客页面加载速度特别慢，这一点在手机端比较明显。关闭了粒子动画效果后，页面加载的速度没有得到明显改善，于是想从其他方面来提升加载速度。">
-<meta name="keywords" content="gulp,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
+    <meta name="description" content="远程仓库间出现差异git本地仓库是可以与多个远程仓库关联的，如果想知道怎么配置，请参考Git如何使用多个托管平台管理代码 。 当git remote关联了多个远程仓库时，总会遇到一些问题。今天就遇到了两个远程仓库不一致导致无法push的情况。">
+<meta name="keywords" content="git,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用gulp优化web页面加载速度">
-<meta property="og:url" content="http://hexo.wbjiang.cn/利用gulp优化web页面加载速度.html">
+<meta property="og:title" content="Git多个远程仓库不同步时的补救办法">
+<meta property="og:url" content="http://hexo.wbjiang.cn/Git多个远程仓库不同步时的补救办法.html">
 <meta property="og:site_name" content="Tusi博客|分享最新开发心得">
-<meta property="og:description" content="利用hexo搭建好博客之后，发现博客页面加载速度特别慢，这一点在手机端比较明显。关闭了粒子动画效果后，页面加载的速度没有得到明显改善，于是想从其他方面来提升加载速度。">
+<meta property="og:description" content="远程仓库间出现差异git本地仓库是可以与多个远程仓库关联的，如果想知道怎么配置，请参考Git如何使用多个托管平台管理代码 。 当git remote关联了多个远程仓库时，总会遇到一些问题。今天就遇到了两个远程仓库不一致导致无法push的情况。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://qncdn.wbjiang.cn/gulp.png">
-<meta property="og:updated_time" content="2019-09-21T06:58:00.218Z">
+<meta property="og:image" content="https://qncdn.wbjiang.cn/git%E5%A4%9A%E4%BB%93%E5%BA%93%E5%B7%AE%E5%BC%82.png">
+<meta property="og:updated_time" content="2019-11-19T10:33:56.331Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用gulp优化web页面加载速度">
-<meta name="twitter:description" content="利用hexo搭建好博客之后，发现博客页面加载速度特别慢，这一点在手机端比较明显。关闭了粒子动画效果后，页面加载的速度没有得到明显改善，于是想从其他方面来提升加载速度。">
-<meta name="twitter:image" content="http://qncdn.wbjiang.cn/gulp.png">
+<meta name="twitter:title" content="Git多个远程仓库不同步时的补救办法">
+<meta name="twitter:description" content="远程仓库间出现差异git本地仓库是可以与多个远程仓库关联的，如果想知道怎么配置，请参考Git如何使用多个托管平台管理代码 。 当git remote关联了多个远程仓库时，总会遇到一些问题。今天就遇到了两个远程仓库不一致导致无法push的情况。">
+<meta name="twitter:image" content="https://qncdn.wbjiang.cn/git%E5%A4%9A%E4%BB%93%E5%BA%93%E5%B7%AE%E5%BC%82.png">
 
 
 
@@ -102,7 +102,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.png" alt="利用gulp优化web页面加载速度" height="28">
+                <img src="/images/logo.png" alt="Git多个远程仓库不同步时的补救办法" height="28">
             
             </a>
         </div>
@@ -156,7 +156,7 @@ var _hmt = _hmt || [];
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/gulp.png" alt="利用gulp优化web页面加载速度">
+            <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/git%E5%A4%9A%E4%BB%93%E5%BA%93%E5%B7%AE%E5%BC%82.png" alt="Git多个远程仓库不同步时的补救办法">
         </span>
     </div>
     
@@ -164,17 +164,17 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-03-24T01:37:20.000Z">2018-03-24</time>
+                <time class="level-item has-text-grey" datetime="2019-11-19T10:31:55.000Z">2019-11-19</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/gulp/">gulp</a>
+                <a class="has-link-grey -link" href="/categories/git/">git</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    6 分钟 读完 (大约 958 个字)
+                    4 分钟 读完 (大约 600 个字)
                 </span>
                 
                 
@@ -188,50 +188,32 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                利用gulp优化web页面加载速度
+                Git多个远程仓库不同步时的补救办法
             
         </h1>
         <div class="content">
-            <p>利用hexo搭建好博客之后，发现博客页面加载速度特别慢，这一点在手机端比较明显。关闭了粒子动画效果后，页面加载的速度没有得到明显改善，于是想从其他方面来提升加载速度。<a id="more"></a>而压缩代码则是一个最直接的方式。</p>
-<h2 id="压缩html"><a href="#压缩html" class="headerlink" title="压缩html"></a>压缩html</h2><p>gulp-htmlmin是一个用于压缩html文件的插件，安装方法如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev gulp-htmlmin</span><br></pre></td></tr></table></figure>
+            <h1 id="远程仓库间出现差异"><a href="#远程仓库间出现差异" class="headerlink" title="远程仓库间出现差异"></a>远程仓库间出现差异</h1><p><code>git</code>本地仓库是可以与多个远程仓库关联的，如果想知道怎么配置，请参考<a href="http://hexo.wbjiang.cn/干货！Git-如何使用多个托管平台管理代码.html">Git如何使用多个托管平台管理代码</a> 。</p>
+<p>当<code>git remote</code>关联了多个远程仓库时，总会遇到一些问题。今天就遇到了两个远程仓库不一致导致无法<code>push</code>的情况。</p>
+<a id="more"></a>
 
-<p>使用方法如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line">var htmlmin = require(&apos;gulp-htmlmin&apos;);</span><br><span class="line"> </span><br><span class="line">gulp.task(&apos;minifyHtml&apos;, function() &#123;</span><br><span class="line">  var minifyOptions = &#123;</span><br><span class="line">	collapseWhitespace: true, // 折叠html节点间的空白</span><br><span class="line">	minifyCSS: true, // 压缩css</span><br><span class="line">	minifyJS: true, // 压缩js</span><br><span class="line">	removeComments: true, // 去除注释</span><br><span class="line">	removeEmptyAttributes: true, // 去除空属性</span><br><span class="line">	removeRedundantAttributes: true // 去除与默认属性一致的属性值</span><br><span class="line">  &#125;;</span><br><span class="line">  return gulp.src(&apos;src/*.html&apos;)</span><br><span class="line">    .pipe(htmlmin(minifyOptions))</span><br><span class="line">    .pipe(gulp.dest(&apos;dist&apos;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>大概情况是这样的，我是一个本地仓库关联了<code>github</code>和<code>gitee</code>两个远程仓库。</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add all git@github.com:cumt-robin/BlogFrontEnd.git</span><br><span class="line">git remote set-url --add all git@gitee.com:tusi/BlogFrontEnd.git</span><br></pre></td></tr></table></figure>
 
-<p>这个插件还有很多的配置项，请参考<a href="https://github.com/kangax/html-minifier#options-quick-reference" target="_blank" rel="noopener">Options Quick Reference</a>。</p>
-<blockquote>
-<p>ps：html文件中可以嵌入js以及css内容，因此该插件支持对html文件中js及css内容的压缩。</p>
-</blockquote>
-<h2 id="压缩css"><a href="#压缩css" class="headerlink" title="压缩css"></a>压缩css</h2><p>我之前用过一个gulp-minify-css插件来压缩css文件，不过最近发现它已经被废弃了，取而代之的是gulp-clean-css，安装方法如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-clean-css --save-dev</span><br></pre></td></tr></table></figure>
+<p>由于不小心在远程仓库<code>gitee</code>上手动修改了<code>README.md</code>文件，导致两个远程仓库出现了差异。所以当我在本地完成了一部分功能，准备提交到远程仓库时，出现了报错。</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> git push all --all</span><br><span class="line">Everything up-to-date</span><br><span class="line">To gitee.com:tusi/BlogFrontEnd.git</span><br><span class="line"> ! [rejected]        master -&gt; master (fetch first)</span><br><span class="line">error: failed to push some refs to 'git@gitee.com:tusi/BlogFrontEnd.git'</span><br><span class="line">hint: Updates were rejected because the remote contains work that you do</span><br><span class="line">hint: not have locally. This is usually caused by another repository pushing</span><br><span class="line">hint: to the same ref. You may want to first integrate the remote changes</span><br><span class="line">hint: (e.g., 'git pull ...') before pushing again.</span><br><span class="line">hint: See the 'Note about fast-forwards' in 'git push --help' for details.</span><br></pre></td></tr></table></figure>
 
-<p>使用方法如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line">var cleanCSS = require(&apos;gulp-clean-css&apos;);</span><br><span class="line"> </span><br><span class="line">gulp.task(&apos;minifyCss&apos;, () =&gt; &#123;</span><br><span class="line">  return gulp.src(&apos;styles/*.css&apos;)</span><br><span class="line">    .pipe(cleanCSS(&#123;compatibility: &apos;ie8&apos;&#125;))</span><br><span class="line">    .pipe(gulp.dest(&apos;dist&apos;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>由于是<code>gitee</code>的仓库多修改了一点东西，因此在本地再加一个<code>remote</code>，单独关联<code>gitee</code>。</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> git remote add gitee git@gitee.com:tusi/BlogFrontEnd.git</span><br></pre></td></tr></table></figure>
 
-<p>gulp-clean-css的配置项挺多的，感觉还是要遇到具体问题，具体分析了。配置项参考<a href="https://github.com/jakubpawlowicz/clean-css" target="_blank" rel="noopener">clean-CSS</a>。</p>
-<h2 id="压缩js"><a href="#压缩js" class="headerlink" title="压缩js"></a>压缩js</h2><p>我们可以用gulp-uglify插件来进行js文件的压缩。首先，我们来安装它：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev gulp-uglify</span><br></pre></td></tr></table></figure>
+<p>将<code>gitee</code>的代码拉到本地<code>master</code>。</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> git pull gitee master</span><br><span class="line">remote: Enumerating objects: 1, done.</span><br><span class="line">remote: Counting objects: 100% (1/1), done.</span><br><span class="line">remote: Total 1 (delta 0), reused 0 (delta 0)</span><br><span class="line">Unpacking objects: 100% (1/1), done.</span><br><span class="line">From gitee.com:tusi/BlogFrontEnd</span><br><span class="line"> * branch            master     -&gt; FETCH_HEAD</span><br><span class="line"> * [new branch]      master     -&gt; gitee/master</span><br><span class="line">Already up to date!</span><br><span class="line">Merge made by the 'recursive' strategy.</span><br></pre></td></tr></table></figure>
 
-<p>使用方法如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line">var uglify = require(&apos;gulp-uglify&apos;);</span><br><span class="line">var pump = require(&apos;pump&apos;);</span><br><span class="line"> </span><br><span class="line">gulp.task(&apos;compress&apos;, function (cb) &#123;</span><br><span class="line">  pump([</span><br><span class="line">    gulp.src(&apos;lib/*.js&apos;),</span><br><span class="line">    uglify(),</span><br><span class="line">    gulp.dest(&apos;dist&apos;)</span><br><span class="line">  ], cb);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>再将本地<code>master</code>推送到远程<code>all</code>。</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">$</span> git push all --all</span><br><span class="line">Enumerating objects: 2, done.</span><br><span class="line">Counting objects: 100% (2/2), done.</span><br><span class="line">Delta compression using up to 6 threads</span><br><span class="line">Compressing objects: 100% (2/2), done.</span><br><span class="line">Writing objects: 100% (2/2), 499 bytes | 499.00 KiB/s, done.</span><br><span class="line">Total 2 (delta 0), reused 0 (delta 0)</span><br><span class="line">To github.com:cumt-robin/BlogFrontEnd.git</span><br><span class="line">   1557ece..8391333  master -&gt; master</span><br><span class="line">Enumerating objects: 2, done.</span><br><span class="line">Counting objects: 100% (2/2), done.</span><br><span class="line">Delta compression using up to 6 threads</span><br><span class="line">Compressing objects: 100% (2/2), done.</span><br><span class="line">Writing objects: 100% (2/2), 917 bytes | 917.00 KiB/s, done.</span><br><span class="line">Total 2 (delta 0), reused 0 (delta 0)</span><br><span class="line">remote: Powered By Gitee.com</span><br><span class="line">To gitee.com:tusi/BlogFrontEnd.git</span><br><span class="line">   8912ff5..8391333  master -&gt; master</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>这里用到了一个pump插件，其实不需要它也是完全可以正常压缩js文件的。但是pump插件为我们提供了一个排错的能力，能够打印出压缩js文件过程的具体错误信息，让我们快速定位修改。<br>ps：gulp-uglify支持一些配置项，请参考<a href="https://github.com/mishoo/UglifyJS2#minify-options" target="_blank" rel="noopener">Minify options</a>。</p>
-</blockquote>
-<h2 id="压缩图片资源"><a href="#压缩图片资源" class="headerlink" title="压缩图片资源"></a>压缩图片资源</h2><p>压缩图片资源也是优化web页面的一个重要方法，而gulp-imagemin插件可以帮我们做到这一点。首先，我们来安装它：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev gulp-imagemin</span><br></pre></td></tr></table></figure>
-
-<p>经典的用法如下：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var gulp = require(&apos;gulp&apos;);</span><br><span class="line">var imagemin = require(&apos;gulp-imagemin&apos;);</span><br><span class="line"> </span><br><span class="line">gulp.task(&apos;default&apos;, () =&gt;</span><br><span class="line">  gulp.src(&apos;src/images/*&apos;)</span><br><span class="line">    .pipe(imagemin())</span><br><span class="line">    .pipe(gulp.dest(&apos;dist/images&apos;))</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<p> imagemin()也可以传入配置参数，主要的一些配置项如下所示：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">…</span><br><span class="line">.pipe(imagemin([</span><br><span class="line">    imagemin.gifsicle(&#123;interlaced: true&#125;), //优化gif</span><br><span class="line">    imagemin.jpegtran(&#123;progressive: true&#125;), //优化jpg,jpeg</span><br><span class="line">    imagemin.optipng(&#123;optimizationLevel: 5&#125;), //优化png</span><br><span class="line">    imagemin.svgo(&#123;</span><br><span class="line">        plugins: [</span><br><span class="line">            &#123;removeViewBox: true&#125;,</span><br><span class="line">            &#123;cleanupIDs: false&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;)  //优化svg</span><br><span class="line">]))</span><br><span class="line">…</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>这里有两个单词需要注意一下，interlaced和progressive，有<a href="https://blog.csdn.net/syb773849846/article/details/52120030" target="_blank" rel="noopener">一篇文章</a>介绍了交错扫描和逐行扫描，请大家参考！</p>
-</blockquote>
-<p>我在利用上述插件来压缩博客public文件夹下的资源时，发现在进行html压缩和css压缩时，出现了一些页面bug，暂未得出原因，留待后续观察，于是暂时放弃了html和css插件压缩，仅使用了gulp-uglify和gulp-imagemin来压缩js文件和图片。经优化后，博客加载速度得到了显著提升，也算是做了一个不错的优化。</p>
+<p>问题得以解决！</p>
+<hr>
+<p><a href="https://juejin.im/post/5dd3c40ae51d453fe34dfc5b" target="_blank" rel="noopener">首发连接</a></p>
 <hr>
 <p>扫一扫下方小程序码或搜索<code>Tusi博客</code>，即刻阅读最新文章！</p>
 <p><img src=""data-src="http://qncdn.wbjiang.cn/Tusi%E5%8D%9A%E5%AE%A2.jpg" alt="Tusi博客"></p>
@@ -242,7 +224,7 @@ var _hmt = _hmt || [];
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/gulp/">gulp</a>
+                    <a class="has-link-grey -link" href="/tags/git-remote不同步/">git,remote不同步</a>
                 </div>
             </div>
         </div>
@@ -292,17 +274,10 @@ var _hmt = _hmt || [];
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/前端利器SASS之入门篇.html">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">前端利器SASS之入门篇</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/gulp入门基础.html">
-                <span class="level-item">gulp入门基础</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/解决办公IP变化后git无法推送远程仓库的问题.html">
+                <span class="level-item">解决办公IP变化后git无法推送远程仓库的问题</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -323,7 +298,7 @@ var _hmt = _hmt || [];
     var gitalk = new Gitalk({
         clientID: 'e244808d754d6ef5f8aa',
         clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
-        id: '4dcabbb5720a435e333bbe80134ee3de',
+        id: '954229a9ce1c5d1b346701347ac9ff3a',
         repo: 'tusi-hexo',
         owner: 'cumt-robin',
         admin: "cumt-robin",
@@ -1835,7 +1810,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.png" alt="利用gulp优化web页面加载速度" height="28">
+                    <img src="/images/logo.png" alt="Git多个远程仓库不同步时的补救办法" height="28">
                 
                 </a>
                 <p class="is-size-7">
