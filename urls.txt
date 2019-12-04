@@ -1,3 +1,4 @@
+http://hexo.wbjiang.cn/前端API层架构，也许你做得还不够.html
 http://hexo.wbjiang.cn/Git多个远程仓库不同步时的补救办法.html
 http://hexo.wbjiang.cn/解决办公IP变化后git无法推送远程仓库的问题.html
 http://hexo.wbjiang.cn/用初中数学知识撸一个canvas环形进度条.html

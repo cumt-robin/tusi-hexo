@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>前端API层架构，也许你做得还不够 - Tusi博客|分享最新开发心得</title>
+
+
+    <meta name="description" content="上午好，今天为大家分享下个人对于前端API层架构的一点经验和看法。">
+<meta name="keywords" content="API架构,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端API层架构，也许你做得还不够">
+<meta property="og:url" content="http://hexo.wbjiang.cn/前端API层架构，也许你做得还不够.html">
+<meta property="og:site_name" content="Tusi博客|分享最新开发心得">
+<meta property="og:description" content="上午好，今天为大家分享下个人对于前端API层架构的一点经验和看法。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://qncdn.wbjiang.cn/book_600x400.png">
+<meta property="og:updated_time" content="2019-12-04T05:42:33.119Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端API层架构，也许你做得还不够">
+<meta name="twitter:description" content="上午好，今天为大家分享下个人对于前端API层架构的一点经验和看法。">
+<meta name="twitter:image" content="http://qncdn.wbjiang.cn/book_600x400.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/rainbow.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0cc7298ff16e9d2c7ae3a15b3ee1d9e7";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+        <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="前端API层架构，也许你做得还不够" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">首页</a>
+                
+                <a class="navbar-item"
+                href="/archives">时间线</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Follow me on GitHub" href="https://github.com/cumt-robin">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book_600x400.png" alt="前端API层架构，也许你做得还不够">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-04T05:41:20.000Z">2019-12-04</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/架构设计/">架构设计</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    21 分钟 读完 (大约 3217 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                前端API层架构，也许你做得还不够
+            
+        </h1>
+        <div class="content">
+            <p>上午好，今天为大家分享下个人对于前端<code>API</code>层架构的一点经验和看法。</p>
+<a id="more"></a>
+<p>架构设计是一条永远走不完的路，没有最好，只有更好。这个道理适用于软件设计的各个场景，前端<code>API</code>层的设计也不例外，如果您觉得在调用接口时还存在诸多槽点，那就说明您的接口层架构还待优化。今天我以<code>vue + axios</code>为例，为大家梳理下我的一些经历和设想。</p>
+<h1 id="石器时代，痛苦"><a href="#石器时代，痛苦" class="headerlink" title="石器时代，痛苦"></a>石器时代，痛苦</h1><p>直接调用<code>axios</code>，真的痛苦，每个调用的地方都要进行响应状态的判断，冗余代码超级多。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">"axios"</span></span><br><span class="line"></span><br><span class="line">axios.get(<span class="hljs-string">'/usercenter/user/page?pageNo=1&amp;pageSize=10'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">const</span> data = res.data</span><br><span class="line">    <span class="hljs-comment">// 判断请求状态，success字段为true代表成功，视前后端约束而定</span></span><br><span class="line">    <span class="hljs-keyword">if</span> (data.success) &#123;</span><br><span class="line">        <span class="hljs-comment">// 结果成功后的业务代码</span></span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">        <span class="hljs-comment">// 结果失败后的业务代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>看起来确实很难受，每调用一次接口，就有这么多重复的工作！</p>
+<h1 id="青铜器时代，中规中矩"><a href="#青铜器时代，中规中矩" class="headerlink" title="青铜器时代，中规中矩"></a>青铜器时代，中规中矩</h1><p>为了解决直接调用<code>axios</code>的痛点，我们一般会利用<code>Promise</code>对<code>axios</code>二次封装，对接口响应状态进行集中判断，对外暴露<code>get</code>, <code>post</code>, <code>put</code>, <code>delete</code>等<code>http</code>方法。</p>
+<h2 id="axios二次封装"><a href="#axios二次封装" class="headerlink" title="axios二次封装"></a>axios二次封装</h2><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">"axios"</span></span><br><span class="line"><span class="hljs-keyword">import</span> router <span class="hljs-keyword">from</span> <span class="hljs-string">"@/router"</span></span><br><span class="line"><span class="hljs-keyword">import</span> &#123; BASE_URL &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"@/router/base-url"</span></span><br><span class="line"><span class="hljs-keyword">import</span> &#123; errorMsg &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"@/utils/msg"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> &#123; stringify &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"@/utils/helper"</span>;</span><br><span class="line"><span class="hljs-comment">// 创建axios实例</span></span><br><span class="line"><span class="hljs-keyword">const</span> v3api = axios.create(&#123;</span><br><span class="line">    baseURL: process.env.BASE_API,</span><br><span class="line">    timeout: <span class="hljs-number">10000</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="hljs-comment">// axios实例默认配置</span></span><br><span class="line">v3api.defaults.headers.common[<span class="hljs-string">'Content-Type'</span>] = <span class="hljs-string">'application/x-www-form-urlencoded'</span>;</span><br><span class="line">v3api.defaults.transformRequest = <span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> stringify(data)</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">// 返回状态拦截，进行状态的集中判断</span></span><br><span class="line">v3api.interceptors.response.use(</span><br><span class="line">    response =&gt; &#123;</span><br><span class="line">        <span class="hljs-keyword">const</span> res = response.data;</span><br><span class="line">        <span class="hljs-keyword">if</span> (res.success) &#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve(res)</span><br><span class="line">        &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">            <span class="hljs-comment">// 内部错误码处理</span></span><br><span class="line">            <span class="hljs-keyword">if</span> (res.code === <span class="hljs-number">1401</span>) &#123;</span><br><span class="line">                errorMsg(res.message || <span class="hljs-string">'登录已过期，请重新登录！'</span>)</span><br><span class="line">                router.replace(&#123; <span class="hljs-attr">path</span>: <span class="hljs-string">`<span class="hljs-subst">$&#123;BASE_URL&#125;</span>/login`</span> &#125;)</span><br><span class="line">            &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">                <span class="hljs-comment">// 默认的错误提示</span></span><br><span class="line">                errorMsg(res.message || <span class="hljs-string">'网络异常，请稍后重试！'</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.reject(res);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    error =&gt; &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/timeout\sof\s\d+ms\sexceeded/</span>.test(error.message)) &#123;</span><br><span class="line">            <span class="hljs-comment">// 超时</span></span><br><span class="line">            errorMsg(<span class="hljs-string">'网络出了点问题，请稍后重试！'</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">if</span> (error.response) &#123;</span><br><span class="line">            <span class="hljs-comment">// http状态码判断</span></span><br><span class="line">            <span class="hljs-keyword">switch</span> (error.response.status) &#123;</span><br><span class="line">                <span class="hljs-comment">// http status handler</span></span><br><span class="line">                <span class="hljs-keyword">case</span> <span class="hljs-number">404</span>:</span><br><span class="line">                    errorMsg(<span class="hljs-string">'请求的资源不存在！'</span>)</span><br><span class="line">                    <span class="hljs-keyword">break</span></span><br><span class="line">                <span class="hljs-keyword">case</span> <span class="hljs-number">500</span>:</span><br><span class="line">                    errorMsg(<span class="hljs-string">'内部错误，请稍后重试！'</span>)</span><br><span class="line">                    <span class="hljs-keyword">break</span></span><br><span class="line">                <span class="hljs-keyword">case</span> <span class="hljs-number">503</span>:</span><br><span class="line">                    errorMsg(<span class="hljs-string">'服务器正在维护，请稍等！'</span>)</span><br><span class="line">                    <span class="hljs-keyword">break</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.reject(error.response)</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 处理get请求</span></span><br><span class="line"><span class="hljs-keyword">const</span> <span class="hljs-keyword">get</span> = (url, params, config = &#123;&#125;) =&gt; v3api.get(url, &#123; ...config, params &#125;)</span><br><span class="line"><span class="hljs-comment">// 处理delete请求，为了防止和关键词delete冲突，方法名定义为deletes</span></span><br><span class="line"><span class="hljs-keyword">const</span> deletes = <span class="hljs-function">(<span class="hljs-params">url, params, config = &#123;&#125;</span>) =&gt;</span> v3api.delete(url, &#123; ...config, params &#125;)</span><br><span class="line"><span class="hljs-comment">// 处理post请求</span></span><br><span class="line"><span class="hljs-keyword">const</span> post = <span class="hljs-function">(<span class="hljs-params">url, params, config = &#123;&#125;</span>) =&gt;</span> v3api.post(url, params, config)</span><br><span class="line"><span class="hljs-comment">// 处理put请求</span></span><br><span class="line"><span class="hljs-keyword">const</span> put = <span class="hljs-function">(<span class="hljs-params">url, params, config = &#123;&#125;</span>) =&gt;</span> v3api.put(url, params, config)</span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">get</span>,</span><br><span class="line">    deletes,</span><br><span class="line">    post,</span><br><span class="line">    put</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="调用者不再判断请求状态"><a href="#调用者不再判断请求状态" class="headerlink" title="调用者不再判断请求状态"></a>调用者不再判断请求状态</h2><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> api <span class="hljs-keyword">from</span> <span class="hljs-string">"@/api"</span>;</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">    getUserPageData() &#123;</span><br><span class="line">        api.get(<span class="hljs-string">'/usercenter/user/page?pageNo=1&amp;pageSize=10'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="hljs-comment">// 状态已经集中判断了，这里直接写成功的逻辑</span></span><br><span class="line">            <span class="hljs-comment">// 业务代码......</span></span><br><span class="line">            <span class="hljs-keyword">const</span> result = res.result;</span><br><span class="line">        &#125;).catch(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="hljs-comment">// 失败的情况写在catch中</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="async-await改造"><a href="#async-await改造" class="headerlink" title="async/await改造"></a>async/await改造</h2><p>使用语义化的异步函数</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">    <span class="hljs-keyword">async</span> getUserPageData() &#123;</span><br><span class="line">        <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">           <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> api.get(<span class="hljs-string">'/usercenter/user/page?pageNo=1&amp;pageSize=10'</span>) </span><br><span class="line">           <span class="hljs-comment">// 业务代码......</span></span><br><span class="line">           <span class="hljs-keyword">const</span> &#123; result &#125; = res;</span><br><span class="line">        &#125; <span class="hljs-keyword">catch</span>(error) &#123;</span><br><span class="line">            <span class="hljs-comment">// 失败的情况写在catch中</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h2><ul>
+<li>语义化程度有限，调用接口还是需要查询接口<code>url</code></li>
+<li>前端<code>api</code>层难以维护，如后端接口发生改动，前端每处都需要大改。</li>
+<li>如果<code>UI</code>组件的数据模型与后端接口要求的数据结构存在差异，每处调用接口前都需要进行数据处理，抹平差异，比如<code>[1,2,3]</code>转<code>1,2,3</code>这种（当然，这只是最简单的一个例子）。这样如果数据处理不慎，调用者出错几率太高！</li>
+<li>难以满足特殊化场景，举个例子，一个查询的场景，后端要求，如果输入了搜索关键词<code>keyword</code>，必须调用<code>/user/search</code>接口，如果没有输入关键词，只能调用<code>/user/page</code>接口。如果每个调用者都要判断是不是输入了关键词，再决定调用哪个接口，你觉得出错几率有多大，用起来烦不烦？</li>
+<li>产品说，这些场景需要优化，默认按创建时间降序排序。我擦，又一个个改一遍？</li>
+<li>……</li>
+</ul>
+<p>那么怎么解决这些问题呢？请耐心接着看……</p>
+<h1 id="铁器时代，it’s-cool"><a href="#铁器时代，it’s-cool" class="headerlink" title="铁器时代，it’s cool"></a>铁器时代，it’s cool</h1><p>我想到的方案是在底层封装和调用者之间再增加一层<code>API</code>适配层（适配层，取量身定制之意），在适配层做统一处理，包括参数处理，请求头处理，特殊化处理等，提炼出更语义化的方法，让调用者“傻瓜式”调用，不再为了查找接口<code>url</code>和处理数据结构这些重复的工作而烦恼，把<code>ViewModel</code>层绑定的数据模型直接丢给适配层统一处理。</p>
+<h2 id="对齐微服务架构"><a href="#对齐微服务架构" class="headerlink" title="对齐微服务架构"></a>对齐微服务架构</h2><p> 首先，为了对齐后端微服务架构，在前端将<code>API</code>调用分为三个模块。 </p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">├─api</span><br><span class="line">    index.js axios底层封装</span><br><span class="line">    ├─base  负责调用基础服务,basecenter</span><br><span class="line">    ├─iot  负责调用物联网服务,iotcenter</span><br><span class="line">    └─user  负责调用用户相关服务,usercenter</span><br></pre></td></tr></table></figure>
+
+<p> 每个模块下都定义了统一的微服务命名空间，例如<code>/src/api/user/index.js</code>： </p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> namespace = <span class="hljs-string">'usercenter'</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="特性模块"><a href="#特性模块" class="headerlink" title="特性模块"></a>特性模块</h2><p>每个功能特性都有独立的<code>js</code>模块，以角色管理相关接口为例，模块是<code>/src/api/user/role.js</code> </p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> api <span class="hljs-keyword">from</span> <span class="hljs-string">'../index'</span></span><br><span class="line"><span class="hljs-keyword">import</span> &#123; paramsFilter &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"@/utils/helper"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> &#123; namespace &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"./index"</span></span><br><span class="line"><span class="hljs-keyword">const</span> feature = <span class="hljs-string">'role'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 添加角色</span></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> addRole = <span class="hljs-function"><span class="hljs-params">params</span> =&gt;</span> api.post(<span class="hljs-string">`/<span class="hljs-subst">$&#123;namespace&#125;</span>/<span class="hljs-subst">$&#123;feature&#125;</span>/add`</span>, paramsFilter(params));</span><br><span class="line"><span class="hljs-comment">// 删除角色</span></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> deleteRole = <span class="hljs-function"><span class="hljs-params">id</span> =&gt;</span> api.deletes(<span class="hljs-string">`/<span class="hljs-subst">$&#123;namespace&#125;</span>/<span class="hljs-subst">$&#123;feature&#125;</span>/delete`</span>, &#123; id &#125;);</span><br><span class="line"><span class="hljs-comment">// 更新角色</span></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> updateRole = <span class="hljs-function"><span class="hljs-params">params</span> =&gt;</span> api.put(<span class="hljs-string">`/<span class="hljs-subst">$&#123;namespace&#125;</span>/<span class="hljs-subst">$&#123;feature&#125;</span>/update`</span>, paramsFilter(params));</span><br><span class="line"><span class="hljs-comment">// 条件查询角色</span></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> findRoles = <span class="hljs-function"><span class="hljs-params">params</span> =&gt;</span> api.get(<span class="hljs-string">`/<span class="hljs-subst">$&#123;namespace&#125;</span>/<span class="hljs-subst">$&#123;feature&#125;</span>/find`</span>, paramsFilter(params));</span><br><span class="line"><span class="hljs-comment">// 查询所有角色，不传参调用find接口代表查询所有角色</span></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> getAllRoles = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> findRoles();</span><br><span class="line"><span class="hljs-comment">// 获取角色详情</span></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> getRoleDetail = <span class="hljs-function"><span class="hljs-params">id</span> =&gt;</span> api.get(<span class="hljs-string">`/<span class="hljs-subst">$&#123;namespace&#125;</span>/<span class="hljs-subst">$&#123;feature&#125;</span>/detail`</span>, &#123; id &#125;);</span><br><span class="line"><span class="hljs-comment">// 分页查询角色</span></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> getRolePage = <span class="hljs-function"><span class="hljs-params">params</span> =&gt;</span> api.get(<span class="hljs-string">`/<span class="hljs-subst">$&#123;namespace&#125;</span>/<span class="hljs-subst">$&#123;feature&#125;</span>/page`</span>, paramsFilter(params));</span><br><span class="line"><span class="hljs-comment">// 搜索角色</span></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> searchRole = <span class="hljs-function"><span class="hljs-params">params</span> =&gt;</span> params.keyword ? api.get(<span class="hljs-string">`/<span class="hljs-subst">$&#123;namespace&#125;</span>/<span class="hljs-subst">$&#123;feature&#125;</span>/search`</span>, paramsFilter(params)) : getRolePage(params);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>每一条接口都根据<code>RESTful</code>风格，调用增（<code>api.post</code>）删（<code>api.deletes</code>）改（<code>api.put</code>）查（<code>api.get</code>）的底层方法，对外输出语义化方法。</p>
+</li>
+<li><p>调用的<code>url</code>由三部分组成，格式：<code>/微服务命名空间/特性命名空间/方法</code></p>
+</li>
+<li><p>接口适配层函数命名规范：</p>
+</li>
+<li><ul>
+<li>新增：<code>addXXX</code></li>
+<li>删除：<code>deleteXXX</code></li>
+<li>更新：<code>updateXXX</code></li>
+<li>根据ID查询记录：<code>getXXXDetail</code></li>
+<li>条件查询一条记录：<code>findOneXXX</code></li>
+<li>条件查询：<code>findXXXs</code></li>
+<li>查询所有记录：<code>getAllXXXs</code></li>
+<li>分页查询：<code>getXXXPage</code></li>
+<li>搜索：<code>searchXXX</code></li>
+<li>其余个性化接口根据语义进行命名</li>
+</ul>
+</li>
+</ul>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><ul>
+<li><p>语义化程度更高，配合<code>vscode</code>的代码提示功能，用起来不要太爽！</p>
+</li>
+<li><p>迅速响应接口改动，适配层统一处理</p>
+</li>
+<li><p>集中进行数据处理（对于公用的数据处理，我们用<code>paramsFilter</code>解决，对于特殊的情况，再另行处理），调用者安心做业务即可</p>
+</li>
+<li><p>满足特殊场景，佛系应对后端和产品朋友</p>
+<ul>
+<li>针对上节提到的关键字查询场景，我们在适配层通过在入参中判断是否有<code>keyword</code>字段，决定调用<code>search</code>还是<code>page</code>接口。对外我们只需暴露<code>searchRole</code>方法，调用者只需要调用<code>searchRole</code>方法即可，无需做其他考虑。</li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> searchRole = <span class="hljs-function"><span class="hljs-params">params</span> =&gt;</span> params.keyword ? api.get(<span class="hljs-string">`/<span class="hljs-subst">$&#123;namespace&#125;</span>/<span class="hljs-subst">$&#123;feature&#125;</span>/search`</span>, paramsFilter(params)) : getRolePage(params);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>针对产品突然加的排序需求，我们可以在适配层去做默认入参的处理。</li>
+</ul>
+<p>首先，我们新建一个专门管理默认参数的<code>js</code>，如<code>src/api/default-options.js</code></p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 默认按创建时间降序的参数对象</span></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> SORT_BY_CREATETIME_OPTIONS = &#123;</span><br><span class="line">    sortField: <span class="hljs-string">'createTime'</span>,</span><br><span class="line">    <span class="hljs-comment">// desc代表降序，asc是升序</span></span><br><span class="line">    sortType: <span class="hljs-string">'desc'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接着，我们在接口适配层做集中化处理</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> api <span class="hljs-keyword">from</span> <span class="hljs-string">'../index'</span></span><br><span class="line"><span class="hljs-keyword">import</span> &#123; SORT_BY_CREATETIME_OPTIONS &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"../default-options"</span></span><br><span class="line"><span class="hljs-keyword">import</span> &#123; paramsFilter &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"@/utils/helper"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> &#123; namespace &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"./index"</span></span><br><span class="line"><span class="hljs-keyword">const</span> feature = <span class="hljs-string">'role'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> getRolePage = <span class="hljs-function"><span class="hljs-params">params</span> =&gt;</span> api.get(<span class="hljs-string">`/<span class="hljs-subst">$&#123;namespace&#125;</span>/<span class="hljs-subst">$&#123;feature&#125;</span>/page`</span>, paramsFilter(&#123; ...SORT_BY_CREATETIME_OPTIONS, ...params &#125;));</span><br></pre></td></tr></table></figure>
+
+<p><code>SORT_BY_CREATETIME_OPTIONS</code>放在前面，是为了满足如果出现其他排序需求，调用者传入的排序字段能覆盖掉默认参数。</p>
+</li>
+</ul>
+<h2 id="mock先行"><a href="#mock先行" class="headerlink" title="mock先行"></a>mock先行</h2><p>一个完善的<code>API</code>层设计，肯定是离不开<code>mock</code>的。在后端提供接口之前，前端必须通过模拟数据并行开发，否则进度无法保证。那么如何设计一个跟真实接口契合度高的<code>mock</code>系统呢？我这里简单做下分享。</p>
+<ul>
+<li>首先，创建<code>mock</code>专用的<code>axios</code>实例</li>
+</ul>
+<p>我们在<code>src</code>目录下新建<code>mock</code>目录，并在<code>src/mock/index.js</code>简单封装一个<code>axios</code>实例</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 仅限模拟数据使用</span></span><br><span class="line"><span class="hljs-keyword">import</span> axios <span class="hljs-keyword">from</span> <span class="hljs-string">"axios"</span></span><br><span class="line"><span class="hljs-keyword">const</span> mock = axios.create(&#123;</span><br><span class="line">    baseURL: <span class="hljs-string">''</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="hljs-comment">// 返回状态拦截</span></span><br><span class="line">mock.interceptors.response.use(</span><br><span class="line">    response =&gt; &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve(response.data)</span><br><span class="line">    &#125;,</span><br><span class="line">    error =&gt; &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.reject(error.response)</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> mock</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>mock</code>同样也要分模块，以<code>usercenter</code>微服务下的角色管理<code>mock</code>接口为例</li>
+</ul>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">├─mock</span><br><span class="line">    index.js mock底层axios封装</span><br><span class="line">    ├─user  负责调用基础服务,usercenter</span><br><span class="line">        ├─role</span><br><span class="line">            ├─index.js</span><br></pre></td></tr></table></figure>
+
+<p>我们在<code>src/mock/user/role/index.js</code>中简单模拟一个获取所有角色的接口<code>getAllRoles</code></p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> mock <span class="hljs-keyword">from</span> <span class="hljs-string">"@/mock"</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> getAllRoles = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> mock.get(<span class="hljs-string">'/static/mock/user/role/getAllRoles.json'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，我们是在<code>mock</code>接口中获取了<code>static/mock</code>目录下的<code>json</code>数据。因此我们需要根据接口文档或者约定好的数据结构准备好<code>getAllRoles.json</code>数据</p>
+<figure class="highlight json hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="hljs-attr">"success"</span>: <span class="hljs-literal">true</span>,</span><br><span class="line">    <span class="hljs-attr">"result"</span>: &#123;</span><br><span class="line">        <span class="hljs-attr">"pageNo"</span>: <span class="hljs-number">1</span>,</span><br><span class="line">        <span class="hljs-attr">"pageSize"</span>: <span class="hljs-number">10</span>,</span><br><span class="line">        <span class="hljs-attr">"total"</span>: <span class="hljs-number">2</span>,</span><br><span class="line">        <span class="hljs-attr">"list"</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,</span><br><span class="line">                <span class="hljs-attr">"createTime"</span>: <span class="hljs-string">"2019-11-19 12:53:05"</span>,</span><br><span class="line">                <span class="hljs-attr">"updateTime"</span>: <span class="hljs-string">"2019-12-03 09:53:41"</span>,</span><br><span class="line">                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"管理员"</span>,</span><br><span class="line">                <span class="hljs-attr">"code"</span>: <span class="hljs-string">"管理员"</span>,</span><br><span class="line">                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"一个拥有部分权限的管理员角色"</span>,</span><br><span class="line">                <span class="hljs-attr">"sort"</span>: <span class="hljs-number">1</span>,</span><br><span class="line">                <span class="hljs-attr">"menuIds"</span>: <span class="hljs-string">"789,2,55,983,54"</span>,</span><br><span class="line">                <span class="hljs-attr">"menuNames"</span>: <span class="hljs-string">"数据字典, 后台, 账户信息, 修改密码, 账户中心"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,</span><br><span class="line">                <span class="hljs-attr">"createTime"</span>: <span class="hljs-string">"2019-11-27 17:18:54"</span>,</span><br><span class="line">                <span class="hljs-attr">"updateTime"</span>: <span class="hljs-string">"2019-12-01 19:14:30"</span>,</span><br><span class="line">                <span class="hljs-attr">"name"</span>: <span class="hljs-string">"前台测试"</span>,</span><br><span class="line">                <span class="hljs-attr">"code"</span>: <span class="hljs-string">"前台测试"</span>,</span><br><span class="line">                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"一个拥有部分权限的前台测试角色"</span>,</span><br><span class="line">                <span class="hljs-attr">"sort"</span>: <span class="hljs-number">2</span>,</span><br><span class="line">                <span class="hljs-attr">"menuIds"</span>: <span class="hljs-string">"15,4,1"</span>,</span><br><span class="line">                <span class="hljs-attr">"menuNames"</span>: <span class="hljs-string">"油耗统计, 车联网, 物联网监管系统"</span></span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"请求成功"</span>,</span><br><span class="line">    <span class="hljs-attr">"code"</span>: <span class="hljs-number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>我们来看看<code>mock</code>是怎么做的</li>
+</ul>
+<p>先看下真实接口的调用方式</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> &#123; getAllRoles &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"@/api/user/role"</span>;</span><br><span class="line"></span><br><span class="line">created() &#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.getAllRolesData()</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">    <span class="hljs-keyword">async</span> getAllRolesData() &#123;</span><br><span class="line">        <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> getAllRoles()</span><br><span class="line">        <span class="hljs-built_in">console</span>.log(res)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么<code>mock</code>时怎么做呢？非常简单，只要将<code>mock</code>中提供的方法替代掉<code>api</code>提供的方法即可。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// import &#123; getAllRoles &#125; from "@/api/user/role";</span></span><br><span class="line"><span class="hljs-keyword">import</span> &#123; getAllRoles &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">"@/mock/user/role"</span>;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，这种<code>mock</code>方式与调用真实接口的契合度还是挺高的，正式调试接口时，只需将注释的代码调整即可，过渡非常平滑！</p>
+<ul>
+<li>注意，在生产环境下，为了防止打包时将<code>static/mock</code>目录下的内容<code>copy</code>到<code>dist</code>目录下，我们需要配置下<code>CopyWebpackPlugin</code>，以<code>vue-cli@2</code>为例，我们修改<code>webpack.base.conf.js</code>即可。</li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> devMode = process.env.NODE_ENV === <span class="hljs-string">'development'</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">new</span> CopyWebpackPlugin([</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="hljs-keyword">from</span>: path.resolve(__dirname, <span class="hljs-string">'../static'</span>),</span><br><span class="line">        to: devMode ? config.dev.assetsSubDirectory : config.build.assetsSubDirectory,</span><br><span class="line">        ignore: devMode ? <span class="hljs-string">''</span> : <span class="hljs-string">'mock/**/*'</span></span><br><span class="line">    &#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<h1 id="蒸汽时代，真香"><a href="#蒸汽时代，真香" class="headerlink" title="蒸汽时代，真香"></a>蒸汽时代，真香</h1><p>下一步的设想，使用类型安全的<code>typescript</code>，让前端<code>API</code>层真正做到面向接口文档编程，规范入参，出参，可选参数，等等，提高可维护性，在编码阶段就大大降低出错几率。虽然还在重构阶段，但是我想说，重拾<code>typescript</code>是真香，突然怀念使用<code>Angular</code>的那两年了，期待<code>vue3.0</code>能将<code>typescript</code>结合得更加完美……</p>
+<h1 id="电气时代，更多畅想"><a href="#电气时代，更多畅想" class="headerlink" title="电气时代，更多畅想"></a>电气时代，更多畅想</h1><p>未来还有无限可能，面对日渐复杂和多样化的业务场景，我们会提炼出更好的架构和设计模式。目前有一个不成熟的设想，是否能在接口设计上做到更规范化，后端输出接口文档的同时，提炼出<code>API json</code>之类的数据结构？前端拿到<code>API json</code>，通过<code>nodejs</code>文件编程的能力，自动化生成前端接口层代码，解放双手。 </p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>当然，以上只是我的一点点经验和设想，是在我能力范围内能想到的东西，希望能帮助到一些有需要的同学。如果大佬们有更好的经验，可以指点一二。</p>
+<hr>
+<p><a href="https://juejin.im/post/5de7169451882512454b18d8" target="_blank" rel="noopener">首发链接</a></p>
+<hr>
+<p>往期精彩：</p>
+<ul>
+<li><a href="https://juejin.im/post/5dc626125188253aec025a60" target="_blank" rel="noopener">用初中数学知识撸一个canvas环形进度条</a></li>
+</ul>
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E6%AC%A2%E8%BF%8E%E5%85%B3%E6%B3%A8.png" alt="欢迎关注"></p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/axios/">axios</a>, <a class="has-link-grey -link" href="/tags/vue/">vue</a>, <a class="has-link-grey -link" href="/tags/架构/">架构</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay_payme.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/Git多个远程仓库不同步时的补救办法.html">
+                <span class="level-item">Git多个远程仓库不同步时的补救办法</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: 'e244808d754d6ef5f8aa',
+        clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
+        id: 'e22e0302a015a50103d29c3621fe4e7a',
+        repo: 'tusi-hexo',
+        owner: 'cumt-robin',
+        admin: "cumt-robin",
+        createIssueManually: false,
+        distractionFreeMode: false
+    })
+    gitalk.render('comment-container')
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                        <figure class="image is-128x128 has-mb-6">
+                            <img class="is-rounded" data-src="/images/avatar.png" alt="Tusi">
+                        </figure>
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Tusi
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Frontend Engineer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>湖南长沙</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        77
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        31
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        76
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/cumt-robin" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/cumt-robin">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="WeChat" href="http://qncdn.wbjiang.cn/%E5%BE%AE%E4%BF%A1%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%90%8D%E7%89%87.jpg">
+                
+                <i class="fab fa-weixin"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            友情链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="http://www.wbjiang.cn" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi的个人主页</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.wbjiang.cn</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.wbjiang.cn" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi博客</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.wbjiang.cn</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41196185" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi的CSDN</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://juejin.im/user/5ca40a18f265da30b8178b31" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi掘金</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">juejin.im</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://segmentfault.com/u/tusi_5c8a591841687" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi的SegmentFault</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">segmentfault.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.whatled.com/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">少将博客</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.whatled.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.jiangshaobo.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Abel</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.jiangshaobo.cn</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/前端API层架构，也许你做得还不够.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book_600x400.png" alt="前端API层架构，也许你做得还不够">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-04T05:41:20.000Z">2019-12-04</time></div>
+                    <a href="/前端API层架构，也许你做得还不够.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端API层架构，也许你做得还不够</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/架构设计/">架构设计</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/Git多个远程仓库不同步时的补救办法.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/git%E5%A4%9A%E4%BB%93%E5%BA%93%E5%B7%AE%E5%BC%82.png" alt="Git多个远程仓库不同步时的补救办法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-19T10:31:55.000Z">2019-11-19</time></div>
+                    <a href="/Git多个远程仓库不同步时的补救办法.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Git多个远程仓库不同步时的补救办法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/解决办公IP变化后git无法推送远程仓库的问题.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/abstract_city_600x400.png" alt="解决办公IP变化后git无法推送远程仓库的问题">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-17T07:56:21.000Z">2019-11-17</time></div>
+                    <a href="/解决办公IP变化后git无法推送远程仓库的问题.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">解决办公IP变化后git无法推送远程仓库的问题</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/用初中数学知识撸一个canvas环形进度条.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/vue-awesome-progress.png" alt="用初中数学知识撸一个canvas环形进度条">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-10T05:47:37.000Z">2019-11-10</time></div>
+                    <a href="/用初中数学知识撸一个canvas环形进度条.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">用初中数学知识撸一个canvas环形进度条</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/canvas/">canvas</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/ionic初体验.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book_600x400.png" alt="ionic初体验">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-05T10:19:00.000Z">2019-11-05</time></div>
+                    <a href="/ionic初体验.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">ionic初体验</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/hybrid/">hybrid</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CommonJS/">
+                        <span class="tag">CommonJS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ES6/">
+                        <span class="tag">ES6</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Gerrit/">
+                        <span class="tag">Gerrit</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Next主题/">
+                        <span class="tag">Next主题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TortoiseGIT/">
+                        <span class="tag">TortoiseGIT</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VMware/">
+                        <span class="tag">VMware</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/amd规范/">
+                        <span class="tag">amd规范</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/angular/">
+                        <span class="tag">angular</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/axios/">
+                        <span class="tag">axios</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bootstrap/">
+                        <span class="tag">bootstrap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/canvas/">
+                        <span class="tag">canvas</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cordova/">
+                        <span class="tag">cordova</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css/">
+                        <span class="tag">css</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/demo/">
+                        <span class="tag">demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/express/">
+                        <span class="tag">express</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git-push报错/">
+                        <span class="tag">git push报错</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git-remote不同步/">
+                        <span class="tag">git,remote不同步</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gitment/">
+                        <span class="tag">gitment</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gradle/">
+                        <span class="tag">gradle</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gulp/">
+                        <span class="tag">gulp</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html/">
+                        <span class="tag">html</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/http-server/">
+                        <span class="tag">http-server</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/iconfont/">
+                        <span class="tag">iconfont</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ionic/">
+                        <span class="tag">ionic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jdk/">
+                        <span class="tag">jdk</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jquery/">
+                        <span class="tag">jquery</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js模块化/">
+                        <span class="tag">js模块化</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/livere/">
+                        <span class="tag">livere</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/meta/">
+                        <span class="tag">meta</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ng-zorro/">
+                        <span class="tag">ng-zorro</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nginx/">
+                        <span class="tag">nginx</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nodejs/">
+                        <span class="tag">nodejs</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/npm速度慢/">
+                        <span class="tag">npm速度慢</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ocx/">
+                        <span class="tag">ocx</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/progress/">
+                        <span class="tag">progress</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/require-js/">
+                        <span class="tag">require.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/sea-js/">
+                        <span class="tag">sea.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/socket-io/">
+                        <span class="tag">socket.io</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/svg/">
+                        <span class="tag">svg</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/umd规范/">
+                        <span class="tag">umd规范</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/valine/">
+                        <span class="tag">valine</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vscode/">
+                        <span class="tag">vscode</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue/">
+                        <span class="tag">vue</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue-router/">
+                        <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue作用域插槽/">
+                        <span class="tag">vue作用域插槽</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue升级/">
+                        <span class="tag">vue升级</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack4/">
+                        <span class="tag">webpack4</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/websocket/">
+                        <span class="tag">websocket</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/windows/">
+                        <span class="tag">windows</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前后端分离/">
+                        <span class="tag">前后端分离</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/发布npm包/">
+                        <span class="tag">发布npm包</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/地图曲线/">
+                        <span class="tag">地图曲线</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信公众号/">
+                        <span class="tag">微信公众号</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信小程序/">
+                        <span class="tag">微信小程序</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/架构/">
+                        <span class="tag">架构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/滑块美化/">
+                        <span class="tag">滑块美化</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/电脑技能/">
+                        <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/移动端调试/">
+                        <span class="tag">移动端调试</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自定义tabbar/">
+                        <span class="tag">自定义tabbar</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/记事本/">
+                        <span class="tag">记事本</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/面试题/">
+                        <span class="tag">面试题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/前端API层架构，也许你做得还不够.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book_600x400.png" alt="前端API层架构，也许你做得还不够">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-04T05:41:20.000Z">2019-12-04</time></div>
+                    <a href="/前端API层架构，也许你做得还不够.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端API层架构，也许你做得还不够</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/架构设计/">架构设计</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/Git多个远程仓库不同步时的补救办法.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/git%E5%A4%9A%E4%BB%93%E5%BA%93%E5%B7%AE%E5%BC%82.png" alt="Git多个远程仓库不同步时的补救办法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-19T10:31:55.000Z">2019-11-19</time></div>
+                    <a href="/Git多个远程仓库不同步时的补救办法.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">Git多个远程仓库不同步时的补救办法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/解决办公IP变化后git无法推送远程仓库的问题.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/abstract_city_600x400.png" alt="解决办公IP变化后git无法推送远程仓库的问题">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-17T07:56:21.000Z">2019-11-17</time></div>
+                    <a href="/解决办公IP变化后git无法推送远程仓库的问题.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">解决办公IP变化后git无法推送远程仓库的问题</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/git/">git</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/用初中数学知识撸一个canvas环形进度条.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/vue-awesome-progress.png" alt="用初中数学知识撸一个canvas环形进度条">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-10T05:47:37.000Z">2019-11-10</time></div>
+                    <a href="/用初中数学知识撸一个canvas环形进度条.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">用初中数学知识撸一个canvas环形进度条</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/canvas/">canvas</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/ionic初体验.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/book_600x400.png" alt="ionic初体验">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-05T10:19:00.000Z">2019-11-05</time></div>
+                    <a href="/ionic初体验.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">ionic初体验</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/hybrid/">hybrid</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CommonJS/">
+                        <span class="tag">CommonJS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ES6/">
+                        <span class="tag">ES6</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Gerrit/">
+                        <span class="tag">Gerrit</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Next主题/">
+                        <span class="tag">Next主题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TortoiseGIT/">
+                        <span class="tag">TortoiseGIT</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VMware/">
+                        <span class="tag">VMware</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/amd规范/">
+                        <span class="tag">amd规范</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/angular/">
+                        <span class="tag">angular</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/axios/">
+                        <span class="tag">axios</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bootstrap/">
+                        <span class="tag">bootstrap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/canvas/">
+                        <span class="tag">canvas</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cordova/">
+                        <span class="tag">cordova</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css/">
+                        <span class="tag">css</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/demo/">
+                        <span class="tag">demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/express/">
+                        <span class="tag">express</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git-push报错/">
+                        <span class="tag">git push报错</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git-remote不同步/">
+                        <span class="tag">git,remote不同步</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gitment/">
+                        <span class="tag">gitment</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gradle/">
+                        <span class="tag">gradle</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gulp/">
+                        <span class="tag">gulp</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html/">
+                        <span class="tag">html</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/http-server/">
+                        <span class="tag">http-server</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/iconfont/">
+                        <span class="tag">iconfont</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ionic/">
+                        <span class="tag">ionic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jdk/">
+                        <span class="tag">jdk</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jquery/">
+                        <span class="tag">jquery</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js模块化/">
+                        <span class="tag">js模块化</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/livere/">
+                        <span class="tag">livere</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/meta/">
+                        <span class="tag">meta</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ng-zorro/">
+                        <span class="tag">ng-zorro</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nginx/">
+                        <span class="tag">nginx</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nodejs/">
+                        <span class="tag">nodejs</span>
+                        <span class="tag is-grey">5</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/npm速度慢/">
+                        <span class="tag">npm速度慢</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ocx/">
+                        <span class="tag">ocx</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/progress/">
+                        <span class="tag">progress</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/require-js/">
+                        <span class="tag">require.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/sea-js/">
+                        <span class="tag">sea.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/socket-io/">
+                        <span class="tag">socket.io</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/svg/">
+                        <span class="tag">svg</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/umd规范/">
+                        <span class="tag">umd规范</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/valine/">
+                        <span class="tag">valine</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vscode/">
+                        <span class="tag">vscode</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue/">
+                        <span class="tag">vue</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue-router/">
+                        <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue作用域插槽/">
+                        <span class="tag">vue作用域插槽</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue升级/">
+                        <span class="tag">vue升级</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack4/">
+                        <span class="tag">webpack4</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/websocket/">
+                        <span class="tag">websocket</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/windows/">
+                        <span class="tag">windows</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前后端分离/">
+                        <span class="tag">前后端分离</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/发布npm包/">
+                        <span class="tag">发布npm包</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/地图曲线/">
+                        <span class="tag">地图曲线</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信公众号/">
+                        <span class="tag">微信公众号</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信小程序/">
+                        <span class="tag">微信小程序</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/架构/">
+                        <span class="tag">架构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/滑块美化/">
+                        <span class="tag">滑块美化</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/电脑技能/">
+                        <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/移动端调试/">
+                        <span class="tag">移动端调试</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自定义tabbar/">
+                        <span class="tag">自定义tabbar</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/记事本/">
+                        <span class="tag">记事本</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/面试题/">
+                        <span class="tag">面试题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="前端API层架构，也许你做得还不够" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Tusi&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Follow me on GitHub" href="https://github.com/cumt-robin">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+<script src="/js/lazyload.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
