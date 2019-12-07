@@ -19,7 +19,7 @@
 <meta property="og:description" content="周末好，今天给大家带来一款接地气的环形进度条组件vue-awesome-progress。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://qncdn.wbjiang.cn/vue-awesome-progress.png">
-<meta property="og:updated_time" content="2019-11-10T05:49:52.561Z">
+<meta property="og:updated_time" content="2019-12-07T09:47:58.511Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用初中数学知识撸一个canvas环形进度条">
 <meta name="twitter:description" content="周末好，今天给大家带来一款接地气的环形进度条组件vue-awesome-progress。">
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    23 分钟 读完 (大约 3484 个字)
+                    23 分钟 读完 (大约 3383 个字)
                 </span>
                 
                 
@@ -206,9 +206,6 @@ var _hmt = _hmt || [];
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="全局注册"><a href="#全局注册" class="headerlink" title="全局注册"></a>全局注册</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span></span><br><span class="line"><span class="hljs-keyword">import</span> VueAwesomeProgress <span class="hljs-keyword">from</span> <span class="hljs-string">"vue-awesome-progress"</span></span><br><span class="line">Vue.use(VueAwesomeProgress)</span><br></pre></td></tr></table></figure>
 
 <h3 id="局部使用"><a href="#局部使用" class="headerlink" title="局部使用"></a>局部使用</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import VueAwesomeProgress from &quot;vue-awesome-progress&quot;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">        VueAwesomeProgress</span><br><span class="line">    &#125;,</span><br><span class="line">    // 其他代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="webpack配置"><a href="#webpack配置" class="headerlink" title="webpack配置"></a>webpack配置</h3><p>由于当前版本发布时，未进行<code>babel</code>编译，因此使用时需要自行将<code>vue-awesome-progress</code>纳入<code>babel-loader</code>的解析范围。示例如下：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// resolve函数是连接路径的，方法体是path.join(__dirname, "..", dir)</span></span><br><span class="line">&#123;</span><br><span class="line">  test: <span class="hljs-regexp">/\.js$/</span>,</span><br><span class="line">  loader: <span class="hljs-string">"babel-loader"</span>,</span><br><span class="line">  include: [</span><br><span class="line">    resolve(<span class="hljs-string">"src"</span>),</span><br><span class="line">    resolve(<span class="hljs-string">"node_modules/vue-awesome-progress"</span>)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="静态展示"><a href="#静态展示" class="headerlink" title="静态展示"></a>静态展示</h1><p>任何事都不是一蹴而就的，我们首先来实现一个静态的效果，然后再实现动画效果，甚至是复杂的控制逻辑。</p>
 <h2 id="确定画布大小"><a href="#确定画布大小" class="headerlink" title="确定画布大小"></a>确定画布大小</h2><p>第一步是确定画布大小。从设计稿我们可以直观地看到，整个环形进度条的最外围是由进度圆点确定的，而进度圆点的圆心在圆环圆周上。</p>
@@ -321,9 +318,7 @@ var _hmt = _hmt || [];
 <p><img src=""data-src="https://qncdn.wbjiang.cn/v1.4.0%E6%95%88%E6%9E%9C%E5%9B%BE.gif" alt="v1.4.0版本效果"></p>
 <hr>
 <p><a href="https://juejin.im/post/5dc626125188253aec025a60" target="_blank" rel="noopener">首发链接</a></p>
-<hr>
-<p>扫一扫下方小程序码或搜索<code>Tusi博客</code>，即刻阅读最新文章！</p>
-<p><img src=""data-src="http://qncdn.wbjiang.cn/Tusi%E5%8D%9A%E5%AE%A2.jpg" alt="Tusi博客"></p>
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E6%AC%A2%E8%BF%8E%E5%85%B3%E6%B3%A8.png" alt="欢迎关注"></p>
 
         </div>
         
