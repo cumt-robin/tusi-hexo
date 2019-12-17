@@ -19,7 +19,7 @@
 <meta property="og:description" content="说实话，我从工作开始就一直在接触babel，然而对于babel并没有一个清晰的认识，只知道babel是用于编译javascript，让开发者能使用超前的ES6+语法进行开发。自己配置babel的时候，总是遇到很多困惑，下面我就以babel@7为例，重新简单认识下babel。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://qncdn.wbjiang.cn/babel.png">
-<meta property="og:updated_time" content="2019-12-17T03:40:40.352Z">
+<meta property="og:updated_time" content="2019-12-17T05:58:04.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="入门babel，我们需要了解些什么">
 <meta name="twitter:description" content="说实话，我从工作开始就一直在接触babel，然而对于babel并没有一个清晰的认识，只知道babel是用于编译javascript，让开发者能使用超前的ES6+语法进行开发。自己配置babel的时候，总是遇到很多困惑，下面我就以babel@7为例，重新简单认识下babel。">
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    23 分钟 读完 (大约 3401 个字)
+                    23 分钟 读完 (大约 3467 个字)
                 </span>
                 
                 
@@ -267,21 +267,22 @@ var _hmt = _hmt || [];
 <p>可选值有：<code>&quot;entry&quot; | &quot;usage&quot; | false</code>，默认是<code>false</code></p>
 <p>该配置将决定<code>@babel/preset-env</code>如何去处理<code>polyfill</code></p>
 <p><code>&quot;entry&quot;</code></p>
-<p>如果设置为<code>entry</code>，我们需要安装<code>@babel/polyfill</code>，并且在入口文件引入<code>@babel/polyfill</code>，最终会被转换为<code>core-js</code>模块和<code>regenerator-runtime/runtime</code>。对了，<code>@babel/polyfill</code>也不会处理<code>stage &lt;=3</code>的提案。</p>
+<p>如果<code>useBuiltIns</code>设置为<code>&quot;entry&quot;</code>，我们需要安装<code>@babel/polyfill</code>，并且在入口文件引入<code>@babel/polyfill</code>，最终会被转换为<code>core-js</code>模块和<code>regenerator-runtime/runtime</code>。对了，<code>@babel/polyfill</code>也不会处理<code>stage &lt;=3</code>的提案。</p>
+<p>我们用一段包含了<code>Promise</code>的代码来做下测试：</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">"@babel/polyfill"</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestBabelLoose</span> </span>&#123;</span><br><span class="line">    constractor(name) &#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line">    getName() &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name</span><br><span class="line">    &#125;</span><br><span class="line">    testPromise() &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">            resolve()</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">new</span> TestBabelLoose(<span class="hljs-string">'Tusi'</span>)</span><br></pre></td></tr></table></figure>
 
-<p>但是编译后，貌似引入了很多<code>polyfill</code>啊，一个149个，怎么不是按需引入呢？</p>
+<p>但是编译后，貌似引入了很多<code>polyfill</code>啊，一共149个，怎么不是按需引入呢？嗯…你需要往下看了。</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">"core-js/modules/es6.array.map"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">"core-js/modules/es6.map"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">"core-js/modules/es6.promise"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">"core-js/modules/es7.promise.finally"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">"regenerator-runtime/runtime"</span>;</span><br><span class="line"><span class="hljs-comment">// 此处省略了144个包。。。</span></span><br></pre></td></tr></table></figure>
 
 <p><code>&quot;usage&quot;</code></p>
-<p>无需安装<code>@babel/polyfill</code>，根据实际用到的语法特性导入相应的<code>polyfill</code>，有点按需加载的意思。</p>
+<p>如果<code>useBuiltIns</code>设置为<code>&quot;usage&quot;</code>，我们无需安装<code>@babel/polyfill</code>，<code>babel</code>会根据你实际用到的语法特性导入相应的<code>polyfill</code>，有点按需加载的意思。</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 上个例子中，如果改用useBuiltIns: 'usage'，最终转换的结果，只有四个模块</span></span><br><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">"core-js/modules/es6.object.define-property"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">"core-js/modules/es6.promise"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">"core-js/modules/es6.object.to-string"</span>;</span><br><span class="line"><span class="hljs-keyword">import</span> <span class="hljs-string">"core-js/modules/es6.function.name"</span>;</span><br></pre></td></tr></table></figure>
 
-<p>配置时，常搭配<code>corejs</code>选项</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useBuiltIns: <span class="hljs-string">'usage'</span>,</span><br><span class="line">corejs: <span class="hljs-number">3</span></span><br></pre></td></tr></table></figure>
+<p>配置<code>&quot;usage&quot;</code>时，常搭配<code>corejs</code>选项来指定<code>core-js</code>主版本号</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useBuiltIns: <span class="hljs-string">"usage"</span>,</span><br><span class="line">corejs: <span class="hljs-number">3</span></span><br></pre></td></tr></table></figure>
 
 <p><code>false</code></p>
-<p>不会自动为每个文件加上<code>polyfill</code>，也不会把<code>import &quot;@babel/polyfill&quot;</code>转为一个个独立的<code>core-js</code>模块。</p>
+<p>如果<code>useBuiltIns</code>设置为<code>false</code>，<code>babel</code>不会自动为每个文件加上<code>polyfill</code>，也不会把<code>import &quot;@babel/polyfill&quot;</code>转为一个个独立的<code>core-js</code>模块。</p>
 <ul>
 <li><code>@babel/preset-env</code>还有一些配置，自己慢慢去折腾吧……</li>
 </ul>
@@ -315,7 +316,7 @@ var _hmt = _hmt || [];
 
 <h2 id="babel-runtime和useBuiltIns-‘usage’有什么区别？"><a href="#babel-runtime和useBuiltIns-‘usage’有什么区别？" class="headerlink" title="@babel/runtime和useBuiltIns: ‘usage’有什么区别？"></a>@babel/runtime和useBuiltIns: ‘usage’有什么区别？</h2><p>两者看起来都实现了按需加载的能力，但是实际上作用是不一样的。<code>@babel/runtime</code>处理的是语法支持，把新的语法糖转为目标环境支持的语法；而<code>useBuiltIns: &#39;usage&#39;</code>处理的是垫片<code>polyfill</code>，为旧的环境提供新的全局对象，如<code>Promise</code>等，提供新的原型方法支持，如<code>Array.prototype.includes</code>等。如果你开发的是组件库，一般不建议处理<code>polyfill</code>的，应该由调用者去做这些支持，防止重复的<code>polyfill</code>。</p>
 <ul>
-<li>如果仅使用<code>@babel/plugin-transform-runtime</code></li>
+<li>开发组件时，如果仅使用<code>@babel/plugin-transform-runtime</code></li>
 </ul>
 <p><img src=""data-src="https://qncdn.wbjiang.cn/babel-runtime.png" alt="@babel/runtime打包分析"></p>
 <ul>
