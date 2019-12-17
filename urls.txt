@@ -1,3 +1,4 @@
+http://hexo.wbjiang.cn/入门babel，我们需要了解些什么.html
 http://hexo.wbjiang.cn/从一道面试题简单谈谈发布订阅和观察者模式.html
 http://hexo.wbjiang.cn/前端API层架构，也许你做得还不够.html
 http://hexo.wbjiang.cn/Git多个远程仓库不同步时的补救办法.html
