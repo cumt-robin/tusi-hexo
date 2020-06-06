@@ -1,3 +1,4 @@
+http://hexo.wbjiang.cn/前端小微团队的gitlab实践.html
 http://hexo.wbjiang.cn/https+小程序为战疫献上一份技术力量.html
 http://hexo.wbjiang.cn/前端自动化部署的深度实践.html
 http://hexo.wbjiang.cn/自动化部署的一小步，前端搬砖的一大步.html
