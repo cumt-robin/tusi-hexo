@@ -1,3 +1,7 @@
+http://hexo.wbjiang.cn/千万别小看这些运算符背后的逻辑.html
+http://hexo.wbjiang.cn/入坑自媒体写作，我有干货与你分享.html
+http://hexo.wbjiang.cn/关于数据类型的一些小疑惑.html
+http://hexo.wbjiang.cn/js数据类型很简单，却也不简单.html
 http://hexo.wbjiang.cn/10060错误的解决过程.html
 http://hexo.wbjiang.cn/前端小微团队的gitlab实践.html
 http://hexo.wbjiang.cn/https+小程序为战疫献上一份技术力量.html
