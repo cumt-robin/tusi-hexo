@@ -1,0 +1,2407 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>「思维导图学前端 」6k字一文搞懂Javascript对象，原型，继承 - Tusi博客|前端分享驿站</title>
+
+
+    <meta name="description" content="前言去年开始我给自己画了一张知识体系的思维导图，用于规划自己的学习范围和方向。但是我犯了一个大错，我的思维导图只是一个全局的蓝图，而在学习某个知识点的时候没有系统化，知识太过于零散，另一方面也很容易遗忘，回头复习时没有一个提纲，整体的学习效率不高。意识到这一点，我最近开始用思维导图去学习和总结具体的知识点，效果还不错。">
+<meta name="keywords" content="原型链,继承,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「思维导图学前端 」6k字一文搞懂Javascript对象，原型，继承">
+<meta property="og:url" content="http://hexo.wbjiang.cn/一文搞懂对象原型继承.html">
+<meta property="og:site_name" content="Tusi博客|前端分享驿站">
+<meta property="og:description" content="前言去年开始我给自己画了一张知识体系的思维导图，用于规划自己的学习范围和方向。但是我犯了一个大错，我的思维导图只是一个全局的蓝图，而在学习某个知识点的时候没有系统化，知识太过于零散，另一方面也很容易遗忘，回头复习时没有一个提纲，整体的学习效率不高。意识到这一点，我最近开始用思维导图去学习和总结具体的知识点，效果还不错。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://qncdn.wbjiang.cn/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82%E5%AF%B9%E8%B1%A1%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF.png">
+<meta property="og:updated_time" content="2020-06-19T09:16:45.311Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「思维导图学前端 」6k字一文搞懂Javascript对象，原型，继承">
+<meta name="twitter:description" content="前言去年开始我给自己画了一张知识体系的思维导图，用于规划自己的学习范围和方向。但是我犯了一个大错，我的思维导图只是一个全局的蓝图，而在学习某个知识点的时候没有系统化，知识太过于零散，另一方面也很容易遗忘，回头复习时没有一个提纲，整体的学习效率不高。意识到这一点，我最近开始用思维导图去学习和总结具体的知识点，效果还不错。">
+<meta name="twitter:image" content="http://qncdn.wbjiang.cn/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82%E5%AF%B9%E8%B1%A1%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/rainbow.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0cc7298ff16e9d2c7ae3a15b3ee1d9e7";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+        <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="「思维导图学前端 」6k字一文搞懂Javascript对象，原型，继承" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">首页</a>
+                
+                <a class="navbar-item"
+                href="/archives">时间线</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Follow me on GitHub" href="https://github.com/cumt-robin">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82%E5%AF%B9%E8%B1%A1%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF.png" alt="「思维导图学前端 」6k字一文搞懂Javascript对象，原型，继承">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-06-19T08:50:17.000Z">2020-06-19</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    42 分钟 读完 (大约 6315 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                「思维导图学前端 」6k字一文搞懂Javascript对象，原型，继承
+            
+        </h1>
+        <div class="content">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>去年开始我给自己画了一张知识体系的思维导图，用于规划自己的学习范围和方向。但是我犯了一个大错，我的思维导图只是一个全局的蓝图，而在学习某个知识点的时候没有系统化，知识太过于零散，另一方面也很容易遗忘，回头复习时没有一个提纲，整体的学习效率不高。意识到这一点，我最近开始用思维导图去学习和总结具体的知识点，效果还不错。</p>
+<a id="more"></a>
+
+<p>试想一下，一张思维导图的某个端点是另一张思维导图，这样串起来的知识链条是多么“酸爽”！当然，YY一下就好了，我保证你没有足够的时间给所有知识点都画上思维导图，挑重点即可。</p>
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E6%9D%A5%E7%BB%99%E6%88%91%E7%94%BB100%E5%BC%A0.jpg" alt></p>
+<h1 id="提纲思路"><a href="#提纲思路" class="headerlink" title="提纲思路"></a>提纲思路</h1><p>当我们要研究一个问题或者知识点时，关注点无非是：</p>
+<ol>
+<li><p>是什么？</p>
+</li>
+<li><p>做什么？</p>
+</li>
+<li><p>为什么？</p>
+</li>
+</ol>
+<p>很明显，搞懂“是什么”是最最基础的，而这部分却很重要。万丈高楼平地起，如果连基础都不清楚，何谈应用实践（“做什么”），更加也不会理解问题的本质（“为什么”）。</p>
+<p>而要整理一篇高质量的思维导图，必须充分利用“总-分”的思路，首先要形成一个基本的提纲，然后从各个方面去延伸拓展，最后得到一棵较为完整的知识树。分解知识点后，在细究的过程中，你可能还会惊喜地发现一个知识点的各个组成部分之间的关联，对知识点有一个更为饱满的认识。</p>
+<p>梳理提纲需要对知识点有一个整体的认识。如果是学习比较陌生的领域知识，我的策略是从相关书籍或官方文档的目录中提炼出提纲。</p>
+<p>下面以我复习<code>javascript</code>对象这块知识时的一些思路为例说明。</p>
+<h1 id="javascript对象"><a href="#javascript对象" class="headerlink" title="javascript对象"></a>javascript对象</h1><p>在复习<code>javascript</code>对象这块知识时，我从过往的一些使用经验，书籍，文档资料中提炼出了这么几个方面作为提纲，分别是：</p>
+<ul>
+<li><p>对象的分类</p>
+</li>
+<li><p>对象的三个重要概念：类，原型，实例</p>
+</li>
+<li><p>创建对象的方法</p>
+</li>
+<li><p>对象属性的访问和设置</p>
+</li>
+<li><p>原型和继承</p>
+</li>
+<li><p>静态方法和原型方法</p>
+</li>
+</ul>
+<p>由此展开得到了这样一个思维导图：</p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/Object.png" alt="js对象"></p>
+<h2 id="对象的分类"><a href="#对象的分类" class="headerlink" title="对象的分类"></a>对象的分类</h2><p>对象主要分为这么三大类：</p>
+<ul>
+<li><p><strong>内置对象</strong>：ECMAScript规范中定义的类或对象，比如<code>Object</code>, <code>Array</code>, <code>Date</code>等。</p>
+</li>
+<li><p><strong>宿主对象</strong>：由javascript解释器所嵌入的宿主环境提供。比如浏览器环境会提供<code>window</code>，<code>HTMLElement</code>等浏览器特有的宿主对象。Nodejs会提供<code>global</code>全局对象</p>
+</li>
+<li><p><strong>自定义对象</strong>：由javascript开发者自行创建的对象，用以实现特定业务。就比如我们熟悉的Vue，它就是一个自定义对象。我们可以对Vue这个对象进行实例化，用于生成基于Vue的应用。</p>
+</li>
+</ul>
+<h2 id="对象的三个重要概念"><a href="#对象的三个重要概念" class="headerlink" title="对象的三个重要概念"></a>对象的三个重要概念</h2><h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>javascript在ES6之前没有<code>class</code>关键字，但这不影响javascript可以实现面向对象编程，javascript的类名对应构造函数名。</p>
+<p>在ES6之前，如果我们要定义一个类，其实是借助函数来实现的。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">name</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.sayHello = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123; </span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">': hello!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> person = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'Faker'</span>);</span><br><span class="line">person.sayHello();</span><br></pre></td></tr></table></figure>
+
+<p>ES6明确定义了<code>class</code>关键字。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  sayHello() &#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">': hello!'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> person = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'Faker'</span>);</span><br><span class="line">person.sayHello();</span><br></pre></td></tr></table></figure>
+
+<h3 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h3><p>原型是类的核心，用于定义类的属性和方法，这些属性和方法会被实例继承。</p>
+<p>定义原型属性和方法需要用到构造函数的<code>prototype</code>属性，通过<code>prototype</code>属性可以获取到原型对象的引用，然后就可以扩展原型对象了。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">name</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.sexList = [<span class="hljs-string">'man'</span>, <span class="hljs-string">'woman'</span>];</span><br><span class="line">Person.prototype.sayHello = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">': hello!'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>类是抽象的概念，相当于一个模板，而实例是类的具体表现。就比如<code>Person</code>是一个类，而根据<code>Person</code>类，我们可以实例化多个对象，可能有小明，小红，小王等等，类的实例都是一个个独立的个体，但是他们都有共同的原型。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> xiaoMing = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'小明'</span>);</span><br><span class="line"><span class="hljs-keyword">var</span> xiaoHong = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'小红'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 拥有同一个原型</span></span><br><span class="line"><span class="hljs-built_in">Object</span>.getPrototypeOf(xiaoMing) === <span class="hljs-built_in">Object</span>.getPrototypeOf(xiaoHong); <span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="如何创建对象"><a href="#如何创建对象" class="headerlink" title="如何创建对象"></a>如何创建对象</h2><h3 id="对象直接量"><a href="#对象直接量" class="headerlink" title="对象直接量"></a>对象直接量</h3><p>对象直接量也称为对象字面量。直接量就是不需要实例化，直接写键值对即可创建对象，堪称“简单粗暴”。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> xiaoMing = &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">'小明'</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>每写一个对象直接量相当于创建了一个新的对象。即使两个对象直接量看起来一模一样，它们指向的堆内存地址也是不一样的，而对象是按引用访问的，所以这两个对象是不相等的。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> xiaoMing1 = &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">'小明'</span> &#125;;</span><br><span class="line"><span class="hljs-keyword">var</span> xiaoMing2 = &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">'小明'</span> &#125;;</span><br><span class="line">xiaoMing1 === xiaoMing2; <span class="hljs-comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="new-构造函数"><a href="#new-构造函数" class="headerlink" title="new 构造函数"></a>new 构造函数</h3><p>可以通过关键词<code>new</code>调用javascript对象的构造函数来获得对象实例。比如：</p>
+<ol>
+<li>创建内置对象实例</li>
+</ol>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> o = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>();</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>创建自定义对象实例</li>
+</ol>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">name</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="hljs-keyword">new</span> Person(<span class="hljs-string">'Faker'</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create"></a>Object.create</h3><p><code>Object.create</code>用于创建一个对象，接受两个参数，使用语法如下；</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">Object</span>.create(proto[, propertiesObject]);</span><br></pre></td></tr></table></figure>
+
+<p>第一个参数<code>proto</code>用于指定新创建对象的原型；</p>
+<p>第二个参数<code>propertiesObject</code>是新创建对象的属性名及属性描述符组成的对象。</p>
+<p><code>proto</code>可以指定为<code>null</code>，但是意味着新对象的原型是<code>null</code>，它不会继承<code>Object</code>的方法，比如<code>toString()</code>等。</p>
+<p><code>propertiesObject</code>参数与<code>Object.defineProperties</code>方法的第二个参数格式相同。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> o = <span class="hljs-built_in">Object</span>.create(<span class="hljs-built_in">Object</span>.prototype, &#123;</span><br><span class="line">  <span class="hljs-comment">// foo会成为所创建对象的数据属性</span></span><br><span class="line">  foo: &#123; </span><br><span class="line">    writable:<span class="hljs-literal">true</span>,</span><br><span class="line">    configurable:<span class="hljs-literal">true</span>,</span><br><span class="line">    value: <span class="hljs-string">"hello"</span> </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="hljs-comment">// bar会成为所创建对象的访问器属性</span></span><br><span class="line">  bar: &#123;</span><br><span class="line">    configurable: <span class="hljs-literal">false</span>,</span><br><span class="line">    <span class="hljs-keyword">get</span>: function() &#123; <span class="hljs-keyword">return</span> <span class="hljs-number">10</span> &#125;,</span><br><span class="line">    <span class="hljs-keyword">set</span>: function(value) &#123;</span><br><span class="line">      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Setting o.bar to"</span>, value);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="属性查询和设置"><a href="#属性查询和设置" class="headerlink" title="属性查询和设置"></a>属性查询和设置</h2><h3 id="属性查询"><a href="#属性查询" class="headerlink" title="属性查询"></a>属性查询</h3><p>属性查询也可以称为属性访问。在javascript中，对象属性查询非常灵活，支持点号查询，也支持字符串索引查询（之所以说是“字符串索引”，是因为写法看起像数组，索引是字符串而不是数字）。</p>
+<p>通过点号加属性名访问属性的行为很像一些静态类型语言，如java，C等。属性名是javascript标识符，必须直接写在属性访问表达式中，不能动态访问。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> o = &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">'小明'</span> &#125;;</span><br><span class="line">o.name; <span class="hljs-comment">// "小明"</span></span><br></pre></td></tr></table></figure>
+
+<p>而根据字符串索引查询对象属性就比较灵活了，属性名就是字符串表达式的值，而一个表达式是可以接受变量的，这意味着可以动态访问属性，这赋予了javascript程序员很大的灵活性。下面是一个很简单的示例，而这种特性在业务实践中作用很大，比如深拷贝的实现，你往往不知道你要拷贝的对象中有哪些属性。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> o = &#123; <span class="hljs-attr">chineseName</span>: <span class="hljs-string">'小明'</span>, <span class="hljs-attr">englishName</span>: <span class="hljs-string">'XiaoMing'</span> &#125;;</span><br><span class="line">[<span class="hljs-string">'chinese'</span>, <span class="hljs-string">'english'</span>].forEach(<span class="hljs-function"><span class="hljs-params">lang</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">var</span> property = lang + <span class="hljs-string">'Name'</span>;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(o[property]); <span class="hljs-comment">// 这里使用了字符串索引访问对象属性</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>对了，属性查询不仅可以查询自由属性，也可以查询继承属性。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> protoObj = &#123; <span class="hljs-attr">age</span>: <span class="hljs-number">18</span> &#125;;</span><br><span class="line"><span class="hljs-keyword">var</span> o = <span class="hljs-built_in">Object</span>.create(protoObj);</span><br><span class="line">o.age; <span class="hljs-comment">// 18，这里访问的是原型属性，也就是继承得到的属性</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="属性设置"><a href="#属性设置" class="headerlink" title="属性设置"></a>属性设置</h3><p>通过属性访问表达式，我们可以得到属性的引用，就可以据此设置属性了。这里主要注意一下只读属性和继承属性即可，细节不再展开。</p>
+<h2 id="原型和继承"><a href="#原型和继承" class="headerlink" title="原型和继承"></a>原型和继承</h2><h3 id="原型-1"><a href="#原型-1" class="headerlink" title="原型"></a>原型</h3><p>前面也提到了，原型是实现继承的基础。那么如何去理解原型呢？</p>
+<p>首先，要明确原型概念中的三角关系，三个主角分别是构造函数，原型，实例。我这里画了一张比较简单的图来帮助理解下。</p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/%E5%8E%9F%E5%9E%8B%E4%B8%89%E8%A7%92%E5%85%B3%E7%B3%BB.png" alt="原型三角关系"></p>
+<p>原型这东西吧，我感觉“没人能帮你理解，只有你自己去试过才是懂了”。</p>
+<p>不过这里说说我刚学习原型时的疑惑，疑惑的是为什么构造函数有属性<code>prototype</code>指向原型，而实例又可以通过<code>__proto__</code>指向原型，究竟<code>prototype</code>和<code>__proto__</code>谁是原型？其实这明显是没有理解对象是按引用访问这个特点了。原型对象永远只有一个，它存储于堆内存中，而构造函数的<code>prototype</code>属性只是获得了原型的引用，通过这个引用可以操作原型。</p>
+<p>同样地，<code>__proto__</code>也只是原型的引用，但是要注意了，<code>__proto__</code>不是<code>ECMAScript</code>规范里的东西，所以千万不要用在生产环境中。</p>
+<p>至于为什么不可以通过<code>__proto__</code>访问原型，原因也很简单。通过实例直接获得了原型的访问和修改权限，这本身是一件很危险的事情。</p>
+<p>举个例子，这里有一个类<code>LatinDancer</code>，意思是拉丁舞者。经过实例化操作，得到了多个拉丁舞者。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">LatinDancer</span>(<span class="hljs-params">name</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.name = name;</span><br><span class="line">&#125;;</span><br><span class="line">LatinDancer.prototype.dance = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name + <span class="hljs-string">'跳拉丁舞...'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> dancer1 = <span class="hljs-keyword">new</span> LatinDancer(<span class="hljs-string">'小明'</span>);</span><br><span class="line"><span class="hljs-keyword">var</span> dancer2 = <span class="hljs-keyword">new</span> LatinDancer(<span class="hljs-string">'小红'</span>);</span><br><span class="line"><span class="hljs-keyword">var</span> dancer3 = <span class="hljs-keyword">new</span> LatinDancer(<span class="hljs-string">'小王'</span>);</span><br><span class="line">dancer1.dance(); <span class="hljs-comment">// 小明跳拉丁舞...</span></span><br><span class="line">dancer2.dance(); <span class="hljs-comment">// 小红跳拉丁舞...</span></span><br><span class="line">dancer3.dance(); <span class="hljs-comment">// 小王跳拉丁舞...</span></span><br></pre></td></tr></table></figure>
+
+<p>大家欢快地跳着拉丁舞，突然小王这个家伙心血来潮，说：“我要做b-boy，我要跳Breaking”。于是，他私下改了原型方法<code>dance()</code>。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dancer3.__proto__.dance = function() &#123;</span><br><span class="line">  console.log(this.name + &apos;跳breaking...&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dancer1.dance(); // 小明跳breaking...</span><br><span class="line">dancer2.dance(); // 小红跳breaking...</span><br><span class="line">dancer3.dance(); // 小王跳breaking...</span><br></pre></td></tr></table></figure>
+
+<p>这个时候就不对劲了，小明和小红正跳着拉丁，突然身体不受控制了，跳起了Breaking，心里暗骂：“沃尼玛，劳资不是跳拉丁的吗？”</p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/%E5%85%84%E5%98%9A%E7%9C%8B%E6%88%91%E8%A1%A8%E6%83%85.gif" alt="看我表情"></p>
+<p>这里只是举个例子哈，没有对任何舞种或者舞者不敬的意思，抱歉抱歉。</p>
+<p>所以，大家应该也明白了为什么不能使用<code>__proto__</code>了吧。</p>
+<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>在javascript中，任何对象都有原型，除了<code>Object.prototype</code>，它没有原型，或者说它的原型是<code>null</code>。</p>
+<p>那么什么是原型链呢？javascript程序在查找一个对象的属性或方法时，会首先在对象本身上进行查找，如果找不到则会去对象的原型上进行查找。按照这样一个递归关系，如果原型上找不到，就会到原型的原型上找，这样一直查找下去，就会形成一个链，它的终点是<code>null</code>。</p>
+<p>还要注意的一点是，构造函数也是一个对象，也存在原型，它的原型可以通过<code>Function.prototype</code>获得，而<code>Function.prototype</code>的原型则可以通过<code>Object.prototype</code>获得。</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>说到继承，可能大家脑子里已经冒出来“原型链继承”，“借用构造函数继承”，“寄生式继承”，“原型式继承”，“寄生组合继承”这些概念了吧。说实话，一开始我也是这么记忆，但是发现好像不是那么容易理解啊。最后，我发现，只要从原型三角关系入手，就能理清实现继承的思路。</p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/%E5%8E%9F%E5%9E%8B%E4%B8%89%E8%A7%92%E5%85%B3%E7%B3%BB.png" alt="原型三角关系"></p>
+<p>我们知道，对象实例能访问的属性和方法一共有三个来源，分别是：调用构造函数时挂载到实例上的属性，原型属性，对象实例化后自身新增的属性。</p>
+<p>很明显，第三个来源不是用来做继承的，那么前两个来源用来做继承分别有什么优缺点呢？很明显，如果只基于其中一种来源做继承，都不可能全面地继承来自父类的属性或方法。</p>
+<p>首先明确下继承中三个主体：<strong>父类</strong>，<strong>子类</strong>，<strong>子类实例</strong>。那么怎么才能让子类实例和父类搭上关系呢？</p>
+<h4 id="原型链继承"><a href="#原型链继承" class="headerlink" title="原型链继承"></a>原型链继承</h4><p>所谓继承，简单说就是能通过子类实例访问父类的属性和方法。而利用原型链可以达成这样的目的，所以只要父类原型、子类原型、子类实例形成原型链关系即可。</p>
+<p><img src=""data-src="https://qncdn.wbjiang.cn/%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%BB%A7%E6%89%BF.png" alt="原型链继承"></p>
+<p>代码示例：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Father</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.nationality = <span class="hljs-string">'Han'</span>;</span><br><span class="line">&#125;;</span><br><span class="line">Father.prototype.propA = <span class="hljs-string">'我是父类原型上的属性'</span>;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Child</span>(<span class="hljs-params"></span>) </span>&#123;&#125;;</span><br><span class="line">Child.prototype = <span class="hljs-keyword">new</span> Father();</span><br><span class="line">Child.prototype.constructor = Child; <span class="hljs-comment">// 修正原型上的constructor属性</span></span><br><span class="line">Child.prototype.propB = <span class="hljs-string">'我是子类原型上的属性'</span>;</span><br><span class="line"><span class="hljs-keyword">var</span> child = <span class="hljs-keyword">new</span> Child();</span><br><span class="line"><span class="hljs-built_in">console</span>.log(child.propA, child.propB, child.nationality); <span class="hljs-comment">// 都可以访问到</span></span><br><span class="line">child <span class="hljs-keyword">instanceof</span> Father; <span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看到，在上述代码中，我们做了这样一个特殊处理<code>Child.prototype.constructor = Child;</code>。一方面是为了保证<code>constructor</code>的指向正确，毕竟实例由子类实例化得来，如果<code>constructor</code>指向父类构造函数也不太合适吧。另一方面是为了防止某些方法显示调用<code>constructor</code>时带来的麻烦。具体解释见<a href="https://stackoverflow.com/questions/8453887/why-is-it-necessary-to-set-the-prototype-constructor#" target="_blank" rel="noopener">Why is it necessary to set the prototype constructor?</a></p>
+<p><strong>关键点</strong>：让子类原型成为父类的实例，子类实例也是父类的实例。</p>
+<p><strong>缺点</strong>：无法继承父类构造函数给实例挂载的属性。</p>
+<h4 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h4><p>在调用子类构造函数时，通过call调用父类构造函数，同时指定this值。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Father</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.nationality = <span class="hljs-string">'Han'</span>;</span><br><span class="line">&#125;;</span><br><span class="line">Father.prototype.propA = <span class="hljs-string">'我是父类原型上的属性'</span>;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Child</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  Father.call(<span class="hljs-keyword">this</span>);</span><br><span class="line">&#125;;</span><br><span class="line">Child.prototype.propB = <span class="hljs-string">'我是子类原型上的属性'</span>;</span><br><span class="line"><span class="hljs-keyword">var</span> child = <span class="hljs-keyword">new</span> Child();</span><br><span class="line"><span class="hljs-built_in">console</span>.log(child.propA, child.propB, child.nationality);</span><br></pre></td></tr></table></figure>
+
+<p>这里的<code>child.propA</code>是<code>undefined</code>，因为子类实例不是父类的实例，无法继承父类原型属性。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">child <span class="hljs-keyword">instanceof</span> Father; <span class="hljs-comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>关键点</strong>：构造函数的复用。</p>
+<p><strong>缺点</strong>：子类实例不是父类的实例，无法继承父类原型属性。</p>
+<h4 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h4><p>所谓组合继承，就是综合上述两种方法。实现代码如下：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Father</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.nationality = <span class="hljs-string">'Han'</span>;</span><br><span class="line">&#125;;</span><br><span class="line">Father.prototype.propA = <span class="hljs-string">'我是父类原型上的属性'</span>;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Child</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  Father.call(<span class="hljs-keyword">this</span>);</span><br><span class="line">&#125;;</span><br><span class="line">Child.prototype = <span class="hljs-keyword">new</span> Father();</span><br><span class="line">Child.prototype.constructor = Child; <span class="hljs-comment">// 修正原型上的constructor属性</span></span><br><span class="line">Child.prototype.propB = <span class="hljs-string">'我是子类原型上的属性'</span>;</span><br><span class="line"><span class="hljs-keyword">var</span> child = <span class="hljs-keyword">new</span> Child();</span><br><span class="line"><span class="hljs-built_in">console</span>.log(child.propA, child.propB, child.nationality); <span class="hljs-comment">// 都能访问到</span></span><br></pre></td></tr></table></figure>
+
+<p>一眼看上去没什么问题，但是<code>Father()</code>构造函数其实是被调用了两次的。第一次发生在<code>Child.prototype = new Father();</code>，此时子类原型成为了父类实例，执行父类构造函数<code>Father()</code>时，获得了实例属性<code>nationality</code>；第二次发生在<code>var child = new Child();</code>，此时执行子类构造函数<code>Child()</code>，而<code>Child()</code>中通过<code>call()</code>调用了父类构造函数，所以子类实例也获得了实例属性<code>nationality</code>。这样理解起来可能有点晦涩难懂，我们可以看看子类实例的对象结构：</p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/%E7%BB%84%E5%90%88%E7%BB%A7%E6%89%BF%E7%9A%84%E5%BC%8A%E7%AB%AF.png" alt="组合继承的弊端"></p>
+<p>可以看到，子类实例和子类原型上都挂载了执行父类构造函数时获得的属性<code>nationality</code>。然而我们做继承的目的是很单纯的，即“让子类继承父类属性和方法”，但并不应该给子类原型挂载不必要的属性而导致污染子类原型。</p>
+<p>有人会说“这么一点副作用怕什么”。当然，对于这么简单的父类而言，这种副作用微乎其微。假设父类有几百个属性或方法呢，这种白白耗费性能和内存的行为是有必要的吗？答案显而易见。</p>
+<p><strong>关键点</strong>：实例属性和原型属性都得以继承。</p>
+<p><strong>缺点</strong>：父类构造函数被执行了两次，污染了子类原型。</p>
+<h4 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h4><p>原型式继承是相对于原型链继承而言的，与原型链继承的不同点在于，子类原型在创建时，不会执行父类构造函数，是一个纯粹的空对象。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Father</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.nationality = <span class="hljs-string">'Han'</span>;</span><br><span class="line">&#125;;</span><br><span class="line">Father.prototype.propA = <span class="hljs-string">'我是父类原型上的属性'</span>;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Child</span>(<span class="hljs-params"></span>) </span>&#123;&#125;;</span><br><span class="line">Child.prototype = <span class="hljs-built_in">Object</span>.create(Father.prototype);</span><br><span class="line">Child.prototype.constructor = Child; <span class="hljs-comment">// 修正原型上的constructor属性</span></span><br><span class="line">Child.prototype.propB = <span class="hljs-string">'我是子类原型上的属性'</span>;</span><br><span class="line"><span class="hljs-keyword">var</span> child = <span class="hljs-keyword">new</span> Child();</span><br><span class="line"><span class="hljs-built_in">console</span>.log(child.propA, child.propB, child.nationality); <span class="hljs-comment">// 都可以访问到</span></span><br><span class="line">child <span class="hljs-keyword">instanceof</span> Father; <span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>在<code>ES5</code>之前，可以这样模拟<code>Object.create</code>：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">create</span>(<span class="hljs-params">proto</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">F</span>(<span class="hljs-params"></span>) </span>&#123;&#125;</span><br><span class="line">  F.prototype = proto;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> F();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>关键点</strong>：利用一个空对象过渡，解除子类原型和父类构造函数的强关联关系。这也意味着继承可以是纯对象之间的继承，无需构造函数介入。</p>
+<p><strong>缺点</strong>：无法继承父类构造函数给实例挂载的属性，这一点和原型链继承并无差异。</p>
+<h4 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h4><p>寄生式继承有借鉴工厂函数的设计模式，将继承的过程封装到一个函数中并返回对象，并且可以在函数中扩展对象方法或属性。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> obj = &#123;</span><br><span class="line">  nationality: <span class="hljs-string">'Han'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">inherit</span>(<span class="hljs-params">proto</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">var</span> o = <span class="hljs-built_in">Object</span>.create(proto);</span><br><span class="line">  o.extendFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> a + b;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-keyword">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">var</span> inheritObj = inherit(obj);</span><br></pre></td></tr></table></figure>
+
+<p>这里<code>inheritObj</code>不仅继承了<code>obj</code>，而且也扩展了<code>extendFunc</code>方法。</p>
+<p><strong>关键点</strong>：工厂函数，封装过程函数化。</p>
+<p><strong>缺点</strong>：如果在工厂函数中扩展对象属性或方法，无法得到复用。</p>
+<h4 id="寄生组合继承"><a href="#寄生组合继承" class="headerlink" title="寄生组合继承"></a>寄生组合继承</h4><p>用以解决组合继承过程中存在的“父类构造函数多次被调用”问题。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">inherit</span>(<span class="hljs-params">childType, fatherType</span>) </span>&#123;</span><br><span class="line">  childType.prototype = <span class="hljs-built_in">Object</span>.create(fatherType.prototype);</span><br><span class="line">  childType.prototype.constructor = childType;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Father</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.nationality = <span class="hljs-string">'Han'</span>;</span><br><span class="line">&#125;</span><br><span class="line">Father.prototype.propA = <span class="hljs-string">'我是父类原型上的属性'</span>;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Child</span>(<span class="hljs-params"></span>) </span>&#123;&#125;</span><br><span class="line">inherit(Child, Father); <span class="hljs-comment">// 继承</span></span><br><span class="line">Child.prototype.propB = <span class="hljs-string">'我是子类原型上的属性'</span>;</span><br><span class="line"><span class="hljs-keyword">var</span> child = <span class="hljs-keyword">new</span> Child();</span><br><span class="line"><span class="hljs-built_in">console</span>.log(child);</span><br></pre></td></tr></table></figure>
+
+<p><strong>关键点</strong>：解决父类构造函数多次执行的问题，同时让子类原型变得更加纯粹。</p>
+<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><p>何谓“静态方法”？静态方法为类所有，不归属于任何一个实例，需要通过类名直接调用。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Child</span>(<span class="hljs-params"></span>) </span>&#123;&#125;</span><br><span class="line">Child.staticMethod = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"我是一个静态方法"</span>) &#125;</span><br><span class="line"><span class="hljs-keyword">var</span> child = <span class="hljs-keyword">new</span> Child();</span><br><span class="line">Child.staticMethod(); <span class="hljs-comment">// "我是一个静态方法"</span></span><br><span class="line">child.staticMethod(); <span class="hljs-comment">// Uncaught TypeError: child.staticMethod is not a function</span></span><br></pre></td></tr></table></figure>
+
+<p><code>Object</code>类有很多的静态方法，我学习的时候习惯把它们分为这么几类（当然，这里没有全部列举开来，只挑了常见的方法）。</p>
+<h4 id="创建和复制对象"><a href="#创建和复制对象" class="headerlink" title="创建和复制对象"></a>创建和复制对象</h4><ul>
+<li><p><code>Object.create()</code>：基于原型和属性描述符集合创建一个新对象。</p>
+</li>
+<li><p><code>Object.assign()</code>：合并多个对象，会影响源对象。所以在合并对象时，为了避免这个问题，一般会这样做：</p>
+</li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> mergedObj = <span class="hljs-built_in">Object</span>.assign(&#123;&#125;, a, b);</span><br></pre></td></tr></table></figure>
+
+<h4 id="属性相关"><a href="#属性相关" class="headerlink" title="属性相关"></a>属性相关</h4><ul>
+<li><p><code>Object.defineProperty</code>：通过属性描述符来定义或修改对象属性，主要涉及<code>value</code>, <code>configurable</code>, <code>writable</code>, <code>enumerable</code>四个特性。</p>
+</li>
+<li><p><code>Object.defineProperties</code>：是<code>defineProperty</code>的升级版本，一次性定义或修改多个属性。</p>
+</li>
+<li><p><code>Object.getOwnPropertyDescriptor</code>：获取属性描述符，是一个对象，包含<code>value</code>, <code>configurable</code>, <code>writable</code>, <code>enumerable</code>四个特性。</p>
+</li>
+<li><p><code>Object.getOwnPropertyNames</code>：返回一个由指定对象的所有自身属性的属性名（包括不可枚举属性但不包括Symbol值作为名称的属性）组成的数组。</p>
+</li>
+<li><p><code>Object.keys</code>：会返回一个由一个给定对象的自身可枚举属性组成的数组，与<code>getOwnPropertyNames</code>最大的不同点在于：<code>keys</code>只返回<code>enumerable</code>为<code>true</code>的属性，并且会返回原型对象上的属性。</p>
+</li>
+</ul>
+<h4 id="原型相关"><a href="#原型相关" class="headerlink" title="原型相关"></a>原型相关</h4><ul>
+<li><code>Object.getPrototypeOf</code>：返回指定对象的原型。</li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Child</span>(<span class="hljs-params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="hljs-keyword">var</span> child = <span class="hljs-keyword">new</span> Child();</span><br><span class="line"><span class="hljs-built_in">Object</span>.getPrototypeOf(child) === Child.prototype; <span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>Object.setPrototypeOf</code>：设置指定对象的原型。这是一个比较危险的动作，同时也是一个性能不佳的方法，不推荐使用。</li>
+</ul>
+<h4 id="行为控制"><a href="#行为控制" class="headerlink" title="行为控制"></a>行为控制</h4><p>以下列举的这三个方式是一个递进的关系，我们按序来看：</p>
+<ul>
+<li><p><code>Object.preventExtensions</code>：让一个对象变的不可扩展，也就是永远不能再添加新的属性。</p>
+</li>
+<li><p><code>Object.seal</code>：封闭一个对象，阻止添加新属性并将所有现有属性标记为不可配置。也就是说<code>Object.seal</code>在<code>Object.preventExtensions</code>的基础上，给对象属性都设置了<code>configurable</code>为<code>false</code>。</p>
+</li>
+</ul>
+<p>这里有一个坑是：对于<code>configurable</code>为<code>false</code>的属性，虽然不能重新设置它的<code>configurable</code>和<code>enumerable</code>特性，但是可以把它的<code>writable</code>特性从<code>true</code>改为<code>false</code>（反之不行）。</p>
+<ul>
+<li><code>Object.freeze</code>：冻结一个对象，不能新增，修改，删除属性，也不能修改属性的原型。这里还有一个深冻结<code>deepFreeze</code>的概念，有点类似深拷贝的意思，递归冻结。</li>
+</ul>
+<h4 id="检测能力"><a href="#检测能力" class="headerlink" title="检测能力"></a>检测能力</h4><ul>
+<li><p><code>Object.isExtensible</code>：检测对象是否可扩展。</p>
+</li>
+<li><p><code>Object.isSealed</code>：检测对象是否被封闭。</p>
+</li>
+<li><p><code>Object.isFrozen</code>：检测对象是否被冻结。</p>
+</li>
+</ul>
+<h4 id="兼容性差"><a href="#兼容性差" class="headerlink" title="兼容性差"></a>兼容性差</h4><ul>
+<li><p><code>Object.entries</code></p>
+</li>
+<li><p><code>Object.values</code></p>
+</li>
+<li><p><code>Object.fromEntries</code></p>
+</li>
+</ul>
+<h3 id="原型方法"><a href="#原型方法" class="headerlink" title="原型方法"></a>原型方法</h3><p>原型方法是指挂载在原型对象上的方法，可以通过实例调用，本质上是借助原型对象调用。例如：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Child</span>(<span class="hljs-params"></span>) </span>&#123;&#125;</span><br><span class="line">Child.prototype.protoMethod = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"我是一个原型方法"</span>) &#125;</span><br><span class="line"><span class="hljs-keyword">var</span> child = <span class="hljs-keyword">new</span> Child();</span><br><span class="line">child.protoMethod(); <span class="hljs-comment">// "我是一个原型方法"</span></span><br></pre></td></tr></table></figure>
+
+<p>ECMAScript给<code>Object</code>定义了很多原型方法。</p>
+<p><img src=""data-src="https://qncdn.wbjiang.cn/Object%E5%8E%9F%E5%9E%8B%E6%96%B9%E6%B3%95.png" alt="Object原型方法"></p>
+<h4 id="hasOwnProperty-NaN"><a href="#hasOwnProperty-NaN" class="headerlink" title="hasOwnProperty"></a>hasOwnProperty</h4><p>该方法会返回一个布尔值，指示对象自身属性中是否具有指定的属性（也就是，是否有指定的键），常配合<code>for ... in</code>语句一起使用，用来遍历对象自身可枚举属性。</p>
+<h4 id="isPrototypeOf-NaN"><a href="#isPrototypeOf-NaN" class="headerlink" title="isPrototypeOf"></a>isPrototypeOf</h4><p>该方法用于测试一个对象是否存在于另一个对象的原型链上。<code>Object.prototype.isPrototypeOf</code>与<code>Object.getPrototypeOf</code>不同点在于：</p>
+<ul>
+<li><p><code>Object.prototype.isPrototypeOf</code>判断的是原型链关系，并且返回一个布尔值。</p>
+</li>
+<li><p><code>Object.getPrototypeOf</code>是获取目标对象的直接原型，返回的是目标对象的原型对象</p>
+</li>
+</ul>
+<h4 id="PropertyIsEnumerable"><a href="#PropertyIsEnumerable" class="headerlink" title="PropertyIsEnumerable"></a>PropertyIsEnumerable</h4><p>该方法返回一个布尔值，表示指定的属性是否可枚举。它检测的是对象属性的<code>enumerable</code>特性。</p>
+<h4 id="valueOf-amp-toString"><a href="#valueOf-amp-toString" class="headerlink" title="valueOf &amp; toString"></a>valueOf &amp; toString</h4><p>对象转原始值会用到的方法，之前写过一篇笔记，具体见<a href="https://juejin.im/post/5eb8e2fff265da7bb46bd8ae#heading-14" target="_blank" rel="noopener">js数据类型很简单，却也不简单</a>。</p>
+<h4 id="toLocaleString-NaN"><a href="#toLocaleString-NaN" class="headerlink" title="toLocaleString"></a>toLocaleString</h4><p><code>toLocaleString</code>方法返回一个该对象的字符串表示。此方法被用于派生对象为了特定语言环境的目的（locale-specific purposes）而重载使用。常见于日期对象。</p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>通过阅读本文，读者们可以对Javascript对象有一个基本的认识。对象是Javascript中非常复杂的部分，绝非一篇笔记或一张思维导图可囊括，诸多细节不便展开，可关注我留言交流，回复“思维导图”可获取我整理的思维导图。</p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/%E5%A4%A7%E5%89%8D%E7%AB%AF%E5%85%AC%E4%BC%97%E5%8F%B7%E5%90%8D%E7%89%87.png" alt="关注&amp;交流"></p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/原型/">原型</a>, <a class="has-link-grey -link" href="/tags/继承/">继承</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay_payme.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/千万别小看这些运算符背后的逻辑.html">
+                <span class="level-item">千万别小看这些运算符背后的逻辑</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: 'e244808d754d6ef5f8aa',
+        clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
+        id: '5e9e76ba3bf22388ed6579cfa5f04a08',
+        repo: 'tusi-hexo',
+        owner: 'cumt-robin',
+        admin: "cumt-robin",
+        createIssueManually: false,
+        distractionFreeMode: false
+    })
+    gitalk.render('comment-container')
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                        <figure class="image is-128x128 has-mb-6">
+                            <img class="is-rounded" data-src="/images/avatar.png" alt="Tusi">
+                        </figure>
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Tusi
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Frontend Engineer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>湖南长沙</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        89
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        37
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        89
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/cumt-robin" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/cumt-robin">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="WeChat" href="http://qncdn.wbjiang.cn/%E5%BE%AE%E4%BF%A1%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%90%8D%E7%89%87.jpg">
+                
+                <i class="fab fa-weixin"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            友情链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="http://www.wbjiang.cn" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi的个人主页</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.wbjiang.cn</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.wbjiang.cn" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi博客</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.wbjiang.cn</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41196185" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi的CSDN</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://juejin.im/user/5ca40a18f265da30b8178b31" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi掘金</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">juejin.im</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://segmentfault.com/u/tusi_5c8a591841687" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi的SegmentFault</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">segmentfault.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.whatled.com/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">少将博客</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.whatled.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.jiangshaobo.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Abel</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.jiangshaobo.cn</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/一文搞懂对象原型继承.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82%E5%AF%B9%E8%B1%A1%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF.png" alt="「思维导图学前端 」6k字一文搞懂Javascript对象，原型，继承">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-19T08:50:17.000Z">2020-06-19</time></div>
+                    <a href="/一文搞懂对象原型继承.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">「思维导图学前端 」6k字一文搞懂Javascript对象，原型，继承</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/千万别小看这些运算符背后的逻辑.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/wallhaven-0qx3x7_1200x500.png" alt="千万别小看这些运算符背后的逻辑">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-05T03:08:09.000Z">2020-06-05</time></div>
+                    <a href="/千万别小看这些运算符背后的逻辑.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">千万别小看这些运算符背后的逻辑</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/入坑自媒体写作，我有干货与你分享.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/wallhaven-0j26pq_1280x600.png" alt="入坑自媒体写作，我有干货与你分享">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-30T10:11:48.000Z">2020-05-30</time></div>
+                    <a href="/入坑自媒体写作，我有干货与你分享.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">入坑自媒体写作，我有干货与你分享</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/写作/">写作</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/关于数据类型的一些小疑惑.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/1724ba0674616c9c" alt="关于数据类型的一些小疑惑">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-30T10:02:57.000Z">2020-05-30</time></div>
+                    <a href="/关于数据类型的一些小疑惑.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">关于数据类型的一些小疑惑</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/js数据类型很简单，却也不简单.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://s1.ax1x.com/2020/05/11/YJCmrV.jpg" alt="js数据类型很简单，却也不简单">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-11T07:25:38.000Z">2020-05-11</time></div>
+                    <a href="/js数据类型很简单，却也不简单.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">js数据类型很简单，却也不简单</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CommonJS/">
+                        <span class="tag">CommonJS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ES6/">
+                        <span class="tag">ES6</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Gerrit/">
+                        <span class="tag">Gerrit</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Next主题/">
+                        <span class="tag">Next主题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TortoiseGIT/">
+                        <span class="tag">TortoiseGIT</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VMware/">
+                        <span class="tag">VMware</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/amd规范/">
+                        <span class="tag">amd规范</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/angular/">
+                        <span class="tag">angular</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/axios/">
+                        <span class="tag">axios</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/babel/">
+                        <span class="tag">babel</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bootstrap/">
+                        <span class="tag">bootstrap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/canvas/">
+                        <span class="tag">canvas</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cordova/">
+                        <span class="tag">cordova</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css/">
+                        <span class="tag">css</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/demo/">
+                        <span class="tag">demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/express/">
+                        <span class="tag">express</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git-push报错/">
+                        <span class="tag">git push报错</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git-remote不同步/">
+                        <span class="tag">git,remote不同步</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gitlab/">
+                        <span class="tag">gitlab</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gitment/">
+                        <span class="tag">gitment</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gradle/">
+                        <span class="tag">gradle</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gulp/">
+                        <span class="tag">gulp</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html/">
+                        <span class="tag">html</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/http-server/">
+                        <span class="tag">http-server</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/iconfont/">
+                        <span class="tag">iconfont</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ionic/">
+                        <span class="tag">ionic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jdk/">
+                        <span class="tag">jdk</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jquery/">
+                        <span class="tag">jquery</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js模块化/">
+                        <span class="tag">js模块化</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/livere/">
+                        <span class="tag">livere</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/meta/">
+                        <span class="tag">meta</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/navicat-for-mysql/">
+                        <span class="tag">navicat for mysql</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ng-zorro/">
+                        <span class="tag">ng-zorro</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nginx/">
+                        <span class="tag">nginx</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nodejs/">
+                        <span class="tag">nodejs</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/npm速度慢/">
+                        <span class="tag">npm速度慢</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ocx/">
+                        <span class="tag">ocx</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/progress/">
+                        <span class="tag">progress</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/require-js/">
+                        <span class="tag">require.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/sea-js/">
+                        <span class="tag">sea.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/shell/">
+                        <span class="tag">shell</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/socket-io/">
+                        <span class="tag">socket.io</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/svg/">
+                        <span class="tag">svg</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/umd规范/">
+                        <span class="tag">umd规范</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/valine/">
+                        <span class="tag">valine</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vscode/">
+                        <span class="tag">vscode</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue/">
+                        <span class="tag">vue</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue-router/">
+                        <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue作用域插槽/">
+                        <span class="tag">vue作用域插槽</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue升级/">
+                        <span class="tag">vue升级</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack4/">
+                        <span class="tag">webpack4</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/websocket/">
+                        <span class="tag">websocket</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/windows/">
+                        <span class="tag">windows</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前后端分离/">
+                        <span class="tag">前后端分离</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前端/">
+                        <span class="tag">前端</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前端基础/">
+                        <span class="tag">前端基础</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/原型/">
+                        <span class="tag">原型</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/发布npm包/">
+                        <span class="tag">发布npm包</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/发布订阅/">
+                        <span class="tag">发布订阅</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/地图曲线/">
+                        <span class="tag">地图曲线</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信公众号/">
+                        <span class="tag">微信公众号</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信小程序/">
+                        <span class="tag">微信小程序</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据类型/">
+                        <span class="tag">数据类型</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/架构/">
+                        <span class="tag">架构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/滑块美化/">
+                        <span class="tag">滑块美化</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/电脑技能/">
+                        <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/移动端调试/">
+                        <span class="tag">移动端调试</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/继承/">
+                        <span class="tag">继承</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自动化部署/">
+                        <span class="tag">自动化部署</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自媒体/">
+                        <span class="tag">自媒体</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自定义tabbar/">
+                        <span class="tag">自定义tabbar</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/观察者/">
+                        <span class="tag">观察者</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/记事本/">
+                        <span class="tag">记事本</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/面试题/">
+                        <span class="tag">面试题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/一文搞懂对象原型继承.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82%E5%AF%B9%E8%B1%A1%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF.png" alt="「思维导图学前端 」6k字一文搞懂Javascript对象，原型，继承">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-19T08:50:17.000Z">2020-06-19</time></div>
+                    <a href="/一文搞懂对象原型继承.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">「思维导图学前端 」6k字一文搞懂Javascript对象，原型，继承</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/千万别小看这些运算符背后的逻辑.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/wallhaven-0qx3x7_1200x500.png" alt="千万别小看这些运算符背后的逻辑">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-05T03:08:09.000Z">2020-06-05</time></div>
+                    <a href="/千万别小看这些运算符背后的逻辑.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">千万别小看这些运算符背后的逻辑</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/入坑自媒体写作，我有干货与你分享.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/wallhaven-0j26pq_1280x600.png" alt="入坑自媒体写作，我有干货与你分享">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-30T10:11:48.000Z">2020-05-30</time></div>
+                    <a href="/入坑自媒体写作，我有干货与你分享.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">入坑自媒体写作，我有干货与你分享</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/写作/">写作</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/关于数据类型的一些小疑惑.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/1724ba0674616c9c" alt="关于数据类型的一些小疑惑">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-30T10:02:57.000Z">2020-05-30</time></div>
+                    <a href="/关于数据类型的一些小疑惑.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">关于数据类型的一些小疑惑</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/js数据类型很简单，却也不简单.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="https://s1.ax1x.com/2020/05/11/YJCmrV.jpg" alt="js数据类型很简单，却也不简单">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-11T07:25:38.000Z">2020-05-11</time></div>
+                    <a href="/js数据类型很简单，却也不简单.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">js数据类型很简单，却也不简单</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CommonJS/">
+                        <span class="tag">CommonJS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ES6/">
+                        <span class="tag">ES6</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Gerrit/">
+                        <span class="tag">Gerrit</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Next主题/">
+                        <span class="tag">Next主题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TortoiseGIT/">
+                        <span class="tag">TortoiseGIT</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VMware/">
+                        <span class="tag">VMware</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/amd规范/">
+                        <span class="tag">amd规范</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/angular/">
+                        <span class="tag">angular</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/axios/">
+                        <span class="tag">axios</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/babel/">
+                        <span class="tag">babel</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bootstrap/">
+                        <span class="tag">bootstrap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/canvas/">
+                        <span class="tag">canvas</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cordova/">
+                        <span class="tag">cordova</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css/">
+                        <span class="tag">css</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/demo/">
+                        <span class="tag">demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/express/">
+                        <span class="tag">express</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git-push报错/">
+                        <span class="tag">git push报错</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git-remote不同步/">
+                        <span class="tag">git,remote不同步</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gitlab/">
+                        <span class="tag">gitlab</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gitment/">
+                        <span class="tag">gitment</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gradle/">
+                        <span class="tag">gradle</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gulp/">
+                        <span class="tag">gulp</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html/">
+                        <span class="tag">html</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/http-server/">
+                        <span class="tag">http-server</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/iconfont/">
+                        <span class="tag">iconfont</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ionic/">
+                        <span class="tag">ionic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jdk/">
+                        <span class="tag">jdk</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jquery/">
+                        <span class="tag">jquery</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js模块化/">
+                        <span class="tag">js模块化</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/livere/">
+                        <span class="tag">livere</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/meta/">
+                        <span class="tag">meta</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/navicat-for-mysql/">
+                        <span class="tag">navicat for mysql</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ng-zorro/">
+                        <span class="tag">ng-zorro</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nginx/">
+                        <span class="tag">nginx</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nodejs/">
+                        <span class="tag">nodejs</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/npm速度慢/">
+                        <span class="tag">npm速度慢</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ocx/">
+                        <span class="tag">ocx</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/progress/">
+                        <span class="tag">progress</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/require-js/">
+                        <span class="tag">require.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/sea-js/">
+                        <span class="tag">sea.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/shell/">
+                        <span class="tag">shell</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/socket-io/">
+                        <span class="tag">socket.io</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/svg/">
+                        <span class="tag">svg</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/umd规范/">
+                        <span class="tag">umd规范</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/valine/">
+                        <span class="tag">valine</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vscode/">
+                        <span class="tag">vscode</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue/">
+                        <span class="tag">vue</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue-router/">
+                        <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue作用域插槽/">
+                        <span class="tag">vue作用域插槽</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue升级/">
+                        <span class="tag">vue升级</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack4/">
+                        <span class="tag">webpack4</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/websocket/">
+                        <span class="tag">websocket</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/windows/">
+                        <span class="tag">windows</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前后端分离/">
+                        <span class="tag">前后端分离</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前端/">
+                        <span class="tag">前端</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前端基础/">
+                        <span class="tag">前端基础</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/原型/">
+                        <span class="tag">原型</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/发布npm包/">
+                        <span class="tag">发布npm包</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/发布订阅/">
+                        <span class="tag">发布订阅</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/地图曲线/">
+                        <span class="tag">地图曲线</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信公众号/">
+                        <span class="tag">微信公众号</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信小程序/">
+                        <span class="tag">微信小程序</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据类型/">
+                        <span class="tag">数据类型</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/架构/">
+                        <span class="tag">架构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/滑块美化/">
+                        <span class="tag">滑块美化</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/电脑技能/">
+                        <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/移动端调试/">
+                        <span class="tag">移动端调试</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/继承/">
+                        <span class="tag">继承</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自动化部署/">
+                        <span class="tag">自动化部署</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自媒体/">
+                        <span class="tag">自媒体</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自定义tabbar/">
+                        <span class="tag">自定义tabbar</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/观察者/">
+                        <span class="tag">观察者</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/记事本/">
+                        <span class="tag">记事本</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/面试题/">
+                        <span class="tag">面试题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="「思维导图学前端 」6k字一文搞懂Javascript对象，原型，继承" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Tusi&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Follow me on GitHub" href="https://github.com/cumt-robin">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+<script src="/js/lazyload.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

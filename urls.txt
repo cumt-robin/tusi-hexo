@@ -1,3 +1,4 @@
+http://hexo.wbjiang.cn/一文搞懂对象原型继承.html
 http://hexo.wbjiang.cn/千万别小看这些运算符背后的逻辑.html
 http://hexo.wbjiang.cn/入坑自媒体写作，我有干货与你分享.html
 http://hexo.wbjiang.cn/关于数据类型的一些小疑惑.html
