@@ -1,0 +1,2491 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>「思维导图学前端 」初中级前端值得收藏的正则表达式知识点扫盲 - Tusi博客|前端分享驿站</title>
+
+
+    <meta name="description" content="本文是思维导图学前端系列第二篇，主题是正则表达式。首先还是想说下我的出发点，之所以自己画一遍思维导图，是因为我整理的思维导图里加入了自己的理解，更容易记忆。之前也看过很多别人整理的思维导图，虽然有点拨之用，但是要想吸收个二三分营养却也是很难。">
+<meta name="keywords" content="正则表达式,Tusi,博客,前端,全栈,微信小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「思维导图学前端 」初中级前端值得收藏的正则表达式知识点扫盲">
+<meta property="og:url" content="http://hexo.wbjiang.cn/初中级前端值得收藏的正则表达式知识点扫盲.html">
+<meta property="og:site_name" content="Tusi博客|前端分享驿站">
+<meta property="og:description" content="本文是思维导图学前端系列第二篇，主题是正则表达式。首先还是想说下我的出发点，之所以自己画一遍思维导图，是因为我整理的思维导图里加入了自己的理解，更容易记忆。之前也看过很多别人整理的思维导图，虽然有点拨之用，但是要想吸收个二三分营养却也是很难。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://qncdn.wbjiang.cn/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%89%AB%E7%9B%B2.png">
+<meta property="og:updated_time" content="2020-07-16T05:32:33.143Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「思维导图学前端 」初中级前端值得收藏的正则表达式知识点扫盲">
+<meta name="twitter:description" content="本文是思维导图学前端系列第二篇，主题是正则表达式。首先还是想说下我的出发点，之所以自己画一遍思维导图，是因为我整理的思维导图里加入了自己的理解，更容易记忆。之前也看过很多别人整理的思维导图，虽然有点拨之用，但是要想吸收个二三分营养却也是很难。">
+<meta name="twitter:image" content="http://qncdn.wbjiang.cn/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%89%AB%E7%9B%B2.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.ico">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/rainbow.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0cc7298ff16e9d2c7ae3a15b3ee1d9e7";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+        <script async="" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.png" alt="「思维导图学前端 」初中级前端值得收藏的正则表达式知识点扫盲" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">首页</a>
+                
+                <a class="navbar-item"
+                href="/archives">时间线</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Follow me on GitHub" href="https://github.com/cumt-robin">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%89%AB%E7%9B%B2.png" alt="「思维导图学前端 」初中级前端值得收藏的正则表达式知识点扫盲">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-07-16T05:31:06.000Z">2020-07-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    35 分钟 读完 (大约 5279 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                「思维导图学前端 」初中级前端值得收藏的正则表达式知识点扫盲
+            
+        </h1>
+        <div class="content">
+            <p>本文是<strong>思维导图学前端</strong>系列第二篇，主题是正则表达式。首先还是想说下我的出发点，之所以自己画一遍思维导图，是因为我整理的思维导图里加入了自己的理解，更容易记忆。之前也看过很多别人整理的思维导图，虽然有点拨之用，但是要想吸收个二三分营养却也是很难。</p>
+<a id="more"></a>
+
+<p>所以，建议本系列的读者在阅读文章之后，在时间允许的情况下，可以考虑自行整理知识点，便于更好地理解和吸收。</p>
+<p>推荐下同系列文章：</p>
+<ul>
+<li><a href="https://juejin.im/post/5ee9ac91f265da02aa2e751e" target="_blank" rel="noopener">「思维导图学前端」6k字一文搞懂Javascript对象，原型，继承</a></li>
+</ul>
+<p>很多前端新手在遇到正则表达式时都望而却步，我自己初学时，也基本上是直接跳过了正则表达式这一章，除了copy网上的一些常用的正则表达式做表单校验，其余时候几乎没有去了解过如何写一个正则表达式。</p>
+<p>但是，当自己真正要去写一个适合特定业务的正则表达式时，我发现自己掌握的正则表达式知识真的是捉襟见肘。所以我这里也用思维导图整理了一些正则表达式必知必会的知识点。</p>
+<h1 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h1><blockquote>
+<p><a href="https://baike.baidu.com/item/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/1700215?fr=aladdin" target="_blank" rel="noopener">正则表达式</a>，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。</p>
+</blockquote>
+<p>在软件开发过程中，我们或多或少会接触到正则表达式，对于前端而言，正则表达式不仅可以校验表单，文本查找和替换，还可以做语法解析器，用于AST，编辑器等领域。</p>
+<h1 id="正则表示法"><a href="#正则表示法" class="headerlink" title="正则表示法"></a>正则表示法</h1><h2 id="直接量表示法"><a href="#直接量表示法" class="headerlink" title="直接量表示法"></a>直接量表示法</h2><p>直接量也称为字面量，写法如下：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\d+$/g</span><br></pre></td></tr></table></figure>
+
+<p>直接量写法的正则表达式在执行时会转换为一个新的<code>RegExp</code>对象。我想应该是因为直接量是没有调用方法的能力的，只有转为了对象，才使得调用方法成为可能。所以才有了<code>/^\d+$/.test()</code>。</p>
+<p>当在循环中用到正则对象<code>lastIndex</code>判断终止条件时，一定不要使用直接量正则表达式写法，否则每次循环<code>lastIndex</code>都会被重置为<code>0</code>，这是因为每次执行字面量正则表达式时，都会转换为一个新的<code>RegExp</code>对象，相应的<code>lastIndex</code>当然也会变成<code>0</code>。</p>
+<h2 id="RegExp对象表示法"><a href="#RegExp对象表示法" class="headerlink" title="RegExp对象表示法"></a>RegExp对象表示法</h2><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> pattern = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-regexp">/^\d+$/</span>, <span class="hljs-string">'g'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>第一个参数可以接受正则表达式直接量，也可以接受字符串，传递字符串作为第一个参数时，首尾不需要带斜杠，字符串中如果用到特殊字符<code>\</code>，需要在<code>\</code>前再加一个<code>\</code>，防止<code>\</code>在字符串中被转义。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">"\s"</span> === <span class="hljs-string">"s"</span> <span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>字符串<code>&quot;\\s&quot;</code>才能正确地表示<code>\s</code></p>
+<p>第二个参数代表标志<code>flags</code>，可接受的标志有<code>i</code>, <code>g</code>, <code>m</code>等。</p>
+<h1 id="标志flags"><a href="#标志flags" class="headerlink" title="标志flags"></a>标志flags</h1><h2 id="i"><a href="#i" class="headerlink" title="i"></a>i</h2><p>如果启用了标志<code>i</code>，正则表达式在执行时不区分大小写。</p>
+<p><code>/abc/i.test(&#39;abc&#39;)</code>等价于<code>/abc/i.test(&#39;ABC&#39;)</code></p>
+<h2 id="g"><a href="#g" class="headerlink" title="g"></a>g</h2><p>如果启用了标志<code>g</code>，正则表达式会执行全局匹配，匹配到一个结果后不会立刻停止匹配，直到后续没有任何符合匹配规则的字符为止。</p>
+<h2 id="m"><a href="#m" class="headerlink" title="m"></a>m</h2><p>如果启用了标志<code>m</code>，正则表达式会执行多行匹配，<code>^</code>可以匹配每一行的开始或整个字符串的开始，而<code>$</code>可以匹配每一行的结束或整个字符串的结束。</p>
+<p>示例如下：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/^\d+$/.test(<span class="hljs-string">'123\n456'</span>) <span class="hljs-comment">// false</span></span><br><span class="line">/^\d+$/m.test(<span class="hljs-string">'123\n456'</span>) <span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>仍然可以匹配整个字符串</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\d+\n\d+$/m.test(<span class="hljs-string">'123\n45'</span>) <span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="位置限定符"><a href="#位置限定符" class="headerlink" title="位置限定符"></a>位置限定符</h1><h2 id><a href="#" class="headerlink" title="^"></a>^</h2><p>匹配字符的开始。比如必须以数字开始，可以这么写：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\d/</span><br></pre></td></tr></table></figure>
+
+<h2 id="-1"><a href="#-1" class="headerlink" title="$"></a>$</h2><p>匹配字符的结束。比如必须以数字结束，可以这么写：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/\d$/</span><br></pre></td></tr></table></figure>
+
+<h1 id="范围匹配"><a href="#范围匹配" class="headerlink" title="范围匹配"></a>范围匹配</h1><p>范围匹配是利用方括号<code>[]</code>实现的。</p>
+<p>方括号<code>[]</code>用于范围匹配，也就是查找某个范围内的字符。比如<code>[0-9]</code>代表匹配数字，而<code>[a-z]</code>可以匹配小写字母a到z这26个字符中的任意一个。</p>
+<p>如果要匹配不在方括号中的字符，可以在方括号中以<code>^</code>开头，比如<code>[^0-9]</code>，用于匹配非数字，等价于<code>\D</code>。</p>
+<h1 id="主要元字符"><a href="#主要元字符" class="headerlink" title="主要元字符"></a>主要元字符</h1><h2 id="-2"><a href="#-2" class="headerlink" title="."></a>.</h2><p>匹配除换行符<code>\n</code>外的任意字符，如果要匹配任意字符，应该用<code>/[.\n]*/</code>。</p>
+<h2 id="s"><a href="#s" class="headerlink" title="\s"></a>\s</h2><p>匹配任意空字符，包括空格<code></code>，制表符<code>\t</code>，垂直制表符<code>\v</code>，换行符<code>\n</code>，回车符<code>\r</code>，换页符<code>\f</code>。<code>\s</code>等价于<code>[ \t\v\n\r\f]</code>，注意方括号内第一个位置有空格。</p>
+<p>这里也说下换行符和回车符的区别：</p>
+<ul>
+<li>换行符<code>\n</code>：光标下移一行，不回行首。</li>
+<li>回车符<code>\r</code>：光标回到行首，不换行。</li>
+</ul>
+<h2 id="S"><a href="#S" class="headerlink" title="\S"></a>\S</h2><p><code>\S</code>是<code>\s</code>的反集<br>，利用<code>\s</code>和<code>\S</code>的这种互为反集的关系，我们就可以匹配任意字符，写法如下：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/[\s\S]/</span><br></pre></td></tr></table></figure>
+
+<h2 id="d"><a href="#d" class="headerlink" title="\d"></a>\d</h2><p><code>\d</code>用于匹配数字，等价于<code>[0-9]</code>。</p>
+<h2 id="D"><a href="#D" class="headerlink" title="\D"></a>\D</h2><p><code>\D</code>是<code>\d</code>的反集，也就是匹配非数字，等价于<code>[^0-9]</code>。</p>
+<h2 id="w"><a href="#w" class="headerlink" title="\w"></a>\w</h2><p><code>\w</code>用于匹配单词字符，包含<code>0-9</code>，<code>a-z</code>，<code>A-z</code>以及下划线<code>_</code>，等价于<code>[A-Za-z0-9_]</code>。</p>
+<h2 id="W"><a href="#W" class="headerlink" title="\W"></a>\W</h2><p><code>\W</code>是<code>\w</code>的反集，用于匹配非单词字符，等价于<code>[^A-Za-z0-9_]</code>。</p>
+<h2 id="n"><a href="#n" class="headerlink" title="\n"></a>\n</h2><p><code>\n</code>是开发中经常遇到的换行符，而上面提到的<code>\s</code>是包含<code>\n</code>在内的。所以，能被<code>\n</code>匹配的字符，也一定能被<code>\s</code>匹配。</p>
+<h2 id="b"><a href="#b" class="headerlink" title="\b"></a>\b</h2><p><code>\b</code>用于匹配单词的边界，即单词的开始或结束。</p>
+<p>一开始其实我不太能理解<code>\b</code>在正则表达式中的作用。</p>
+<p>直到我自己试了一下这个案例</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">'I love you'</span>.match(<span class="hljs-regexp">/love/</span>)</span><br><span class="line"><span class="hljs-string">'Iloveyou'</span>.match(<span class="hljs-regexp">/love/</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这两个表达式都能匹配到结果<code>&quot;love&quot;</code>。</p>
+<p>但是有时候我们并不希望这样的字符串<code>&#39;Iloveyou&#39;</code>被匹配，因为它没有单词间的空格。</p>
+<p>所以<code>\b</code>有了它存在的意义。看下面的例子：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">'I love you'</span>.match(<span class="hljs-regexp">/\blove\b/</span>)</span><br><span class="line"><span class="hljs-string">'Iloveyou'</span>.match(<span class="hljs-regexp">/\blove\b/</span>) <span class="hljs-comment">// null</span></span><br></pre></td></tr></table></figure>
+
+<p>第一个表达式仍然可以正常匹配到结果，而第二个就无法匹配到结果了，这符合我们的预期。</p>
+<p>有的人可能会说，那我可以用空格匹配啊。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">'I love you'</span>.match(<span class="hljs-regexp">/ love /</span>)</span><br></pre></td></tr></table></figure>
+
+<p>空格和<code>\b</code>在这种场景下还是有一点不一样的，这体现在<code>match</code>的结果上。</p>
+<p>如果是用空格匹配，那么<code>match</code>的结果数组中的第一项就是<code>&quot; love &quot;</code>，是带了空格的，然而很多时候我们不希望在结果中得到空格，所以<code>\b</code>存在的意义也就比较明显了。</p>
+<h2 id="B"><a href="#B" class="headerlink" title="\B"></a>\B</h2><p>与<code>\b</code>相反，代表非单词边界。也就是说，使用<code>\B</code>匹配时，目标字符前或后不能是空格。</p>
+<p>假设<code>\B</code>在前，比如</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/\Babc/.test(<span class="hljs-string">'111 abc'</span>) <span class="hljs-comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>假设<code>\B</code>在后，比如</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/abc\B/.test(<span class="hljs-string">'abc 111'</span>) <span class="hljs-comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符\"></a>转义字符\</h2><p>由于正则表达式中很多字符有特殊含义，比如<code>(</code>, <code>)</code>, <code>\</code>, <code>[</code>, <code>]</code>, <code>+</code>，如果你真的要匹配它们，必须加上转义符<code>\</code>。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/\<span class="hljs-comment">//.test('/'); // true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="或"><a href="#或" class="headerlink" title="或 |"></a>或 |</h2><p>实现或的逻辑是比较简单的，正则表达式提供了<code>|</code>。</p>
+<p>要注意的是，<code>|</code>隔断的是其左右的整个子表达式，而不是单个普通字符。</p>
+<p>所以，</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/^ab|cd|ef$/.test(<span class="hljs-string">'ab'</span>) <span class="hljs-comment">// true</span></span><br><span class="line">/^ab|cd|ef$/.test(<span class="hljs-string">'cd'</span>) <span class="hljs-comment">// true</span></span><br><span class="line">/^ab|cd|ef$/.test(<span class="hljs-string">'ace'</span>) <span class="hljs-comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>还要注意的是，<code>|</code>具有从左到右的优先级，如果左侧的匹配上了，右侧的就被忽略了，即便右侧的匹配看起来更“完美”。</p>
+<p><code>/a|ab/.exec(&#39;ab&#39;)</code>得到的结果是</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="hljs-string">"a"</span>, <span class="hljs-attr">index</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">input</span>: <span class="hljs-string">"ab"</span>, <span class="hljs-attr">groups</span>: <span class="hljs-literal">undefined</span>]</span><br></pre></td></tr></table></figure>
+
+<h1 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h1><h2 id="-3"><a href="#-3" class="headerlink" title="?"></a>?</h2><p>匹配前面的子表达式零次或一次</p>
+<h2 id="-4"><a href="#-4" class="headerlink" title="+"></a>+</h2><p>匹配前面的子表达式一次或多次</p>
+<h2 id="-5"><a href="#-5" class="headerlink" title="*"></a>*</h2><p>匹配前面的子表达式零次或任意次</p>
+<h2 id="n-m"><a href="#n-m" class="headerlink" title="{n,m}"></a>{n,m}</h2><p>匹配前一个普通字符或者子表达式最少n次，最多m次</p>
+<h2 id="n-1"><a href="#n-1" class="headerlink" title="{n,}"></a>{n,}</h2><p>匹配前一个普通字符或者子表达式最少n次</p>
+<h2 id="n-2"><a href="#n-2" class="headerlink" title="{n}"></a>{n}</h2><p>匹配前一个普通字符或者子表达式n次</p>
+<h2 id="贪婪"><a href="#贪婪" class="headerlink" title="贪婪"></a>贪婪</h2><p>贪婪匹配是尽可能多地匹配，如果能满足匹配条件，就尽可能侵占后面的匹配规则。</p>
+<p>贪婪匹配是默认的，比如<code>/\d?/</code>会尽可能地匹配<code>1</code>个数字，<code>/\d+/</code>和<code>/\d*/</code>会尽可能地匹配多个数字。</p>
+<p>举个例子，</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">'123456789'</span>.match(<span class="hljs-regexp">/^(\d+)(\d&#123;2,&#125;)$/</span>)</span><br></pre></td></tr></table></figure>
+
+<p>以上结果中捕获组的第一项是<code>&quot;1234567&quot;</code>，第二项是<code>&quot;89&quot;</code>。</p>
+<p>为什么会这样呢？因为<code>\d+</code>是贪婪匹配，尽可能地多匹配，如果没有后面的<code>\d{2,}</code>，捕获组第一项会直接是<code>&quot;123456789&quot;</code>。但是由于<code>\d{2,}</code>的存在，<code>\d+</code>会给<code>\d{2,}</code>留个面子，满足它的最小条件，即匹配2个数字，而<code>\d+</code>自己匹配7个数字。</p>
+<h2 id="非贪婪"><a href="#非贪婪" class="headerlink" title="非贪婪"></a>非贪婪</h2><p>非贪婪匹配是尽可能少地匹配，一般是在量词<code>?</code>, <code>+</code>, <code>*</code>之后再加一个<code>?</code>，表示尽可能少地匹配，把机会留给后面的匹配规则。</p>
+<p>还是拿贪婪模式中那个例子举例，稍微改一下，<code>\d+</code>换成非贪婪模式<code>\d+?</code>。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">'123456789'</span>.match(<span class="hljs-regexp">/^(\d+?)(\d&#123;2,&#125;)$/</span>)</span><br></pre></td></tr></table></figure>
+
+<p>捕获组的第一项是<code>&quot;1&quot;</code>，第二项变成了<code>&quot;23456789&quot;</code>。</p>
+<p>为什么会这样呢？因为在非贪婪模式下，会尽可能少匹配，把机会留给后面的匹配规则。</p>
+<h1 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h1><p>分组在正则中是一个非常有用的神器，用圆括号<code>()</code>来包裹的内容就是一个分组，在正则中是这种表示形式：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/(\d*)([a-z]*)/</span><br></pre></td></tr></table></figure>
+
+<h2 id="捕获组"><a href="#捕获组" class="headerlink" title="捕获组()"></a>捕获组()</h2><p>利用捕获组，我们能捕获到关键字符。</p>
+<p>比如</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> group = <span class="hljs-string">'123456789hahaha'</span>.match(<span class="hljs-regexp">/(\d*)([a-z]*)/</span>)</span><br></pre></td></tr></table></figure>
+
+<p>分组1用于匹配任意个数字，分组2用于匹配任意个小写字母。</p>
+<p>那么我们在<code>match</code>方法的返回结果中就可以取到这两个分组匹配的结果，<code>group[1]</code>是<code>&quot;123456789&quot;</code>，<code>group[2]</code>是<code>&quot;hahaha&quot;</code>。</p>
+<p>我们还可以在<code>RegExp</code>的静态属性<code>$1~$9</code>取得前<code>9</code>个分组匹配的结果。<code>RegExp.$1</code>是<code>&quot;123456789&quot;</code>，<code>RegExp.$2</code>是<code>&quot;hahaha&quot;</code>。但是<code>RegExp.$1~$9</code>是非标准的，虽然很多浏览器都实现了，尽量不要在生产环境中使用。</p>
+<p>这种捕获组的应用在字符串的<code>replace</code>方法中也是类似，不过在调用<code>replace</code>方法时，我们需要通过<code>$1</code>, <code>$2</code>, <code>$n</code>这种形式去引用分组。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">"123456789hahaha"</span>.replace(<span class="hljs-regexp">/(\d*)([a-z]*)/</span>, <span class="hljs-string">"$1"</span>) <span class="hljs-comment">// "123456789"</span></span><br></pre></td></tr></table></figure>
+
+<p>利用<code>$1</code>，我们就可以把源字符串替换为分组1匹配到的字符串，也就是<code>&quot;123456789&quot;</code>。</p>
+<h2 id="非捕获组"><a href="#非捕获组" class="headerlink" title="非捕获组(?:)"></a>非捕获组(?:)</h2><p>非捕获组是不生成引用的分组，它也由圆括号<code>()</code>包裹起来，不过圆括号中起头的是<code>?:</code>，也就是<code>/(?:\d*)/</code>这种形式。</p>
+<p>还是改造下之前的例子来看下：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> group = <span class="hljs-string">'123456789hahaha'</span>.match(<span class="hljs-regexp">/(?:\d*)([a-z]*)/</span>)</span><br></pre></td></tr></table></figure>
+
+<p>由于非捕获组不生成引用，所以<code>group[1]</code>是<code>&quot;hahaha&quot;</code>；同样地，<code>RegExp.$1</code>也是<code>&quot;hahaha&quot;</code>。</p>
+<p>看到这里，我不禁也产生了疑问，既然我不需要引用非捕获组，那么非捕获组的意义何在？</p>
+<p>思考了一阵后，我觉得非捕获组大概有这么一些优势和必要性：</p>
+<ol>
+<li><p>与捕获组相比，非捕获组在内存上开销更小，因为它不需要生成引用</p>
+</li>
+<li><p>分组是为了方便加量词。我们虽然可以不生成引用，但是如果没有分组，就不太方便加给一组字符加量词。</p>
+</li>
+</ol>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">'1a2b3c...'</span>.match(<span class="hljs-regexp">/(?:\d[a-z])&#123;2,3&#125;(\.+)/</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="引用-num"><a href="#引用-num" class="headerlink" title="引用\num"></a>引用\num</h2><p>正则表达式中可以引用前面的具有引用的分组，通过<code>\1</code>，<code>\2</code>这种形式可以实现引用前面的子表达式。</p>
+<p>比如，我要匹配一个字符串，要求符合这样的规则：</p>
+<p>字符串由单引号或双引号开头和结束，中间内容可以是数字，单词。</p>
+<p>那我要保证的是首尾要么是单引号，要么是双引号，所以我的pattern写法可以是：</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> pattern = <span class="hljs-regexp">/^(["'])[a-z\d]*\1$/</span></span><br><span class="line">pattern.test(<span class="hljs-string">"'perfect123'"</span>) <span class="hljs-comment">// true</span></span><br><span class="line">pattern.test(<span class="hljs-string">'"1perfect2"'</span>) <span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="零宽断言"><a href="#零宽断言" class="headerlink" title="零宽断言"></a>零宽断言</h1><p>说实话，一开始看零宽断言的概念和解释时，我真的完全不懂在说什么。</p>
+<ul>
+<li>零宽正向先行断言(?=)</li>
+<li>零宽负向先行断言(?!)</li>
+<li>零宽正向后行断言(?&lt;=)</li>
+<li>零宽负向后行断言(?&lt;!)</li>
+</ul>
+<p>后面把词汇拆开来看，加入自己的理解，就慢慢有点懂了。</p>
+<ul>
+<li>零宽：zero width，断言作为必要条件进行匹配，但是不体现在匹配结果中。</li>
+<li>正向：positive，断言中的字符必须被匹配。</li>
+<li>负向：negative，断言中的字符不能被匹配。</li>
+<li>先行：lookahead，必须满足前方的条件，条件在前方，前方等同于右侧。</li>
+<li>后行：lookbehind，必须满足后方的条件，条件在后方，后方等同于左侧。</li>
+</ul>
+<h2 id="零宽正向先行断言"><a href="#零宽正向先行断言" class="headerlink" title="零宽正向先行断言(?=)"></a>零宽正向先行断言(?=)</h2><p>约束目标右侧必须存在指定的字符。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/<span class="hljs-number">123</span>(?=a)/.test(<span class="hljs-string">'123a'</span>) <span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>上面的例子约束了<code>123</code>右侧必须有<code>a</code>。</p>
+<h2 id="零宽负向先行断言"><a href="#零宽负向先行断言" class="headerlink" title="零宽负向先行断言(?!)"></a>零宽负向先行断言(?!)</h2><p>约束目标右侧不能存在指定的字符。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/<span class="hljs-number">123</span>(?!a)/.test(<span class="hljs-string">'123a'</span>) <span class="hljs-comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>上面的例子约束了<code>123</code>右侧不能有<code>a</code>，否则结果为<code>false</code>。</p>
+<h2 id="零宽正向后行断言-lt"><a href="#零宽正向后行断言-lt" class="headerlink" title="零宽正向后行断言(?&lt;=)"></a>零宽正向后行断言(?&lt;=)</h2><p>约束目标左侧必须存在指定的字符。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/(?<span class="hljs-xml"><span class="hljs-tag">&lt;<span class="hljs-name">=a)123</span>/<span class="hljs-attr">.test</span>('<span class="hljs-attr">a123</span>') // <span class="hljs-attr">true</span></span></span></span><br></pre></td></tr></table></figure>
+
+<p>上面的例子约束了<code>123</code>左侧必须有<code>a</code>。</p>
+<blockquote>
+<p>ES2018才支持零宽后行断言，具体见<a href="https://github.com/tc39/proposals/blob/master/finished-proposals.md" target="_blank" rel="noopener">TC39 Proposals</a></p>
+</blockquote>
+<h2 id="零宽负向后行断言-lt"><a href="#零宽负向后行断言-lt" class="headerlink" title="零宽负向后行断言(?&lt;!)"></a>零宽负向后行断言(?&lt;!)</h2><p>约束目标左侧不能存在指定的字符。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/(?<span class="hljs-xml"><span class="hljs-tag">&lt;<span class="hljs-name">!a)123</span>/<span class="hljs-attr">.test</span>('<span class="hljs-attr">a123</span>') // <span class="hljs-attr">false</span></span></span></span><br></pre></td></tr></table></figure>
+
+<p>上面的例子约束了<code>123</code>左侧不能有<code>a</code>，否则结果为<code>false</code></p>
+<blockquote>
+<p>注：ES2018才支持此特性。</p>
+</blockquote>
+<h1 id="RegExp"><a href="#RegExp" class="headerlink" title="RegExp"></a>RegExp</h1><p>说到正则表达式，就不得不提到<code>RegExp</code>对象。下面我们从原型方法，静态属性，实例属性等几个方面来认识下<code>RegExp</code>对象。</p>
+<h2 id="原型方法"><a href="#原型方法" class="headerlink" title="原型方法"></a>原型方法</h2><h3 id="RegExp-prototype-test"><a href="#RegExp-prototype-test" class="headerlink" title="RegExp.prototype.test"></a>RegExp.prototype.test</h3><p><code>test()</code>是我们平时最常用的正则方法，<code>test()</code>方法执行一个检索，用来查看正则表达式与指定的字符串是否匹配，返回一个布尔值<code>true</code>或<code>false</code>。</p>
+<p>如果正则表达式设置了全局标志<code>g</code>，执行<code>test()</code>会改变<code>RegExp.lastIndex</code>属性，用于记录上次匹配到的字符的起始索引。连续执行<code>test()</code>方法，后续的执行将会从<code>lastIndex</code>处开始匹配字符串。这种情况下，如果<code>test()</code>无法匹配到结果，<code>lastIndex</code>就会重置为<code>0</code>。</p>
+<h3 id="RegExp-prototype-exec"><a href="#RegExp-prototype-exec" class="headerlink" title="RegExp.prototype.exec"></a>RegExp.prototype.exec</h3><p><code>exec()</code>相较于<code>test()</code>能得到更丰富的匹配信息，其结果是一个数组，数组的第0个元素是匹配到的字符串，第1~n个元素是圆括号<code>()</code>分组捕获的结果。</p>
+<p>结果数组是数组，数组也是对象类型数据，所以结果数组还有两个属性分别是<code>index</code>和<code>input</code></p>
+<ul>
+<li><code>index</code>代表匹配到的字符位于原始字符串的基于0的索引值</li>
+<li><code>input</code>则代表原始字符串</li>
+</ul>
+<p>与<code>test()</code>一致，如果正则表达式设置了<code>g</code>标志符，那么每次执行<code>exec()</code>都会更新<code>lastIndex</code>。</p>
+<h2 id="静态属性"><a href="#静态属性" class="headerlink" title="静态属性"></a>静态属性</h2><p>静态属性不属于任何一个实例，必须通过类名访问，这一点在上一篇<a href="https://juejin.im/post/5ee9ac91f265da02aa2e751e" target="_blank" rel="noopener">「思维导图学前端」6k字一文搞懂Javascript对象，原型，继承</a>已经提到过。</p>
+<h3 id="RegExp-1-9"><a href="#RegExp-1-9" class="headerlink" title="RegExp.$1-$9"></a>RegExp.<code>$1-$9</code></h3><p>用于获取分组的匹配结果，<code>RegExp.$1</code>获取的是第一个分组的匹配结果，<code>RegExp.$9</code>则是第九个分组的匹配结果。</p>
+<p>具体见上文<a href="#">分组-捕获组</a>一节。</p>
+<h2 id="实例属性"><a href="#实例属性" class="headerlink" title="实例属性"></a>实例属性</h2><h3 id="lastIndex"><a href="#lastIndex" class="headerlink" title="lastIndex"></a>lastIndex</h3><p><code>lastIndex</code>，从语义上理解，就是上次匹配到的字符的起始索引。要注意的是，只有设置了<code>g</code>标志，<code>lastIndex</code>才有效。</p>
+<p>当还未进行匹配时，<code>lastIndex</code>自然是<code>0</code>，代表从第<code>0</code>个字符串开始匹配。</p>
+<p><code>lastIndex</code>会随着<code>exec()</code>和<code>test()</code>的执行而更新</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/\d/g</span></span><br><span class="line">reg.lastIndex <span class="hljs-comment">// 0</span></span><br><span class="line">reg.test(<span class="hljs-string">'123456'</span>)</span><br><span class="line">reg.lastIndex <span class="hljs-comment">// 1</span></span><br><span class="line">reg.exec(<span class="hljs-string">'123456'</span>)</span><br><span class="line">reg.lastIndex <span class="hljs-comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<p><code>lastIndex</code>可以手动修改，也就是说，你可以自由控制匹配的细节。</p>
+<h3 id="flags"><a href="#flags" class="headerlink" title="flags"></a>flags</h3><p><code>flags</code>属性返回一个字符串，代表该正则表达式实例启用了哪些标志。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/\d/ig</span></span><br><span class="line">reg.flags; <span class="hljs-comment">// "gi"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="global"><a href="#global" class="headerlink" title="global"></a>global</h3><p><code>global</code>是布尔量，表明正则表达式是否使用了<code>g</code>标志。</p>
+<h3 id="ignoreCase"><a href="#ignoreCase" class="headerlink" title="ignoreCase"></a>ignoreCase</h3><p><code>ignoreCase</code>是布尔量，表明正则表达式是否使用了<code>i</code>标志。</p>
+<h3 id="multiline"><a href="#multiline" class="headerlink" title="multiline"></a>multiline</h3><p><code>multiline</code>是布尔量，表明正则表达式是否使用了<code>m</code>标志。</p>
+<h3 id="source"><a href="#source" class="headerlink" title="source"></a>source</h3><p><code>source</code>，意为源，是正则表达式的字符串表示，不会包含正则字面量两边的斜杠以及任何的标志字符。</p>
+<h1 id="String涉及正则的方法"><a href="#String涉及正则的方法" class="headerlink" title="String涉及正则的方法"></a>String涉及正则的方法</h1><h2 id="String-prototype-search"><a href="#String-prototype-search" class="headerlink" title="String.prototype.search"></a>String.prototype.search</h2><p><code>search()</code>方法用正则表达式对字符串对象进行一次匹配，结果返回一个<code>index</code>，代表正则表达式在字符串中首次匹配项的索引。如果无法匹配，则返回<code>-1</code>。</p>
+<p><code>search()</code>方法的参数必须是正则表达式，如果不是也会被<code>new RegExp()</code>默默转换为正则表达式对象。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">"123abc"</span>.search(<span class="hljs-regexp">/[a-z]/</span>); <span class="hljs-comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="String-prototype-match"><a href="#String-prototype-match" class="headerlink" title="String.prototype.match"></a>String.prototype.match</h2><p>字符串的<code>match</code>方法用于检索字符串，和正则表达式的<code>exec</code>方法是相似的。<code>match</code>方法的参数也要求是正则表达式。<code>match</code>方法返回一个数组。</p>
+<p>与<code>exec()</code>的不同点在于，如果<code>match</code>方法传入的正则表达式带了标识<code>g</code>，则将返回与完整正则表达式匹配的所有结果，但不会返回捕获组。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">"123abc456"</span>.match(<span class="hljs-regexp">/([a-z])/g</span>);</span><br><span class="line"><span class="hljs-comment">// 返回["a", "b", "c"]</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/([a-z])/g</span>;</span><br><span class="line">reg.exec(<span class="hljs-string">'123abc456'</span>);</span><br><span class="line"><span class="hljs-comment">// 返回数组["a", "a", index: 3, input: "123abc456", groups: undefined]</span></span><br><span class="line">reg.exec(<span class="hljs-string">'123abc456'</span>);</span><br><span class="line"><span class="hljs-comment">// 返回数组["b", "b", index: 4, input: "123abc456", groups: undefined]</span></span><br><span class="line">reg.exec(<span class="hljs-string">'123abc456'</span>);</span><br><span class="line"><span class="hljs-comment">// 返回数组["c", "c", index: 5, input: "123abc456", groups: undefined]</span></span><br></pre></td></tr></table></figure>
+
+<p>如果<code>match()</code>方法传入的正则表达式不带标志<code>g</code>，表现与<code>exec()</code>方法一致，只会返回第一个匹配结果和分组捕获到的结果。</p>
+<p>如果此时表达式中有圆括号分组，在<code>match()</code>的结果数组中也是可以获取到这些分组匹配的结果的，这一点在捕获组中也有提到。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">"123abc456"</span>.match(<span class="hljs-regexp">/([a-z])/</span>);</span><br><span class="line"><span class="hljs-comment">// 返回["a", "a", index: 3, input: "123abc456", groups: undefined]</span></span><br><span class="line"><span class="hljs-built_in">RegExp</span>.$<span class="hljs-number">1</span>; <span class="hljs-comment">// "a"</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="String-prototype-replace"><a href="#String-prototype-replace" class="headerlink" title="String.prototype.replace"></a>String.prototype.replace</h2><p><code>replace()</code>是字符串替换方法，它不要求第一个参数必须是正则表达式。如果第一个参数是正则表达式，并且包含分组，那么在<code>replace()</code>的第二个参数中，可以通过<code>&quot;$1&quot;</code>，<code>&quot;$2&quot;</code>这种形式引用分组匹配结果。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-string">"123456789hahaha"</span>.replace(<span class="hljs-regexp">/(\d*)([a-z]*)/</span>, <span class="hljs-string">"$1"</span>) <span class="hljs-comment">// "123456789"</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="String-prototype-split"><a href="#String-prototype-split" class="headerlink" title="String.prototype.split"></a>String.prototype.split</h2><p><code>split()</code>方法是字符串分割方法，也算平时用得很多的一个方法，但是很多人不知道它可以接受正则表达式作为参数。</p>
+<p>假设我们得到这样一个不太规律的字符串<code>&quot;1,2, 3 ,4,  5&quot;</code>，然后需要分割这个字符串得到纯数字组成的数组，直接使用<code>split(&quot;,&quot;)</code>是不行的，而利用正则表达式作为分割条件就可以做到。</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> str = <span class="hljs-string">"1,2, 3 ,4,  5"</span>;</span><br><span class="line">str.split(<span class="hljs-regexp">/\s*,\s*/</span>);</span><br><span class="line"><span class="hljs-comment">// 返回 ["1", "2", "3", "4", "5"]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>正则表达式是一个非常重要却容易被忽视的知识点，在面试中也是一个频繁的考点，所以必须给予它足够的重视。经过上面的知识点梳理，相信能在后续的实战中胸有成竹，不慌不忙。</p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/%E5%A4%A7%E5%89%8D%E7%AB%AF%E5%90%8D%E7%89%8720200622.png" alt="关注交流"></p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/正则表达式/">正则表达式</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay_payme.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/wechat_payme.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/new的实现以及无new实例化.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">面试官真的会问：new的实现以及无new实例化</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/这篇Nginx反向代理技巧，助你准时下班陪女神.html">
+                <span class="level-item">「前端必看」这篇Nginx反向代理技巧，助你准时下班陪女神</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.4.1/dist/gitalk.min.js"></script>
+<script>
+    var gitalk = new Gitalk({
+        clientID: 'e244808d754d6ef5f8aa',
+        clientSecret: 'e84f52c8b7e6b17074e739720828ddf962f54b88',
+        id: '9f8ddf53eb4c2064490b8f437d50d5ea',
+        repo: 'tusi-hexo',
+        owner: 'cumt-robin',
+        admin: "cumt-robin",
+        createIssueManually: false,
+        distractionFreeMode: false
+    })
+    gitalk.render('comment-container')
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                        <figure class="image is-128x128 has-mb-6">
+                            <img class="is-rounded" data-src="/images/avatar.png" alt="Tusi">
+                        </figure>
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Tusi
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Frontend Engineer
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>湖南长沙</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        94
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        39
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        95
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/cumt-robin" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/cumt-robin">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="WeChat" href="http://qncdn.wbjiang.cn/%E5%BE%AE%E4%BF%A1%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%90%8D%E7%89%87.jpg">
+                
+                <i class="fab fa-weixin"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            友情链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="http://www.wbjiang.cn" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi的个人主页</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.wbjiang.cn</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.wbjiang.cn" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi博客</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.wbjiang.cn</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://blog.csdn.net/weixin_41196185" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi的CSDN</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.csdn.net</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://juejin.im/user/5ca40a18f265da30b8178b31" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi掘金</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">juejin.im</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://segmentfault.com/u/tusi_5c8a591841687" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Tusi的SegmentFault</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">segmentfault.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.whatled.com/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">少将博客</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.whatled.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.jiangshaobo.cn/" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Abel</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.jiangshaobo.cn</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/new的实现以及无new实例化.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/new%E8%BF%98%E6%98%AF%E4%B8%8Dnew.png" alt="面试官真的会问：new的实现以及无new实例化">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:32:47.000Z">2020-07-16</time></div>
+                    <a href="/new的实现以及无new实例化.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">面试官真的会问：new的实现以及无new实例化</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/初中级前端值得收藏的正则表达式知识点扫盲.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%89%AB%E7%9B%B2.png" alt="「思维导图学前端 」初中级前端值得收藏的正则表达式知识点扫盲">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:31:06.000Z">2020-07-16</time></div>
+                    <a href="/初中级前端值得收藏的正则表达式知识点扫盲.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">「思维导图学前端 」初中级前端值得收藏的正则表达式知识点扫盲</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/这篇Nginx反向代理技巧，助你准时下班陪女神.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/%E6%88%91%E5%85%88%E4%B8%8B%E7%8F%AD%E4%BA%86.png" alt="「前端必看」这篇Nginx反向代理技巧，助你准时下班陪女神">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:29:47.000Z">2020-07-16</time></div>
+                    <a href="/这篇Nginx反向代理技巧，助你准时下班陪女神.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">「前端必看」这篇Nginx反向代理技巧，助你准时下班陪女神</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Nginx/">Nginx</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/妙用数组fill处理每日温度.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/leetcode%E6%8B%8D%E4%BA%86%E6%8B%8D%E6%88%91.png" alt="妙用数组fill处理每日温度">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:27:54.000Z">2020-07-16</time></div>
+                    <a href="/妙用数组fill处理每日温度.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">妙用数组fill处理每日温度</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/leetcode/">leetcode</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/回文数的两种解法.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/leetcode%E6%8B%8D%E4%BA%86%E6%8B%8D%E6%88%91.png" alt="回文数的两种解法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:25:23.000Z">2020-07-16</time></div>
+                    <a href="/回文数的两种解法.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">回文数的两种解法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/leetcode/">leetcode</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CommonJS/">
+                        <span class="tag">CommonJS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ES6/">
+                        <span class="tag">ES6</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Gerrit/">
+                        <span class="tag">Gerrit</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Next主题/">
+                        <span class="tag">Next主题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TortoiseGIT/">
+                        <span class="tag">TortoiseGIT</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VMware/">
+                        <span class="tag">VMware</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/amd规范/">
+                        <span class="tag">amd规范</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/angular/">
+                        <span class="tag">angular</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/axios/">
+                        <span class="tag">axios</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/babel/">
+                        <span class="tag">babel</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bootstrap/">
+                        <span class="tag">bootstrap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/canvas/">
+                        <span class="tag">canvas</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cordova/">
+                        <span class="tag">cordova</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css/">
+                        <span class="tag">css</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/demo/">
+                        <span class="tag">demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/express/">
+                        <span class="tag">express</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git-push报错/">
+                        <span class="tag">git push报错</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git-remote不同步/">
+                        <span class="tag">git,remote不同步</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gitlab/">
+                        <span class="tag">gitlab</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gitment/">
+                        <span class="tag">gitment</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gradle/">
+                        <span class="tag">gradle</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gulp/">
+                        <span class="tag">gulp</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html/">
+                        <span class="tag">html</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/http-server/">
+                        <span class="tag">http-server</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/iconfont/">
+                        <span class="tag">iconfont</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ionic/">
+                        <span class="tag">ionic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jdk/">
+                        <span class="tag">jdk</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jquery/">
+                        <span class="tag">jquery</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js模块化/">
+                        <span class="tag">js模块化</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/leetcode/">
+                        <span class="tag">leetcode</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/livere/">
+                        <span class="tag">livere</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/meta/">
+                        <span class="tag">meta</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/navicat-for-mysql/">
+                        <span class="tag">navicat for mysql</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ng-zorro/">
+                        <span class="tag">ng-zorro</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nginx/">
+                        <span class="tag">nginx</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nodejs/">
+                        <span class="tag">nodejs</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/npm速度慢/">
+                        <span class="tag">npm速度慢</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ocx/">
+                        <span class="tag">ocx</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/progress/">
+                        <span class="tag">progress</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/require-js/">
+                        <span class="tag">require.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/sea-js/">
+                        <span class="tag">sea.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/shell/">
+                        <span class="tag">shell</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/socket-io/">
+                        <span class="tag">socket.io</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/svg/">
+                        <span class="tag">svg</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/umd规范/">
+                        <span class="tag">umd规范</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/valine/">
+                        <span class="tag">valine</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vscode/">
+                        <span class="tag">vscode</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue/">
+                        <span class="tag">vue</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue-router/">
+                        <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue作用域插槽/">
+                        <span class="tag">vue作用域插槽</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue升级/">
+                        <span class="tag">vue升级</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack4/">
+                        <span class="tag">webpack4</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/websocket/">
+                        <span class="tag">websocket</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/windows/">
+                        <span class="tag">windows</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前后端分离/">
+                        <span class="tag">前后端分离</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前端/">
+                        <span class="tag">前端</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前端基础/">
+                        <span class="tag">前端基础</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/原型/">
+                        <span class="tag">原型</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/反向代理/">
+                        <span class="tag">反向代理</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/发布npm包/">
+                        <span class="tag">发布npm包</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/发布订阅/">
+                        <span class="tag">发布订阅</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/回文数/">
+                        <span class="tag">回文数</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/地图曲线/">
+                        <span class="tag">地图曲线</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信公众号/">
+                        <span class="tag">微信公众号</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信小程序/">
+                        <span class="tag">微信小程序</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据类型/">
+                        <span class="tag">数据类型</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/本地域名/">
+                        <span class="tag">本地域名</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/构造函数/">
+                        <span class="tag">构造函数</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/架构/">
+                        <span class="tag">架构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/正则表达式/">
+                        <span class="tag">正则表达式</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/滑块美化/">
+                        <span class="tag">滑块美化</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/电脑技能/">
+                        <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/移动端调试/">
+                        <span class="tag">移动端调试</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/继承/">
+                        <span class="tag">继承</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自动化部署/">
+                        <span class="tag">自动化部署</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自媒体/">
+                        <span class="tag">自媒体</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自定义tabbar/">
+                        <span class="tag">自定义tabbar</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/观察者/">
+                        <span class="tag">观察者</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/记事本/">
+                        <span class="tag">记事本</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/面试题/">
+                        <span class="tag">面试题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/new的实现以及无new实例化.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/new%E8%BF%98%E6%98%AF%E4%B8%8Dnew.png" alt="面试官真的会问：new的实现以及无new实例化">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:32:47.000Z">2020-07-16</time></div>
+                    <a href="/new的实现以及无new实例化.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">面试官真的会问：new的实现以及无new实例化</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/初中级前端值得收藏的正则表达式知识点扫盲.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%89%AB%E7%9B%B2.png" alt="「思维导图学前端 」初中级前端值得收藏的正则表达式知识点扫盲">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:31:06.000Z">2020-07-16</time></div>
+                    <a href="/初中级前端值得收藏的正则表达式知识点扫盲.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">「思维导图学前端 」初中级前端值得收藏的正则表达式知识点扫盲</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/这篇Nginx反向代理技巧，助你准时下班陪女神.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/%E6%88%91%E5%85%88%E4%B8%8B%E7%8F%AD%E4%BA%86.png" alt="「前端必看」这篇Nginx反向代理技巧，助你准时下班陪女神">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:29:47.000Z">2020-07-16</time></div>
+                    <a href="/这篇Nginx反向代理技巧，助你准时下班陪女神.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">「前端必看」这篇Nginx反向代理技巧，助你准时下班陪女神</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Nginx/">Nginx</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/妙用数组fill处理每日温度.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/leetcode%E6%8B%8D%E4%BA%86%E6%8B%8D%E6%88%91.png" alt="妙用数组fill处理每日温度">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:27:54.000Z">2020-07-16</time></div>
+                    <a href="/妙用数组fill处理每日温度.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">妙用数组fill处理每日温度</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/leetcode/">leetcode</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/回文数的两种解法.html" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/leetcode%E6%8B%8D%E4%BA%86%E6%8B%8D%E6%88%91.png" alt="回文数的两种解法">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:25:23.000Z">2020-07-16</time></div>
+                    <a href="/回文数的两种解法.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">回文数的两种解法</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/leetcode/">leetcode</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CNZZ统计/">
+                        <span class="tag">CNZZ统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Chrome自动填充/">
+                        <span class="tag">Chrome自动填充</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CommonJS/">
+                        <span class="tag">CommonJS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ES6/">
+                        <span class="tag">ES6</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Gerrit/">
+                        <span class="tag">Gerrit</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Next主题/">
+                        <span class="tag">Next主题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/TortoiseGIT/">
+                        <span class="tag">TortoiseGIT</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/VMware/">
+                        <span class="tag">VMware</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/amd规范/">
+                        <span class="tag">amd规范</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/angular/">
+                        <span class="tag">angular</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/axios/">
+                        <span class="tag">axios</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/babel/">
+                        <span class="tag">babel</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bootstrap/">
+                        <span class="tag">bootstrap</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/canvas/">
+                        <span class="tag">canvas</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cordova/">
+                        <span class="tag">cordova</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css/">
+                        <span class="tag">css</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css单位/">
+                        <span class="tag">css单位</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/demo/">
+                        <span class="tag">demo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/express/">
+                        <span class="tag">express</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git-push报错/">
+                        <span class="tag">git push报错</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git-remote不同步/">
+                        <span class="tag">git,remote不同步</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gitlab/">
+                        <span class="tag">gitlab</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gitment/">
+                        <span class="tag">gitment</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gradle/">
+                        <span class="tag">gradle</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gulp/">
+                        <span class="tag">gulp</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/hexo/">
+                        <span class="tag">hexo</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html/">
+                        <span class="tag">html</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/html5/">
+                        <span class="tag">html5</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/http-server/">
+                        <span class="tag">http-server</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/iconfont/">
+                        <span class="tag">iconfont</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ionic/">
+                        <span class="tag">ionic</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jdk/">
+                        <span class="tag">jdk</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/jquery/">
+                        <span class="tag">jquery</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/js模块化/">
+                        <span class="tag">js模块化</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/leetcode/">
+                        <span class="tag">leetcode</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/linux/">
+                        <span class="tag">linux</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/livere/">
+                        <span class="tag">livere</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/meta/">
+                        <span class="tag">meta</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/navicat-for-mysql/">
+                        <span class="tag">navicat for mysql</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ng-zorro/">
+                        <span class="tag">ng-zorro</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nginx/">
+                        <span class="tag">nginx</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nodejs/">
+                        <span class="tag">nodejs</span>
+                        <span class="tag is-grey">6</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/npm速度慢/">
+                        <span class="tag">npm速度慢</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ocx/">
+                        <span class="tag">ocx</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/progress/">
+                        <span class="tag">progress</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/require-js/">
+                        <span class="tag">require.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/sea-js/">
+                        <span class="tag">sea.js</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/shell/">
+                        <span class="tag">shell</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/socket-io/">
+                        <span class="tag">socket.io</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/svg/">
+                        <span class="tag">svg</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/umd规范/">
+                        <span class="tag">umd规范</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/valine/">
+                        <span class="tag">valine</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vscode/">
+                        <span class="tag">vscode</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue/">
+                        <span class="tag">vue</span>
+                        <span class="tag is-grey">7</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue-router/">
+                        <span class="tag">vue-router</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue作用域插槽/">
+                        <span class="tag">vue作用域插槽</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/vue升级/">
+                        <span class="tag">vue升级</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack4/">
+                        <span class="tag">webpack4</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/websocket/">
+                        <span class="tag">websocket</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/windows/">
+                        <span class="tag">windows</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前后端分离/">
+                        <span class="tag">前后端分离</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前端/">
+                        <span class="tag">前端</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/前端基础/">
+                        <span class="tag">前端基础</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/原型/">
+                        <span class="tag">原型</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/反向代理/">
+                        <span class="tag">反向代理</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/发布npm包/">
+                        <span class="tag">发布npm包</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/发布订阅/">
+                        <span class="tag">发布订阅</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/呼吸灯/">
+                        <span class="tag">呼吸灯</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/回文数/">
+                        <span class="tag">回文数</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/地图曲线/">
+                        <span class="tag">地图曲线</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/域名解析/">
+                        <span class="tag">域名解析</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信公众号/">
+                        <span class="tag">微信公众号</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微信小程序/">
+                        <span class="tag">微信小程序</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据类型/">
+                        <span class="tag">数据类型</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/本地域名/">
+                        <span class="tag">本地域名</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/构造函数/">
+                        <span class="tag">构造函数</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/架构/">
+                        <span class="tag">架构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/正则表达式/">
+                        <span class="tag">正则表达式</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/滑块美化/">
+                        <span class="tag">滑块美化</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/电脑技能/">
+                        <span class="tag">电脑技能</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/百度统计/">
+                        <span class="tag">百度统计</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/移动端调试/">
+                        <span class="tag">移动端调试</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/继承/">
+                        <span class="tag">继承</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自动化部署/">
+                        <span class="tag">自动化部署</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自媒体/">
+                        <span class="tag">自媒体</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/自定义tabbar/">
+                        <span class="tag">自定义tabbar</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/观察者/">
+                        <span class="tag">观察者</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/记事本/">
+                        <span class="tag">记事本</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/面试题/">
+                        <span class="tag">面试题</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.png" alt="「思维导图学前端 」初中级前端值得收藏的正则表达式知识点扫盲" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Tusi&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Follow me on GitHub" href="https://github.com/cumt-robin">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+<script src="/js/lazyload.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

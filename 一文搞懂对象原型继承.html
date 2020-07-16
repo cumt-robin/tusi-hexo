@@ -19,7 +19,7 @@
 <meta property="og:description" content="前言去年开始我给自己画了一张知识体系的思维导图，用于规划自己的学习范围和方向。但是我犯了一个大错，我的思维导图只是一个全局的蓝图，而在学习某个知识点的时候没有系统化，知识太过于零散，另一方面也很容易遗忘，回头复习时没有一个提纲，整体的学习效率不高。意识到这一点，我最近开始用思维导图去学习和总结具体的知识点，效果还不错。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82%E5%AF%B9%E8%B1%A1%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF.png">
-<meta property="og:updated_time" content="2020-06-19T09:16:45.311Z">
+<meta property="og:updated_time" content="2020-07-16T05:24:42.430Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「思维导图学前端 」6k字一文搞懂Javascript对象，原型，继承">
 <meta name="twitter:description" content="前言去年开始我给自己画了一张知识体系的思维导图，用于规划自己的学习范围和方向。但是我犯了一个大错，我的思维导图只是一个全局的蓝图，而在学习某个知识点的时候没有系统化，知识太过于零散，另一方面也很容易遗忘，回头复习时没有一个提纲，整体的学习效率不高。意识到这一点，我最近开始用思维导图去学习和总结具体的知识点，效果还不错。">
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    42 分钟 读完 (大约 6315 个字)
+                    42 分钟 读完 (大约 6309 个字)
                 </span>
                 
                 
@@ -319,7 +319,7 @@ var _hmt = _hmt || [];
 
 <p>可以看到，在上述代码中，我们做了这样一个特殊处理<code>Child.prototype.constructor = Child;</code>。一方面是为了保证<code>constructor</code>的指向正确，毕竟实例由子类实例化得来，如果<code>constructor</code>指向父类构造函数也不太合适吧。另一方面是为了防止某些方法显示调用<code>constructor</code>时带来的麻烦。具体解释见<a href="https://stackoverflow.com/questions/8453887/why-is-it-necessary-to-set-the-prototype-constructor#" target="_blank" rel="noopener">Why is it necessary to set the prototype constructor?</a></p>
 <p><strong>关键点</strong>：让子类原型成为父类的实例，子类实例也是父类的实例。</p>
-<p><strong>缺点</strong>：无法继承父类构造函数给实例挂载的属性。</p>
+<p><strong>缺点</strong>：实例化时无法向父类构造函数传参。</p>
 <h4 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h4><p>在调用子类构造函数时，通过call调用父类构造函数，同时指定this值。</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Father</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.nationality = <span class="hljs-string">'Han'</span>;</span><br><span class="line">&#125;;</span><br><span class="line">Father.prototype.propA = <span class="hljs-string">'我是父类原型上的属性'</span>;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Child</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  Father.call(<span class="hljs-keyword">this</span>);</span><br><span class="line">&#125;;</span><br><span class="line">Child.prototype.propB = <span class="hljs-string">'我是子类原型上的属性'</span>;</span><br><span class="line"><span class="hljs-keyword">var</span> child = <span class="hljs-keyword">new</span> Child();</span><br><span class="line"><span class="hljs-built_in">console</span>.log(child.propA, child.propB, child.nationality);</span><br></pre></td></tr></table></figure>
 
@@ -344,7 +344,7 @@ var _hmt = _hmt || [];
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">create</span>(<span class="hljs-params">proto</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">F</span>(<span class="hljs-params"></span>) </span>&#123;&#125;</span><br><span class="line">  F.prototype = proto;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> F();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>关键点</strong>：利用一个空对象过渡，解除子类原型和父类构造函数的强关联关系。这也意味着继承可以是纯对象之间的继承，无需构造函数介入。</p>
-<p><strong>缺点</strong>：无法继承父类构造函数给实例挂载的属性，这一点和原型链继承并无差异。</p>
+<p><strong>缺点</strong>：实例化时无法向父类构造函数传参，这一点和原型链继承并无差异。</p>
 <h4 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h4><p>寄生式继承有借鉴工厂函数的设计模式，将继承的过程封装到一个函数中并返回对象，并且可以在函数中扩展对象方法或属性。</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> obj = &#123;</span><br><span class="line">  nationality: <span class="hljs-string">'Han'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">inherit</span>(<span class="hljs-params">proto</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">var</span> o = <span class="hljs-built_in">Object</span>.create(proto);</span><br><span class="line">  o.extendFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> a + b;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-keyword">return</span> o;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">var</span> inheritObj = inherit(obj);</span><br></pre></td></tr></table></figure>
 
@@ -489,6 +489,13 @@ var _hmt = _hmt || [];
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/回文数的两种解法.html">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">回文数的两种解法</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
             <a class="level level-item has-link-grey  article-nav-next" href="/千万别小看这些运算符背后的逻辑.html">
@@ -570,7 +577,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        89
+                        94
                     </p>
                 </div>
             </div>
@@ -580,7 +587,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        37
+                        39
                     </p>
                 </div>
             </div>
@@ -590,7 +597,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        89
+                        95
                     </p>
                 </div>
             </div>
@@ -737,16 +744,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/一文搞懂对象原型继承.html" class="media-left">
+            <a href="/new的实现以及无new实例化.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82%E5%AF%B9%E8%B1%A1%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF.png" alt="「思维导图学前端 」6k字一文搞懂Javascript对象，原型，继承">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/new%E8%BF%98%E6%98%AF%E4%B8%8Dnew.png" alt="面试官真的会问：new的实现以及无new实例化">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-19T08:50:17.000Z">2020-06-19</time></div>
-                    <a href="/一文搞懂对象原型继承.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">「思维导图学前端 」6k字一文搞懂Javascript对象，原型，继承</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:32:47.000Z">2020-07-16</time></div>
+                    <a href="/new的实现以及无new实例化.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">面试官真的会问：new的实现以及无new实例化</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
                     </p>
@@ -756,16 +763,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/千万别小看这些运算符背后的逻辑.html" class="media-left">
+            <a href="/初中级前端值得收藏的正则表达式知识点扫盲.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/wallhaven-0qx3x7_1200x500.png" alt="千万别小看这些运算符背后的逻辑">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%89%AB%E7%9B%B2.png" alt="「思维导图学前端 」初中级前端值得收藏的正则表达式知识点扫盲">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-05T03:08:09.000Z">2020-06-05</time></div>
-                    <a href="/千万别小看这些运算符背后的逻辑.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">千万别小看这些运算符背后的逻辑</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:31:06.000Z">2020-07-16</time></div>
+                    <a href="/初中级前端值得收藏的正则表达式知识点扫盲.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">「思维导图学前端 」初中级前端值得收藏的正则表达式知识点扫盲</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
                     </p>
@@ -775,18 +782,18 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/入坑自媒体写作，我有干货与你分享.html" class="media-left">
+            <a href="/这篇Nginx反向代理技巧，助你准时下班陪女神.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/wallhaven-0j26pq_1280x600.png" alt="入坑自媒体写作，我有干货与你分享">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/%E6%88%91%E5%85%88%E4%B8%8B%E7%8F%AD%E4%BA%86.png" alt="「前端必看」这篇Nginx反向代理技巧，助你准时下班陪女神">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-30T10:11:48.000Z">2020-05-30</time></div>
-                    <a href="/入坑自媒体写作，我有干货与你分享.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">入坑自媒体写作，我有干货与你分享</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:29:47.000Z">2020-07-16</time></div>
+                    <a href="/这篇Nginx反向代理技巧，助你准时下班陪女神.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">「前端必看」这篇Nginx反向代理技巧，助你准时下班陪女神</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/写作/">写作</a>
+                        <a class="has-link-grey -link" href="/categories/Nginx/">Nginx</a>
                     </p>
                 </div>
             </div>
@@ -794,18 +801,18 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/关于数据类型的一些小疑惑.html" class="media-left">
+            <a href="/妙用数组fill处理每日温度.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/1724ba0674616c9c" alt="关于数据类型的一些小疑惑">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/leetcode%E6%8B%8D%E4%BA%86%E6%8B%8D%E6%88%91.png" alt="妙用数组fill处理每日温度">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-30T10:02:57.000Z">2020-05-30</time></div>
-                    <a href="/关于数据类型的一些小疑惑.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">关于数据类型的一些小疑惑</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:27:54.000Z">2020-07-16</time></div>
+                    <a href="/妙用数组fill处理每日温度.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">妙用数组fill处理每日温度</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                        <a class="has-link-grey -link" href="/categories/leetcode/">leetcode</a>
                     </p>
                 </div>
             </div>
@@ -813,18 +820,18 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/js数据类型很简单，却也不简单.html" class="media-left">
+            <a href="/回文数的两种解法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" data-src="https://s1.ax1x.com/2020/05/11/YJCmrV.jpg" alt="js数据类型很简单，却也不简单">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/leetcode%E6%8B%8D%E4%BA%86%E6%8B%8D%E6%88%91.png" alt="回文数的两种解法">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-11T07:25:38.000Z">2020-05-11</time></div>
-                    <a href="/js数据类型很简单，却也不简单.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">js数据类型很简单，却也不简单</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:25:23.000Z">2020-07-16</time></div>
+                    <a href="/回文数的两种解法.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">回文数的两种解法</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                        <a class="has-link-grey -link" href="/categories/leetcode/">leetcode</a>
                     </p>
                 </div>
             </div>
@@ -1102,6 +1109,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/leetcode/">
+                        <span class="tag">leetcode</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/linux/">
                         <span class="tag">linux</span>
                         <span class="tag is-grey">6</span>
@@ -1326,6 +1340,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/反向代理/">
+                        <span class="tag">反向代理</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/发布npm包/">
                         <span class="tag">发布npm包</span>
                         <span class="tag is-grey">1</span>
@@ -1342,6 +1363,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/呼吸灯/">
                         <span class="tag">呼吸灯</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/回文数/">
+                        <span class="tag">回文数</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1382,8 +1410,29 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/本地域名/">
+                        <span class="tag">本地域名</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/构造函数/">
+                        <span class="tag">构造函数</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/架构/">
                         <span class="tag">架构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/正则表达式/">
+                        <span class="tag">正则表达式</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1490,16 +1539,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/一文搞懂对象原型继承.html" class="media-left">
+            <a href="/new的实现以及无new实例化.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/%E4%B8%80%E6%96%87%E6%90%9E%E6%87%82%E5%AF%B9%E8%B1%A1%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF.png" alt="「思维导图学前端 」6k字一文搞懂Javascript对象，原型，继承">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/new%E8%BF%98%E6%98%AF%E4%B8%8Dnew.png" alt="面试官真的会问：new的实现以及无new实例化">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-19T08:50:17.000Z">2020-06-19</time></div>
-                    <a href="/一文搞懂对象原型继承.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">「思维导图学前端 」6k字一文搞懂Javascript对象，原型，继承</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:32:47.000Z">2020-07-16</time></div>
+                    <a href="/new的实现以及无new实例化.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">面试官真的会问：new的实现以及无new实例化</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
                     </p>
@@ -1509,16 +1558,16 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/千万别小看这些运算符背后的逻辑.html" class="media-left">
+            <a href="/初中级前端值得收藏的正则表达式知识点扫盲.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/wallhaven-0qx3x7_1200x500.png" alt="千万别小看这些运算符背后的逻辑">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%89%AB%E7%9B%B2.png" alt="「思维导图学前端 」初中级前端值得收藏的正则表达式知识点扫盲">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-06-05T03:08:09.000Z">2020-06-05</time></div>
-                    <a href="/千万别小看这些运算符背后的逻辑.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">千万别小看这些运算符背后的逻辑</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:31:06.000Z">2020-07-16</time></div>
+                    <a href="/初中级前端值得收藏的正则表达式知识点扫盲.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">「思维导图学前端 」初中级前端值得收藏的正则表达式知识点扫盲</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
                     </p>
@@ -1528,18 +1577,18 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/入坑自媒体写作，我有干货与你分享.html" class="media-left">
+            <a href="/这篇Nginx反向代理技巧，助你准时下班陪女神.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/wallhaven-0j26pq_1280x600.png" alt="入坑自媒体写作，我有干货与你分享">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/%E6%88%91%E5%85%88%E4%B8%8B%E7%8F%AD%E4%BA%86.png" alt="「前端必看」这篇Nginx反向代理技巧，助你准时下班陪女神">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-30T10:11:48.000Z">2020-05-30</time></div>
-                    <a href="/入坑自媒体写作，我有干货与你分享.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">入坑自媒体写作，我有干货与你分享</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:29:47.000Z">2020-07-16</time></div>
+                    <a href="/这篇Nginx反向代理技巧，助你准时下班陪女神.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">「前端必看」这篇Nginx反向代理技巧，助你准时下班陪女神</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/写作/">写作</a>
+                        <a class="has-link-grey -link" href="/categories/Nginx/">Nginx</a>
                     </p>
                 </div>
             </div>
@@ -1547,18 +1596,18 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/关于数据类型的一些小疑惑.html" class="media-left">
+            <a href="/妙用数组fill处理每日温度.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" data-src="https://qncdn.wbjiang.cn/1724ba0674616c9c" alt="关于数据类型的一些小疑惑">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/leetcode%E6%8B%8D%E4%BA%86%E6%8B%8D%E6%88%91.png" alt="妙用数组fill处理每日温度">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-30T10:02:57.000Z">2020-05-30</time></div>
-                    <a href="/关于数据类型的一些小疑惑.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">关于数据类型的一些小疑惑</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:27:54.000Z">2020-07-16</time></div>
+                    <a href="/妙用数组fill处理每日温度.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">妙用数组fill处理每日温度</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                        <a class="has-link-grey -link" href="/categories/leetcode/">leetcode</a>
                     </p>
                 </div>
             </div>
@@ -1566,18 +1615,18 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
-            <a href="/js数据类型很简单，却也不简单.html" class="media-left">
+            <a href="/回文数的两种解法.html" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" data-src="https://s1.ax1x.com/2020/05/11/YJCmrV.jpg" alt="js数据类型很简单，却也不简单">
+                    <img class="thumbnail" data-src="http://qncdn.wbjiang.cn/leetcode%E6%8B%8D%E4%BA%86%E6%8B%8D%E6%88%91.png" alt="回文数的两种解法">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-11T07:25:38.000Z">2020-05-11</time></div>
-                    <a href="/js数据类型很简单，却也不简单.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">js数据类型很简单，却也不简单</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-16T05:25:23.000Z">2020-07-16</time></div>
+                    <a href="/回文数的两种解法.html" class="title has-link-black-ter is-size-6 has-text-weight-normal">回文数的两种解法</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
+                        <a class="has-link-grey -link" href="/categories/leetcode/">leetcode</a>
                     </p>
                 </div>
             </div>
@@ -1855,6 +1904,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/leetcode/">
+                        <span class="tag">leetcode</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/linux/">
                         <span class="tag">linux</span>
                         <span class="tag is-grey">6</span>
@@ -2079,6 +2135,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/反向代理/">
+                        <span class="tag">反向代理</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/发布npm包/">
                         <span class="tag">发布npm包</span>
                         <span class="tag is-grey">1</span>
@@ -2095,6 +2158,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/呼吸灯/">
                         <span class="tag">呼吸灯</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/回文数/">
+                        <span class="tag">回文数</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -2135,8 +2205,29 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/本地域名/">
+                        <span class="tag">本地域名</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/构造函数/">
+                        <span class="tag">构造函数</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/架构/">
                         <span class="tag">架构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/正则表达式/">
+                        <span class="tag">正则表达式</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

@@ -1,3 +1,8 @@
+http://hexo.wbjiang.cn/new的实现以及无new实例化.html
+http://hexo.wbjiang.cn/初中级前端值得收藏的正则表达式知识点扫盲.html
+http://hexo.wbjiang.cn/这篇Nginx反向代理技巧，助你准时下班陪女神.html
+http://hexo.wbjiang.cn/妙用数组fill处理每日温度.html
+http://hexo.wbjiang.cn/回文数的两种解法.html
 http://hexo.wbjiang.cn/一文搞懂对象原型继承.html
 http://hexo.wbjiang.cn/千万别小看这些运算符背后的逻辑.html
 http://hexo.wbjiang.cn/入坑自媒体写作，我有干货与你分享.html
