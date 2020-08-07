@@ -1,3 +1,5 @@
+http://hexo.wbjiang.cn/解读闭包，这次从ECMAScript词法环境，执行上下文说起.html
+http://hexo.wbjiang.cn/写给自己的Object和Function的3个灵魂拷问.html
 http://hexo.wbjiang.cn/new的实现以及无new实例化.html
 http://hexo.wbjiang.cn/初中级前端值得收藏的正则表达式知识点扫盲.html
 http://hexo.wbjiang.cn/这篇Nginx反向代理技巧，助你准时下班陪女神.html
