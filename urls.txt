@@ -1,3 +1,4 @@
+http://hexo.wbjiang.cn/函数知识总结.html
 http://hexo.wbjiang.cn/解读闭包，这次从ECMAScript词法环境，执行上下文说起.html
 http://hexo.wbjiang.cn/写给自己的Object和Function的3个灵魂拷问.html
 http://hexo.wbjiang.cn/new的实现以及无new实例化.html
