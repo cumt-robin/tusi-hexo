@@ -19,7 +19,7 @@
 <meta property="og:description" content="最近在研究函数和原型链这块内容时，我遇到了不少疑惑，对自己而言，这些疑惑可以算得上是灵魂拷问吧。在一步步探究和查证的过程中，我也许理解了一部分，也许还是什么都没懂吧，以文记之，只求能收获二三分。不知这里面有没有你遇到的疑惑呢？一起来看下吧！">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%81%B5%E9%AD%82%E6%8B%B7%E9%97%AE.png">
-<meta property="og:updated_time" content="2020-08-07T06:14:52.118Z">
+<meta property="og:updated_time" content="2020-10-15T06:50:34.655Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="写给自己的Object和Function的3个灵魂拷问">
 <meta name="twitter:description" content="最近在研究函数和原型链这块内容时，我遇到了不少疑惑，对自己而言，这些疑惑可以算得上是灵魂拷问吧。在一步步探究和查证的过程中，我也许理解了一部分，也许还是什么都没懂吧，以文记之，只求能收获二三分。不知这里面有没有你遇到的疑惑呢？一起来看下吧！">
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    14 分钟 读完 (大约 2047 个字)
+                    14 分钟 读完 (大约 2067 个字)
                 </span>
                 
                 
@@ -227,7 +227,9 @@ var _hmt = _hmt || [];
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">Function</span>.prototype.constructor === <span class="hljs-built_in">Function</span>;</span><br><span class="line"><span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
 
 <p>666，<code>Function</code>的原型指向<code>Function.prototype</code>，而<code>Function.prototype</code>的构造器反过来又是<code>Function</code>，有内味了！</p>
-<p>回头想了一下，这是原型三角关系，小题大做了。</p>
+<blockquote>
+<p>回头想了一下，这是原型三角关系，思考这部分的时候有点被绕进去了，小题大做了。</p>
+</blockquote>
 <h1 id="Function和Object鸡生蛋蛋生鸡？"><a href="#Function和Object鸡生蛋蛋生鸡？" class="headerlink" title="Function和Object鸡生蛋蛋生鸡？"></a>Function和Object鸡生蛋蛋生鸡？</h1><p>有了上面这些复杂的关系，我们不免要问问自己，到底是先有<code>Object</code>还是<code>Function</code>？</p>
 <p>我也尝试从V8源码去找一些线索，但是恕我太菜，学校教的C++基本忘光了，从源码中完全找不到思路。<a href="https://v8.dev/docs" title="V8的官方文档" target="_blank" rel="noopener">V8的官方文档</a>也没有说这些东西（可能是我没找到吧）。</p>
 <p>于是我找了一些分析这个问题的文章，大概有了一些认知。重要的事情说三遍：</p>
@@ -261,7 +263,7 @@ var _hmt = _hmt || [];
 <li><p><a href="https://segmentfault.com/a/1190000005754797" title="高能！typeof Function.prototype 引发的先有 Function 还是先有 Object 的探讨" target="_blank" rel="noopener">高能！typeof Function.prototype 引发的先有 Function 还是先有 Object 的探讨</a></p>
 </li>
 </ul>
-<p><img src=""data-src="http://qncdn.wbjiang.cn/%E5%A4%A7%E5%89%8D%E7%AB%AF%E5%85%AC%E4%BC%97%E5%8F%B7%E5%90%8D%E7%89%87.png" alt="欢迎关注&amp;交流"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/%E5%89%8D%E7%AB%AF%E5%8F%B8%E5%8D%97%E5%90%8D%E7%89%87%E5%B8%A6%E5%BE%AE%E4%BF%A1.png" alt="欢迎关注&amp;交流"></p>
 
         </div>
         
