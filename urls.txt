@@ -1,3 +1,5 @@
+http://hexo.wbjiang.cn/then,catch,finally如何影响返回的Promise实例状态.html
+http://hexo.wbjiang.cn/从亲身经历谈谈如何用Git分支解决项目生产实践中的痛点.html
 http://hexo.wbjiang.cn/函数知识总结.html
 http://hexo.wbjiang.cn/解读闭包，这次从ECMAScript词法环境，执行上下文说起.html
 http://hexo.wbjiang.cn/写给自己的Object和Function的3个灵魂拷问.html
