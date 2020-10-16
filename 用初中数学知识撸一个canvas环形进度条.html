@@ -10,19 +10,19 @@
 <title>用初中数学知识撸一个canvas环形进度条 - Tusi博客|前端分享驿站</title>
 
 
-    <meta name="description" content="周末好，今天给大家带来一款接地气的环形进度条组件vue-awesome-progress。">
+    <meta name="description" content="周末好，今天给大家带来一款接地气的环形进度条组件vue-awesome-progress。近日被设计小姐姐要求实现这么一个环形进度条效果，大体由四部分组成，分别是底色圆环，进度弧，环内文字，进度圆点。设计稿截图如下：  我的第一反应还是找现成的组件，市面上很多组件都实现了前3点，独独没找到能画进度圆点的组件，不然稍加定制也能复用。既然没有现成的组件，只有自己用vue + canvas撸一个了。">
 <meta name="keywords" content="canvas,进度条,蒋文斌,Tusi,博客,前端,全栈,微信小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用初中数学知识撸一个canvas环形进度条">
 <meta property="og:url" content="http://hexo.wbjiang.cn/用初中数学知识撸一个canvas环形进度条.html">
 <meta property="og:site_name" content="Tusi博客|前端分享驿站">
-<meta property="og:description" content="周末好，今天给大家带来一款接地气的环形进度条组件vue-awesome-progress。">
+<meta property="og:description" content="周末好，今天给大家带来一款接地气的环形进度条组件vue-awesome-progress。近日被设计小姐姐要求实现这么一个环形进度条效果，大体由四部分组成，分别是底色圆环，进度弧，环内文字，进度圆点。设计稿截图如下：  我的第一反应还是找现成的组件，市面上很多组件都实现了前3点，独独没找到能画进度圆点的组件，不然稍加定制也能复用。既然没有现成的组件，只有自己用vue + canvas撸一个了。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://qncdn.wbjiang.cn/vue-awesome-progress.png">
-<meta property="og:updated_time" content="2020-10-16T01:32:39.135Z">
+<meta property="og:updated_time" content="2020-10-16T08:52:54.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用初中数学知识撸一个canvas环形进度条">
-<meta name="twitter:description" content="周末好，今天给大家带来一款接地气的环形进度条组件vue-awesome-progress。">
+<meta name="twitter:description" content="周末好，今天给大家带来一款接地气的环形进度条组件vue-awesome-progress。近日被设计小姐姐要求实现这么一个环形进度条效果，大体由四部分组成，分别是底色圆环，进度弧，环内文字，进度圆点。设计稿截图如下：  我的第一反应还是找现成的组件，市面上很多组件都实现了前3点，独独没找到能画进度圆点的组件，不然稍加定制也能复用。既然没有现成的组件，只有自己用vue + canvas撸一个了。">
 <meta name="twitter:image" content="https://qncdn.wbjiang.cn/vue-awesome-progress.png">
 
 
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    23 分钟 读完 (大约 3440 个字)
+                    23 分钟 读完 (大约 3479 个字)
                 </span>
                 
                 
@@ -192,9 +192,7 @@ var _hmt = _hmt || [];
             
         </h1>
         <div class="content">
-            <p>周末好，今天给大家带来一款接地气的环形进度条组件<code>vue-awesome-progress</code>。</p>
-<a id="more"></a>
-<p>近日被设计小姐姐要求实现这么一个环形进度条效果，大体由四部分组成，分别是底色圆环，进度弧，环内文字，进度圆点。设计稿截图如下：</p>
+            <p>周末好，今天给大家带来一款接地气的环形进度条组件<code>vue-awesome-progress</code>。近日被设计小姐姐要求实现这么一个环形进度条效果，大体由四部分组成，分别是底色圆环，进度弧，环内文字，进度圆点。设计稿截图如下：</p>
 <p><img src=""data-src="https://qncdn.wbjiang.cn/%E7%8E%AF%E7%8A%B6%E8%BF%9B%E5%BA%A6%E6%9D%A1%E8%AE%BE%E8%AE%A1%E7%A8%BF.png" alt="环形进度条设计稿"></p>
 <p>我的第一反应还是找现成的组件，市面上很多组件都实现了前3点，独独没找到能画进度圆点的组件，不然稍加定制也能复用。既然没有现成的组件，只有自己用<code>vue + canvas</code>撸一个了。</p>
 <p><img src=""data-src="https://qncdn.wbjiang.cn/%E6%88%91%E4%B9%9F%E5%BE%88%E6%97%A0%E5%A5%88%E5%95%8A.jpg" alt="我也很无奈啊"></p>
@@ -278,9 +276,9 @@ var _hmt = _hmt || [];
 <p><img src=""data-src="https://qncdn.wbjiang.cn/%E6%96%8C%E5%93%A5%E4%BD%A0%E8%A6%81%E5%86%B7%E9%9D%99.gif" alt="你要冷静"></p>
 <p>经过冷静思考，我脑子里闪过了一个利用正余弦公式求坐标的思路，但前提是坐标系原点如果在圆环外接矩形的左上角才好算。仔细想想，冇问题啦，我先给坐标系平移一下，最后求出来结果，再补个平移差值不就行了嘛。</p>
 <p><img src=""data-src="https://qncdn.wbjiang.cn/%E5%B9%B3%E7%A7%BB%E5%9D%90%E6%A0%87%E7%B3%BB%E5%90%8E%E6%B1%82%E5%9C%86%E7%82%B9%E5%9D%90%E6%A0%87.png" alt="平移坐标系后求圆点坐标"></p>
-<p>👆画图工具不是很熟练，这里图没画好，线歪了，请忽略细节。</p>
+<p>画图工具不是很熟练，这里图没画好，线歪了，请忽略细节。</p>
 <p>好的，我们先给坐标系向右下方平移<code>pointRadius</code>，最后求得结果再加上<code>pointRadius</code>就好了。伪代码如下：</p>
-<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// realx：真实的x坐标</span></span><br><span class="line"><span class="hljs-comment">// realy：真实的y坐标</span></span><br><span class="line"><span class="hljs-comment">// resultx：平移后求取的x坐标</span></span><br><span class="line"><span class="hljs-comment">// resultx：平移后求取的y坐标</span></span><br><span class="line"><span class="hljs-comment">// pointRadius 圆点半径</span></span><br><span class="line">realx = resultx + pointRadius</span><br><span class="line">realy = resulty = pointRadius</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// realx：真实的x坐标</span></span><br><span class="line"><span class="hljs-comment">// realy：真实的y坐标</span></span><br><span class="line"><span class="hljs-comment">// resultx：平移后求取的x坐标</span></span><br><span class="line"><span class="hljs-comment">// resultx：平移后求取的y坐标</span></span><br><span class="line"><span class="hljs-comment">// pointRadius 圆点半径</span></span><br><span class="line">realx = resultx + pointRadius</span><br><span class="line">realy = resulty + pointRadius</span><br></pre></td></tr></table></figure>
 
 <p>求解坐标的思路大概如下，分四个范围判断，得出求解公式，应该还可以化简，不过我数学太菜了，先这样吧。</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">getPositionsByDeg(deg) &#123;</span><br><span class="line">    <span class="hljs-keyword">let</span> x = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">let</span> y = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">if</span> (deg &gt;= <span class="hljs-number">0</span> &amp;&amp; deg &lt;= <span class="hljs-number">90</span>) &#123;</span><br><span class="line">        <span class="hljs-comment">// 0~90度</span></span><br><span class="line">        x = <span class="hljs-keyword">this</span>.circleRadius * (<span class="hljs-number">1</span> + <span class="hljs-built_in">Math</span>.cos(<span class="hljs-keyword">this</span>.deg2Arc(deg)))</span><br><span class="line">        y = <span class="hljs-keyword">this</span>.circleRadius * (<span class="hljs-number">1</span> + <span class="hljs-built_in">Math</span>.sin(<span class="hljs-keyword">this</span>.deg2Arc(deg)))</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (deg &gt; <span class="hljs-number">90</span> &amp;&amp; deg &lt;= <span class="hljs-number">180</span>) &#123;</span><br><span class="line">        <span class="hljs-comment">// 90~180度</span></span><br><span class="line">        x = <span class="hljs-keyword">this</span>.circleRadius * (<span class="hljs-number">1</span> - <span class="hljs-built_in">Math</span>.cos(<span class="hljs-keyword">this</span>.deg2Arc(<span class="hljs-number">180</span> - deg)))</span><br><span class="line">        y = <span class="hljs-keyword">this</span>.circleRadius * (<span class="hljs-number">1</span> + <span class="hljs-built_in">Math</span>.sin(<span class="hljs-keyword">this</span>.deg2Arc(<span class="hljs-number">180</span> - deg)))</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (deg &gt; <span class="hljs-number">180</span> &amp;&amp; deg &lt;= <span class="hljs-number">270</span>) &#123;</span><br><span class="line">        <span class="hljs-comment">// 180~270度</span></span><br><span class="line">        x = <span class="hljs-keyword">this</span>.circleRadius * (<span class="hljs-number">1</span> - <span class="hljs-built_in">Math</span>.sin(<span class="hljs-keyword">this</span>.deg2Arc(<span class="hljs-number">270</span> - deg)))</span><br><span class="line">        y = <span class="hljs-keyword">this</span>.circleRadius * (<span class="hljs-number">1</span> - <span class="hljs-built_in">Math</span>.cos(<span class="hljs-keyword">this</span>.deg2Arc(<span class="hljs-number">270</span> - deg)))</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">        <span class="hljs-comment">// 270~360度</span></span><br><span class="line">        x = <span class="hljs-keyword">this</span>.circleRadius * (<span class="hljs-number">1</span> + <span class="hljs-built_in">Math</span>.cos(<span class="hljs-keyword">this</span>.deg2Arc(<span class="hljs-number">360</span> - deg)))</span><br><span class="line">        y = <span class="hljs-keyword">this</span>.circleRadius * (<span class="hljs-number">1</span> - <span class="hljs-built_in">Math</span>.sin(<span class="hljs-keyword">this</span>.deg2Arc(<span class="hljs-number">360</span> - deg)))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> &#123; x, y &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -304,7 +302,8 @@ var _hmt = _hmt || [];
 <p>可以看到，当传入不同的动画周期<code>duration</code>和缓动参数<code>easing</code>时，动画效果各异，完全取决于使用者自己。</p>
 <h1 id="其他效果"><a href="#其他效果" class="headerlink" title="其他效果"></a>其他效果</h1><p>当然根据组件支持的属性，我们也可以定制出其他效果，比如不显示文字，不显示圆点，弧线线宽与圆环线宽一样，不使用渐变色，不需要动画，等等。我们后续也会考虑支持更多能力，比如控制进度，数字动态增长等！具体使用方法，请参考<a href="https://github.com/cumt-robin/vue-awesome-progress" target="_blank" rel="noopener">vue-awesome-progress</a>。</p>
 <p><img src=""data-src="https://qncdn.wbjiang.cn/%E7%8E%AF%E5%BD%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1%E5%85%B6%E4%BB%96%E6%95%88%E6%9E%9C%E6%A1%88%E4%BE%8B.gif" alt="其他效果案例"></p>
-<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>写完这个组件有让我感觉到，程序员最终不是输给了代码和技术的快速迭代，而是输给了自己的逻辑思维能力和数学功底。就<a href="https://github.com/cumt-robin/vue-awesome-progress" target="_blank" rel="noopener">vue-awesome-progress</a>这个组件而言，根据这个思路，我们也能迅速开发出适用于<code>React</code>，<code>Angular</code>以及其他框架生态下的组件。工作三年有余，接触了不少框架和技术，经历了<code>MVVM</code>，<code>Hybrid</code>，<code>小程序</code>，<code>跨平台</code>，<code>大前端</code>，<code>serverless</code>的大火，也时常感慨“学不动了”，在这个快速演进的代码世界里常常感到失落。好在自己还没有丢掉分析问题的能力，而不仅仅是调用各种<code>API</code>和插件，这可能是程序员最宝贵的财富吧。前路坎坷，我辈当不忘初心，愿你出走半生，归来仍是少年！</p>
+<h1 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h1><p><strong>2020年04月10日更新</strong></p>
+<p>支持进度控制，只需要修改组件的属性值<code>percentage</code>即可。<br><img src=""data-src="https://s1.ax1x.com/2020/04/10/GIvQCF.gif" alt="进度控制"></p>
 <hr>
 <p><strong>2019年11月10日更新</strong></p>
 <p>由于我从业务场景出发做了这个组件，没有考虑到大部分场景都是传百分比控制进度的，因此在<code>v1.4.0</code>版本做了如下修正：</p>
@@ -319,6 +318,7 @@ var _hmt = _hmt || [];
 </li>
 </ol>
 <p><img src=""data-src="https://qncdn.wbjiang.cn/v1.4.0%E6%95%88%E6%9E%9C%E5%9B%BE.gif" alt="v1.4.0版本效果"></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>写完这个组件有让我感觉到，程序员最终不是输给了代码和技术的快速迭代，而是输给了自己的逻辑思维能力和数学功底。就<a href="https://github.com/cumt-robin/vue-awesome-progress" target="_blank" rel="noopener">vue-awesome-progress</a>这个组件而言，根据这个思路，我们也能迅速开发出适用于<code>React</code>，<code>Angular</code>以及其他框架生态下的组件。工作三年有余，接触了不少框架和技术，经历了<code>MVVM</code>，<code>Hybrid</code>，<code>小程序</code>，<code>跨平台</code>，<code>大前端</code>，<code>serverless</code>的大火，也时常感慨“学不动了”，在这个快速演进的代码世界里常常感到失落。好在自己还没有丢掉分析问题的能力，而不仅仅是调用各种<code>API</code>和插件，这可能是程序员最宝贵的财富吧。前路坎坷，我辈当不忘初心，愿你出走半生，归来仍是少年！</p>
 <hr>
 <p><a href="https://juejin.im/post/5dc626125188253aec025a60" target="_blank" rel="noopener">首发链接</a></p>
 <p><img src=""data-src="http://qncdn.wbjiang.cn/%E5%89%8D%E7%AB%AF%E5%8F%B8%E5%8D%97%E5%90%8D%E7%89%87%E5%B8%A6%E5%BE%AE%E4%BF%A1.png" alt="公众号-前端司南"></p>
