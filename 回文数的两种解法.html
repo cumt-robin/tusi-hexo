@@ -19,7 +19,7 @@
 <meta property="og:description" content="我最近也开始看看leetcode了，有时间也刷个一两题，不得不说，现在这个行业对前端工程师的要求是越来越高了，除了写业务代码，还要懂框架原理，工程化，服务端，服务器部署，就连算法也逃不了。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://qncdn.wbjiang.cn/leetcode%E6%8B%8D%E4%BA%86%E6%8B%8D%E6%88%91.png">
-<meta property="og:updated_time" content="2020-07-16T05:27:36.140Z">
+<meta property="og:updated_time" content="2020-10-16T01:11:03.541Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="回文数的两种解法">
 <meta name="twitter:description" content="我最近也开始看看leetcode了，有时间也刷个一两题，不得不说，现在这个行业对前端工程师的要求是越来越高了，除了写业务代码，还要懂框架原理，工程化，服务端，服务器部署，就连算法也逃不了。">
@@ -174,7 +174,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 1009 个字)
+                    7 分钟 读完 (大约 1023 个字)
                 </span>
                 
                 
@@ -230,7 +230,7 @@ var _hmt = _hmt || [];
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * @param &#123;number&#125; x</span></span><br><span class="line"><span class="hljs-comment"> * @return &#123;boolean&#125;</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line"><span class="hljs-keyword">var</span> isPalindrome = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> reverseNumList = [];</span><br><span class="line">    <span class="hljs-keyword">var</span> tempNum = x;</span><br><span class="line">    <span class="hljs-keyword">while</span>(tempNum &gt; <span class="hljs-number">0</span>) &#123;</span><br><span class="line">        <span class="hljs-keyword">var</span> lastNum = tempNum % <span class="hljs-number">10</span>;</span><br><span class="line">        reverseNumList.push(lastNum);</span><br><span class="line">        tempNum = <span class="hljs-built_in">Math</span>.floor(tempNum / <span class="hljs-number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">var</span> reversedValue = <span class="hljs-number">0</span>;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>, len = reverseNumList.length; i &lt; len; i++) &#123;</span><br><span class="line">        reversedValue += reverseNumList[i] * <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">10</span>, len - <span class="hljs-number">1</span> - i)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> reversedValue === x;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>leetcode并没有限制你的解法，不管性能优劣如何，自己能把思路用代码写出来就是成功的。最后可以再看看一些排名靠前的解法，你也许能打开新世界的大门（当然，也许你会自暴自弃，哈哈…）。</p>
-<p><img src=""data-src="http://qncdn.wbjiang.cn/%E5%A4%A7%E5%89%8D%E7%AB%AF%E5%90%8D%E7%89%8720200622.png" alt="关注交流"></p>
+<p><img src=""data-src="http://qncdn.wbjiang.cn/%E5%89%8D%E7%AB%AF%E5%8F%B8%E5%8D%97%E5%90%8D%E7%89%87%E5%B8%A6%E5%BE%AE%E4%BF%A1.png" alt="公众号-前端司南"></p>
 
         </div>
         
